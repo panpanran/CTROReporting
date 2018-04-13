@@ -1,0 +1,36 @@
+﻿.margin-top {
+    margin-top: 75px;
+}
+
+
+
+
+.goal-status-message {
+    margin-left: 0px;
+    height: 30px;
+    padding: 0px 0px 2px 10px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.supporters-message {
+    margin-left: 0px;
+    height: 30px;
+    padding: 0px 0px 2px 10px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.alertmessage {
+    position: relative;
+    z-index: 10;
+    padding-left: 250px;
+    font-size: 14px;
+}
+
+    .alertmessage h3,
+    .alertmessage .h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 24px;
+    }

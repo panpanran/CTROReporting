@@ -1,0 +1,274 @@
+﻿@using Microsoft.AspNet.Identity
+@model Attitude_Loose.ViewModels.UserProfileFormModel
+@{
+
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        //Get the preview image and set the onload event handler
+        var preview = $('#preview').load(function () {
+            setPreview()
+        });
+
+        var setPreview = function (x, y, w, h) {
+            $('#X').val(x || 0);
+            $('#Y').val(y || 0);
+            $('#Width').val(w || preview[0].naturalWidth);
+            $('#Height').val(h || preview[0].naturalHeight);
+        };
+
+        var setBox = function (filter) {
+            $('#upload').attr('disabled', false);
+        };
+
+        //Initial state of X, Y, Width and Height is 0 0 1 1
+        setPreview(0, 0, 1, 1);
+
+        //What happens if the URL changes?
+        $('#Url').change(function () {
+            setBox('#IsUrl');
+            preview.attr('src', this.value);
+        });
+
+        //What happens if the File changes?
+        $('#File').change(function (evt) {
+            var f = evt.target.files[0];
+            var reader = new FileReader();
+
+            if (!f.type.match('image.*')) {
+                alert("The selected file does not appear to be an image.");
+                return;
+            }
+
+            setBox('#IsFile');
+            reader.onload = function (e) { preview.attr('src', e.target.result); };
+            reader.readAsDataURL(f);
+        });
+
+        $('#upload').attr('disabled', true);
+        $('form').submit(function () {
+            $('#upload').attr('disabled', true).text('Please wait ...');
+        });
+    })
+</script>
+
+<div class="col-md-12">
+    @using (Html.BeginForm("UpdateProfile", "ApplicationUser", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <fieldset>
+            <legend>BasicInfo</legend>
+        </fieldset>
+
+        <div id="upload-choices" style="float:left;" class="col-md-12">
+
+            @Html.HiddenFor(m => m.UserProfileId)
+            @Html.HiddenFor(m => m.UserId)
+            @Html.HiddenFor(model => model.X)
+            @Html.HiddenFor(model => model.Y)
+            @Html.HiddenFor(model => model.Width)
+            @Html.HiddenFor(model => model.Height)
+            @Html.ValidationSummary(true)
+            <table>
+                <tr>
+                    <td>
+                        @if (String.IsNullOrEmpty(Model.LocalPath))
+                {
+                            <img alt="Field for image cutting" id="preview" src="@Url.Content("~/Images/facebook-avatar.png")" class="img-fluid" />
+                        }
+                        else
+                        {
+                            <img alt="Field for image cutting" id="preview" src="@Url.Content(Model.LocalPath)" class="img-fluid" />
+                        }
+                    </td>
+                    <td>
+                        <div class="col-md-12">
+                            @Html.TextBoxFor(model => model.File, new { @type = "file" })
+                        </div>
+                    </td>
+                </tr>
+                <tr><td colspan="2">@Html.ValidationMessageFor(model => model.File)</td></tr>
+            </table>
+        </div>
+
+        <div id="edit" style="float:left;" class="col-md-12">
+            @*<strong>
+                Basic Info
+            </strong>*@
+
+            <table class="table">
+                <tr>
+                    <td>
+                        <label>
+                            First Name:
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.FirstName, new { @class = "col-md-12" })
+                        @Html.ValidationMessageFor(model => model.FirstName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            Last Name:
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.LastName, new { @class = "col-md-12" })
+                        @Html.ValidationMessageFor(model => model.LastName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            Email:
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "col-md-12" })
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            Date Of Birth:
+                        </label>
+                    </td>
+                    <td>
+                        @*<div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" />
+                            <col-md- class="input-group-addon">
+                                <col-md- class="glyphicon glyphicon-calendar"></col-md->
+                            </col-md->
+                        </div>*@
+                        @if (Model.DateOfBirth.HasValue)
+                        {
+                            @Html.TextBoxFor(m => m.DateOfBirth, String.Format("{0:d}", Model.DateOfBirth), new { @class = "ui-datepicker", @style = "display:block;float:left;" })
+                            @Html.ValidationMessageFor(model => model.DateOfBirth)
+                        }
+                        else
+                        {
+                            @Html.TextBoxFor(m => m.DateOfBirth, new { @value = "", @class = "ui-datepicker", @style = "display:block;float:left;", @readonly = "readonly" })
+                        }
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>Gender:</label>
+                    </td>
+                    <td>
+                        @if (Model.Gender == true)
+                        {
+                            @Html.RadioButtonFor(model => model.Gender, false) <text>Male</text>
+                            @Html.RadioButtonFor(model => model.Gender, true, new { @checked = "checked" })<text> Female</text>
+                        }
+                        else if (Model.Gender == false)
+                        {
+                            @Html.RadioButtonFor(model => model.Gender, false, new { @checked = "checked" })<text> Male</text>
+                            @Html.RadioButtonFor(model => model.Gender, true)<text> Female</text>
+                        }
+                        else
+                        {
+                            @Html.RadioButtonFor(model => model.Gender, false)<text> Male</text>
+                            @Html.RadioButtonFor(model => model.Gender, true)<text> Female</text>
+                        }
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <label>
+                            Address:
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextAreaFor(m => m.Address, new { @class = "col-md-12", cols = "10", rows = "2", wrap = "virtual", id = "Address" })
+                        @Html.ValidationMessageFor(model => model.Address)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            City:
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.City, new { @class = "col-md-12" })
+                        @Html.ValidationMessageFor(model => model.City)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            State:
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.State, new { @class = "col-md-12" })
+                        @Html.ValidationMessageFor(model => model.State)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            Country:
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Country, new { @class = "col-md-12" })
+                        @Html.ValidationMessageFor(model => model.Country)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            ZipCode:
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.ZipCode, new { @class = "col-md-12" })
+                        @Html.ValidationMessageFor(model => model.ZipCode)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            Contact No:
+                        </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.ContactNo, new { @class = "col-md-12" })
+                        @Html.ValidationMessageFor(model => model.ContactNo)
+                    </td>
+                </tr>
+            </table>
+            <button class="btn btn-primary" type="submit" value="Save">
+                Save
+            </button>
+            <button class="btn" type="reset" value="Cancel" onclick="window.location.href='@Url.Action("UserProfile", "ApplicationUser", new { id = User.Identity.GetUserId() })'">
+                Cancel
+            </button>
+        </div>
+    }
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.ui-datepicker').each(function (i, v) {
+
+            $(".ui - datepicker").val(" ");
+            //$(v).val($.datepicker.formatDate('dd-M-yy', new Date($(v).val())))
+            $(v).datepicker({
+                dateFormat: 'dd-M-yy',
+                changeYear: true,
+                yearRange: '1910:2017',
+                buttonImage: '@Url.Content("~/Images/calendar.gif")',
+                buttonImageOnly: true,
+                showOn: "button"
+            });
+        });
+    });
+
+</script>
