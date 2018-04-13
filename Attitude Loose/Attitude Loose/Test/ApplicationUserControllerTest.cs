@@ -62,52 +62,14 @@ namespace Attitude_Loose.Test
                 conn.Open();
 
                 // Retrieve all rows
-                string querytext = "SELECT distinct s.nci_id \"trialid\"," +
-  "s.category \"trialtype\"," +
-  "s.submission_number \"submission\"," +
-  "s.summary_4_funding_category \"summary4fundingcategory\"," +
-  "s.lead_org AS \"leadorganization\"," +
-  "r.date_last_updated AS \"receiveddate\"," +
-  "tsr.date_last_updated AS \"tsrdate\"," +
-  "h.on_hold_date AS \"onholddate\"," +
-  "h.off_hold_date AS \"offholddate\"," +
-  "h.reason AS \"onholdreason\"," +
-  "h.reason_description AS \"onholddescription\"," +
-  "'' \"additionalcomments\"," +
-  "s.processing_status AS \"processingstatus\"" +
-"FROM dw_study s " +
-"JOIN dw_study_milestone tsr ON tsr.nci_id = s.nci_id " +
-"JOIN dw_study_milestone r ON r.nci_id = s.nci_id " +
-"LEFT JOIN dw_study_on_hold_status h ON s.nci_id = h.nci_id " +
-"WHERE  s.processing_status != 'Rejected' " +
-"AND s.processing_status != 'Submission Terminated' " +
-"AND s.category = 'Complete' " +
-"AND tsr.submission_number > 1 " +
-"AND tsr.date_last_updated > '2018-04-01'" +
-"AND tsr.submission_number = s.submission_number " +
-"AND tsr.name = \'Ready for Trial Summary Report Date\' " +
-"AND r.name = \'Submission Received Date\' " +
-"AND r.submission_number = s.submission_number " +
-"AND tsr.submission_number = s.submission_number " +
-"ORDER BY tsr.date_last_updated; ";
+                string path = @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Code\test.txt";
+                string querytext = System.IO.File.ReadAllText(path).Replace("startDate","2018-04-01").Replace("endDate","2018-04-13");
 
                 var cmd = new NpgsqlCommand(querytext, conn);
                 NpgsqlDataReader datareader = cmd.ExecuteReader();
                 DataTable inputDT = new DataTable();
                 inputDT.Load(datareader);
-                DateTime[] Holidays = new DateTime[]{
-                    new DateTime(2018,1,1),
-                    new DateTime(2018,1,15),
-                    new DateTime(2018,2,19),
-                    new DateTime(2018,5,28),
-                    new DateTime(2018,7,4),
-                    new DateTime(2018,9,3),
-                    new DateTime(2018,9,3),
-                    new DateTime(2018,10,8),
-                    new DateTime(2018,11,12),
-                    new DateTime(2018,11,22),
-                    new DateTime(2018,12,25)
-                };
+
                 DateTime tsrdate = new DateTime();
                 DateTime receiveddate = new DateTime();
                 DateTime onholddate = new DateTime();
@@ -128,12 +90,12 @@ namespace Attitude_Loose.Test
                         onholddate = string.IsNullOrEmpty(row["onholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["onholddate"]);
                         offholddate = string.IsNullOrEmpty(row["offholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["offholddate"]);
                         if (tsrdate >= receiveddate)
-                            overalldurations = CTRPFunctions.CountBusinessDays(receiveddate, tsrdate, Holidays);
+                            overalldurations = CTRPFunctions.CountBusinessDays(receiveddate, tsrdate, CTRPFunctions.Holidays);
                         if (!string.IsNullOrEmpty(row["offholddate"].ToString()) && !string.IsNullOrEmpty(row["offholddate"].ToString()))
                         {
                             if (offholddate >= onholddate)
                             {
-                                onholdtime = CTRPFunctions.CountBusinessDays(onholddate, offholddate, Holidays);
+                                onholdtime = CTRPFunctions.CountBusinessDays(onholddate, offholddate, CTRPFunctions.Holidays);
                             }
                         }
                         else

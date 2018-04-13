@@ -10,6 +10,20 @@ namespace Attitude_Loose.Test
 {
     public static class CTRPFunctions
     {
+        public static DateTime[] Holidays = new DateTime[]{
+                    new DateTime(2018,1,1),
+                    new DateTime(2018,1,15),
+                    new DateTime(2018,2,19),
+                    new DateTime(2018,5,28),
+                    new DateTime(2018,7,4),
+                    new DateTime(2018,9,3),
+                    new DateTime(2018,9,3),
+                    new DateTime(2018,10,8),
+                    new DateTime(2018,11,12),
+                    new DateTime(2018,11,22),
+                    new DateTime(2018,12,25)
+                };
+
         public static void SendEmail(string Subject, string Body, string ToEmail)
         {
             MailMessage msg = new MailMessage();
@@ -38,28 +52,7 @@ namespace Attitude_Loose.Test
 
         public static void readTxt(string path)
         {
-            MailMessage msg = new MailMessage();
-            msg.To.Add(new MailAddress(ToEmail));
-            msg.From = new MailAddress("panpanr@gmail", "Ran Pan");
-            msg.Subject = Subject;
-            msg.Body = Body;
-            msg.IsBodyHtml = true;
-
-            SmtpClient client = new SmtpClient();
-            client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("panpanr@gmail", "Prss_1234");
-            client.Port = 587; // You can use Port 25 if 587 is blocked (mine is!)
-            client.Host = "smtp.gmail.com";
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
-            client.EnableSsl = true;
-            try
-            {
-                client.Send(msg);
-            }
-            catch (Exception ex)
-            {
-                string errormessage = ex.Message;
-            }
+            string text = System.IO.File.ReadAllText(path);
         }
 
         public static void CreateExcelByDataTable(DataTable dataTable)
