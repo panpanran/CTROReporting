@@ -304,6 +304,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="Test\ApplicationUserControllerTest.cs" />
     <Compile Include="Test\CTRPFunctions.cs" />
+    <Compile Include="Test\CTRPReports.cs" />
     <Compile Include="Test\TestUserStore.cs" />
     <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
     <Compile Include="ViewModels\TopicViewModel.cs" />
