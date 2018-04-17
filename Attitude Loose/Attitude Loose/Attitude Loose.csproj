@@ -303,6 +303,7 @@
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Test\ApplicationUserControllerTest.cs" />
+    <Compile Include="Test\CTRPConst.cs" />
     <Compile Include="Test\CTRPFunctions.cs" />
     <Compile Include="Test\CTRPReports.cs" />
     <Compile Include="Test\TestUserStore.cs" />
