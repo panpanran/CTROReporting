@@ -3,33 +3,59 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Text;
 using System.Web;
 
 namespace Attitude_Loose.Test
 {
     public class CTRPReports
     {
-        private string turnround_original_file = @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Code\amendment_sql.txt";
-
-        public DataTable Turnround(NpgsqlConnection conn, string startDate, string endDate)
+        public DataSet TurnroundBook(NpgsqlConnection conn, string startDate, string endDate, out DataSet conclusionDS)
         {
-            return Turnround_Original(conn, startDate, endDate);
+            //All
+            DataSet outputDS = new DataSet();
+            conclusionDS = new DataSet();
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+            //abbreviated
+            string abbreviatedtext = System.IO.File.ReadAllText(CTRPConst.turnround_abbreviated_file).Replace("startDate", startDate).Replace("endDate", endDate);
+            cmd = new NpgsqlCommand(abbreviatedtext, conn);
+            datareader = cmd.ExecuteReader();
+            DataTable abbreviatedDT = new DataTable();
+            DataTable abbreviatedconclusionDT = new DataTable();
+            abbreviatedDT.Load(datareader);
+            outputDS.Tables.Add(TurnroundSheet(abbreviatedDT, startDate, endDate, "Abbreviated", out abbreviatedconclusionDT));
+            conclusionDS.Tables.Add(abbreviatedconclusionDT);
+            //Amendment
+            string amendtext = System.IO.File.ReadAllText(CTRPConst.turnround_amendment_file).Replace("startDate", startDate).Replace("endDate", endDate);
+            cmd = new NpgsqlCommand(amendtext, conn);
+            datareader = cmd.ExecuteReader();
+            DataTable amendDT = new DataTable();
+            DataTable amendconclusionDT = new DataTable();
+            amendDT.Load(datareader);
+            outputDS.Tables.Add(TurnroundSheet(amendDT, startDate, endDate, "Amendment", out amendconclusionDT));
+            conclusionDS.Tables.Add(amendconclusionDT);
+            //Original
+            string originaltext = System.IO.File.ReadAllText(CTRPConst.turnround_original_file).Replace("startDate", startDate).Replace("endDate", endDate);
+            cmd = new NpgsqlCommand(originaltext, conn);
+            datareader = cmd.ExecuteReader();
+            DataTable originalDT = new DataTable();
+            DataTable originalconclusionDT = new DataTable();
+            originalDT.Load(datareader);
+            outputDS.Tables.Add(TurnroundSheet(originalDT, startDate, endDate, "Original", out originalconclusionDT));
+            conclusionDS.Tables.Add(originalconclusionDT);
+            return outputDS;
         }
 
-        private DataTable Turnround_Original(NpgsqlConnection conn, string startDate, string endDate)
+        private DataTable TurnroundSheet(DataTable inputDT, string startDate, string endDate, string tablename, out DataTable conclusionDT)
         {
-            string querytext = System.IO.File.ReadAllText(turnround_original_file).Replace("startDate", startDate).Replace("endDate", endDate);
-            var cmd = new NpgsqlCommand(querytext, conn);
-            NpgsqlDataReader datareader = cmd.ExecuteReader();
-            DataTable inputDT = new DataTable();
-            inputDT.Load(datareader);
-
             DateTime tsrdate = new DateTime();
             DateTime receiveddate = new DateTime();
             DateTime onholddate = new DateTime();
             DateTime offholddate = new DateTime();
             DataTable outputDT = inputDT.Clone();
-            //var results = inputDT.AsEnumerable().Where(p => (p.Field<DateTime>("tsrdate") - p.Field<DateTime>("receiveddate")).Days -
+            DataTable tempDT = new DataTable();
+            outputDT.TableName = tablename;
 
             outputDT.Columns.Add("overalldurations", typeof(Int32));
             outputDT.Columns.Add("onholdtime", typeof(Int32));
@@ -51,7 +77,21 @@ namespace Attitude_Loose.Test
                     {
                         if (offholddate >= onholddate)
                         {
-                            onholdtime = CTRPFunctions.CountBusinessDays(onholddate, offholddate, CTRPFunctions.Holidays);
+                            //exclude the onholddate not within processing
+                            if (onholddate <= tsrdate && onholddate >= receiveddate)
+                            {
+                                onholdtime = tsrdate > offholddate
+                                    ? CTRPFunctions.CountBusinessDays(onholddate, offholddate, CTRPFunctions.Holidays) 
+                                    : CTRPFunctions.CountBusinessDays(onholddate, tsrdate, CTRPFunctions.Holidays);
+                            }
+                            else
+                            {
+                                onholdtime = 0;
+                            }
+                        }
+                        else
+                        {
+                            onholdtime = 0;
                         }
                     }
                     else
@@ -59,8 +99,7 @@ namespace Attitude_Loose.Test
                         onholdtime = 0;
                     }
                     processingtime = overalldurations - onholdtime;
-                    //if (processingtime > 7)
-                    //{
+
                     if (!row.Table.Columns.Contains("overalldurations"))
                     {
                         row.Table.Columns.Add("overalldurations", typeof(Int32));
@@ -71,25 +110,40 @@ namespace Attitude_Loose.Test
                     row["onholdtime"] = onholdtime;
                     row["processingtime"] = processingtime;
 
-                    outputDT.ImportRow(row);
+                    var Duplicate = outputDT.AsEnumerable().Where(x => x.Field<string>("trialid") == row["trialid"].ToString() &&
+x.Field<int>("submission") == Convert.ToInt32(row["submission"]));
 
-                    int countDuplicate = outputDT.AsEnumerable().Where(x => x.Field<string>("trialid") == row["trialid"].ToString() &&
-                    x.Field<int>("submission") == Convert.ToInt32(row["trialid"])).Count();
+                    if (Duplicate.Count() == 1)
+                    {
+                        int index = outputDT.Rows.IndexOf(Duplicate.First());
+                        outputDT.Rows[index]["additionalcomments"] += "Additional On-Hold " + row["receiveddate"].ToString() + " - " + row["tsrdate"].ToString() + ": " + row["onholddescription"];
+                    }
+                    else
+                    {
+                        outputDT.ImportRow(row);
+                    }
+
 
                     //}
                     //CTRPFunctions.SendEmail("dd", "dd", "ran.pan@nih.gov");
                 }
-
-                var results = inputDT.AsEnumerable().GroupBy(x => new { ID = x.Field<string>("trialid"), Submission = x.Field<int>("submission") }).Select(y => y.First());
-                return results.CopyToDataTable();
-                //var results = inputDT.AsEnumerable().Where(p => (p.Field<DateTime>("tsrdate") - p.Field<DateTime>("receiveddate")).Days -
-
+                tempDT = outputDT.AsEnumerable()
+                    .Where(x => x.Field<string>("additionalcomments") == "")
+                    .GroupBy(x => x.Field<DateTime>("tsrdate").Date)
+                    .Select(x => new { TSRDate = String.Format("{0:MM/dd/yyyy}", x.Key.Date), TSRNumber = x.Count(), AvgProcessingTime = String.Format("{0:.##}", x.Select(y => y.Field<int>("processingtime")).Average()) }).ToDataTable();
+                tempDT.Rows.Add("Grand Total"
+                    , outputDT.Rows.Count
+                    , String.Format("{0:.##}", outputDT.AsEnumerable().Where(x => x.Field<string>("additionalcomments") == "").Select(x => x.Field<int>("processingtime")).Average()));
+                conclusionDT = tempDT;
+                conclusionDT.TableName = tablename;
+                return outputDT;
             }
             catch (Exception ex)
             {
                 throw;
             }
         }
+
         public void Turnround_Amendment(string path, NpgsqlConnection conn, string startDate, string endDate)
         {
             string querytext = System.IO.File.ReadAllText(path).Replace("startDate", "2018-04-01").Replace("endDate", "2018-04-13");

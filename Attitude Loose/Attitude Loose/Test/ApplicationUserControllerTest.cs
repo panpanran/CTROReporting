@@ -56,17 +56,24 @@ namespace Attitude_Loose.Test
         public void CreateTurnroundReport()
         {
             CTRPReports reports = new CTRPReports();
-            var connString = "Server=localhost;Port=5434;User Id=dwprod;Password=dwprod_at_ctrp17;Database=dw_ctrpn";
 
-            using (var conn = new NpgsqlConnection(connString))
+            using (var conn = new NpgsqlConnection(CTRPConst.connString))
             {
                 conn.Open();
 
                 try
                 {
-                    DataTable outputDT = reports.Turnround(conn, "2017-09-01", "2017-10-01");
-                    CTRPFunctions.CreateExcelByDataTable(outputDT);
+                    string startDate = "2018-03-01";
+                    string endDate = "2018-04-01";
+                    string savepath = CTRPConst.turnround_savepath + "_" + startDate.Replace("-", "") + "-" + endDate.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
+                    string templatepath = CTRPConst.turnround_template_file;
+                    DataSet conclusionturnroundDS = new DataSet();
+                    DataSet turnroundDS = reports.TurnroundBook(conn, startDate, endDate, out conclusionturnroundDS);
 
+                    CTRPFunctions.WriteExcelByDataSet(turnroundDS, savepath, templatepath, 2, 1);
+                    CTRPFunctions.WriteExcelByDataSet(conclusionturnroundDS, savepath, savepath, 2, 18);
+
+                    //CTRPFunctions.SendEmail("Turnround Report", "This is a test email. ", "panpanr@gmail", filename);
                 }
                 catch (Exception ex)
                 {

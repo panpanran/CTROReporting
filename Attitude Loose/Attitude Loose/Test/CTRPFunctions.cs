@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
+using System.Net.Mime;
+using System.Reflection;
 using System.Web;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -24,7 +27,7 @@ namespace Attitude_Loose.Test
                     new DateTime(2018,12,25)
                 };
 
-        public static void SendEmail(string Subject, string Body, string ToEmail)
+        public static void SendEmail(string Subject, string Body, string ToEmail, string AttachmentFileName)
         {
             MailMessage msg = new MailMessage();
             msg.To.Add(new MailAddress(ToEmail));
@@ -40,6 +43,19 @@ namespace Attitude_Loose.Test
             client.Host = "smtp.gmail.com";
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.EnableSsl = true;
+
+            //if (AttachmentFileName != null)
+            //{
+            //    Attachment attachment = new Attachment(AttachmentFileName, MediaTypeNames.Application.Octet);
+            //    ContentDisposition disposition = attachment.ContentDisposition;
+            //    disposition.CreationDate = File.GetCreationTime(AttachmentFileName);
+            //    disposition.ModificationDate = File.GetLastWriteTime(AttachmentFileName);
+            //    disposition.ReadDate = File.GetLastAccessTime(AttachmentFileName);
+            //    disposition.FileName = Path.GetFileName(AttachmentFileName);
+            //    disposition.Size = new FileInfo(AttachmentFileName).Length;
+            //    disposition.DispositionType = DispositionTypeNames.Attachment;
+            //    msg.Attachments.Add(attachment);
+            //}
             try
             {
                 client.Send(msg);
@@ -50,12 +66,31 @@ namespace Attitude_Loose.Test
             }
         }
 
-        public static void readTxt(string path)
+        public static DataTable ToDataTable<T>(this IEnumerable<T> source)
         {
-            string text = System.IO.File.ReadAllText(path);
+            var table = new DataTable();
+
+            int i = 0;
+            var props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            foreach (var prop in props)
+            {
+                table.Columns.Add(new DataColumn(prop.Name, prop.PropertyType));
+                ++i;
+            }
+
+            foreach (var item in source)
+            {
+                var values = new object[i];
+                i = 0;
+                foreach (var prop in props)
+                    values[i++] = prop.GetValue(item);
+                table.Rows.Add(values);
+            }
+
+            return table;
         }
 
-        public static void CreateExcelByDataTable(DataTable dataTable)
+        public static void WriteExcelByDataSet(DataSet dataset, string savepath, string templatepath, int startrow, int startcolumn)
         {
             string data = null;
             Excel.Application xlApp;
@@ -64,29 +99,50 @@ namespace Attitude_Loose.Test
             object misValue = System.Reflection.Missing.Value;
 
             xlApp = new Excel.Application();
-            xlWorkBook = xlApp.Workbooks.Add(misValue);
-            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
-            // column headings
-            for (var i = 0; i < dataTable.Columns.Count; i++)
+            xlWorkBook = xlApp.Workbooks.Open(templatepath, misValue);
+            for (int n = 0; n < dataset.Tables.Count; n++)
             {
-                xlWorkSheet.Cells[1, i + 1] = dataTable.Columns[i].ColumnName;
-            }
-
-            for (int i = 0; i <= dataTable.Rows.Count - 1; i++)
-            {
-                for (int j = 0; j <= dataTable.Columns.Count - 1; j++)
+                xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets[dataset.Tables[n].TableName];
+                xlWorkSheet.Rows.WrapText = true;
+                Excel.Range EntireRow = xlWorkSheet.Cells.EntireRow;
+                EntireRow.RowHeight = 15;
+                EntireRow.ColumnWidth = 20;
+                try
                 {
-                    data = dataTable.Rows[i].ItemArray[j].ToString();
-                    xlWorkSheet.Cells[i + 2, j + 1] = data;
+                    // column headings
+                    //for (var i = 0; i < dataset.Tables[n].Columns.Count; i++)
+                    //{
+                    //    xlWorkSheet.Cells[1, i + 1] = dataset.Tables[n].Columns[i].ColumnName;
+                    //}
+
+                    for (int i = 0; i <= dataset.Tables[n].Rows.Count - 1; i++)
+                    {
+                        for (int j = 0; j <= dataset.Tables[n].Columns.Count - 1; j++)
+                        {
+                            data = dataset.Tables[n].Rows[i].ItemArray[j].ToString();
+                            xlWorkSheet.Cells[i + startrow, j + startcolumn] = data;
+                        }
+                    }
                 }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+                ReleaseObject(xlWorkSheet);
+            }
+            xlWorkBook.Sheets["Sheet1"].Delete();
+            if (!System.IO.File.Exists(savepath))
+            {
+                xlWorkBook.SaveAs(savepath, misValue, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            }
+            else
+            {
+                xlWorkBook.Save();
             }
 
-
-            xlWorkBook.SaveAs(@"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Turnround Reports.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             xlWorkBook.Close(true, misValue, misValue);
             xlApp.Quit();
 
-            ReleaseObject(xlWorkSheet);
             ReleaseObject(xlWorkBook);
             ReleaseObject(xlApp);
         }
