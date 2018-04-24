@@ -52,28 +52,32 @@ namespace Attitude_Loose.Test
 
         }
 
+        //public Task CreateTurnroundReportAsync(string startDate, string endDate)
+        //{
+        //    return Task.Run(() => CreateTurnroundReport(startDate, endDate));
+        //}
+
         [Test()]
-        public void CreateTurnroundReport()
+        public void CreateTurnroundReportTest()
         {
             CTRPReports reports = new CTRPReports();
-
+            string s1 = "2018-04-01";
+            string s2 = "2018-05-01";
             using (var conn = new NpgsqlConnection(CTRPConst.connString))
             {
                 conn.Open();
 
                 try
                 {
-                    string startDate = "2018-03-01";
-                    string endDate = "2018-04-01";
-                    string savepath = CTRPConst.turnround_savepath + "_" + startDate.Replace("-", "") + "-" + endDate.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
+                    string savepath = CTRPConst.turnround_savepath + "_" + s1.Replace("-", "") + "-" + s2.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
                     string templatepath = CTRPConst.turnround_template_file;
                     DataSet conclusionturnroundDS = new DataSet();
-                    DataSet turnroundDS = reports.TurnroundBook(conn, startDate, endDate, out conclusionturnroundDS);
+                    DataSet turnroundDS = reports.TurnroundBook(conn, s1, s2, out conclusionturnroundDS);
 
                     CTRPFunctions.WriteExcelByDataSet(turnroundDS, savepath, templatepath, 2, 1);
                     CTRPFunctions.WriteExcelByDataSet(conclusionturnroundDS, savepath, savepath, 2, 18);
 
-                    //CTRPFunctions.SendEmail("Turnround Report", "This is a test email. ", "panpanr@gmail", filename);
+                    //CTRPFunctions.SendEmail("Turnround Report", "This is a test email. ", "ran.pan@nih.gov", @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Submission Status.xlsx");
                 }
                 catch (Exception ex)
                 {

@@ -259,6 +259,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TopicController.cs" />
+    <Compile Include="CTRO\CTROHome.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -277,7 +278,6 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\Batch.cs" />
     <Compile Include="Models\Configuration\TopicConfiguration.cs" />
     <Compile Include="Models\Configuration\UserProfileConfiguration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -285,6 +285,7 @@
     <Compile Include="Models\MBatch.cs" />
     <Compile Include="Models\Metric.cs" />
     <Compile Include="Models\MFile.cs" />
+    <Compile Include="Models\MReport.cs" />
     <Compile Include="Models\Topic.cs" />
     <Compile Include="Models\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -308,6 +309,7 @@
     <Compile Include="Test\CTRPReports.cs" />
     <Compile Include="Test\TestUserStore.cs" />
     <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
+    <Compile Include="ViewModels\ReportViewModel.cs" />
     <Compile Include="ViewModels\TopicViewModel.cs" />
     <Compile Include="ViewModels\UserProfileViewModel.cs" />
   </ItemGroup>

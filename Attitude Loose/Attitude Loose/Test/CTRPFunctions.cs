@@ -13,49 +13,35 @@ namespace Attitude_Loose.Test
 {
     public static class CTRPFunctions
     {
-        public static DateTime[] Holidays = new DateTime[]{
-                    new DateTime(2018,1,1),
-                    new DateTime(2018,1,15),
-                    new DateTime(2018,2,19),
-                    new DateTime(2018,5,28),
-                    new DateTime(2018,7,4),
-                    new DateTime(2018,9,3),
-                    new DateTime(2018,9,3),
-                    new DateTime(2018,10,8),
-                    new DateTime(2018,11,12),
-                    new DateTime(2018,11,22),
-                    new DateTime(2018,12,25)
-                };
-
         public static void SendEmail(string Subject, string Body, string ToEmail, string AttachmentFileName)
         {
             MailMessage msg = new MailMessage();
             msg.To.Add(new MailAddress(ToEmail));
-            msg.From = new MailAddress("panpanr@gmail", "Ran Pan");
+            msg.From = new MailAddress("panpanr@gmail.com", "Ran Pan");
             msg.Subject = Subject;
             msg.Body = Body;
             msg.IsBodyHtml = true;
 
             SmtpClient client = new SmtpClient();
             client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("panpanr@gmail", "Prss_1234");
+            client.Credentials = new System.Net.NetworkCredential("panpanr@gmail.com", "Prss_1234");
             client.Port = 587; // You can use Port 25 if 587 is blocked (mine is!)
             client.Host = "smtp.gmail.com";
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.EnableSsl = true;
 
-            //if (AttachmentFileName != null)
-            //{
-            //    Attachment attachment = new Attachment(AttachmentFileName, MediaTypeNames.Application.Octet);
-            //    ContentDisposition disposition = attachment.ContentDisposition;
-            //    disposition.CreationDate = File.GetCreationTime(AttachmentFileName);
-            //    disposition.ModificationDate = File.GetLastWriteTime(AttachmentFileName);
-            //    disposition.ReadDate = File.GetLastAccessTime(AttachmentFileName);
-            //    disposition.FileName = Path.GetFileName(AttachmentFileName);
-            //    disposition.Size = new FileInfo(AttachmentFileName).Length;
-            //    disposition.DispositionType = DispositionTypeNames.Attachment;
-            //    msg.Attachments.Add(attachment);
-            //}
+            if (AttachmentFileName != null)
+            {
+                Attachment attachment = new Attachment(AttachmentFileName, MediaTypeNames.Application.Octet);
+                ContentDisposition disposition = attachment.ContentDisposition;
+                disposition.CreationDate = File.GetCreationTime(AttachmentFileName);
+                disposition.ModificationDate = File.GetLastWriteTime(AttachmentFileName);
+                disposition.ReadDate = File.GetLastAccessTime(AttachmentFileName);
+                disposition.FileName = Path.GetFileName(AttachmentFileName);
+                disposition.Size = new FileInfo(AttachmentFileName).Length;
+                disposition.DispositionType = DispositionTypeNames.Attachment;
+                msg.Attachments.Add(attachment);
+            }
             try
             {
                 client.Send(msg);

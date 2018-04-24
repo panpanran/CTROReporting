@@ -1,6 +1,10 @@
-﻿using System;
+﻿using Attitude_Loose.CTRO;
+using Attitude_Loose.Test;
+using Attitude_Loose.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -16,6 +20,26 @@ namespace Attitude_Loose.Controllers
             {
                 TempData["AlertMessage"] = "";
             }
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Index(TurnroundViewModel model)
+        {
+            if (TempData["AlertMessage"] == null)
+            {
+                TempData["AlertMessage"] = "";
+            }
+            if (ModelState.IsValid)
+            {
+                CTROHome home = new CTROHome();
+                int turnroundreport = await home.CreateTurnroundReportAsync(model.StartDate, model.EndDate);
+                if (turnroundreport == 1)
+                {
+                    TempData["AlertMessage"] = "Success";
+                }
+            }
+
             return View();
         }
 

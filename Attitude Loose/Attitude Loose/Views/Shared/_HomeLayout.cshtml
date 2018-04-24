@@ -13,6 +13,7 @@
     <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
         @Html.Partial("_Header")
     </nav>
+
     @if (TempData["AlertMessage"].ToString() == "Success")
     {
         <div class="alertmessage-success"></div>
