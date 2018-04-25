@@ -75,7 +75,7 @@ namespace Attitude_Loose.Test
                     DataSet turnroundDS = reports.TurnroundBook(conn, s1, s2, out conclusionturnroundDS);
 
                     CTRPFunctions.WriteExcelByDataSet(turnroundDS, savepath, templatepath, 2, 1);
-                    CTRPFunctions.WriteExcelByDataSet(conclusionturnroundDS, savepath, savepath, 2, 18);
+                    CTRPFunctions.WriteExcelByDataSet(conclusionturnroundDS, savepath, null, 2, 18);
 
                     //CTRPFunctions.SendEmail("Turnround Report", "This is a test email. ", "ran.pan@nih.gov", @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Submission Status.xlsx");
                 }

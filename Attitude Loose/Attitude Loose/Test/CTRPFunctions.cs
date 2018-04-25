@@ -85,7 +85,13 @@ namespace Attitude_Loose.Test
             object misValue = System.Reflection.Missing.Value;
 
             xlApp = new Excel.Application();
-            xlWorkBook = xlApp.Workbooks.Open(templatepath, misValue);
+            if (templatepath != null)
+            {
+                System.IO.File.Copy(templatepath, savepath, true);
+            }
+
+            xlWorkBook = xlApp.Workbooks.Open(savepath, misValue);
+
             for (int n = 0; n < dataset.Tables.Count; n++)
             {
                 xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets[dataset.Tables[n].TableName];
@@ -117,15 +123,7 @@ namespace Attitude_Loose.Test
                 ReleaseObject(xlWorkSheet);
             }
             xlWorkBook.Sheets["Sheet1"].Delete();
-            if (!System.IO.File.Exists(savepath))
-            {
-                xlWorkBook.SaveAs(savepath, misValue, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
-            }
-            else
-            {
-                xlWorkBook.Save();
-            }
-
+            xlWorkBook.Save();
             xlWorkBook.Close(true, misValue, misValue);
             xlApp.Quit();
 

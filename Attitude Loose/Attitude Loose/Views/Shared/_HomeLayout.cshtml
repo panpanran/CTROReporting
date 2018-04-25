@@ -10,22 +10,24 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-inverse navbar navbar-inverse border-bottom box-shadow">
         @Html.Partial("_Header")
-    </nav>
-
-    @if (TempData["AlertMessage"].ToString() == "Success")
-    {
-        <div class="alertmessage-success"></div>
-    }
-    @if (TempData["AlertMessage"].ToString() == "Fail")
-    {
-        <div class="alertmessage-fail"></div>
-    }
-    @if (TempData["AlertMessage"].ToString() == "Cancel")
-    {
-        <div class="alertmessage-cancel"></div>
-    }
+    </div>
+    @*<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+            @Html.Partial("_Header")
+        </nav>*@
+    @*@if (TempData["AlertMessage"].ToString() == "Success")
+        {
+            <div class="alertmessage-success"></div>
+        }
+        @if (TempData["AlertMessage"].ToString() == "Fail")
+        {
+            <div class="alertmessage-fail"></div>
+        }
+        @if (TempData["AlertMessage"].ToString() == "Cancel")
+        {
+            <div class="alertmessage-cancel"></div>
+        }*@
 
     <div class="container-fluid margin-top">
         <div class="row-fluid" style="margin-top: 10px;">

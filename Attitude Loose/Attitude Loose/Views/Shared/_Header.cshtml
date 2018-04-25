@@ -2,39 +2,34 @@
 @using Microsoft.AspNet.Identity
 @if (Request.IsAuthenticated)
 {
-    <ul class="nav navbar-nav">
-        <li><a class="navbar-brand" href='@Url.Action("Index", "Home")'>Home</a>
+    <a class="my-0 mr-md-auto font-weight-normal" href='@Url.Action("Index", "Home")'>
+        Home
+    </a>
+    @*@Html.Partial("_Header")*@
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="nav-link" href="/Topic/TopicList">Topic</a>
+        <a class="nav-link" href="#topicModal" onclick="CreateTopic();">Create</a>
+        @*<a class="p-2 text-dark" href="#">Support</a>
+        <a class="p-2 text-dark" href="#">Pricing</a>*@
+    </nav>
+    <a class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown" href="#">
+        @*<span class="glyphicon glyphicon-user"></span>*@
+        @{
+            var name = User.Identity.Name;
+            <text> @name </text>
+        }
+    </a>
+    <ul class="dropdown-menu">
         <li>
-            <a class="nav-link" href="/Topic/TopicList">Topic</a>
-        </li>
-        <li>
-            <a class="nav-link" data-toggle="modal" href="#topicModal" onclick="CreateTopic();">Create</a>
-        </li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-            @*<span class="glyphicon glyphicon-user"></span>*@
-            <a class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown" href="#">
-                @*<span class="glyphicon glyphicon-user"></span>*@
-                @{
-                    var name = User.Identity.Name;
-                    <text> @name </text>
-                }
+            <a class="dropdown-item" href='@Url.Action("UserProfile", "ApplicationUser", new { id = User.Identity.GetUserId()})'>
+                Profile
             </a>
-            <ul class="dropdown-menu">
-                <li>
-                    <a class="dropdown-item" href='@Url.Action("UserProfile", "ApplicationUser", new { id = User.Identity.GetUserId()})'>
-                        Profile
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item" href='@Url.Action("LogOff", "ApplicationUser")'>Sign Out</a>
-                </li>
-            </ul>
-
+        </li>
+        <li>
+            <a class="dropdown-item" href='@Url.Action("LogOff", "ApplicationUser")'>Sign Out</a>
         </li>
     </ul>
-                    }
+}
 <link href="/Content/CustomStyles.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
     $(document).ready(function () {

@@ -16,25 +16,25 @@ namespace Attitude_Loose.Controllers
         [OutputCache(Duration = 10, VaryByParam = "none")]
         public ActionResult Index()
         {
-            if (TempData["AlertMessage"] == null)
-            {
-                TempData["AlertMessage"] = "";
-            }
+            //if (TempData["AlertMessage"] == null)
+            //{
+            //    TempData["AlertMessage"] = "";
+            //}
             return View();
         }
 
         [HttpPost]
         public async Task<ActionResult> Index(TurnroundViewModel model)
         {
-            if (TempData["AlertMessage"] == null)
-            {
-                TempData["AlertMessage"] = "";
-            }
+            //if (TempData["AlertMessage"] == null)
+            //{
+            //    TempData["AlertMessage"] = "";
+            //}
             if (ModelState.IsValid)
             {
                 CTROHome home = new CTROHome();
-                int turnroundreport = await home.CreateTurnroundReportAsync(model.StartDate, model.EndDate);
-                if (turnroundreport == 1)
+                int turnround = await home.CreateTurnroundReportAsync(model.StartDate, model.EndDate);
+                if (turnround == 1)
                 {
                     TempData["AlertMessage"] = "Success";
                 }

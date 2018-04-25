@@ -11,37 +11,35 @@ namespace Attitude_Loose.CTRO
 {
     public class CTROHome
     {
-        public Task<int> CreateTurnroundReportAsync(string startDate, string endDate)
+        public async Task<int> CreateTurnroundReportAsync(string startDate, string endDate)
         {
-            return Task.Run(() => CreateTurnroundReport(startDate, endDate));
-        }
-
-        public int CreateTurnroundReport(string startDate, string endDate)
-        {
-            CTRPReports reports = new CTRPReports();
-            using (var conn = new NpgsqlConnection(CTRPConst.connString))
+            Task<int> t = Task.Run(() =>
             {
-                conn.Open();
-
-                try
+                CTRPReports reports = new CTRPReports();
+                using (var conn = new NpgsqlConnection(CTRPConst.connString))
                 {
-                    string savepath = CTRPConst.turnround_savepath + "_" + startDate.Replace("-", "") + "-" + endDate.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
-                    string templatepath = CTRPConst.turnround_template_file;
-                    DataSet conclusionturnroundDS = new DataSet();
-                    DataSet turnroundDS = reports.TurnroundBook(conn, startDate, endDate, out conclusionturnroundDS);
+                    conn.Open();
+                    try
+                    {
+                        string savepath = CTRPConst.turnround_savepath + "_" + startDate.Replace("-", "") + "-" + endDate.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
+                        string templatepath = CTRPConst.turnround_template_file;
+                        DataSet conclusionturnroundDS = new DataSet();
+                        DataSet turnroundDS = reports.TurnroundBook(conn, startDate, endDate, out conclusionturnroundDS);
 
-                    CTRPFunctions.WriteExcelByDataSet(turnroundDS, savepath, templatepath, 2, 1);
-                    CTRPFunctions.WriteExcelByDataSet(conclusionturnroundDS, savepath, savepath, 2, 18);
-                    return 1;
-                    //CTRPFunctions.SendEmail("Turnround Report", "This is a test email. ", "ran.pan@nih.gov", @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Submission Status.xlsx");
+                        CTRPFunctions.WriteExcelByDataSet(turnroundDS, savepath, templatepath, 2, 1);
+                        CTRPFunctions.WriteExcelByDataSet(conclusionturnroundDS, savepath, null, 2, 18);
+                        //CTRPFunctions.SendEmail("Turnround Report", "This is a test email. ", "ran.pan@nih.gov", @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Submission Status.xlsx");
+                        return 1;
+                    }
+                    catch (Exception ex)
+                    {
+                        return 0;
+                        throw;
+                    }
                 }
-                catch (Exception ex)
-                {
-                    return 0;
-                    throw;
-                }
-            }
+            });
+            await t;
+            return t.Result;
         }
-
     }
 }
