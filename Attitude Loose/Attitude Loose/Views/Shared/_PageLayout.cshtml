@@ -17,15 +17,16 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+    <nav class="navbar navbar-dark bg-dark sticky-top navbar-expand-lg p-0">
         @Html.Partial("_Header")
     </nav>
 
-    <div class="container-fluid margin-top">
-        <div class="row-fluid">
-            <div class="span9">
+    <div class="container-fluid">
+        <div class="row">
+            @Html.Partial("_NavigationBar")
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                 @RenderBody()
-            </div>
+            </main>
         </div>
     </div>
 
@@ -41,9 +42,9 @@
                 <div class="modal-body" id="createModal">
                 </div>
                 @*<div class="modal-footer">
-                    <button type="button" class="btn btn-primary" aria-hidden="true">Add</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                </div>*@
+                        <button type="button" class="btn btn-primary" aria-hidden="true">Add</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>*@
             </div>
         </div>
     </div>

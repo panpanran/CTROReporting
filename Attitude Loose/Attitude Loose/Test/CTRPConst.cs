@@ -25,7 +25,7 @@ namespace Attitude_Loose.Test
         //database connection
         public const string connString = "Server=localhost;Port=5434;User Id=copparead;Password=copparead_at_ctrp1;Database=pa_ctrpn";
         //turnround
-        public const string turnround_template_file = @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Template\Monthly Turnaround Template.xlsx";
+        public const string turnround_template_file = @"C:\Users\panr2\Downloads\DataWarehouse\Template Report\Monthly Turnaround Template.xlsx";
         public const string turnround_original_file = @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Code\Version 2\original_sql.txt";
         public const string turnround_amendment_file = @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Code\Version 2\amendment_sql.txt";
         public const string turnround_abbreviated_file = @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Code\Version 2\abbreviated_sql.txt";

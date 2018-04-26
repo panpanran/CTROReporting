@@ -97,7 +97,7 @@ namespace Attitude_Loose.Test
                 xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets[dataset.Tables[n].TableName];
                 xlWorkSheet.Rows.WrapText = true;
                 Excel.Range EntireRow = xlWorkSheet.Cells.EntireRow;
-                EntireRow.RowHeight = 15;
+                //EntireRow.RowHeight = 15;
                 EntireRow.ColumnWidth = 20;
                 try
                 {
@@ -112,6 +112,11 @@ namespace Attitude_Loose.Test
                         for (int j = 0; j <= dataset.Tables[n].Columns.Count - 1; j++)
                         {
                             data = dataset.Tables[n].Rows[i].ItemArray[j].ToString();
+                            if (dataset.Tables[n].Columns[j].ColumnName == "additionalcomments" && !string.IsNullOrEmpty(data))
+                            {
+                                xlWorkSheet.Cells[i + startrow, j + startcolumn].RowHeight = 45;
+                            }
+
                             xlWorkSheet.Cells[i + startrow, j + startcolumn] = data;
                         }
                     }
