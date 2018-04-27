@@ -6,13 +6,14 @@
 
 <link href="/Content/CustomStyles.css" rel="stylesheet" type="text/css" />
 
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-    <a class="navbar-brand" href='@Url.Action("Index", "Home")'>Attitude Loose</a>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href='@Url.Action("Index", "Home")'>CTRP Reporting</a>
 </nav>
+
 <div class="container-fluid margin-top">
     <div class="row">
         <div class="col-md-8">
-            <img src="/Images/Background.jpg" class="img-fluid" />
+            @*<img src="/Images/Background.jpg" class="img-fluid" />*@
         </div>
 
         <div class="col-md-4">
@@ -43,19 +44,19 @@
                             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                         </div>
                     </div>
-                        <br />
-                        <div class="form-group">
-                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label", style = "text-align: left;width:80px;" })
-                            <div class="col-md-10">
-                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-                            </div>
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label", style = "text-align: left;width:80px;" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
                         </div>
-                            <br />
-                            <div class="form-group">
-                                <div class="col-md-offset-2 col-md-10">
-                                    <input type="submit" class="btn btn-primary" value="Register" />
-                                </div>
-                            </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="btn btn-primary" value="Register" />
+                        </div>
+                    </div>
                 }
             </section>
         </div>

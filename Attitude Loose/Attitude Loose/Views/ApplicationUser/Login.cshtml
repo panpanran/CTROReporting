@@ -4,15 +4,14 @@
     Layout = "../Shared/_Layout.cshtml";
 }
 
-<link href="/Content/CustomStyles.css" rel="stylesheet" type="text/css" />
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href='@Url.Action("Index", "Home")'>Attitude Loose</a>
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href='@Url.Action("Index", "Home")'>CTRP Reporting</a>
 </nav>
+
 <div class="container-fluid" style="margin-top:5px;">
     <div class="row">
         <div class="col-md-8">
-            <img src="/Images/Background.jpg" class="img-fluid" />
+            @*<img src="~/Images/ClinicalBackground.jpg" style="background-size: cover" />*@
         </div>
         <div class="col-md-3">
             <section id="loginForm">
@@ -49,7 +48,6 @@
         </div>
     </div>
 </div>
-
 @*@section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
     }*@

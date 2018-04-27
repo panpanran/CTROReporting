@@ -536,6 +536,8 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Properties\PublishProfiles\AttitudeLoose - Web Deploy.pubxml" />
+    <Content Include="Images\ClinicalBackground.jpg" />
+    <Content Include="Images\CTRPBrand.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />

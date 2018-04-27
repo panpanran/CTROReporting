@@ -1,4 +1,5 @@
 ﻿using Attitude_Loose.CTRO;
+using Attitude_Loose.Service;
 using Attitude_Loose.Test;
 using Attitude_Loose.ViewModels;
 using System;
@@ -13,6 +14,22 @@ namespace Attitude_Loose.Controllers
     [Authorize]
     public class HomeController : Controller
     {
+        private readonly IMetricService metricService;
+        public HomeController(IMetricService metricService)
+        {
+            this.metricService = metricService;
+        }
+        [HttpGet]
+        public ActionResult Create()
+        {
+            var model = new TopicFormModel();
+            var metrics = metricService.GetMetrics();
+            //var goalstatus = goalStatusService.GetGoalStatus();
+            model.Metrics = metricService.ToSelectListItems(metrics, -1);
+
+            return PartialView(model);
+        }
+
         [OutputCache(Duration = 10, VaryByParam = "none")]
         public ActionResult Index()
         {
