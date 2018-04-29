@@ -9,38 +9,65 @@
     <button id="alert1" class="btn btn-alert btn-success" type="button">Success</button>*@
 <div> The current time is: @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</div>
 <br>
-@using (Html.BeginForm("Index", "Home", FormMethod.Post))
-{
-    @Html.ValidationSummary()
-    <div style="float:left;" class="col-md-12">
-        <table class="table">
-            <tr>
-                <td>
-                    @Html.LabelFor(x => x.StartDate, new { @class = "col-md-4 form-control-label" })
-                </td>
-                <td>
-                    @Html.TextBoxFor(x => x.StartDate, new { @class = "ui-datepicker", @style = "display:block;float:left;" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.LabelFor(x => x.EndDate, new { @class = "col-md-4 form-control-label" })
-                </td>
-                <td>
-                    @Html.TextBoxFor(x => x.EndDate, new { @class = "ui-datepicker", @style = "display:block;float:left;" })
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" value="Submit" />
-                </td>
-            </tr>
+@*@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        @Html.ValidationSummary()
+        <div style="float:left;" class="col-md-12">
+            <table class="table">
+                <tr>
+                    <td>
+                        @Html.LabelFor(x => x.StartDate, new { @class = "col-md-4 form-control-label" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(x => x.StartDate, new { @class = "ui-datepicker", @style = "display:block;float:left;" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(x => x.EndDate, new { @class = "col-md-4 form-control-label" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(x => x.EndDate, new { @class = "ui-datepicker", @style = "display:block;float:left;" })
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Submit" data-toggle="modal" href="#progressModal" onclick="CreateProgressBar();" />
+                    </td>
+                </tr>
 
-        </table>
+            </table>
+        </div>
+    }*@
+<a class="nav-link" data-toggle="modal" href="#progressModal" onclick="CreateProgressBar();">integrations</a>
+
+<div class="modal fade" id="progressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Loading</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="createprogressbar">
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-primary" aria-hidden="true">Add</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>*@
+        </div>
     </div>
-}
+</div>
 
 <script type="text/javascript">
+
+    function CreateProgressBar() {
+        var url = "/Report/ProgressBar";
+        $.get(url, function (result) {
+            $("#createprogressbar").html(result);
+        });
+    }
 
     $(document).ready(function () {
         $('.ui-datepicker').each(function (i, v) {

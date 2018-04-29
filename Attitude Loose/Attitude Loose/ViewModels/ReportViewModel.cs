@@ -20,4 +20,9 @@ namespace Attitude_Loose.ViewModels
         [Display(Name = "End Date")]
         public string EndDate { get; set; }
     }
+
+    public class ReportProgressViewModel
+    {
+        public string ProgressPercentage { get; set; }
+    }
 }

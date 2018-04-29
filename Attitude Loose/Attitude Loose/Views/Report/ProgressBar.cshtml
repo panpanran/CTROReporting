@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNet.Identity
+@model Attitude_Loose.ViewModels.ReportProgressViewModel
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attitude Loose</title>
+
+    @Styles.Render("~/Content/CSS")
+    @Scripts.Render("~/Scripts/HomeLayout")
+
+</head>
+<div>
+    @*<div>
+            @Html.TextBoxFor(model => model.ProgressPercentage, new { @class = "col-md-12", style = "display:block;float:left"})
+        </div>*@
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: @Model.ProgressPercentage;" aria-valuenow="@Model.ProgressPercentage" aria-valuemin="0" aria-valuemax="100">
+            @Model.ProgressPercentage
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+</script>
