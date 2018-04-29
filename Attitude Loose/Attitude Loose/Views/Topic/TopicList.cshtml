@@ -1,0 +1,129 @@
+﻿@model Attitude_Loose.ViewModels.TopicsPageViewModel
+@{
+    ViewBag.Title = "TopicList";
+    Layout = "../Shared/_HomeLayout.cshtml";
+}
+
+<div class="card col-md-12">
+    @*<div class="col-md-4" style="padding-left:30px;"><h4>Topics</h4></div>*@
+    <div class="col-md-8">
+        <strong>Sort By</strong>
+        @Html.DropDownList("sortby", Model.SortBy, new { @onchange = "ListOfTopics();" })
+        <strong>Filter By</strong>
+        @Html.DropDownList("filterby", Model.FilterBy, new { @onchange = "ListOfTopics();" })
+    </div>
+    <div id="listoftopics" style="float:left;" class="col-md-12">
+
+        @if (Model.TopicList.Count() == 0)
+        {
+            <div class="alert alert-info">
+                No results found
+            </div>
+        }
+        else
+        {
+            <div class="col-md-12" id="topicListContainer" style="margin-top:10px;">
+                <hr />
+                <table class="table">
+                    @Html.Partial("_Topiclist", Model.TopicList)
+                </table>
+            </div>
+            if (Model.TopicList.Count() == 5)
+            {
+                <div id="morelink"> <a href="#" onclick="loadMore();">More Topics</a></div>
+            }
+        }
+    </div>
+</div>
+<div id="content" style="color:Red;"></div>
+<div class="hiddenData" style="display:none;"></div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        //to load templates to a hidden div
+        $.get('/Templates/Templates.htm', function (data) {
+            $('.hiddenData').html(data);
+        });
+    });
+
+    $(window).scroll(function () {
+        if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+            loadMore();
+        }
+    });
+    var current = 0;
+    var currentTopicPage = 0;
+    function loadMore() {
+        var sortBy = $('#sortby').val();
+        var filterBy = $('#filterby').val();
+
+
+        if (currentTopicPage > -1) {
+            currentTopicPage++;
+
+            $.ajax({
+                url: "/Topic/TopicList",
+                type: "POST",
+                data: { sortBy: sortBy, filterBy: filterBy, page: currentTopicPage },
+                dataType: "json",
+                beforeSend: function () {
+                    console.log("a");
+                    $("#topicListContainer").find(".alert-info").remove();
+                    $("#topicListContainer").append('<div class="alert alert-info" id="loadimage">Loading...</div>');
+                },
+                success: function (data) {
+                    $('#loadimage').remove();
+                    if (data.length != 0) {
+                        loadTemplate(data);
+                        $('#morelink').show();
+                        if (data.length < 5) {
+                            addNoMoreTopics();
+                        }
+                    } else {
+                        addNoMoreTopics();
+                    }
+                }
+            });
+
+        }
+
+        function addNoMoreTopics() {
+            $('#morelink').hide();
+            currentTopicPage = -1;
+            $("#topicListContainer").find(".alert-info").remove();
+            $("#topicListContainer").append('<div class="alert alert-info"> No more topics found </div>');
+        }
+    }
+
+    function loadTemplate(data) {
+        var source = $("#topicList-template").html();
+
+        var template = Handlebars.compile(source);
+        $("#topicListContainer").append(template({ objects: data }));
+    }
+
+    function ListOfTopics() {
+        var sortby = $("#sortby").val();
+        var filterby = $("#filterby").val();
+        var url = '/Topic/TopicList';
+        $.get(url, { 'sortBy': sortby, 'filterBy': filterby, 'page': 0 }, function (result) {
+            $("#topicListContainer").html('');
+            if (result == '') {
+                $("#topicListContainer").append('<div class="alert alert-info"> No topics found </div>');
+                $('#morelink').hide();
+            }
+            else {
+                $('#morelink').show();
+            }
+            currentTopicPage = 0;
+            loadTemplate(result);
+
+        });
+
+        //document.location.href="/Topic/TopicList?sortBy="+sortby+"&filterBy="+filterby;
+
+    }
+</script>
+
+

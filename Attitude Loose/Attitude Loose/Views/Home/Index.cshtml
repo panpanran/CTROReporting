@@ -1,0 +1,60 @@
+﻿@model Attitude_Loose.ViewModels.TurnroundViewModel
+@{
+    ViewBag.Title = "Home";
+    Layout = "../Shared/_HomeLayout.cshtml";
+}
+
+@*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Ran">Open modal for Ran</button>
+
+    <button id="alert1" class="btn btn-alert btn-success" type="button">Success</button>*@
+<div> The current time is: @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</div>
+<br>
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    <div style="float:left;" class="col-md-12">
+        <table class="table">
+            <tr>
+                <td>
+                    @Html.LabelFor(x => x.StartDate, new { @class = "col-md-4 form-control-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(x => x.StartDate, new { @class = "ui-datepicker", @style = "display:block;float:left;" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(x => x.EndDate, new { @class = "col-md-4 form-control-label" })
+                </td>
+                <td>
+                    @Html.TextBoxFor(x => x.EndDate, new { @class = "ui-datepicker", @style = "display:block;float:left;" })
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Submit" />
+                </td>
+            </tr>
+
+        </table>
+    </div>
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.ui-datepicker').each(function (i, v) {
+
+            $(".ui - datepicker").val(" ");
+            //$(v).val($.datepicker.formatDate('dd-M-yy', new Date($(v).val())))
+            $(v).datepicker({
+                dateFormat: 'yy-mm-dd',
+                changeYear: true,
+                yearRange: '2000:2025',
+                buttonImage: '@Url.Content("~/Images/calendar.gif")',
+                buttonImageOnly: true,
+                showOn: "button"
+            });
+        });
+    });
+</script>
