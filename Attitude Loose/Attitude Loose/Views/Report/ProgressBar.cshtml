@@ -14,25 +14,12 @@
             @Html.TextBoxFor(model => model.ProgressPercentage, new { @class = "col-md-12", style = "display:block;float:left"})
         </div>*@
 
-    @using (Ajax.BeginForm("ProgressBar", "Report", new AjaxOptions() { HttpMethod = "POST" }, new { enctype = "multipart/form-data" }))
-    {
-        @Html.AntiForgeryToken()
-        <input type="file" name="files" id="fu1" />
-        <input type="submit" value="Upload File" />
-
-    }
-
     <div class="progress">
-        <div class="progress-bar">0%</div>
-    </div>
-    <div id="status"></div>
-
-    @*<div class="progress">
         <div id="reportprogress" class="progress-bar" role="progressbar" style="width: 0" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
         </div>
-    </div>*@
+    </div>
 </div>
-@*<script type="text/javascript">
+<script type="text/javascript">
     $(function () {
         var current_progress = 0;
         var interval = setInterval(function () {
@@ -45,38 +32,5 @@
                 clearInterval(interval);
         }, 500);
     });
-</script>*@
-
-
-<script src="http://malsup.github.com/jquery.form.js"></script>
-<script>
-    (function () {
-        var bar = $('.progress-bar');
-        var percent = $('.progress-bar');
-        var status = $('#status');
-
-        $('form').ajaxForm({
-            beforeSend: function () {
-                status.empty();
-                var percentValue = '0%';
-                bar.width(percentValue);
-                percent.html(percentValue);
-            },
-            uploadProgress: function (event, position, total, percentComplete) {
-                var percentValue = percentComplete + '%';
-                bar.width(percentValue);
-                percent.html(percentValue);
-            },
-            success: function (d) {
-                var percentValue = '100%';
-                bar.width(percentValue);
-                percent.html(percentValue);
-                $('#fu1').val('');
-                alert(d);
-            },
-            complete: function (xhr) {
-                status.html(xhr.responseText);
-            }
-        });
-    })();
 </script>
+

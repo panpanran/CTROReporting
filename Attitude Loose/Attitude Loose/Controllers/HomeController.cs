@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 
 namespace Attitude_Loose.Controllers
 {
@@ -30,6 +31,7 @@ namespace Attitude_Loose.Controllers
             return PartialView(model);
         }
 
+        [HttpGet]
         [OutputCache(Duration = 10, VaryByParam = "none")]
         public ActionResult Index()
         {
@@ -37,12 +39,13 @@ namespace Attitude_Loose.Controllers
             //{
             //    TempData["AlertMessage"] = "";
             //}
-            return View();
+            return View(new ReportGenerateViewModel());
         }
 
         [HttpPost]
-        public async Task<ActionResult> Index(TurnroundViewModel model)
+        public async Task<ActionResult> Index(ReportGenerateViewModel model)
         {
+            model.ReportResult = false;
             //if (TempData["AlertMessage"] == null)
             //{
             //    TempData["AlertMessage"] = "";
@@ -53,11 +56,11 @@ namespace Attitude_Loose.Controllers
                 int turnround = await home.CreateTurnroundReportAsync(model.StartDate, model.EndDate);
                 if (turnround == 1)
                 {
-                    TempData["AlertMessage"] = "Success";
+                    model.ReportResult = true;
                 }
             }
 
-            return View();
+            return View(model);
         }
 
         [HandleError(View = "Error")]

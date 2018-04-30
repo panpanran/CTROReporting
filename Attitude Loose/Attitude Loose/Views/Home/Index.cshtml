@@ -1,56 +1,73 @@
-﻿@model Attitude_Loose.ViewModels.TurnroundViewModel
+﻿@model Attitude_Loose.ViewModels.ReportGenerateViewModel
 @{
-    ViewBag.Title = "Home";
+    /**/
+
+    ViewBag.Title = "CTRP Reporting";
     Layout = "../Shared/_HomeLayout.cshtml";
 }
 
-@*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Ran">Open modal for Ran</button>
-
-    <button id="alert1" class="btn btn-alert btn-success" type="button">Success</button>*@
-<body>
-    <div> The current time is: @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</div>
-    <br>
-    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+@if (Model.ReportResult == true)
+{
+    <div class="alertmessage-success"></div>
+}
+@if (Model.ReportResult == false && !string.IsNullOrEmpty(Model.StartDate) && !string.IsNullOrEmpty(Model.EndDate))
+{
+    <div class="alertmessage-fail"></div>
+}
+@*@if (Model.ReportResult == true)
     {
+        <div class="alertmessage-cancel"></div>
+    }*@
+
+<div> The current time is: @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</div>
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <div class="card col-md-12">
+        <br>
         @Html.ValidationSummary()
         <div style="float:left;" class="col-md-12">
-            <table class="table">
-                <tr>
-                    <td>
-                        @Html.LabelFor(x => x.StartDate, new { @class = "col-md-4 form-control-label" })
-                    </td>
-                    <td>
-                        @Html.TextBoxFor(x => x.StartDate, new { @class = "ui-datepicker", @style = "display:block;float:left;" })
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @Html.LabelFor(x => x.EndDate, new { @class = "col-md-4 form-control-label" })
-                    </td>
-                    <td>
-                        @Html.TextBoxFor(x => x.EndDate, new { @class = "ui-datepicker", @style = "display:block;float:left;" })
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="submit" value="Submit" data-toggle="modal" href="#progressModal" onclick="CreateProgressBar();" />
-                    </td>
-                </tr>
-
-            </table>
+            <div class="row">
+                <div class=" col-md-6">
+                    @Html.LabelFor(x => x.StartDate, new { @class = "col-md-4 form-control-label" })
+                </div>
+                <div class=" col-md-6">
+                    @Html.TextBoxFor(x => x.StartDate, new { @class = "ui-datepicker", @style = "display:block;float:left;" })
+                </div>
+            </div>
+            <div class="row">
+                <div class=" col-md-6">
+                    @Html.LabelFor(x => x.EndDate, new { @class = "col-md-4 form-control-label" })
+                </div>
+                <div class=" col-md-6">
+                    @Html.TextBoxFor(x => x.EndDate, new { @class = "ui-datepicker", @style = "display:block;float:left;" })
+                </div>
+            </div>
         </div>
-    }
-    <button id="btnSubmitReport" class="nav-link" data-toggle="modal" href="#progressModal" onclick="CreateProgressBar();">integrations</button>
-</body>
+        <br>
+    </div>
+    <br>
+    <div class="row">
+        <div class=" col-md-4">
+        </div>
+        <div class=" col-md-4">
+            <input type="submit" class="col-md-4 form-control-label" value="Submit" data-toggle="modal" href="#progressModal" onclick="CreateProgressBar();" />
+        </div>
+        <div class=" col-md-4">
+        </div>
+    </div>
+}
 
-<div class="modal fade" id="progressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+@*<button id="btnSubmitReport" class="nav-link" data-toggle="modal" href="#progressModal" onclick="CreateProgressBar();">test</button>*@
+
+<div class="modal fade" id="progressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="myModalLabel">Loading</h5>
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                @*<button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>*@
             </div>
             <div class="modal-body" id="createprogressbar">
             </div>
@@ -72,18 +89,24 @@
     function CreateProgressBar() {
         var url = "/Report/ProgressBar";
         $.get(url, function (result) {
-            $("#createprogressbar").html(result);
+            if (!@Model.ReportResult) {
+                $("#createprogressbar").html(result);
+            }
+            else
+            {
+                $('#progressModal').modal('hide');
+            }
         });
     }
 
     $(document).ready(function () {
         $('.ui-datepicker').each(function (i, v) {
-
             $(".ui - datepicker").val(" ");
             //$(v).val($.datepicker.formatDate('dd-M-yy', new Date($(v).val())))
             $(v).datepicker({
                 dateFormat: 'yy-mm-dd',
                 changeYear: true,
+                changeMonth: true,
                 yearRange: '2000:2025',
                 buttonImage: '@Url.Content("~/Images/calendar.gif")',
                 buttonImageOnly: true,
@@ -91,4 +114,31 @@
             });
         });
     });
+
+    function GetMessage() {
+        return function () {
+            var successmessage = 'Success! A new report is created.'
+            var htmlAlert = '<div class="alert alert-success"><h5>' + successmessage + '</h5></div>';
+            $('.alertmessage-success').prepend(htmlAlert);
+            $(".alertmessage-success .alert").first().hide().fadeIn(200).delay(3000).fadeOut(1000, function () { $(this).remove(); });
+
+            var failmessage = 'Fail!'
+            var htmlAlert = '<div class="alert alert-warning"><h5>' + failmessage + '</h5></div>';
+            $('.alertmessage-fail').prepend(htmlAlert);
+            $(".alertmessage-fail .alert").first().hide().fadeIn(200).delay(3000).fadeOut(1000, function () { $(this).remove(); });
+
+            var cancelmessage = 'Cancelled!'
+            var htmlAlert = '<div class="alert alert-info"><h5>' + cancelmessage + '</h5></div>';
+            $('.alertmessage-cancel').prepend(htmlAlert);
+            $(".alertmessage-cancel .alert").first().hide().fadeIn(200).delay(3000).fadeOut(1000, function () { $(this).remove(); });
+
+            var wrongmessage = 'Wrong'
+            var htmlAlert = '<div class="alert alert-danger"><h5>' + wrongmessage + '</h5></div>';
+            $('.alertmessage-wrong').prepend(htmlAlert);
+            $(".alertmessage-wrong .alert").first().hide().fadeIn(200).delay(3000).fadeOut(1000, function () { $(this).remove(); });
+
+        }
+    }
+
+    $(document).ready(GetMessage());
 </script>

@@ -289,6 +289,7 @@
     <Compile Include="Models\Metric.cs" />
     <Compile Include="Models\MFile.cs" />
     <Compile Include="Models\MReport.cs" />
+    <Compile Include="Models\Report.cs" />
     <Compile Include="Models\Topic.cs" />
     <Compile Include="Models\UserProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

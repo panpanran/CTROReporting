@@ -17,17 +17,17 @@ namespace Attitude_Loose.Test
         {
             MailMessage msg = new MailMessage();
             msg.To.Add(new MailAddress(ToEmail));
-            msg.From = new MailAddress("panpanr@gmail.com", "Ran Pan");
+            msg.From = new MailAddress("ran.pan@nih.gov", "Ran Pan");
             msg.Subject = Subject;
             msg.Body = Body;
             msg.IsBodyHtml = true;
-
+            
             SmtpClient client = new SmtpClient();
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("panpanr@gmail.com", "Prss_1234");
+            client.Credentials = new System.Net.NetworkCredential("ran.pan@nih.gov", "Rp0126$$", "nih.gov");
             client.Port = 587; // You can use Port 25 if 587 is blocked (mine is!)
             client.Host = "smtp.gmail.com";
-            client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.EnableSsl = true;
 
             if (AttachmentFileName != null)

@@ -56,6 +56,11 @@ namespace Attitude_Loose.Test
         //{
         //    return Task.Run(() => CreateTurnroundReport(startDate, endDate));
         //}
+        [Test()]
+        public void EmialTest()
+        {
+            CTRPFunctions.SendEmail("Turnround Report", "This is a test email. ", "ran.pan@nih.gov", @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Turnround Report_201803 By Ran Code.xlsx");
+        }
 
         [Test()]
         public void CreateTurnroundReportTest()
@@ -77,7 +82,6 @@ namespace Attitude_Loose.Test
                     CTRPFunctions.WriteExcelByDataSet(turnroundDS, savepath, templatepath, 2, 1);
                     CTRPFunctions.WriteExcelByDataSet(conclusionturnroundDS, savepath, null, 2, 18);
 
-                    //CTRPFunctions.SendEmail("Turnround Report", "This is a test email. ", "ran.pan@nih.gov", @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Submission Status.xlsx");
                 }
                 catch (Exception ex)
                 {

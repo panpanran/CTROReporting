@@ -10,7 +10,7 @@ namespace Attitude_Loose.ViewModels
     {
     }
 
-    public class TurnroundViewModel
+    public class ReportGenerateViewModel
     {
         [Required]
         [Display(Name = "Start Date")]
@@ -19,6 +19,14 @@ namespace Attitude_Loose.ViewModels
         [Required]
         [Display(Name = "End Date")]
         public string EndDate { get; set; }
+
+        public bool ReportResult { get; set; }
+
+        public ReportGenerateViewModel()
+        {
+            ReportResult = false;
+        }
+
     }
 
     public class ReportProgressViewModel

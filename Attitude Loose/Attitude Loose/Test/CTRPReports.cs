@@ -24,7 +24,7 @@ namespace Attitude_Loose.Test
             DataTable abbreviatedDT = new DataTable();
             DataTable abbreviatedconclusionDT = new DataTable();
             abbreviatedDT.Load(datareader);
-            outputDS.Tables.Add(TurnroundSheet(abbreviatedDT, startDate, endDate, "Abbreviated", out abbreviatedconclusionDT));
+            outputDS.Tables.Add(TurnroundSheet(abbreviatedDT, "Abbreviated", out abbreviatedconclusionDT));
             conclusionDS.Tables.Add(abbreviatedconclusionDT);
             //Amendment
             string amendtext = System.IO.File.ReadAllText(CTRPConst.turnround_amendment_file).Replace("startDate", startDate).Replace("endDate", endDate);
@@ -33,7 +33,7 @@ namespace Attitude_Loose.Test
             DataTable amendDT = new DataTable();
             DataTable amendconclusionDT = new DataTable();
             amendDT.Load(datareader);
-            outputDS.Tables.Add(TurnroundSheet(amendDT, startDate, endDate, "Amendment", out amendconclusionDT));
+            outputDS.Tables.Add(TurnroundSheet(amendDT,  "Amendment", out amendconclusionDT));
             conclusionDS.Tables.Add(amendconclusionDT);
             //Original
             string originaltext = System.IO.File.ReadAllText(CTRPConst.turnround_original_file).Replace("startDate", startDate).Replace("endDate", endDate);
@@ -42,12 +42,12 @@ namespace Attitude_Loose.Test
             DataTable originalDT = new DataTable();
             DataTable originalconclusionDT = new DataTable();
             originalDT.Load(datareader);
-            outputDS.Tables.Add(TurnroundSheet(originalDT, startDate, endDate, "Original", out originalconclusionDT));
+            outputDS.Tables.Add(TurnroundSheet(originalDT, "Original", out originalconclusionDT));
             conclusionDS.Tables.Add(originalconclusionDT);
             return outputDS;
         }
 
-        private DataTable TurnroundSheet(DataTable inputDT, string startDate, string endDate, string tablename, out DataTable conclusionDT)
+        private DataTable TurnroundSheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
         {
             DateTime tsrdate = new DateTime();
             DateTime accepteddate = new DateTime();

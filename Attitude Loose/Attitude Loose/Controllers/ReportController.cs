@@ -22,30 +22,15 @@ namespace Attitude_Loose.Controllers
             this.topicService = topicService;
         }
 
-        public PartialViewResult ProgressBar()
+        public PartialViewResult ProgressBar(ReportProgressViewModel model)
         {
             //var createProgress = new ReportProgressViewModel();
-            //model.ProgressPercentage = "0";
+            model.ProgressPercentage = "99";
             //for (double i = 1; i < 100; i++)
             //{
             //    string aa = ((i / 100) * 100).ToString();
             //    model.ProgressPercentage = aa;
             //}
-
-            return PartialView();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public PartialViewResult ProgressBar(ReportProgressViewModel model)
-        {
-
-            for (double i = 1; i < 10000000; i++)
-            {
-                string aa = ((i / 10000000) * 100).ToString();
-                model.ProgressPercentage = aa;
-            }
-            //return new JsonResult { Data = "Successfully  uploaded" };
 
             return PartialView(model);
         }
