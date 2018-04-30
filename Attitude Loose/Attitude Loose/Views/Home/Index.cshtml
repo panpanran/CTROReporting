@@ -7,9 +7,10 @@
 @*<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="Ran">Open modal for Ran</button>
 
     <button id="alert1" class="btn btn-alert btn-success" type="button">Success</button>*@
-<div> The current time is: @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</div>
-<br>
-@*@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+<body>
+    <div> The current time is: @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</div>
+    <br>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
     {
         @Html.ValidationSummary()
         <div style="float:left;" class="col-md-12">
@@ -38,8 +39,9 @@
 
             </table>
         </div>
-    }*@
-<a class="nav-link" data-toggle="modal" href="#progressModal" onclick="CreateProgressBar();">integrations</a>
+    }
+    <button id="btnSubmitReport" class="nav-link" data-toggle="modal" href="#progressModal" onclick="CreateProgressBar();">integrations</button>
+</body>
 
 <div class="modal fade" id="progressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -61,6 +63,11 @@
 </div>
 
 <script type="text/javascript">
+    function DisplayProgressMessage(ctl, msg) {
+        $(ctl).prop("disabled", true).text(msg);
+        return true;
+    }
+
 
     function CreateProgressBar() {
         var url = "/Report/ProgressBar";
