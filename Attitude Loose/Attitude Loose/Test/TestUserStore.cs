@@ -20,9 +20,9 @@ namespace Attitude_Loose.Test
         {
             _users = new Dictionary<string, ApplicationUser>()
             {
-                { "TestUser1", new ApplicationUser {FirstName="fei", Email ="chenfei@gmail.com", UserName="chenfei", Id="15e8cda1-3ea3-473d-902f-b62aa55816db"}},
-                { "TestUser2", new ApplicationUser {FirstName="ran", Email ="panpanr@gmail.com", UserName="panpanr", Id="67e6yda1-3ea3-473d-902f-b62er55816db"}},
-                { "TestUser3", new ApplicationUser {FirstName="Shiju", Email ="Shiju@gmail.com", UserName="Shiju",  Id="78e5fda1-3ea3-473d-902f-b62aa86716db"}}
+                //{ "TestUser1", new ApplicationUser {FirstName="fei", Email ="chenfei@gmail.com", UserName="chenfei", Id="15e8cda1-3ea3-473d-902f-b62aa55816db"}},
+                //{ "TestUser2", new ApplicationUser {FirstName="ran", Email ="panpanr@gmail.com", UserName="panpanr", Id="67e6yda1-3ea3-473d-902f-b62er55816db"}},
+                //{ "TestUser3", new ApplicationUser {FirstName="Shiju", Email ="Shiju@gmail.com", UserName="Shiju",  Id="78e5fda1-3ea3-473d-902f-b62aa86716db"}}
             };
 
         }

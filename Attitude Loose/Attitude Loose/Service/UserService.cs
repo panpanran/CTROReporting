@@ -13,7 +13,6 @@ namespace Attitude_Loose.Service
     {
         ApplicationUser GetByUserID(string userid);
         void UpdateUser(ApplicationUser user);
-        void SaveImageURL(string userId, string imageUrl);
     }
 
     public class UserService : IUserService
@@ -45,13 +44,6 @@ namespace Attitude_Loose.Service
         public void SaveUser()
         {
             unitOfWork.Commit();
-        }
-
-        public void SaveImageURL(string userId, string imageUrl)
-        {
-            var user = GetByUserID(userId);
-            user.ProfilePicUrl = imageUrl;
-            UpdateUser(user);
         }
     }
 }

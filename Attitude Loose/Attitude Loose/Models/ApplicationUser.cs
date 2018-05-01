@@ -15,12 +15,6 @@ namespace Attitude_Loose.Models
             DateCreated = DateTime.Now;
         }
 
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
-
-        public string ProfilePicUrl { get; set; }
-
         public DateTime DateCreated { get; set; }
 
         public DateTime? LastLoginTime { get; set; }
@@ -36,12 +30,6 @@ namespace Attitude_Loose.Models
         //public virtual ICollection<FollowUser> FollowToUser { get; set; }
 
         //public virtual ICollection<GroupRequest> GroupRequests { get; set; }
-
-        public string DisplayName
-        {
-            get { return FirstName + " " + LastName; }
-        }
-
 
     }
 }

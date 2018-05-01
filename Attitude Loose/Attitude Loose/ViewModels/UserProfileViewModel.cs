@@ -107,7 +107,7 @@ namespace Attitude_Loose.ViewModels
         [Display(Name = "Local file")]
         public HttpPostedFileBase File { get; set; }
 
-        public string LocalPath { get; set; }
+        public string ProfilePicUrl { get; set; }
 
         public bool IsFile { get; set; }
 

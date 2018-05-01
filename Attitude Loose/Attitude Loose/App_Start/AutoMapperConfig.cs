@@ -11,7 +11,7 @@ namespace Attitude_Loose.App_Start
             Mapper.Initialize(
                 cfg =>
                 {
-                    cfg.CreateMap<UserProfile, UserProfileFormModel>();
+                    cfg.CreateMap<UserProfile, UserProfileFormModel>(); 
                     cfg.CreateMap<UserProfileFormModel, UserProfile>();
                     cfg.CreateMap<Topic, TopicFormModel>();
                     cfg.CreateMap<TopicFormModel, Topic>();

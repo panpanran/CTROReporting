@@ -1,4 +1,5 @@
 ﻿using Attitude_Loose.Test;
+using Microsoft.AspNet.Identity;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace Attitude_Loose.CTRO
 {
     public class CTROHome
     {
-        public async Task<int> CreateTurnroundReportAsync(string startDate, string endDate)
+        public async Task<int> CreateTurnroundReportAsync(string startDate, string endDate, string toemail)
         {
             Task<int> t = Task.Run(() =>
             {
@@ -28,7 +29,7 @@ namespace Attitude_Loose.CTRO
 
                         CTRPFunctions.WriteExcelByDataSet(turnroundDS, savepath, templatepath, 2, 1);
                         CTRPFunctions.WriteExcelByDataSet(conclusionturnroundDS, savepath, null, 2, 18);
-                        //CTRPFunctions.SendEmail("Turnround Report", "This is a test email. ", "ran.pan@nih.gov", @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Submission Status.xlsx");
+                        CTRPFunctions.SendEmail("Turnround Report", "Attached please find. \r\n This is turnround report from " + startDate + " to " + endDate, toemail, savepath);
                         return 1;
                     }
                     catch (Exception ex)

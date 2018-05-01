@@ -36,8 +36,9 @@ namespace Attitude_Loose.Infrastructure
 
         public virtual void Update(T entity)
         {
-            dbset.Attach(entity);
-            dataContext.Entry(entity).State = EntityState.Modified;
+            dataContext.Entry(entity).CurrentValues.SetValues(entity);
+            //dbset.Attach(entity);
+            //dataContext.Entry(entity).State = EntityState.Modified;
         }
 
         public virtual IEnumerable<T> GetAll()

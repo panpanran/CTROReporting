@@ -58,6 +58,7 @@ namespace Attitude_Loose.Controllers
                 var user = await userManager.FindAsync(model.UserName, model.Password);
                 if (user != null)
                 {
+                    user.LastLoginTime = DateTime.Now;
                     await SignInAsync(user, model.RememberMe);
                     return RedirectToLocal(returnUrl);
                 }
@@ -98,7 +99,7 @@ namespace Attitude_Loose.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email };
+                var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, LastLoginTime = DateTime.Now };
                 var result = await userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -170,7 +171,7 @@ namespace Attitude_Loose.Controllers
                 DateCreated = user.DateCreated,
                 LastLoginTime = user.LastLoginTime,
                 UserId = user.Id,
-                ProfilePicUrl = user.ProfilePicUrl,
+                ProfilePicUrl = userProfile.ProfilePicUrl,
                 DateOfBirth = userProfile.DateOfBirth,
                 Gender = userProfile.Gender,
                 Address = userProfile.Address,
@@ -187,7 +188,7 @@ namespace Attitude_Loose.Controllers
         {
             var user = userProfileService.GetByUserID(User.Identity.GetUserId());
             UserProfileFormModel editUser = Mapper.Map<UserProfile, UserProfileFormModel>(user);
-            editUser.LocalPath = userService.GetByUserID(User.Identity.GetUserId()).ProfilePicUrl;
+            editUser.ProfilePicUrl = userProfileService.GetByUserID(User.Identity.GetUserId()).ProfilePicUrl;
 
             if (user == null)
             {
@@ -199,19 +200,29 @@ namespace Attitude_Loose.Controllers
         [HttpPost]
         public ActionResult UpdateProfile(UserProfileFormModel updateProfile)
         {
-            UserProfile user = Mapper.Map<UserProfileFormModel, UserProfile>(updateProfile);
-            ApplicationUser applicationUser = userService.GetByUserID(updateProfile.UserId);
-            applicationUser.FirstName = updateProfile.FirstName;
-            applicationUser.LastName = updateProfile.LastName;
-            applicationUser.Email = updateProfile.Email;
-            UploadImage(updateProfile);
-            userService.UpdateUser(applicationUser);
-            userProfileService.UpdateUserProfile(user);
+            //UserProfile userprofile = Mapper.Map<UserProfileFormModel, UserProfile>(updateProfile);
+
+            UserProfile userprofile = userProfileService.GetByUserID(updateProfile.UserId);
+            userprofile.FirstName = updateProfile.FirstName;
+            userprofile.LastName = updateProfile.LastName;
+            userprofile.Email = updateProfile.Email;
+            userprofile.Address = updateProfile.Address;
+            userprofile.Email = updateProfile.Email;
+            userprofile.City = updateProfile.City;
+            userprofile.DateOfBirth = updateProfile.DateOfBirth;
+            userprofile.Gender = updateProfile.Gender;
+            userprofile.Address = updateProfile.Address;
+            userprofile.State = updateProfile.State;
+            userprofile.Country = updateProfile.Country;
+            userprofile.ZipCode = updateProfile.ZipCode;
+            userprofile.ContactNo = updateProfile.ContactNo;
+
+            userprofile.ProfilePicUrl = SaveImage(updateProfile);
+            userProfileService.UpdateUserProfile(userprofile);
             return RedirectToAction("UserProfile", new { id = updateProfile.UserId });
         }
 
-        [HttpPost]
-        public void UploadImage(UserProfileFormModel model)
+        public string SaveImage(UserProfileFormModel model)
         {
             //Prepare the needed variables
             Bitmap original = null;
@@ -235,21 +246,23 @@ namespace Attitude_Loose.Controllers
             if (original != null)
             {
                 var img = CreateImage(original, model.X, model.Y, model.Width, model.Height);
-                var fileName = Guid.NewGuid().ToString();
-                var oldFilepath = userService.GetByUserID(User.Identity.GetUserId()).ProfilePicUrl;
+                var fileName = "~/Images/ProfilePics/" + Guid.NewGuid().ToString() + ".png";
+                var oldFilepath = userProfileService.GetByUserID(User.Identity.GetUserId()).ProfilePicUrl;
                 var oldFile = Server.MapPath(oldFilepath);
                 //Demo purposes only - save image in the file system
-                var fn = Server.MapPath("~/Images/ProfilePics/" + fileName + ".png");
+                var fn = Server.MapPath(fileName);
                 img.Save(fn, System.Drawing.Imaging.ImageFormat.Png);
-                userService.SaveImageURL(User.Identity.GetUserId(), "~/Images/ProfilePics/" + fileName + ".png");
                 if (System.IO.File.Exists(oldFile))
                 {
                     System.IO.File.Delete(oldFile);
                 }
+                return fileName;
             }
             else //Otherwise we add an error and return to the (previous) view with the model data
+            {
                 ModelState.AddModelError(errorField, Resources.UploadError);
-            //return RedirectToAction("UserProfile", new { id = User.Identity.GetUserId() });
+                return model.ProfilePicUrl;
+            }
         }
 
         Bitmap CreateImage(Bitmap original, int x, int y, int width, int height)

@@ -407,8 +407,6 @@ C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loo
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csproj.CopyComplete
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.dll
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.pdb
-C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.InitialCreate.resources
-C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.AddBatch.resources
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Npgsql.dll
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Npgsql.xml
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\NUnit3.TestAdapter.pdb

@@ -1,4 +1,5 @@
 ﻿using Attitude_Loose.CTRO;
+using Attitude_Loose.Models;
 using Attitude_Loose.Service;
 using Attitude_Loose.Test;
 using Attitude_Loose.ViewModels;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.UI;
+using Microsoft.AspNet.Identity;
 
 namespace Attitude_Loose.Controllers
 {
@@ -16,9 +17,12 @@ namespace Attitude_Loose.Controllers
     public class HomeController : Controller
     {
         private readonly IMetricService metricService;
-        public HomeController(IMetricService metricService)
+        private IUserProfileService userProfileService;
+
+        public HomeController(IMetricService metricService, IUserProfileService userProfileService)
         {
             this.metricService = metricService;
+            this.userProfileService = userProfileService;
         }
         [HttpGet]
         public ActionResult Create()
@@ -35,25 +39,18 @@ namespace Attitude_Loose.Controllers
         [OutputCache(Duration = 10, VaryByParam = "none")]
         public ActionResult Index()
         {
-            //if (TempData["AlertMessage"] == null)
-            //{
-            //    TempData["AlertMessage"] = "";
-            //}
             return View(new ReportGenerateViewModel());
         }
 
         [HttpPost]
         public async Task<ActionResult> Index(ReportGenerateViewModel model)
         {
+            UserProfile userprofile = userProfileService.GetByUserID(User.Identity.GetUserId());
             model.ReportResult = false;
-            //if (TempData["AlertMessage"] == null)
-            //{
-            //    TempData["AlertMessage"] = "";
-            //}
             if (ModelState.IsValid)
             {
                 CTROHome home = new CTROHome();
-                int turnround = await home.CreateTurnroundReportAsync(model.StartDate, model.EndDate);
+                int turnround = await home.CreateTurnroundReportAsync(model.StartDate, model.EndDate, userprofile.Email);
                 if (turnround == 1)
                 {
                     model.ReportResult = true;

@@ -271,15 +271,6 @@
     <Compile Include="Infrastructure\Logging.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201804051412095_InitialCreate.cs" />
-    <Compile Include="Migrations\201804051412095_InitialCreate.Designer.cs">
-      <DependentUpon>201804051412095_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804111635067_AddBatch.cs" />
-    <Compile Include="Migrations\201804111635067_AddBatch.Designer.cs">
-      <DependentUpon>201804111635067_AddBatch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Configuration\TopicConfiguration.cs" />
     <Compile Include="Models\Configuration\UserProfileConfiguration.cs" />
@@ -732,12 +723,6 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804051412095_InitialCreate.resx">
-      <DependentUpon>201804051412095_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804111635067_AddBatch.resx">
-      <DependentUpon>201804111635067_AddBatch.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

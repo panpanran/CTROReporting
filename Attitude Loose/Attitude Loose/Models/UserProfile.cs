@@ -19,10 +19,11 @@ namespace Attitude_Loose.Models
 
         public string Email { get; set; }
 
-
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
+
+        public string ProfilePicUrl { get; set; }
 
         //       [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime? DateOfBirth { get; set; }

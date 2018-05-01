@@ -64,23 +64,24 @@
 
             <div id="upload-choices" style="float:left;" class="col-md-12">
 
-                @Html.HiddenFor(m => m.UserProfileId)
-                @Html.HiddenFor(m => m.UserId)
+                @Html.HiddenFor(model => model.UserProfileId)
+                @Html.HiddenFor(model => model.UserId)
                 @Html.HiddenFor(model => model.X)
                 @Html.HiddenFor(model => model.Y)
                 @Html.HiddenFor(model => model.Width)
                 @Html.HiddenFor(model => model.Height)
+                @Html.HiddenFor(model => model.ProfilePicUrl)
                 @Html.ValidationSummary(true)
                 <table>
                     <tr>
                         <td>
-                            @if (String.IsNullOrEmpty(Model.LocalPath))
+                            @if (String.IsNullOrEmpty(Model.ProfilePicUrl))
                             {
                                 <img alt="Field for image cutting" id="preview" src="@Url.Content("~/Images/facebook-avatar.png")" class="img-fluid" />
                             }
                             else
                             {
-                                <img alt="Field for image cutting" id="preview" src="@Url.Content(Model.LocalPath)" class="img-fluid" />
+                                <img alt="Field for image cutting" id="preview" src="@Url.Content(Model.ProfilePicUrl)" class="img-fluid" />
                             }
                         </td>
                         <td>
@@ -147,12 +148,12 @@
                                 </div>*@
                             @if (Model.DateOfBirth.HasValue)
                             {
-                                @Html.TextBoxFor(m => m.DateOfBirth, String.Format("{0:d}", Model.DateOfBirth), new { @class = "ui-datepicker", @style = "display:block;float:left;" })
+                                @Html.TextBoxFor(model => model.DateOfBirth, String.Format("{0:d}", Model.DateOfBirth), new { @class = "ui-datepicker", @style = "display:block;float:left;" })
                                 @Html.ValidationMessageFor(model => model.DateOfBirth)
                             }
                             else
                             {
-                                @Html.TextBoxFor(m => m.DateOfBirth, new { @value = "", @class = "ui-datepicker", @style = "display:block;float:left;", @readonly = "readonly" })
+                                @Html.TextBoxFor(model => model.DateOfBirth, new { @value = "", @class = "ui-datepicker", @style = "display:block;float:left;", @readonly = "readonly" })
                             }
                         </td>
                     </tr>
@@ -186,7 +187,7 @@
                             </label>
                         </td>
                         <td>
-                            @Html.TextAreaFor(m => m.Address, new { @class = "col-md-12", cols = "10", rows = "2", wrap = "virtual", id = "Address" })
+                            @Html.TextAreaFor(model => model.Address, new { @class = "col-md-12", cols = "10", rows = "2", wrap = "virtual", id = "Address" })
                             @Html.ValidationMessageFor(model => model.Address)
                         </td>
                     </tr>
@@ -197,7 +198,7 @@
                             </label>
                         </td>
                         <td>
-                            @Html.TextBoxFor(m => m.City, new { @class = "col-md-12" })
+                            @Html.TextBoxFor(model => model.City, new { @class = "col-md-12" })
                             @Html.ValidationMessageFor(model => model.City)
                         </td>
                     </tr>
@@ -208,7 +209,7 @@
                             </label>
                         </td>
                         <td>
-                            @Html.TextBoxFor(m => m.State, new { @class = "col-md-12" })
+                            @Html.TextBoxFor(model => model.State, new { @class = "col-md-12" })
                             @Html.ValidationMessageFor(model => model.State)
                         </td>
                     </tr>
@@ -271,7 +272,8 @@
             $(v).datepicker({
                 dateFormat: 'dd-M-yy',
                 changeYear: true,
-                yearRange: '1910:2017',
+                changeMonth: true,
+                yearRange: '1930:2018',
                 buttonImage: '@Url.Content("~/Images/calendar.gif")',
                 buttonImageOnly: true,
                 showOn: "button"

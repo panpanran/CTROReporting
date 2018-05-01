@@ -137,14 +137,14 @@ namespace Attitude_Loose.Test
             {
                 Activated = true,
                 Email = "panpanr@gmail.com",
-                FirstName = "ran",
-                LastName = "pan",
+                //FirstName = "ran",
+                //LastName = "pan",
                 UserName = "panpanr",
                 RoleId = 0,
                 Id = "402bd590-fdc7-49ad-9728-40efbfe512ec",
                 DateCreated = DateTime.Now,
                 LastLoginTime = DateTime.Now,
-                ProfilePicUrl = null,
+                //ProfilePicUrl = null,
             };
             return applicationUser;
         }
