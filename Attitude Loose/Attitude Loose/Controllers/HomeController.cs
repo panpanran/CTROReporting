@@ -39,7 +39,8 @@ namespace Attitude_Loose.Controllers
         [OutputCache(Duration = 10, VaryByParam = "none")]
         public ActionResult Index()
         {
-            return View(new ReportGenerateViewModel());
+            var model = new ReportGenerateViewModel();
+            return View(model);
         }
 
         [HttpPost]
@@ -47,10 +48,22 @@ namespace Attitude_Loose.Controllers
         {
             UserProfile userprofile = userProfileService.GetByUserID(User.Identity.GetUserId());
             model.ReportResult = false;
+
             if (ModelState.IsValid)
             {
                 CTROHome home = new CTROHome();
-                int turnround = await home.CreateTurnroundReportAsync(model.StartDate, model.EndDate, userprofile.Email);
+                int turnround = 0;
+                switch(model.SelectedReport)
+                {
+                    case "1":
+                        turnround = await home.CreateTurnroundReportAsync(model.StartDate, model.EndDate, userprofile.Email);
+                        break;
+                    case "2":
+                        turnround = await home.CreateSponsorNotMatcReportAsync(userprofile.Email);
+                        break;
+                }
+
+                //int turnround = await home.CreateTurnroundReportAsync(model.StartDate, model.EndDate, userprofile.Email);
                 if (turnround == 1)
                 {
                     model.ReportResult = true;

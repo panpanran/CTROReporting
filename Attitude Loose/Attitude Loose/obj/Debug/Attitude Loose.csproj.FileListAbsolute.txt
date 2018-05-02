@@ -528,3 +528,10 @@ C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\obj\Debug\Attitu
 C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csproj.CoreCompileInputs.cache
 C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.dll
 C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange.WebServices.Auth.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange.WebServices.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.IdentityModel.Extensions.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange.WebServices.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange.WebServices.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange.WebServices.Auth.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange.WebServices.Auth.xml

@@ -10,7 +10,7 @@
 {
     <div class="alertmessage-success"></div>
 }
-@if (Model.ReportResult == false && !string.IsNullOrEmpty(Model.StartDate) && !string.IsNullOrEmpty(Model.EndDate))
+@if (Model.ReportResult == false && !string.IsNullOrEmpty(Model.SelectedReport))
 {
     <div class="alertmessage-fail"></div>
 }
@@ -18,12 +18,19 @@
     {
         <div class="alertmessage-cancel"></div>
     }*@
-
 <div> The current time is: @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</div>
+<br />
+
+
+<select id="reportlist">
+    <option disabled selected> -- Select an Option -- </option>
+    <option value="1">Turnround</option>
+    <option value="2">Sponsor Not Match</option>
+</select>
 
 @using (Html.BeginForm("Index", "Home", FormMethod.Post))
 {
-    <div class="card col-md-12">
+    <div id="reportdatecard" class="card col-md-12">
         <br>
         @Html.ValidationSummary()
         <div style="float:left;" class="col-md-12">
@@ -56,6 +63,7 @@
         <div class=" col-md-4">
         </div>
     </div>
+    @Html.HiddenFor(m => m.SelectedReport)
 }
 
 @*<button id="btnSubmitReport" class="nav-link" data-toggle="modal" href="#progressModal" onclick="CreateProgressBar();">test</button>*@
@@ -80,11 +88,29 @@
 </div>
 
 <script type="text/javascript">
+    $(function () {
+        var reportdatecard = $("#reportdatecard");
+        $("#reportlist").selectmenu({
+            create: function (event, data) {
+                $("#SelectedReport").val(null);
+            },
+
+            change: function (event, data) {
+                $("#SelectedReport").val(data.item.value);
+                if (data.item.value == "2") {
+                    reportdatecard.addClass("invisible");
+                }
+                else {
+                    reportdatecard.removeClass("invisible");
+                }
+            }
+        });
+    });
+
     function DisplayProgressMessage(ctl, msg) {
         $(ctl).prop("disabled", true).text(msg);
         return true;
     }
-
 
     function CreateProgressBar() {
         var url = "/Report/ProgressBar";

@@ -17,7 +17,7 @@ namespace Attitude_Loose.Test
         {
             MailMessage msg = new MailMessage();
             msg.To.Add(new MailAddress(ToEmail));
-            msg.From = new MailAddress("panpanr@gmail.com", "CTRO Reporting System");
+            msg.From = new MailAddress("ctroreporting@gmail.com", "CTRO Reporting System");
             msg.Subject = Subject;
             msg.Body = Body;
             msg.IsBodyHtml = true;
@@ -25,7 +25,7 @@ namespace Attitude_Loose.Test
             SmtpClient client = new SmtpClient();
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("panpanr@gmail.com", "Prss_1234");
+            client.Credentials = new System.Net.NetworkCredential("ctroreporting@gmail.com", "panran1986");
             client.Port = 587; // You can use Port 25 if 587 is blocked (mine is!)
             client.Host = "smtp.gmail.com";
             client.EnableSsl = true;

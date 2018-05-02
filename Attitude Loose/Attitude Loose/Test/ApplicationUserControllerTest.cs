@@ -91,6 +91,29 @@ namespace Attitude_Loose.Test
         }
 
         [Test()]
+        public void CreateSponsorNotMatchReportTest()
+        {
+            CTRPReports reports = new CTRPReports();
+            using (var conn = new NpgsqlConnection(CTRPConst.connString))
+            {
+                conn.Open();
+                try
+                {
+                    string savepath = CTRPConst.sponsornotmatch_savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
+                    string templatepath = CTRPConst.sponsornotmatch_template_file;
+                    DataSet sponsorDS = reports.SponsorNotMatchBook(conn);
+
+                    CTRPFunctions.WriteExcelByDataSet(sponsorDS, savepath, templatepath, 2, 1);
+                    CTRPFunctions.SendEmail("Sponsor Report", "Attached please find. \r\n This is sponsor report generated at " + DateTime.Now.ToString(), "kirsten.larco@nih.gov", savepath);
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+        }
+
+        [Test()]
         public void LoginTest()
         {
             var userManager = new UserManager<ApplicationUser>(new TestUserStore());

@@ -10,6 +10,7 @@ namespace Attitude_Loose.Test
 {
     public class CTRPReports
     {
+        #region turnround
         public DataSet TurnroundBook(NpgsqlConnection conn, string startDate, string endDate, out DataSet conclusionDS)
         {
             //All
@@ -46,7 +47,6 @@ namespace Attitude_Loose.Test
             conclusionDS.Tables.Add(originalconclusionDT);
             return outputDS;
         }
-
         private DataTable TurnroundSheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
         {
             DateTime tsrdate = new DateTime();
@@ -151,6 +151,25 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
                 throw;
             }
         }
+        #endregion
 
+        #region sponsor not match
+        public DataSet SponsorNotMatchBook(NpgsqlConnection conn)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+            //NCI
+            string abbreviatedtext = System.IO.File.ReadAllText(CTRPConst.sponsornotmatch_original_file);
+            cmd = new NpgsqlCommand(abbreviatedtext, conn);
+            datareader = cmd.ExecuteReader();
+            DataTable nciDT = new DataTable();
+            nciDT.Load(datareader);
+            nciDT.TableName = "NCI";
+            outputDS.Tables.Add(nciDT);
+            return outputDS;
+        }
+        #endregion
     }
 }
