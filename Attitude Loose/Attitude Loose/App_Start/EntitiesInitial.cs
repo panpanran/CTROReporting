@@ -18,8 +18,7 @@ namespace Attitude_Loose.App_Start
         public DbSet<Metric> Metrics { get; set; }
         public DbSet<Topic> Topics { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
-        public DbSet<MBatch> Batches { get; set; }
-        public DbSet<MFile> Files { get; set; }
+        public DbSet<Report> Report { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

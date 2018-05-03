@@ -199,5 +199,24 @@ namespace Attitude_Loose.Test
 
             return businessDays;
         }
+
+        public static List<DateTime> GetBusinessDays(this DateTime firstDay, DateTime lastDay, params DateTime[] Holidays)
+        {
+            List<DateTime> reportdatelist = new List<DateTime>();
+            firstDay = firstDay.Date;
+            lastDay = lastDay.Date;
+            for (DateTime reportDate = firstDay; reportDate < lastDay; reportDate = reportDate.AddDays(1))
+            {
+                if (reportDate.DayOfWeek == DayOfWeek.Sunday || reportDate.DayOfWeek == DayOfWeek.Saturday || Holidays.Contains(reportDate))
+                {
+                }
+                else
+                {
+                    reportdatelist.Add(reportDate);
+                }
+            }
+            return reportdatelist;
+        }
+
     }
 }

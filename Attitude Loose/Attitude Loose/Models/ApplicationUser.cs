@@ -23,6 +23,9 @@ namespace Attitude_Loose.Models
 
         public int RoleId { get; set; }
 
+        public ICollection<Report> Reports { get; set; }
+
+
         //public virtual ICollection<Goal> Goals { get; set; }
 
         //public virtual ICollection<FollowUser> FollowFromUser { get; set; }

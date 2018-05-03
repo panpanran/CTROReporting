@@ -63,6 +63,20 @@ namespace Attitude_Loose.Test
         }
 
         [Test()]
+        public void GetBusinessDaysTest()
+        {
+            try
+            {
+                List<DateTime> dd = CTRPFunctions.GetBusinessDays(Convert.ToDateTime("2018-01-01").Date, Convert.ToDateTime("2018-01-31").Date, CTRPConst.Holidays);
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        [Test()]
         public void CreateTurnroundReportTest()
         {
             CTRPReports reports = new CTRPReports();

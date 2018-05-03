@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace Attitude_Loose.Controllers
@@ -33,6 +34,12 @@ namespace Attitude_Loose.Controllers
             //}
 
             return PartialView(model);
+        }
+
+        public ActionResult Analysis()
+        {
+            // Return the contents of the Stream to the client
+            return View();
         }
     }
 }

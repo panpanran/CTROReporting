@@ -22,11 +22,10 @@
 <br />
 
 
-<select id="reportlist">
-    <option disabled selected> -- Select an Option -- </option>
-    <option value="1">Turnround</option>
-    <option value="2">Sponsor Not Match</option>
-</select>
+@Html.EnumDropDownListFor(m => m.ReportList, // Model field that will be used to store user selection
+                              "- Select a report -", // Text for the first 'default' option
+                              new { @id = "reportlist"})
+
 
 @using (Html.BeginForm("Index", "Home", FormMethod.Post))
 {

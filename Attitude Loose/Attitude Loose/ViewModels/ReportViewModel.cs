@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Attitude_Loose.Test;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -24,6 +25,8 @@ namespace Attitude_Loose.ViewModels
         [Required]
         [Display(Name = "Report Option")]
         public string SelectedReport { get; set; }
+
+        public CTRPConst.ReportType ReportList { get; set; }
 
         public ReportGenerateViewModel()
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,11 @@ namespace Attitude_Loose.Test
 {
     public class CTRPConst
     {
+        public enum ReportType {
+            Turnround = 1,
+            [Description("Sponsor Not Match")]
+            Sponsor
+        }
         //holiday
         public static DateTime[] Holidays = new DateTime[]{
                     new DateTime(2018,1,1),
@@ -34,6 +40,9 @@ namespace Attitude_Loose.Test
         public const string sponsornotmatch_template_file = @"C:\Users\panr2\Downloads\DataWarehouse\Template Report\Sponsor Not Match Report.xlsx";
         public const string sponsornotmatch_original_file = @"C:\Users\panr2\Downloads\DataWarehouse\Sponsor Report\Code.txt";
         public const string sponsornotmatch_savepath = @"C:\Users\panr2\Downloads\DataWarehouse\Sponsor Report\Sponsor Not Match Report";
+        //PDA workload
+        public const string pdaworkload_original_file = @"C:\Users\panr2\Downloads\DataWarehouse\Weekly Report\Admin Abstraction.txt";
+
 
 
     }
