@@ -41,7 +41,7 @@ namespace Attitude_Loose.Test
         public const string sponsornotmatch_original_file = @"C:\Users\panr2\Downloads\DataWarehouse\Sponsor Report\Code.txt";
         public const string sponsornotmatch_savepath = @"C:\Users\panr2\Downloads\DataWarehouse\Sponsor Report\Sponsor Not Match Report";
         //PDA workload
-        public const string pdaworkload_original_file = @"C:\Users\panr2\Downloads\DataWarehouse\Weekly Report\Admin Abstraction.txt";
+        public const string pdaworkload_admin_abstraction_file = @"C:\Users\panr2\Downloads\DataWarehouse\Weekly Report\Admin Abstraction.txt";
 
 
 

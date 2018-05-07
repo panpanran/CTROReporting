@@ -35,6 +35,13 @@ namespace Attitude_Loose.ViewModels
 
     }
 
+    public class ReportAnalysisViewModel
+    {
+        public string Xaxis { get; set; }
+        public Dictionary<string,string> Yaxis { get; set; }
+        public string[] Loginname { get; set; }
+    }
+
     public class ReportProgressViewModel
     {
         public string ProgressPercentage { get; set; }

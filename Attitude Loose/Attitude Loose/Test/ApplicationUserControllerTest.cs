@@ -57,6 +57,26 @@ namespace Attitude_Loose.Test
         //    return Task.Run(() => CreateTurnroundReport(startDate, endDate));
         //}
         [Test()]
+        public void WeeklyPDAReportTest()
+        {
+            CTRPReports ctrpreports = new CTRPReports();
+            using (var conn = new NpgsqlConnection(CTRPConst.connString))
+            {
+                conn.Open();
+                try
+                {
+
+                    ctrpreports.PDAWorkloadBook(conn,"2018-04-01", "2018-04-30");
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+        }
+
+
+        [Test()]
         public void EmialTest()
         {
             CTRPFunctions.SendEmail("Turnround Report", "This is a test email. ", "ran.pan@nih.gov", @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Turnround Report_201803 By Ran Code.xlsx");

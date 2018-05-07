@@ -1,19 +1,22 @@
-﻿
-<h1>Chart Report</h1>
+﻿@model Attitude_Loose.ViewModels.ReportAnalysisViewModel
+
+<h1>04/01/2018 - 04/30/2018</h1>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 
 <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
 <script>
     var ctx = document.getElementById("myChart");
-    var config = {
+    var analysisconfig = {
         type: 'line',
         data: {
-            labels: ["Week1", "Week2", "Week3", "Week4"],
+
+            labels: [@Model.Xaxis],
+
             datasets: [
                 {
                     label: 'Bobbie',
-                    data: [1, 2, 0, 5],
+                    data: [@Model.Yaxis],
                     lineTension: 0,
                     backgroundColor: "#f2494c",
                     borderColor: "#f2494c",
@@ -35,7 +38,7 @@
             responsive: true,
             title: {
                 display: true,
-                text: 'Chart.js Line Chart'
+                text: 'Weekly PDA Report'
             },
             tooltips: {
                 mode: 'index',
@@ -50,14 +53,14 @@
                     display: true,
                     scaleLabel: {
                         display: true,
-                        labelString: 'Month'
+                        labelString: 'Date'
                     }
                 }],
                 yAxes: [{
                     display: true,
                     scaleLabel: {
                         display: true,
-                        labelString: 'Value'
+                        labelString: 'Work Number'
                     }
                 }]
             }
@@ -65,17 +68,17 @@
     };
 
     var newDataset = {
-        label: 'Dataset ' + config.data.datasets.length,
+        label: 'Dataset ' + analysisconfig.data.datasets.length,
         backgroundColor: "#FFFF00",
         borderColor: "#FFFF00",
         data: [],
         fill: false
     };
-    for (var index = 0; index < config.data.labels.length; ++index) {
-        newDataset.data.push(2);
+    for (var index = 0; index < analysisconfig.data.labels.length; ++index) {
+        newDataset.data.push(33);
     }
 
-    config.data.datasets.push(newDataset);
+    analysisconfig.data.datasets.push(newDataset);
 
-    var myChart = new Chart(ctx, config);
+    var myChart = new Chart(ctx, analysisconfig);
 </script>

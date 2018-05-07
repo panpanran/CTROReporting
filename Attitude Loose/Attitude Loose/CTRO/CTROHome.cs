@@ -44,7 +44,7 @@ namespace Attitude_Loose.CTRO
             return t.Result;
         }
 
-        //turnround
+        //sponsornotmatch
         public async Task<int> CreateSponsorNotMatcReportAsync(string toemail)
         {
             Task<int> t = Task.Run(() =>
@@ -74,5 +74,30 @@ namespace Attitude_Loose.CTRO
             return t.Result;
         }
 
+        //analysis
+        public void CreatAnalysisChart(string startDate, string endDate, string toemail, out string Xaxis, out Dictionary<string,string> Yaxis, out string[] Loginname)
+        {
+            CTRPReports reports = new CTRPReports();
+            Yaxis = new Dictionary<string, string>();
+            using (var conn = new NpgsqlConnection(CTRPConst.connString))
+            {
+                conn.Open();
+                try
+                {
+                    Loginname = reports.PDAWorkloadBook(conn, startDate, endDate).Tables["NCI"].AsEnumerable().Select(x => x.Field<string>("loginname")).Distinct().ToArray();
+                    Xaxis = string.Join(",", reports.PDAWorkloadBook(conn, startDate, endDate).Tables["NCI"].AsEnumerable().Select(x => x.Field<string>("completeddate")).Distinct().ToList());
+                    foreach (string ln in Loginname)
+                    {
+                        Yaxis.Add(ln, string.Join(",", reports.PDAWorkloadBook(conn, startDate, endDate).Tables["NCI"].AsEnumerable().Where(x => x.Field<string>("loginname") == ln).Select(x => x.Field<int>("completeddate").ToString()).ToList()));
+                    }
+                    //Yaxis = string.Join(",", reports.PDAWorkloadBook(conn, startDate, endDate).Tables["NCI"].AsEnumerable().Where(x => x.Field<string>("loginname") == "adanoa").Select(x => x.Field<int>("worknumber").ToString()).ToList());
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+            }
+        }
     }
 }
