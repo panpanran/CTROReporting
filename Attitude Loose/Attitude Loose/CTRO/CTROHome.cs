@@ -75,22 +75,48 @@ namespace Attitude_Loose.CTRO
         }
 
         //analysis
-        public void CreatAnalysisChart(string startDate, string endDate, string toemail, out string Xaxis, out Dictionary<string,string> Yaxis, out string[] Loginname)
+        public void CreatAnalysisChart(string startDate, string endDate, string toemail, out string Xaxis, out Dictionary<string, string> nYaxis, out Dictionary<string, string> tYaxis, out string[] Loginname)
         {
             CTRPReports reports = new CTRPReports();
-            Yaxis = new Dictionary<string, string>();
+            nYaxis = new Dictionary<string, string>();
+            tYaxis = new Dictionary<string, string>();
             using (var conn = new NpgsqlConnection(CTRPConst.connString))
             {
                 conn.Open();
                 try
                 {
-                    Loginname = reports.PDAWorkloadBook(conn, startDate, endDate).Tables["NCI"].AsEnumerable().Select(x => x.Field<string>("loginname")).Distinct().ToArray();
-                    Xaxis = string.Join(",", reports.PDAWorkloadBook(conn, startDate, endDate).Tables["NCI"].AsEnumerable().Select(x => x.Field<string>("completeddate")).Distinct().ToList());
+                    DataSet tempDS = reports.PDAWorkloadBook(conn, startDate, endDate);
+
+                    Loginname = tempDS.Tables["NCI"].AsEnumerable().Select(x => x.Field<string>("loginname")).Distinct().ToArray();
+                    List<string> tempdates = tempDS.Tables["NCI"].AsEnumerable().OrderBy(x => x.Field<int>("completeddate")).Select(x => x.Field<int>("completeddate").ToString()).Distinct().ToList();
+                    Xaxis = string.Join(",", tempdates);
                     foreach (string ln in Loginname)
                     {
-                        Yaxis.Add(ln, string.Join(",", reports.PDAWorkloadBook(conn, startDate, endDate).Tables["NCI"].AsEnumerable().Where(x => x.Field<string>("loginname") == ln).Select(x => x.Field<int>("completeddate").ToString()).ToList()));
+                        List<int> nYvalue = new List<int>();
+                        List<string> tYvalue = new List<string>();
+                        foreach (string tdate in tempdates)
+                        {
+                            int tempnumber = tempDS.Tables["NCI"].AsEnumerable()
+                                .Where(x => x.Field<string>("loginname") == ln && x.Field<int>("completeddate") == Convert.ToInt32(tdate))
+                                .Select(x => x.Field<int>("worknumber")).FirstOrDefault();
+                            string temptime = tempDS.Tables["NCI"].AsEnumerable()
+                                .Where(x => x.Field<string>("loginname") == ln && x.Field<int>("completeddate") == Convert.ToInt32(tdate))
+                                .Select(x => x.Field<string>("worktime")).FirstOrDefault();
+                            if (tempnumber != 0)
+                            {
+                                nYvalue.Add(tempnumber);
+                                tYvalue.Add(temptime);
+                            }
+                            else
+                            {
+                                nYvalue.Add(0);
+                                tYvalue.Add("0");
+                            }
+                        }
+                        nYaxis.Add(ln, string.Join(",", nYvalue));
+                        tYaxis.Add(ln, string.Join(",", tYvalue));
                     }
-                    //Yaxis = string.Join(",", reports.PDAWorkloadBook(conn, startDate, endDate).Tables["NCI"].AsEnumerable().Where(x => x.Field<string>("loginname") == "adanoa").Select(x => x.Field<int>("worknumber").ToString()).ToList());
+                    string test = "";
                 }
                 catch (Exception ex)
                 {

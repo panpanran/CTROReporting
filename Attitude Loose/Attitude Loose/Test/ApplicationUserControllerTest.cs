@@ -1,4 +1,5 @@
 ﻿using Attitude_Loose.Controllers;
+using Attitude_Loose.CTRO;
 using Attitude_Loose.Infrastructure;
 using Attitude_Loose.Models;
 using Attitude_Loose.Repository;
@@ -59,14 +60,18 @@ namespace Attitude_Loose.Test
         [Test()]
         public void WeeklyPDAReportTest()
         {
-            CTRPReports ctrpreports = new CTRPReports();
+            CTROHome home = new CTROHome();
             using (var conn = new NpgsqlConnection(CTRPConst.connString))
             {
                 conn.Open();
                 try
                 {
-
-                    ctrpreports.PDAWorkloadBook(conn,"2018-04-01", "2018-04-30");
+                    string Xaxis = "";
+                    Dictionary<string, string> nYaxis = new Dictionary<string, string>();
+                    Dictionary<string, string> tYaxis = new Dictionary<string, string>();
+                    string[] loginname = { };
+                    home.CreatAnalysisChart("2018-04-01", "2018-04-30", "", out Xaxis, out nYaxis, out tYaxis, out loginname);
+                    string text = "";
                 }
                 catch (Exception ex)
                 {

@@ -4,41 +4,24 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 
-<canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+<canvas class="my-4" id="numberChart" width="900" height="380"></canvas>
+<canvas class="my-4" id="timeChart" width="900" height="380"></canvas>
 <script>
-    var ctx = document.getElementById("myChart");
-    var analysisconfig = {
+    var ctxNumber = document.getElementById("numberChart");
+    var ctxTime = document.getElementById("timeChart");
+    var numberconfig = {
         type: 'line',
         data: {
 
             labels: [@Model.Xaxis],
 
-            datasets: [
-                {
-                    label: 'Bobbie',
-                    data: [@Model.Yaxis],
-                    lineTension: 0,
-                    backgroundColor: "#f2494c",
-                    borderColor: "#f2494c",
-                    borderWidth: 4,
-                    pointBackgroundColor: '#007bff',
-                    fill: false
-                },
-                {
-                    label: 'Sisi',
-                    data: [5, 4, 0, 2],
-                    lineTension: 0,
-                    backgroundColor: "#4857f1",
-                    borderColor: "#4857f1",
-                    borderWidth: 4,
-                    fill: false
-                }]
+            datasets: []
         },
         options: {
             responsive: true,
             title: {
                 display: true,
-                text: 'Weekly PDA Report'
+                text: 'Work Number Report'
             },
             tooltips: {
                 mode: 'index',
@@ -67,18 +50,73 @@
         }
     };
 
-    var newDataset = {
-        label: 'Dataset ' + analysisconfig.data.datasets.length,
-        backgroundColor: "#FFFF00",
-        borderColor: "#FFFF00",
-        data: [],
-        fill: false
+        var timeconfig = {
+        type: 'line',
+        data: {
+
+            labels: [@Model.Xaxis],
+
+            datasets: []
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: 'Work Time Report'
+            },
+            tooltips: {
+                mode: 'index',
+                intersect: false,
+            },
+            hover: {
+                mode: 'nearest',
+                intersect: true
+            },
+            scales: {
+                xAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Date'
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Work Time'
+                    }
+                }]
+            }
+        }
     };
-    for (var index = 0; index < analysisconfig.data.labels.length; ++index) {
-        newDataset.data.push(33);
+
+
+    @for (var index = 0; index < Model.Loginname.Count(); index++) {
+        var loginname = Model.Loginname.GetValue(index);
+        var nYaxis = Model.nYaxis[loginname.ToString()];
+        @:var newDataset = { data: [], fill: false };
+        @:newDataset.data.push(@nYaxis);
+        @:newDataset.label = '@loginname';
+        @:newDataset.borderColor = "rgba(" + (@index * 100).toString() + ", " + (@index * 50).toString() + ", " + (@index * 20).toString() + ", " + "0.9)";
+        @:newDataset.backgroundColor = "rgba(" + (@index * 100).toString() + ", " + (@index * 50).toString() + ", " + (@index * 20).toString() + ", " + "0.9)";
+        @:numberconfig.data.datasets.push(newDataset);
     }
 
-    analysisconfig.data.datasets.push(newDataset);
+        @for (var index = 0; index < Model.Loginname.Count(); index++) {
+        var loginname = Model.Loginname.GetValue(index);
+        var tYaxis = Model.tYaxis[loginname.ToString()];
+        @:var newDataset = { data: [], fill: false };
+        @:newDataset.data.push(@tYaxis);
+        @:newDataset.label = '@loginname';
+        @:newDataset.borderColor = "rgba(" + (@index * 100).toString() + ", " + (@index * 50).toString() + ", " + (@index * 20).toString() + ", " + "0.9)";
+        @:newDataset.backgroundColor = "rgba(" + (@index * 100).toString() + ", " + (@index * 50).toString() + ", " + (@index * 20).toString() + ", " + "0.9)";
+        @:timeconfig.data.datasets.push(newDataset);
+    }
 
-    var myChart = new Chart(ctx, analysisconfig);
+
+    var numberChart = new Chart(ctxNumber, numberconfig);
+    var timeChart = new Chart(ctxTime, timeconfig);
+
+
 </script>

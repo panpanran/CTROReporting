@@ -42,20 +42,15 @@ namespace Attitude_Loose.Controllers
         {
             CTROHome home = new CTROHome();
             string Xaxis = "";
-            Dictionary<string, string> Yaxis = new Dictionary<string, string>();
+            Dictionary<string, string> nYaxis = new Dictionary<string, string>();
+            Dictionary<string, string> tYaxis = new Dictionary<string, string>();
             string[] loginname = { };
-            home.CreatAnalysisChart("2018-04-01", "2018-04-30", "", out Xaxis, out Yaxis, out loginname);
+            home.CreatAnalysisChart("2018-04-01", "2018-04-30", "", out Xaxis, out nYaxis, out tYaxis, out loginname);
+            model.Loginname = loginname;
             model.Xaxis = Xaxis;
-            model.Yaxis = Yaxis;
+            model.nYaxis = nYaxis;
+            model.tYaxis = tYaxis;
 
-            //List<string> list = new List<string>();
-            //list.Add("Week1");
-            //list.Add("Week2");
-            //list.Add("Week3");
-            //list.Add("Week4");
-
-            //model.Xaxis = list.ToArray() ;
-            //model.Yaxis = "1, 2, 3, 1";
             return View(model);
         }
     }
