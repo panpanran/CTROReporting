@@ -13,6 +13,13 @@ namespace Attitude_Loose.Test
             [Description("Sponsor Not Match")]
             Sponsor
         }
+
+        public enum AnalysisType
+        {
+            PDAWorkload = 1,
+            SDAWOrkload
+        }
+
         //holiday
         public static DateTime[] Holidays = new DateTime[]{
                     new DateTime(2018,1,1),

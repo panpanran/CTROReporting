@@ -37,10 +37,35 @@ namespace Attitude_Loose.ViewModels
 
     public class ReportAnalysisViewModel
     {
+        [Required]
+        [Display(Name = "Start Date")]
+        public string StartDate { get; set; }
+
+        [Required]
+        [Display(Name = "End Date")]
+        public string EndDate { get; set; }
+
+        [Required]
+        [Display(Name = "Analysis Option")]
+        public string SelectedAnalysis { get; set; }
+
+        public bool AnalysisResult { get; set; }
+
+
+        public CTRPConst.AnalysisType ReportList { get; set; }
+
+
         public string Xaxis { get; set; }
         public Dictionary<string, string> nYaxis { get; set; }
         public Dictionary<string, string> tYaxis { get; set; }
         public string[] Loginname { get; set; }
+
+        public ReportAnalysisViewModel()
+        {
+            nYaxis = new Dictionary<string, string>();
+            tYaxis = new Dictionary<string, string>();
+            Loginname = new string[] {""};
+        }
     }
 
     public class ReportProgressViewModel

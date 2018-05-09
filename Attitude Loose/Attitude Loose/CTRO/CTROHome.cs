@@ -105,12 +105,19 @@ namespace Attitude_Loose.CTRO
                             if (tempnumber != 0)
                             {
                                 nYvalue.Add(tempnumber);
-                                tYvalue.Add(temptime);
                             }
                             else
                             {
                                 nYvalue.Add(0);
+                            }
+
+                            if (string.IsNullOrEmpty(temptime))
+                            {
                                 tYvalue.Add("0");
+                            }
+                            else
+                            {
+                                tYvalue.Add(temptime);
                             }
                         }
                         nYaxis.Add(ln, string.Join(",", nYvalue));
