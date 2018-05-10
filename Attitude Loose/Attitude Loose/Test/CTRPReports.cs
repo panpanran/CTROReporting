@@ -173,10 +173,11 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
         #endregion
 
         #region PDA workload
-        public DataSet PDAWorkloadBook(NpgsqlConnection conn, string startDate, string endDate)
+        public DataSet PDAWorkloadBook(NpgsqlConnection conn, string startDate, string endDate, out DataSet rankDS)
         {
             //All
             DataSet outputDS = new DataSet();
+            rankDS = new DataSet();
             NpgsqlCommand cmd = null;
             NpgsqlDataReader datareader = null;
             //NCI
@@ -184,12 +185,14 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
             cmd = new NpgsqlCommand(admin_abstraction_text, conn);
             datareader = cmd.ExecuteReader();
             DataTable nciDT = new DataTable();
+            DataTable ncirankDT = new DataTable();
             nciDT.Load(datareader);
-            outputDS.Tables.Add(PDAWorkloadSheet(nciDT, "NCI"));
+            outputDS.Tables.Add(PDAWorkloadSheet(nciDT, "NCI",out ncirankDT));
+            rankDS.Tables.Add(ncirankDT);
             return outputDS;
         }
 
-        private DataTable PDAWorkloadSheet(DataTable inputDT, string tablename)
+        private DataTable PDAWorkloadSheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
         {
             DateTime completeddate = new DateTime();
             DateTime starteddate = new DateTime();
@@ -197,7 +200,8 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
             DateTime offholddate = new DateTime();
             //DateTime reactivateddate = new DateTime();
             DataTable outputDT = inputDT.Clone();
-            DataTable tempDT = new DataTable();
+            DataTable dailyDT = new DataTable();
+            conclusionDT = new DataTable();
 
             outputDT.Columns.Add("worknumber", typeof(Int32));
             outputDT.Columns.Add("worktime", typeof(Int32));
@@ -260,12 +264,16 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
                     }
                 }
 
-                tempDT = outputDT.AsEnumerable()
+                dailyDT = outputDT.AsEnumerable()
 .GroupBy(x => new { loginname = x.Field<string>("loginname"), completeddate = x.Field<DateTime>("completeddate").Date })
-.Select(x => new { x.Key.loginname, completeddate = Convert.ToInt32(String.Format("{0:yyyyMMdd}", x.Key.completeddate)), worknumber = x.Count(), worktime = String.Format("{0:.##}", x.Select(y => y.Field<int>("worktime")).Average())}).ToDataTable();
-                tempDT.TableName = tablename;
+.Select(x => new { x.Key.loginname, completeddate = Convert.ToInt32(String.Format("{0:yyyyMMdd}", x.Key.completeddate)), worknumber = x.Count().ToString(), worktime = String.Format("{0:.##}", x.Select(y => y.Field<int>("worktime")).Average())}).ToDataTable();
+                dailyDT.TableName = tablename;
 
-                return tempDT;
+                conclusionDT = outputDT.AsEnumerable()
+                    .GroupBy(x => new { loginname = x.Field<string>("loginname") }).Select(x => new { x.Key.loginname, worknumber = x.Count().ToString(), worktime = String.Format("{0:.##}", x.Select(y => y.Field<int>("worktime")).Average()) }).ToDataTable();
+                conclusionDT.TableName = tablename;
+
+                return dailyDT;
             }
             catch (Exception ex)
             {

@@ -47,46 +47,37 @@ namespace Attitude_Loose.Controllers
 
             CTROHome home = new CTROHome();
             string Xaxis = "";
-            Dictionary<string, string> nYaxis = new Dictionary<string, string>();
-            Dictionary<string, string> tYaxis = new Dictionary<string, string>();
+            List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
             string[] loginname = { };
-            home.CreatAnalysisChart("2018-04-01", "2018-04-01", "", out Xaxis, out nYaxis, out tYaxis, out loginname);
+            home.CreatPDAWorkloadAnalysisChart("2018-04-01", "2018-04-01", "", out Xaxis, out Yaxis, out loginname);
             model.Loginname = loginname;
             model.Xaxis = Xaxis;
-            model.nYaxis = nYaxis;
-            model.tYaxis = tYaxis;
+            model.Yaxis = Yaxis[0];
             return View(model);
         }
 
         [HttpPost]
         public ActionResult Analysis(ReportAnalysisViewModel model)
         {
+            CTROHome home = new CTROHome();
+            string Xaxis = "";
+            List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
+            string[] loginname = { };
+
             if (ModelState.IsValid)
             {
-                CTROHome home = new CTROHome();
-                string Xaxis = "";
-                Dictionary<string, string> nYaxis = new Dictionary<string, string>();
-                Dictionary<string, string> tYaxis = new Dictionary<string, string>();
-                string[] loginname = { };
-                home.CreatAnalysisChart(model.StartDate, model.EndDate, "", out Xaxis, out nYaxis, out tYaxis, out loginname);
+                home.CreatPDAWorkloadAnalysisChart(model.StartDate, model.EndDate, "", out Xaxis, out Yaxis, out loginname);
                 model.Loginname = loginname;
                 model.Xaxis = Xaxis;
-                model.nYaxis = nYaxis;
-                model.tYaxis = tYaxis;
+                model.Yaxis = Yaxis[2];
                 model.AnalysisResult = true;
             }
             else
             {
-                CTROHome home = new CTROHome();
-                string Xaxis = "";
-                Dictionary<string, string> nYaxis = new Dictionary<string, string>();
-                Dictionary<string, string> tYaxis = new Dictionary<string, string>();
-                string[] loginname = { };
-                home.CreatAnalysisChart("2018-04-01", "2018-04-01", "", out Xaxis, out nYaxis, out tYaxis, out loginname);
+                home.CreatPDAWorkloadAnalysisChart("2018-04-01", "2018-04-01", "", out Xaxis, out Yaxis, out loginname);
                 model.Loginname = loginname;
                 model.Xaxis = Xaxis;
-                model.nYaxis = nYaxis;
-                model.tYaxis = tYaxis;
+                model.Yaxis = Yaxis[2];
                 model.AnalysisResult = false;
             }
             return View(model);

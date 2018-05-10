@@ -75,54 +75,61 @@ namespace Attitude_Loose.CTRO
         }
 
         //analysis
-        public void CreatAnalysisChart(string startDate, string endDate, string toemail, out string Xaxis, out Dictionary<string, string> nYaxis, out Dictionary<string, string> tYaxis, out string[] Loginname)
+        public void CreatPDAWorkloadAnalysisChart(string startDate, string endDate, string toemail, out string Xaxis, out List<Dictionary<string, string>> Yaxis, out string[] Loginname)
         {
             CTRPReports reports = new CTRPReports();
-            nYaxis = new Dictionary<string, string>();
-            tYaxis = new Dictionary<string, string>();
+            string[] variables = { "worknumber", "worktime" };
+            Yaxis = new List<Dictionary<string, string>>();
+            Dictionary<string, string> tempYaxis = new Dictionary<string, string>();
+            Dictionary<string, string> temprankYaxis = new Dictionary<string, string>();
+            DataSet rankDS = new DataSet();
             using (var conn = new NpgsqlConnection(CTRPConst.connString))
             {
                 conn.Open();
                 try
                 {
-                    DataSet tempDS = reports.PDAWorkloadBook(conn, startDate, endDate);
+                    DataSet tempDS = reports.PDAWorkloadBook(conn, startDate, endDate, out rankDS);
 
                     Loginname = tempDS.Tables["NCI"].AsEnumerable().Select(x => x.Field<string>("loginname")).Distinct().ToArray();
                     List<string> tempdates = tempDS.Tables["NCI"].AsEnumerable().OrderBy(x => x.Field<int>("completeddate")).Select(x => x.Field<int>("completeddate").ToString()).Distinct().ToList();
                     Xaxis = string.Join(",", tempdates);
-                    foreach (string ln in Loginname)
+                    foreach (string s in variables)
                     {
-                        List<int> nYvalue = new List<int>();
-                        List<string> tYvalue = new List<string>();
-                        foreach (string tdate in tempdates)
+                        foreach (string ln in Loginname)
                         {
-                            int tempnumber = tempDS.Tables["NCI"].AsEnumerable()
-                                .Where(x => x.Field<string>("loginname") == ln && x.Field<int>("completeddate") == Convert.ToInt32(tdate))
-                                .Select(x => x.Field<int>("worknumber")).FirstOrDefault();
-                            string temptime = tempDS.Tables["NCI"].AsEnumerable()
-                                .Where(x => x.Field<string>("loginname") == ln && x.Field<int>("completeddate") == Convert.ToInt32(tdate))
-                                .Select(x => x.Field<string>("worktime")).FirstOrDefault();
-                            if (tempnumber != 0)
+                            string worktotal = rankDS.Tables["NCI"].AsEnumerable().Where(x => x.Field<string>("loginname") == ln).Select(x => x.Field<string>(s)).FirstOrDefault();
+                            List<string> Yvalue = new List<string>();
+                            foreach (string tdate in tempdates)
                             {
-                                nYvalue.Add(tempnumber);
+                                string tempvalue = tempDS.Tables["NCI"].AsEnumerable()
+                                    .Where(x => x.Field<string>("loginname") == ln && x.Field<int>("completeddate") == Convert.ToInt32(tdate))
+                                    .Select(x => x.Field<string>(s)).FirstOrDefault();
+
+                                if (string.IsNullOrEmpty(tempvalue))
+                                {
+                                    Yvalue.Add("0");
+                                }
+                                else
+                                {
+                                    Yvalue.Add(tempvalue);
+                                }
                             }
-                            else
+                            tempYaxis.Add(ln, string.Join(",", Yvalue));
+
+
+                            if (string.IsNullOrEmpty(worktotal))
                             {
-                                nYvalue.Add(0);
+                                worktotal = "0";
                             }
 
-                            if (string.IsNullOrEmpty(temptime))
-                            {
-                                tYvalue.Add("0");
-                            }
-                            else
-                            {
-                                tYvalue.Add(temptime);
-                            }
+                            temprankYaxis.Add(ln, worktotal);
                         }
-                        nYaxis.Add(ln, string.Join(",", nYvalue));
-                        tYaxis.Add(ln, string.Join(",", tYvalue));
+                        Yaxis.Add(tempYaxis);
+                        Yaxis.Add(temprankYaxis);
+                        tempYaxis = new Dictionary<string, string>();
+                        temprankYaxis = new Dictionary<string, string>();
                     }
+
                     string test = "";
                 }
                 catch (Exception ex)

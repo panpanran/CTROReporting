@@ -56,14 +56,12 @@ namespace Attitude_Loose.ViewModels
 
 
         public string Xaxis { get; set; }
-        public Dictionary<string, string> nYaxis { get; set; }
-        public Dictionary<string, string> tYaxis { get; set; }
+        public Dictionary<string, string> Yaxis { get; set; }
         public string[] Loginname { get; set; }
 
         public ReportAnalysisViewModel()
         {
-            nYaxis = new Dictionary<string, string>();
-            tYaxis = new Dictionary<string, string>();
+            Yaxis = new Dictionary<string, string>();
             Loginname = new string[] {""};
         }
     }

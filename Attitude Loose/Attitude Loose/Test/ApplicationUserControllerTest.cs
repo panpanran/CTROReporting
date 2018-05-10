@@ -67,10 +67,9 @@ namespace Attitude_Loose.Test
                 try
                 {
                     string Xaxis = "";
-                    Dictionary<string, string> nYaxis = new Dictionary<string, string>();
-                    Dictionary<string, string> tYaxis = new Dictionary<string, string>();
+                    List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
                     string[] loginname = { };
-                    home.CreatAnalysisChart("2017-02-07", "2017-02-08", "", out Xaxis, out nYaxis, out tYaxis, out loginname);
+                    home.CreatPDAWorkloadAnalysisChart("2017-02-07", "2017-02-08", "", out Xaxis, out Yaxis, out loginname);
                     string text = "";
                 }
                 catch (Exception ex)
