@@ -75,7 +75,7 @@ namespace Attitude_Loose.CTRO
         }
 
         //analysis
-        public void CreatPDAWorkloadAnalysisChart(string startDate, string endDate, string toemail, out string Xaxis, out List<Dictionary<string, string>> Yaxis, out string[] Loginname)
+        public void CreatPDAWorkloadAnalysisChart(string startDate, string endDate, string toemail, out string[] Xaxis, out string[] ChartName, out string[] ChartType, out List<Dictionary<string, string>> Yaxis, out string[] Loginname)
         {
             CTRPReports reports = new CTRPReports();
             string[] variables = { "worknumber", "worktime" };
@@ -92,7 +92,10 @@ namespace Attitude_Loose.CTRO
 
                     Loginname = tempDS.Tables["NCI"].AsEnumerable().Select(x => x.Field<string>("loginname")).Distinct().ToArray();
                     List<string> tempdates = tempDS.Tables["NCI"].AsEnumerable().OrderBy(x => x.Field<int>("completeddate")).Select(x => x.Field<int>("completeddate").ToString()).Distinct().ToList();
-                    Xaxis = string.Join(",", tempdates);
+                    Xaxis = new string[] { string.Join(",", tempdates), "", string.Join(",", tempdates), "" };
+                    ChartName = new string[] {"Daily Number Chart", "Work Number Rank Chart", "Daily Time Chart", "Work Time Rank Chart" };
+                    ChartType = new string[] { "line", "bar", "line", "bar" };
+
                     foreach (string s in variables)
                     {
                         foreach (string ln in Loginname)
@@ -125,6 +128,7 @@ namespace Attitude_Loose.CTRO
                             temprankYaxis.Add(ln, worktotal);
                         }
                         Yaxis.Add(tempYaxis);
+                        temprankYaxis = temprankYaxis.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
                         Yaxis.Add(temprankYaxis);
                         tempYaxis = new Dictionary<string, string>();
                         temprankYaxis = new Dictionary<string, string>();

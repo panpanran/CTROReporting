@@ -17,16 +17,17 @@ namespace Attitude_Loose
                      ));
 
             bundles.Add(new ScriptBundle("~/Scripts/HomeLayout").Include(
-                   "~/Scripts/jquery-3.0.0.js",
+                   "~/Scripts/jquery-3.1.0.js",
                    "~/Scripts/jquery.unobtrusive-ajax.js",
                    "~/Scripts/bootstrap.js",
+                   "~/Scripts/Chart.js",
                    "~/Scripts/jquery-ui-1.12.1.js",
                    //"~/Scripts/bootstrap.bundle.js", // dropdown
                    "~/Scripts/jquery.nicescroll.js"//modal
                    ));
 
             bundles.Add(new ScriptBundle("~/Scripts/PageLayout").Include(
-                   "~/Scripts/jquery-3.0.0.js",
+                   "~/Scripts/jquery-3.1.0.js",
                    "~/Scripts/jquery.unobtrusive-ajax.js",
                    "~/Scripts/bootstrap.js",
                    "~/Scripts/jquery-ui-1.12.1.js",//datepicker

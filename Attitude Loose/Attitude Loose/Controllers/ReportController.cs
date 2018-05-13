@@ -46,13 +46,17 @@ namespace Attitude_Loose.Controllers
             model.AnalysisResult = false;
 
             CTROHome home = new CTROHome();
-            string Xaxis = "";
+            string[] Xaxis = { };
+            string[] ChartName = { };
+            string[] ChartType = { };
             List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
             string[] loginname = { };
-            home.CreatPDAWorkloadAnalysisChart("2018-04-01", "2018-04-01", "", out Xaxis, out Yaxis, out loginname);
+            home.CreatPDAWorkloadAnalysisChart("2018-04-02", "2018-04-02", "", out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
             model.Loginname = loginname;
             model.Xaxis = Xaxis;
-            model.Yaxis = Yaxis[0];
+            model.Yaxis = Yaxis;
+            model.ChartName = ChartName;
+            model.ChartType = ChartType;
             return View(model);
         }
 
@@ -60,26 +64,28 @@ namespace Attitude_Loose.Controllers
         public ActionResult Analysis(ReportAnalysisViewModel model)
         {
             CTROHome home = new CTROHome();
-            string Xaxis = "";
+            string[] Xaxis = { };
+            string[] ChartName = { };
+            string[] ChartType = { };
             List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
             string[] loginname = { };
 
             if (ModelState.IsValid)
             {
-                home.CreatPDAWorkloadAnalysisChart(model.StartDate, model.EndDate, "", out Xaxis, out Yaxis, out loginname);
-                model.Loginname = loginname;
-                model.Xaxis = Xaxis;
-                model.Yaxis = Yaxis[2];
+                home.CreatPDAWorkloadAnalysisChart(model.StartDate, model.EndDate, "", out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
                 model.AnalysisResult = true;
             }
             else
             {
-                home.CreatPDAWorkloadAnalysisChart("2018-04-01", "2018-04-01", "", out Xaxis, out Yaxis, out loginname);
-                model.Loginname = loginname;
-                model.Xaxis = Xaxis;
-                model.Yaxis = Yaxis[2];
+                home.CreatPDAWorkloadAnalysisChart("2018-04-02", "2018-04-02", "", out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
                 model.AnalysisResult = false;
             }
+            model.Loginname = loginname;
+            model.Xaxis = Xaxis;
+            model.Yaxis = Yaxis;
+            model.ChartName = ChartName;
+            model.ChartType = ChartType;
+
             return View(model);
         }
     }

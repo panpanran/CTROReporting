@@ -74,7 +74,7 @@ namespace Attitude_Loose.Controllers
             return View("TopicList", goalsList);
         }
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult Test()
         {
             return View();

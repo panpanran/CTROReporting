@@ -52,128 +52,85 @@
 
 <br><br>
 
-<div id="tabs">
-    <ul>
-        <li><a href="#tabs-1">Nunc tincidunt</a></li>
-        <li><a href="#tabs-2">Proin dolor</a></li>
-        <li><a href="#tabs-3">Aenean lacinia</a></li>
-    </ul>
-    <div id="tabs-1">
-        <div id="chartcard" class="col-md-12">
-            <canvas class="my-4" id="analysisChart" width="900" height="380"></canvas>
-        </div>
-    </div>
-    <div id="tabs-2">
-        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
-    </div>
-    <div id="tabs-3">
-        <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
-        <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
-    </div>
+<div id="charttabs">
+    <ul></ul>
 </div>
+
 <script>
+
     $(function () {
-        $("#tabs").tabs();
-    });
-    //var horizontalBarChartData = {
-    //    labels: ['Rank'],
-    //    datasets: [{
-    //        label: 'Dataset 1',
-    //        backgroundColor: "rgba(" + (Math.random() * 255).toString() + ", " + (Math.random() * 255).toString() + ", " + (Math.random() * 255).toString() + ", " + "0.5)",
-    //        borderColor: "rgba(" + (Math.random() * 255).toString() + ", " + (Math.random() * 255).toString() + ", " + (Math.random() * 255).toString() + ", " + "0.5)",
-    //        borderWidth: 1,
-    //        data: [1]
-    //    },
-    //        {
-    //            label: 'Dataset 2',
-    //            backgroundColor: "rgba(" + (Math.random() * 255).toString() + ", " + (Math.random() * 255).toString() + ", " + (Math.random() * 255).toString() + ", " + "0.5)",
-    //            borderColor: "rgba(" + (Math.random() * 255).toString() + ", " + (Math.random() * 255).toString() + ", " + (Math.random() * 255).toString() + ", " + "0.5)",
-    //            borderWidth: 1,
-    //            data: [4]
-    //        }
-    //    ]
-    //};
+        var tabs = $("#charttabs").tabs();
+        var tabTitle = 'panpanr',
+            tabContent = '',
+            tabTemplate = "<li><a href='#{href}'>#{label}</a></li>",
+            tabCounter = 0;
 
-    //$(function () {
-        //var ctxnumber = document.getElementById('numberrankchart');
-        //var numberrankconfig = {
-        //    type: 'horizontalBar',
-        //    data: horizontalBarChartData,
-        //    options: {
-        //        // Elements options apply to all of the options unless overridden in a dataset
-        //        // In this case, we are setting the border of each horizontal bar to be 2px wide
-        //        elements: {
-        //            rectangle: {
-        //                borderWidth: 1,
-        //            }
-        //        },
-        //        responsive: true,
-        //        legend: {
-        //            position: 'right',
-        //        },
-        //        title: {
-        //            display: true,
-        //            text: 'Total Amount Rank'
-        //        },
-        //        scales: {
-        //            xAxes: [{
-        //                ticks: {
-        //                    beginAtZero: true
-        //                }
-        //            }]
-        //        }
-        //    }
-        //};
-        //var numberrankChart = new Chart(ctxnumber, numberrankconfig);
+        @for (var ind = 0; ind < Model.Xaxis.Count(); ind = ind + 1) {
+            var Xaxis = Model.Xaxis[ind];
+            var ChartName = Model.ChartName[ind];
+            var ChartType = Model.ChartType[ind];
 
-    //    var timerankChart = new Chart(ctxtime, timerankconfig);
-    //})
-    var ctxNumber = document.getElementById("analysisChart");
-        var numberconfig = {
-            type: 'line',
-            data: {
+            //dynamic tabs
+      @:      var label = '@ChartName',
+      @:          id = "tabs-" +  @ind.ToString(),
+      @:          li = $(tabTemplate.replace(/#\{href\}/g, "#" + id).replace(/#\{label\}/g, label)),
+      @:          tabContentHtml = tabContent;
 
-                labels: [@Model.Xaxis],
+      @:      tabs.find(".ui-tabs-nav").append(li);
+      @:      tabs.append("<div id='" + id + "'>" + tabContentHtml + "</p></div>");
+      @:      tabs.tabs("refresh");
 
-                datasets: []
-            },
-            options: {
-                responsive: true,
-                title: {
-                    display: true,
-                    text: 'Daily Work Number'
-                },
-                tooltips: {
-                    mode: 'index',
-                    intersect: false,
-                },
-                hover: {
-                    mode: 'nearest',
-                    intersect: true
-                },
-                scales: {
-                    xAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Date'
-                        }
-                    }],
-                    yAxes: [{
-                        display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Value'
-                        }
-                    }]
-                }
-            }
-        };
+                  @:  var chartconfig = {
+      @:      type: '@ChartType',
+      @:      data: {
+      @:          labels: [],
+      @:          datasets: []
+      @:      },
+      @:      options: {
+      @:          responsive: true,
+      @:          title: {
+      @:              display: true,
+      @:              text: '@ChartName'
+      @:          },
+      @:          tooltips: {
+      @:              mode: 'index',
+      @:              intersect: false,
+      @:          },
+      @:          hover: {
+      @:              mode: 'nearest',
+      @:              intersect: true
+      @:          },
+      @:          scales: {
+      @:              xAxes: [{
+      @:                  display: true,
+      @:                  scaleLabel: {
+      @:                      display: true,
+      @:                      labelString: 'X'
+      @:                  }
+      @:              }],
+      @:              yAxes: [{
+      @:                  display: true,
+      @:                  scaleLabel: {
+      @:                      display: true,
+      @:                      labelString: 'Y'
+      @:                  }
+      @:              }]
+      @:          }
+      @:      }
+      @:  };
+
+        //dynamic chart
+                @:chartconfig.data.labels.push(@Xaxis);
+                @:var elementID = 'canvas' + + @ind.ToString();
+                @:var chartID = 'tabs-' + + @ind.ToString();
+                @:$('<canvas>').attr({ id: elementID }).css({ width: '900px', height: '380px' }).appendTo('#' + chartID);
+                @:var canvas = document.getElementById(elementID);
+                @:var ctx = document.getElementById(elementID);
 
 
-                @for (var index = 0; index < Model.Loginname.Count(); index++) {
-                    var loginname = Model.Loginname.GetValue(index);
-                    var Yaxis = Model.Yaxis[loginname.ToString()];
+            for (var index = 0; index < Model.Loginname.Count(); index++) {
+                var loginname = Model.Loginname.GetValue(index);
+                var Yaxis = Model.Yaxis[ind][loginname.ToString()];
                 @:var bordcolor = "rgba(" + (Math.random() * 255).toString() + ", " + (Math.random() * 255).toString() + ", " + (Math.random() * 255).toString() + ", " + "0.5)";
                 @:var backgroundcolor = "rgba(" + (Math.random() * 255).toString() + ", " + (Math.random() * 255).toString() + ", " + (Math.random() * 255).toString() + ", " + "0.5)";
                 @:var newDatasetn = { data: [], fill: false };
@@ -181,10 +138,17 @@
                 @:newDatasetn.label = '@loginname';
                 @:newDatasetn.borderColor = bordcolor;
                 @:newDatasetn.backgroundColor = backgroundcolor;
-                @:numberconfig.data.datasets.push(newDatasetn);
+                @:chartconfig.data.datasets.push(newDatasetn);
             }
+            @:var numberChart = new Chart(ctx, chartconfig);
+        }
 
-        var numberChart = new Chart(ctxNumber, numberconfig);
+        //default tab
+        $('#charttabs').tabs({
+            active: 0
+        });
+
+    });
 
 
         $(document).ready(function () {
@@ -218,7 +182,7 @@
     });
 
      $(function () {
-         var chartcard = $("#chartcard");
+         var chartcard = $("#charttabs");
          var a = @Model.AnalysisResult.CompareTo(false);
          if (@Model.AnalysisResult.CompareTo(false)== 0) {
              chartcard.addClass("invisible");

@@ -66,10 +66,12 @@ namespace Attitude_Loose.Test
                 conn.Open();
                 try
                 {
-                    string Xaxis = "";
+                    string[] Xaxis;
+                    string[] ChartName;
+                    string[] ChartType;
                     List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
                     string[] loginname = { };
-                    home.CreatPDAWorkloadAnalysisChart("2017-02-07", "2017-02-08", "", out Xaxis, out Yaxis, out loginname);
+                    home.CreatPDAWorkloadAnalysisChart("2018-04-02", "2018-04-12", "", out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
                     string text = "";
                 }
                 catch (Exception ex)

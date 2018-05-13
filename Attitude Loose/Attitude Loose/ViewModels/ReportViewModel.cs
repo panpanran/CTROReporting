@@ -55,13 +55,15 @@ namespace Attitude_Loose.ViewModels
         public CTRPConst.AnalysisType ReportList { get; set; }
 
 
-        public string Xaxis { get; set; }
-        public Dictionary<string, string> Yaxis { get; set; }
+        public string[] Xaxis { get; set; }
+        public List<Dictionary<string, string>> Yaxis { get; set; }
         public string[] Loginname { get; set; }
+        public string[] ChartName { get; set; }
+        public string[] ChartType { get; set; }
 
         public ReportAnalysisViewModel()
         {
-            Yaxis = new Dictionary<string, string>();
+            Yaxis = new List<Dictionary<string, string>>();
             Loginname = new string[] {""};
         }
     }
