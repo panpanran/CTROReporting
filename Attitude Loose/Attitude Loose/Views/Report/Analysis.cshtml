@@ -1,19 +1,17 @@
 ﻿@model Attitude_Loose.ViewModels.ReportAnalysisViewModel
-
+@{
+    ViewBag.Title = "CTRP Reporting";
+    Layout = "../Shared/_HomeLayout.cshtml";
+}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.js"></script>
 <h1>Analysis</h1><br><br>
-
-@Styles.Render("~/Content/CSS")
-@Scripts.Render("~/Scripts/HomeLayout")
-
-
-@Html.EnumDropDownListFor(m => m.ReportList, // Model field that will be used to store user selection
-                              "- Select a analysis -", // Text for the first 'default' option
-                              new { @id = "analysislist" })
 
 
 @using (Html.BeginForm("Analysis", "Report", FormMethod.Post))
 {
+    @Html.DropDownListFor(model => model.ReportId, Model.Reports, "--Select a analysis--", new { @id = "analysislist", @class = "col-md-12", @style = "display:block;width:270px;;float:left" })
+
     <div id="reportdatecard" class="card col-md-12">
         <br>
         @Html.ValidationSummary()
@@ -119,25 +117,26 @@
       @:      }
       @:  };
 
-        //dynamic chart
+            //dynamic chart
                 @:chartconfig.data.labels.push(@Xaxis);
                 @:var elementID = 'canvas' + + @ind.ToString();
                 @:var chartID = 'tabs-' + + @ind.ToString();
                 @:$('<canvas>').attr({ id: elementID }).css({ width: '900px', height: '380px' }).appendTo('#' + chartID);
                 @:var canvas = document.getElementById(elementID);
                 @:var ctx = document.getElementById(elementID);
-
+                @:var chartColor = ["red", "orange", "yellow", "green", "blue", "purple", "#09FAF3", "#09FA0D", "#E409FA", "grey", "black", "pink", "#854040", "#9F9B4C", "#4C879F","#2C2B83"];
 
             for (var index = 0; index < Model.Loginname.Count(); index++) {
                 var loginname = Model.Loginname.GetValue(index);
                 var Yaxis = Model.Yaxis[ind][loginname.ToString()];
+
                 @:var bordcolor = "rgba(" + (Math.random() * 255).toString() + ", " + (Math.random() * 255).toString() + ", " + (Math.random() * 255).toString() + ", " + "0.5)";
                 @:var backgroundcolor = "rgba(" + (Math.random() * 255).toString() + ", " + (Math.random() * 255).toString() + ", " + (Math.random() * 255).toString() + ", " + "0.5)";
                 @:var newDatasetn = { data: [], fill: false };
                 @:newDatasetn.data.push(@Yaxis);
                 @:newDatasetn.label = '@loginname';
-                @:newDatasetn.borderColor = bordcolor;
-                @:newDatasetn.backgroundColor = backgroundcolor;
+                @:newDatasetn.borderColor = chartColor[@index];
+                @:newDatasetn.backgroundColor = chartColor[@index];
                 @:chartconfig.data.datasets.push(newDatasetn);
             }
             @:var numberChart = new Chart(ctx, chartconfig);

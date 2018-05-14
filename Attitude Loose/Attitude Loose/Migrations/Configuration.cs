@@ -10,7 +10,6 @@ namespace Attitude_Loose.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Attitude_Loose.App_Start.EntitiesInitial";
         }
 
         protected override void Seed(Attitude_Loose.App_Start.EntitiesInitial context)

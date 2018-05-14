@@ -93,7 +93,7 @@ namespace Attitude_Loose.CTRO
                     Loginname = tempDS.Tables["NCI"].AsEnumerable().Select(x => x.Field<string>("loginname")).Distinct().ToArray();
                     List<string> tempdates = tempDS.Tables["NCI"].AsEnumerable().OrderBy(x => x.Field<int>("completeddate")).Select(x => x.Field<int>("completeddate").ToString()).Distinct().ToList();
                     Xaxis = new string[] { string.Join(",", tempdates), "", string.Join(",", tempdates), "" };
-                    ChartName = new string[] {"Daily Number Chart", "Work Number Rank Chart", "Daily Time Chart", "Work Time Rank Chart" };
+                    ChartName = new string[] {"Daily Number Chart", "Work Number Rank Chart", "Daily Efficiency Chart", "Work Efficiency Rank Chart" };
                     ChartType = new string[] { "line", "bar", "line", "bar" };
 
                     foreach (string s in variables)

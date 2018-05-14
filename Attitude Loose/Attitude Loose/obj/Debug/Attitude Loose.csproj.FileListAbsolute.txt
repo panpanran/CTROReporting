@@ -535,9 +535,7 @@ C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange.WebServices.xml
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange.WebServices.Auth.pdb
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange.WebServices.Auth.xml
-C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.InitialCreate.resources
-C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.AddReport.resources
-C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.AddReport1.resources
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Chart.Mvc.dll
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Chart.Mvc.pdb
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Chart.Mvc.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.FixReport.resources

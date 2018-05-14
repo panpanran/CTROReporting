@@ -9,18 +9,8 @@ namespace Attitude_Loose.Models
     {
         public int ReportId { get; set; }
 
-        public string ReportType { get; set; }
+        public int DepartmentId { get; set; }
 
-        public DateTime CreatedDate { get; set; }
-
-        public string UserId { get; set; }
-
-        public ApplicationUser User { get; set; }
-
-        public Report()
-        {
-            CreatedDate = DateTime.Now;
-        }
-
+        public string ReportName { get; set; }
     }
 }

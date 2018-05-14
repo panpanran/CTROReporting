@@ -16,8 +16,10 @@ namespace Attitude_Loose.Test
 
         public enum AnalysisType
         {
-            PDAWorkload = 1,
-            SDAWOrkload
+            [Description("PDA - Abstraction")]
+            PDAAbstraction = 1,
+            [Description("PDA - QC")]
+            PDAQC
         }
 
         //holiday

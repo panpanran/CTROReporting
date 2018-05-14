@@ -17,11 +17,11 @@ namespace Attitude_Loose.Controllers
     [Authorize]
     public class ReportController : Controller
     {
-        private readonly IMetricService metricService;
+        private readonly IReportService reportService;
         private readonly ITopicService topicService;
-        public ReportController(IMetricService metricService, ITopicService topicService)
+        public ReportController(IReportService reportService, ITopicService topicService)
         {
-            this.metricService = metricService;
+            this.reportService = reportService;
             this.topicService = topicService;
         }
 
@@ -57,6 +57,9 @@ namespace Attitude_Loose.Controllers
             model.Yaxis = Yaxis;
             model.ChartName = ChartName;
             model.ChartType = ChartType;
+
+            var reports = reportService.GetReports();
+            model.Reports = reportService.ToSelectListItems(reports, -1);
             return View(model);
         }
 
@@ -85,6 +88,8 @@ namespace Attitude_Loose.Controllers
             model.Yaxis = Yaxis;
             model.ChartName = ChartName;
             model.ChartType = ChartType;
+            var reports = reportService.GetReports();
+            model.Reports = reportService.ToSelectListItems(reports, -1);
 
             return View(model);
         }

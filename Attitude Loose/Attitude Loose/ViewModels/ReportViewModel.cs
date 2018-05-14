@@ -51,8 +51,9 @@ namespace Attitude_Loose.ViewModels
 
         public bool AnalysisResult { get; set; }
 
+        public int? ReportId { get; set; }
 
-        public CTRPConst.AnalysisType ReportList { get; set; }
+        public IEnumerable<SelectListItem> Reports { get; set; }
 
 
         public string[] Xaxis { get; set; }

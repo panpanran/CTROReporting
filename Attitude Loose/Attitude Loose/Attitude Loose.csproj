@@ -282,26 +282,19 @@
     <Compile Include="Infrastructure\Logging.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201805012010493_InitialCreate.cs" />
-    <Compile Include="Migrations\201805012010493_InitialCreate.Designer.cs">
-      <DependentUpon>201805012010493_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805031233049_AddReport.cs" />
-    <Compile Include="Migrations\201805031233049_AddReport.Designer.cs">
-      <DependentUpon>201805031233049_AddReport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805031235251_AddReport1.cs" />
-    <Compile Include="Migrations\201805031235251_AddReport1.Designer.cs">
-      <DependentUpon>201805031235251_AddReport1.cs</DependentUpon>
+    <Compile Include="Migrations\201805141804331_FixReport.cs" />
+    <Compile Include="Migrations\201805141804331_FixReport.Designer.cs">
+      <DependentUpon>201805141804331_FixReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Configuration\TopicConfiguration.cs" />
     <Compile Include="Models\Configuration\UserProfileConfiguration.cs" />
-    <Compile Include="Models\FakeComplexChart.cs" />
+    <Compile Include="Models\Department.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Metric.cs" />
+    <Compile Include="Models\Record.cs" />
     <Compile Include="Models\Report.cs" />
     <Compile Include="Models\Topic.cs" />
     <Compile Include="Models\UserProfile.cs" />
@@ -313,10 +306,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Repository\MetricRepository.cs" />
+    <Compile Include="Repository\ReportRepository.cs" />
     <Compile Include="Repository\TopicRepository.cs" />
     <Compile Include="Repository\UserProfileRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Service\MetricService.cs" />
+    <Compile Include="Service\ReportService.cs" />
     <Compile Include="Service\TopicService.cs" />
     <Compile Include="Service\UserProfileService.cs" />
     <Compile Include="Service\UserService.cs" />
@@ -762,14 +757,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805012010493_InitialCreate.resx">
-      <DependentUpon>201805012010493_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805031233049_AddReport.resx">
-      <DependentUpon>201805031233049_AddReport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805031235251_AddReport1.resx">
-      <DependentUpon>201805031235251_AddReport1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805141804331_FixReport.resx">
+      <DependentUpon>201805141804331_FixReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

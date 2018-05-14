@@ -18,7 +18,9 @@ namespace Attitude_Loose.App_Start
         public DbSet<Metric> Metrics { get; set; }
         public DbSet<Topic> Topics { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
-        public DbSet<Report> Report { get; set; }
+        public DbSet<Report> Reports { get; set; }
+        public DbSet<Record> Records { get; set; }
+        public DbSet<Department> Departments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -44,6 +46,14 @@ namespace Attitude_Loose.App_Start
                 new Metric { Type ="Life"}
 
             }.ForEach(m => context.Metrics.Add(m));
+
+            new List<Department>
+            {
+                new Department { DepartmentName ="PDA"},
+                new Department { DepartmentName ="SDA"}
+
+            }.ForEach(m => context.Departments.Add(m));
+
 
             context.Commit();
 
