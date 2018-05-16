@@ -12,7 +12,7 @@ namespace Attitude_Loose.Service
     public interface IReportService
     {
         IEnumerable<Report> GetReports();
-        IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<Report> reports, int selectedId);
+        IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<Report> reports, string reporttype, int selectedId);
     }
 
     public class ReportService : IReportService
@@ -32,11 +32,10 @@ namespace Attitude_Loose.Service
             return report;
         }
 
-        public IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<Report> reports, int selectedId)
+        public IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<Report> reports, string reporttype, int selectedId)
         {
             return
-
-                reports.OrderBy(report => report.ReportId)
+                reports.Where(x=>x.ReportType == reporttype).OrderBy(report => report.ReportId)
                       .Select(report =>
                           new SelectListItem
                           {

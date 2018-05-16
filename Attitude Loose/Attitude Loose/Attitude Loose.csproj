@@ -282,12 +282,17 @@
     <Compile Include="Infrastructure\Logging.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201805141804331_FixReport.cs" />
-    <Compile Include="Migrations\201805141804331_FixReport.Designer.cs">
-      <DependentUpon>201805141804331_FixReport.cs</DependentUpon>
+    <Compile Include="Migrations\201805162022083_Initial.cs" />
+    <Compile Include="Migrations\201805162022083_Initial.Designer.cs">
+      <DependentUpon>201805162022083_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805162033144_A2.cs" />
+    <Compile Include="Migrations\201805162033144_A2.Designer.cs">
+      <DependentUpon>201805162033144_A2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Configuration\RecordConfiguration.cs" />
     <Compile Include="Models\Configuration\TopicConfiguration.cs" />
     <Compile Include="Models\Configuration\UserProfileConfiguration.cs" />
     <Compile Include="Models\Department.cs" />
@@ -306,11 +311,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Repository\MetricRepository.cs" />
+    <Compile Include="Repository\RecordRepository.cs" />
     <Compile Include="Repository\ReportRepository.cs" />
     <Compile Include="Repository\TopicRepository.cs" />
     <Compile Include="Repository\UserProfileRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Service\MetricService.cs" />
+    <Compile Include="Service\RecordService.cs" />
     <Compile Include="Service\ReportService.cs" />
     <Compile Include="Service\TopicService.cs" />
     <Compile Include="Service\UserProfileService.cs" />
@@ -745,6 +752,7 @@
     <Content Include="Views\Report\ProgressBar.cshtml" />
     <Content Include="Views\Report\Analysis.cshtml" />
     <Content Include="Views\Report\Chart.cshtml" />
+    <Content Include="Views\Report\Report.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -757,8 +765,11 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805141804331_FixReport.resx">
-      <DependentUpon>201805141804331_FixReport.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805162022083_Initial.resx">
+      <DependentUpon>201805162022083_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805162033144_A2.resx">
+      <DependentUpon>201805162033144_A2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

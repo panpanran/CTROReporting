@@ -40,13 +40,8 @@ namespace Attitude_Loose.Controllers
             if (ModelState.IsValid)
             {
                 topicService.CreateTopic(topic);
-                TempData["AlertMessage"] = "Success";
             }
-            else
-            {
-                TempData["AlertMessage"] = "Fail";
-            }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("TopicList", "Topic");
         }
 
         //public ActionResult Topicslist(int sortby, int filter)

@@ -23,7 +23,7 @@ namespace Attitude_Loose.Models
 
         public int RoleId { get; set; }
 
-        public ICollection<Record> Records { get; set; }
+        public virtual ICollection<Record> Records { get; set; }
 
 
         //public virtual ICollection<Goal> Goals { get; set; }

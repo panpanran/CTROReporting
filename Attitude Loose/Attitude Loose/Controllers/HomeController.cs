@@ -16,11 +16,13 @@ namespace Attitude_Loose.Controllers
     [Authorize]
     public class HomeController : Controller
     {
+        private readonly IReportService reportService;
         private readonly IMetricService metricService;
         private IUserProfileService userProfileService;
 
-        public HomeController(IMetricService metricService, IUserProfileService userProfileService)
+        public HomeController(IReportService reportService, IMetricService metricService, IUserProfileService userProfileService)
         {
+            this.reportService = reportService;
             this.metricService = metricService;
             this.userProfileService = userProfileService;
         }
@@ -40,6 +42,8 @@ namespace Attitude_Loose.Controllers
         public ActionResult Index()
         {
             var model = new ReportGenerateViewModel();
+            var reports = reportService.GetReports();
+            model.Reports = reportService.ToSelectListItems(reports, "excel", -1);
             return View(model);
         }
 
@@ -53,12 +57,12 @@ namespace Attitude_Loose.Controllers
             {
                 CTROHome home = new CTROHome();
                 int turnround = 0;
-                switch(model.SelectedReport)
+                switch(model.ReportId)
                 {
-                    case "1":
+                    case 3:
                         turnround = await home.CreateTurnroundReportAsync(model.StartDate, model.EndDate, userprofile.Email);
                         break;
-                    case "2":
+                    case 4:
                         turnround = await home.CreateSponsorNotMatcReportAsync(userprofile.Email);
                         break;
                 }
@@ -69,6 +73,8 @@ namespace Attitude_Loose.Controllers
                     model.ReportResult = true;
                 }
             }
+            var reports = reportService.GetReports();
+            model.Reports = reportService.ToSelectListItems(reports, "excel", -1);
 
             return View(model);
         }

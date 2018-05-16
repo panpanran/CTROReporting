@@ -20,11 +20,7 @@
 <div> The current time is: @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</div>
 <br />
 
-
-@Html.EnumDropDownListFor(m => m.ReportList, // Model field that will be used to store user selection
-                              "- Select a report -", // Text for the first 'default' option
-                              new { @id = "reportlist"})
-
+@Html.DropDownListFor(model => model.ReportId, Model.Reports, "--Select a report--", new { @id = "reportlist", @class = "col-md-12", @style = "display:block;width:270px;;float:left" })
 
 @using (Html.BeginForm("Index", "Home", FormMethod.Post))
 {
@@ -95,7 +91,7 @@
 
             change: function (event, data) {
                 $("#SelectedReport").val(data.item.value);
-                if (data.item.value == "2") {
+                if (data.item.value == "4") {
                     reportdatecard.addClass("invisible");
                 }
                 else {

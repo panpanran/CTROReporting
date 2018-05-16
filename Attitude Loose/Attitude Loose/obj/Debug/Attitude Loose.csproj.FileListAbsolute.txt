@@ -400,7 +400,6 @@ C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Sec
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csprojResolveAssemblyReference.cache
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Properties.Resources.resources
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csproj.GenerateResource.cache
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csproj.CoreCompileInputs.cache
@@ -538,4 +537,6 @@ C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Chart.Mvc.dll
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Chart.Mvc.pdb
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Chart.Mvc.xml
-C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.FixReport.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csprojResolveAssemblyReference.cache
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.Initial.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.A2.resources

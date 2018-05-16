@@ -27,6 +27,7 @@ namespace Attitude_Loose.App_Start
             base.OnModelCreating(modelBuilder);
             modelBuilder.Configurations.Add(new UserProfileConfiguration());
             modelBuilder.Configurations.Add(new TopicConfiguration());
+            modelBuilder.Configurations.Add(new RecordConfiguration());
         }
 
         public virtual void Commit()
@@ -50,7 +51,8 @@ namespace Attitude_Loose.App_Start
             new List<Department>
             {
                 new Department { DepartmentName ="PDA"},
-                new Department { DepartmentName ="SDA"}
+                new Department { DepartmentName ="SDA"},
+                new Department { DepartmentName ="All"}
 
             }.ForEach(m => context.Departments.Add(m));
 

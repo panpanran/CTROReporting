@@ -26,7 +26,9 @@ namespace Attitude_Loose.ViewModels
         [Display(Name = "Report Option")]
         public string SelectedReport { get; set; }
 
-        public CTRPConst.ReportType ReportList { get; set; }
+        public int ReportId { get; set; }
+
+        public IEnumerable<SelectListItem> Reports { get; set; }
 
         public ReportGenerateViewModel()
         {
