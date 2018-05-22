@@ -47,37 +47,37 @@ namespace Attitude_Loose.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        public async Task<ActionResult> Index(ReportGenerateViewModel model)
-        {
-            UserProfile userprofile = userProfileService.GetByUserID(User.Identity.GetUserId());
-            model.ReportResult = false;
+        //[HttpPost]
+        //public async Task<ActionResult> Index(ReportGenerateViewModel model)
+        //{
+        //    UserProfile userprofile = userProfileService.GetByUserID(User.Identity.GetUserId());
+        //    model.ReportResult = false;
 
-            if (ModelState.IsValid)
-            {
-                CTROHome home = new CTROHome();
-                int turnround = 0;
-                switch(model.ReportId)
-                {
-                    case 3:
-                        turnround = await home.CreateTurnroundReportAsync(model.StartDate, model.EndDate, userprofile.Email);
-                        break;
-                    case 4:
-                        turnround = await home.CreateSponsorNotMatcReportAsync(userprofile.Email);
-                        break;
-                }
+        //    if (ModelState.IsValid)
+        //    {
+        //        CTROHome home = new CTROHome();
+        //        int turnround = 0;
+        //        switch(model.ReportId)
+        //        {
+        //            case 3:
+        //                turnround = await home.CreateTurnroundReportAsync(model.StartDate, model.EndDate, userprofile.Email);
+        //                break;
+        //            case 4:
+        //                turnround = await home.CreateSponsorNotMatcReportAsync(userprofile.Email);
+        //                break;
+        //        }
 
-                //int turnround = await home.CreateTurnroundReportAsync(model.StartDate, model.EndDate, userprofile.Email);
-                if (turnround == 1)
-                {
-                    model.ReportResult = true;
-                }
-            }
-            var reports = reportService.GetReports();
-            model.Reports = reportService.ToSelectListItems(reports, "excel", -1);
+        //        //int turnround = await home.CreateTurnroundReportAsync(model.StartDate, model.EndDate, userprofile.Email);
+        //        if (turnround == 1)
+        //        {
+        //            model.ReportResult = true;
+        //        }
+        //    }
+        //    var reports = reportService.GetReports();
+        //    model.Reports = reportService.ToSelectListItems(reports, "excel", -1);
 
-            return View(model);
-        }
+        //    return View(model);
+        //}
 
         [HandleError(View = "Error")]
         public ActionResult About()

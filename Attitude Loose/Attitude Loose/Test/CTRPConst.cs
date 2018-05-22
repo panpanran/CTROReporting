@@ -40,17 +40,22 @@ namespace Attitude_Loose.Test
         //database connection
         public const string connString = "Server=localhost;Port=5434;User Id=copparead;Password=copparead_at_ctrp1;Database=pa_ctrpn";
         //turnround
-        public const string turnround_template_file = @"C:\Users\panr2\Downloads\DataWarehouse\Template Report\Monthly Turnaround Template.xlsx";
-        public const string turnround_original_file = @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Code\Version 2\original_sql.txt";
-        public const string turnround_amendment_file = @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Code\Version 2\amendment_sql.txt";
-        public const string turnround_abbreviated_file = @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Code\Version 2\abbreviated_sql.txt";
-        public const string turnround_savepath = @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Turnround Report";
+        public const string turnround_template_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Templates\Monthly Turnaround Template.xlsx";
+        public const string turnround_original_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\Turnround\Original.txt";
+        public const string turnround_amendment_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\Turnround\Amendment.txt";
+        public const string turnround_abbreviated_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\Turnround\Abbreviate.txt";
+        public const string turnround_savepath = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Excel\Turnround Report";
         //sponsor not match
-        public const string sponsornotmatch_template_file = @"C:\Users\panr2\Downloads\DataWarehouse\Template Report\Sponsor Not Match Report.xlsx";
-        public const string sponsornotmatch_original_file = @"C:\Users\panr2\Downloads\DataWarehouse\Sponsor Report\Code.txt";
-        public const string sponsornotmatch_savepath = @"C:\Users\panr2\Downloads\DataWarehouse\Sponsor Report\Sponsor Not Match Report";
+        public const string sponsornotmatch_template_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Templates\Sponsor Not Match Report Template.xlsx";
+        public const string sponsornotmatch_original_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\Sponsor\Code.txt";
+        public const string sponsornotmatch_savepath = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Excel\Sponsor Not Match Report";
         //PDA workload
-        public const string pdaworkload_admin_abstraction_file = @"C:\Users\panr2\Downloads\DataWarehouse\Weekly Report\Admin Abstraction.txt";
+        public const string pdaworkload_admin_abstraction_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\Workload\Admin Abstraction.txt";
+        public const string pdaworkload_admin_qc_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\Workload\Admin QC.txt";
+        //onhold
+        public const string onhold_template_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Templates\Onhold Report Template.xlsx";
+        public const string onhold_original_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\Onhold\Code.txt";
+        public const string onhold_savepath = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Excel\Onhold Report";
 
 
 

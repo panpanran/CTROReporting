@@ -21,7 +21,7 @@ namespace Attitude_Loose.Test
             msg.Subject = Subject;
             msg.Body = Body;
             msg.IsBodyHtml = true;
-            
+
             SmtpClient client = new SmtpClient();
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
@@ -85,22 +85,23 @@ namespace Attitude_Loose.Test
             object misValue = System.Reflection.Missing.Value;
 
             xlApp = new Excel.Application();
-            if (templatepath != null)
+            try
             {
-                System.IO.File.Copy(templatepath, savepath, true);
-            }
 
-            xlWorkBook = xlApp.Workbooks.Open(savepath, misValue);
-
-            for (int n = 0; n < dataset.Tables.Count; n++)
-            {
-                xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets[dataset.Tables[n].TableName];
-                xlWorkSheet.Rows.WrapText = true;
-                Excel.Range EntireRow = xlWorkSheet.Cells.EntireRow;
-                //EntireRow.RowHeight = 15;
-                EntireRow.ColumnWidth = 20;
-                try
+                if (templatepath != null)
                 {
+                    System.IO.File.Copy(templatepath, savepath, true);
+                }
+
+                xlWorkBook = xlApp.Workbooks.Open(savepath, misValue);
+
+                for (int n = 0; n < dataset.Tables.Count; n++)
+                {
+                    xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets[dataset.Tables[n].TableName];
+                    xlWorkSheet.Rows.WrapText = true;
+                    Excel.Range EntireRow = xlWorkSheet.Cells.EntireRow;
+                    //EntireRow.RowHeight = 15;
+                    EntireRow.ColumnWidth = 20;
                     // column headings
                     //for (var i = 0; i < dataset.Tables[n].Columns.Count; i++)
                     //{
@@ -120,20 +121,26 @@ namespace Attitude_Loose.Test
                             xlWorkSheet.Cells[i + startrow, j + startcolumn] = data;
                         }
                     }
+                    ReleaseObject(xlWorkSheet);
                 }
-                catch (Exception ex)
-                {
-                    throw;
-                }
-                ReleaseObject(xlWorkSheet);
-            }
-            xlWorkBook.Sheets["Sheet1"].Delete();
-            xlWorkBook.Save();
-            xlWorkBook.Close(true, misValue, misValue);
-            xlApp.Quit();
 
-            ReleaseObject(xlWorkBook);
-            ReleaseObject(xlApp);
+                //xlWorkBook.Sheets["Sheet1"].Delete();
+                xlWorkBook.Save();
+                xlWorkBook.Close(true, misValue, misValue);
+                xlApp.Quit();
+
+                ReleaseObject(xlWorkBook);
+                ReleaseObject(xlApp);
+
+            }
+            catch (Exception ex)
+            {
+                xlApp.Quit();
+                ReleaseObject(xlApp);
+
+                File.Delete(savepath);
+                throw;
+            }
         }
 
         private static void ReleaseObject(object obj)
@@ -218,5 +225,14 @@ namespace Attitude_Loose.Test
             return reportdatelist;
         }
 
+        public static void ScheduleReport()
+        {
+            var startTimeSpan = TimeSpan.Zero;
+            var periodTimeSpan = TimeSpan.FromMinutes(1);
+            var timer = new System.Threading.Timer((e) =>
+            {
+                Console.WriteLine("Ran Pan" + DateTime.Now.ToShortDateString());
+            }, null, startTimeSpan, periodTimeSpan);
+        }
     }
 }

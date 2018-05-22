@@ -12,6 +12,7 @@ namespace Attitude_Loose.Service
     public interface IReportService
     {
         IEnumerable<Report> GetReports();
+        Report GetReportById(string reportid);
         IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<Report> reports, string reporttype, int selectedId);
     }
 
@@ -31,6 +32,14 @@ namespace Attitude_Loose.Service
             var report = reportRepository.GetAll();
             return report;
         }
+
+        public Report GetReportById(string reportid)
+        {
+            int id = Convert.ToInt32(reportid);
+            var report = reportRepository.Get(x => x.ReportId == id);
+            return report;
+        }
+
 
         public IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<Report> reports, string reporttype, int selectedId)
         {

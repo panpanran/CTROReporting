@@ -16,11 +16,15 @@ namespace Attitude_Loose.Models
 
         public string EndDate { get; set; }
 
+        public string FilePath { get; set; }
+
         public DateTime CreatedDate { get; set; }
 
         public string UserId { get; set; }
 
         public virtual ApplicationUser User { get; set; }
+
+        public virtual Report Report { get; set; }
 
         public Record()
         {

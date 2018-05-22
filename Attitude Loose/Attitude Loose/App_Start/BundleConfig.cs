@@ -13,6 +13,11 @@ namespace Attitude_Loose
                     "~/Content/bootstrap.css",
                     "~/Content/CustomStyles.css",
                     "~/Content/dashboard.css",
+                    //kendo
+                    "~/Content/kendotest/examples/content/shared/styles/examples-offline.css",
+                    "~/Content/kendotest/styles/kendo.common.min.css",
+                    "~/Content/kendotest/styles/kendo.rtl.min.css",
+                    "~/Content/kendotest/styles/kendo.default.min.css",
                     "~/Content/themes/base/jquery-ui.css"
                      ));
 
@@ -22,6 +27,8 @@ namespace Attitude_Loose
                    "~/Scripts/bootstrap.js",
                    "~/Scripts/Chart.js",
                    "~/Scripts/jquery-ui-1.12.1.js",
+                   //kendo
+                   "~/Content/kendotest/js/kendo.all.min.js",
                    //"~/Scripts/bootstrap.bundle.js", // dropdown
                    "~/Scripts/jquery.nicescroll.js"//modal
                    ));

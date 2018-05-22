@@ -4,7 +4,9 @@ using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -12,99 +14,85 @@ namespace Attitude_Loose.CTRO
 {
     public class CTROHome
     {
-        //turnround
-        public async Task<int> CreateTurnroundReportAsync(string startDate, string endDate, string toemail)
+        //excel
+        public int CreateReport(string startDate, string endDate, string toemail, string reportname, out string savepath)
         {
-            Task<int> t = Task.Run(() =>
-            {
-                CTRPReports reports = new CTRPReports();
-                using (var conn = new NpgsqlConnection(CTRPConst.connString))
-                {
-                    conn.Open();
-                    try
-                    {
-                        string savepath = CTRPConst.turnround_savepath + "_" + startDate.Replace("-", "") + "-" + endDate.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
-                        string templatepath = CTRPConst.turnround_template_file;
-                        DataSet conclusionturnroundDS = new DataSet();
-                        DataSet turnroundDS = reports.TurnroundBook(conn, startDate, endDate, out conclusionturnroundDS);
+            Type type = Type.GetType("Attitude_Loose.Test." + reportname + "Report");
+            Object obj = Activator.CreateInstance(type);
+            MethodInfo methodInfo = type.GetMethod("CreateBook");
+            object classInstance = Activator.CreateInstance(type, null);
+            object bookDS = null;
+            savepath = "";
 
-                        CTRPFunctions.WriteExcelByDataSet(turnroundDS, savepath, templatepath, 2, 1);
-                        CTRPFunctions.WriteExcelByDataSet(conclusionturnroundDS, savepath, null, 2, 18);
-                        CTRPFunctions.SendEmail("Turnround Report", "Attached please find. \r\n This is turnround report from " + startDate + " to " + endDate, toemail, savepath);
-                        return 1;
-                    }
-                    catch (Exception ex)
-                    {
-                        return 0;
-                        throw;
-                    }
-                }
-            });
-            await t;
-            return t.Result;
-        }
-
-        //sponsornotmatch
-        public async Task<int> CreateSponsorNotMatcReportAsync(string toemail)
-        {
-            Task<int> t = Task.Run(() =>
-            {
-                CTRPReports reports = new CTRPReports();
-                using (var conn = new NpgsqlConnection(CTRPConst.connString))
-                {
-                    conn.Open();
-                    try
-                    {
-                        string savepath = CTRPConst.sponsornotmatch_savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
-                        string templatepath = CTRPConst.sponsornotmatch_template_file;
-                        DataSet sponsorDS = reports.SponsorNotMatchBook(conn);
-
-                        CTRPFunctions.WriteExcelByDataSet(sponsorDS, savepath, templatepath, 2, 1);
-                        CTRPFunctions.SendEmail("Sponsor Report", "Attached please find. \r\n This is sponsor report generated at " + DateTime.Now.ToString(), toemail, savepath);
-                        return 1;
-                    }
-                    catch (Exception ex)
-                    {
-                        return 0;
-                        throw;
-                    }
-                }
-            });
-            await t;
-            return t.Result;
-        }
-
-        //analysis
-        public void CreatPDAWorkloadAnalysisChart(string startDate, string endDate, string toemail, out string[] Xaxis, out string[] ChartName, out string[] ChartType, out List<Dictionary<string, string>> Yaxis, out string[] Loginname)
-        {
-            CTRPReports reports = new CTRPReports();
-            string[] variables = { "worknumber", "worktime" };
-            Yaxis = new List<Dictionary<string, string>>();
-            Dictionary<string, string> tempYaxis = new Dictionary<string, string>();
-            Dictionary<string, string> temprankYaxis = new Dictionary<string, string>();
-            DataSet rankDS = new DataSet();
             using (var conn = new NpgsqlConnection(CTRPConst.connString))
             {
                 conn.Open();
                 try
                 {
-                    DataSet tempDS = reports.PDAWorkloadBook(conn, startDate, endDate, out rankDS);
+                    string templatepath = "";
+                    DataSet conclusionDS = new DataSet();
+                    object[] parametersArray = new object[] { conn, startDate, endDate, "", "", conclusionDS };
+                    bookDS = methodInfo.Invoke(classInstance, parametersArray);
+                    savepath = parametersArray[3].ToString();
+                    templatepath = parametersArray[4].ToString();
+                    conclusionDS = (DataSet)parametersArray[5];
+                    CTRPFunctions.WriteExcelByDataSet((DataSet)bookDS, savepath, templatepath, 2, 1);
+                    CTRPFunctions.WriteExcelByDataSet(conclusionDS, savepath, null, 2, 18);
+                    CTRPFunctions.SendEmail(reportname + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. This is a " + reportname.ToLower() + " report generated by CTRO Reporting System automatically.<br /><br /> Thank you", toemail, savepath);
+                    return 1;
+                }
+                catch (Exception ex)
+                {
+                    return 0;
+                    throw;
+                }
+            }
+        }
 
-                    Loginname = tempDS.Tables["NCI"].AsEnumerable().Select(x => x.Field<string>("loginname")).Distinct().ToArray();
-                    List<string> tempdates = tempDS.Tables["NCI"].AsEnumerable().OrderBy(x => x.Field<int>("completeddate")).Select(x => x.Field<int>("completeddate").ToString()).Distinct().ToList();
+        //chart
+        public void CreateAnalysisChart(string startDate, string endDate, string toemail, string reportname, out string[] XLabel, out string[] YLabel, out string[] Xaxis, out string[] ChartName, out string[] ChartType, out List<Dictionary<string, string>> Yaxis, out string[] Loginname)
+        {
+            Type type = Type.GetType("Attitude_Loose.Test." + reportname + "Report");
+            Object obj = Activator.CreateInstance(type);
+            MethodInfo methodInfo = type.GetMethod("CreateBook");
+            object classInstance = Activator.CreateInstance(type, null);
+            DataSet bookDS = null;
+            string[] variables = { "worknumber", "worktime" };
+            Yaxis = new List<Dictionary<string, string>>();
+            Dictionary<string, string> tempYaxis = new Dictionary<string, string>();
+            Dictionary<string, string> temprankYaxis = new Dictionary<string, string>();
+            using (var conn = new NpgsqlConnection(CTRPConst.connString))
+            {
+                conn.Open();
+                try
+                {
+                    //DataTable tempDT = reports.CreateBook(conn, startDate, endDate, out rankDT);
+                    string savepath = "";
+                    string templatepath = "";
+                    DataSet rankDS = new DataSet();
+                    object[] parametersArray = new object[] { conn, startDate, endDate, "", "", rankDS };
+                    bookDS = (DataSet)methodInfo.Invoke(classInstance, parametersArray);
+                    savepath = parametersArray[3].ToString();
+                    templatepath = parametersArray[4].ToString();
+                    rankDS = (DataSet)parametersArray[5];
+
+                    Loginname = rankDS.Tables[0].AsEnumerable().Select(x => x.Field<string>("loginname")).Distinct().ToArray();
+                    List<string> tempdates = bookDS.Tables[0].AsEnumerable().OrderBy(x => x.Field<int>("completeddate")).Select(x => x.Field<int>("completeddate").ToString()).Distinct().ToList();
                     Xaxis = new string[] { string.Join(",", tempdates), "", string.Join(",", tempdates), "" };
-                    ChartName = new string[] {"Daily Number Chart", "Work Number Rank Chart", "Daily Efficiency Chart", "Work Efficiency Rank Chart" };
+                    ChartName = new string[] { "Daily Number Chart", "Work Number Rank Chart", "Daily Efficiency Chart", "Work Efficiency Rank Chart" };
                     ChartType = new string[] { "line", "bar", "line", "bar" };
+                    XLabel = new string[] { "Date", "PDA Team", "Date", "PDA Team" };
+                    YLabel = new string[] { "Number", "Avg Time Per Work", "Number", "Avg Time Per Work" };
 
                     foreach (string s in variables)
                     {
                         foreach (string ln in Loginname)
                         {
-                            string worktotal = rankDS.Tables["NCI"].AsEnumerable().Where(x => x.Field<string>("loginname") == ln).Select(x => x.Field<string>(s)).FirstOrDefault();
+                            string worktotal = rankDS.Tables[0].AsEnumerable().Where(x => x.Field<string>("loginname") == ln).Select(x => x.Field<string>(s)).FirstOrDefault();
                             List<string> Yvalue = new List<string>();
                             foreach (string tdate in tempdates)
                             {
-                                string tempvalue = tempDS.Tables["NCI"].AsEnumerable()
+                                string tempvalue = bookDS.Tables[0].AsEnumerable()
                                     .Where(x => x.Field<string>("loginname") == ln && x.Field<int>("completeddate") == Convert.ToInt32(tdate))
                                     .Select(x => x.Field<string>(s)).FirstOrDefault();
 
@@ -133,8 +121,6 @@ namespace Attitude_Loose.CTRO
                         tempYaxis = new Dictionary<string, string>();
                         temprankYaxis = new Dictionary<string, string>();
                     }
-
-                    string test = "";
                 }
                 catch (Exception ex)
                 {
@@ -144,4 +130,5 @@ namespace Attitude_Loose.CTRO
             }
         }
     }
+
 }

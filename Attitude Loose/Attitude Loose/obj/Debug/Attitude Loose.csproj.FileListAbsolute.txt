@@ -538,5 +538,8 @@ C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Chart.Mvc.dll
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Chart.Mvc.pdb
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Chart.Mvc.xml
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csprojResolveAssemblyReference.cache
-C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.Initial.resources
-C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.A2.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Quartz.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Quartz.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Quartz.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ScheduleFixTry.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ScheduleCreateDate.resources

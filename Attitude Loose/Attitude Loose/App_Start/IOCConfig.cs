@@ -36,6 +36,7 @@ namespace Attitude_Loose.App_Start
             builder.RegisterAssemblyTypes(typeof(UserProfileService).Assembly)
             .Where(t => t.Name.EndsWith("Service"))
             .AsImplementedInterfaces();
+
             builder.Register(c => new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EntitiesInitial())))
                 .As<UserManager<ApplicationUser>>().InstancePerRequest();
             var container = builder.Build();

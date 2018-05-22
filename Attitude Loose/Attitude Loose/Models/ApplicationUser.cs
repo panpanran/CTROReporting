@@ -25,7 +25,7 @@ namespace Attitude_Loose.Models
 
         public virtual ICollection<Record> Records { get; set; }
 
-
+        public virtual ICollection<Schedule> Schedules { get; set; }
         //public virtual ICollection<Goal> Goals { get; set; }
 
         //public virtual ICollection<FollowUser> FollowFromUser { get; set; }

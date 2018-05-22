@@ -11,6 +11,8 @@ using Microsoft.Owin.Security;
 using Moq;
 using Npgsql;
 using NUnit.Framework;
+using Quartz;
+using Quartz.Impl;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,13 +21,13 @@ using System.Linq;
 using System.Reflection;
 using System.Security.Principal;
 using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.SessionState;
 
 namespace Attitude_Loose.Test
 {
+
     [TestFixture()]
     public class ApplicationUserControllerTest
     {
@@ -53,26 +55,117 @@ namespace Attitude_Loose.Test
 
         }
 
-        //public Task CreateTurnroundReportAsync(string startDate, string endDate)
-        //{
-        //    return Task.Run(() => CreateTurnroundReport(startDate, endDate));
-        //}
-        [Test()]
-        public void WeeklyPDAReportTest()
+        [Test]
+        public void ScheduleReport()
         {
-            CTROHome home = new CTROHome();
+            CTRPSchedule.Execute();
+        }
+
+        [Test()]
+        public void CreateAnalysisChart()
+        {
+            Type type = Type.GetType("Attitude_Loose.Test." + "PDAAbstraction" + "Report");
+            Object obj = Activator.CreateInstance(type);
+            MethodInfo methodInfo = type.GetMethod("CreateBook");
+            object classInstance = Activator.CreateInstance(type, null);
+            DataSet bookDS = null;
+            string[] variables = { "worknumber", "worktime" };
+            List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
+            Dictionary<string, string> tempYaxis = new Dictionary<string, string>();
+            Dictionary<string, string> temprankYaxis = new Dictionary<string, string>();
             using (var conn = new NpgsqlConnection(CTRPConst.connString))
             {
                 conn.Open();
                 try
                 {
-                    string[] Xaxis;
-                    string[] ChartName;
-                    string[] ChartType;
-                    List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
-                    string[] loginname = { };
-                    home.CreatPDAWorkloadAnalysisChart("2018-04-02", "2018-04-12", "", out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
-                    string text = "";
+                    //DataTable tempDT = reports.CreateBook(conn, startDate, endDate, out rankDT);
+                    string savepath = "";
+                    string templatepath = "";
+                    DataSet rankDS = new DataSet();
+                    object[] parametersArray = new object[] { conn, "2018-05-01", "2018-05-02", "", "", rankDS };
+                    bookDS = (DataSet)methodInfo.Invoke(classInstance, parametersArray);
+                    savepath = parametersArray[3].ToString();
+                    templatepath = parametersArray[4].ToString();
+                    rankDS = (DataSet)parametersArray[5];
+
+                    string[] Loginname = rankDS.Tables[0].AsEnumerable().Select(x => x.Field<string>("loginname")).Distinct().ToArray();
+                    List<string> tempdates = bookDS.Tables[0].AsEnumerable().OrderBy(x => x.Field<int>("completeddate")).Select(x => x.Field<int>("completeddate").ToString()).Distinct().ToList();
+                    string[] Xaxis = new string[] { string.Join(",", tempdates), "", string.Join(",", tempdates), "" };
+                    string[] ChartName = new string[] { "Daily Number Chart", "Work Number Rank Chart", "Daily Efficiency Chart", "Work Efficiency Rank Chart" };
+                    string[] ChartType = new string[] { "line", "bar", "line", "bar" };
+                    string[] XLabel = new string[] { "Date", "PDA Team", "Date", "PDA Team" };
+                    string[] YLabel = new string[] { "Number", "Avg Time Per Work", "Number", "Avg Time Per Work" };
+
+                    foreach (string s in variables)
+                    {
+                        foreach (string ln in Loginname)
+                        {
+                            string worktotal = rankDS.Tables[0].AsEnumerable().Where(x => x.Field<string>("loginname") == ln).Select(x => x.Field<string>(s)).FirstOrDefault();
+                            List<string> Yvalue = new List<string>();
+                            foreach (string tdate in tempdates)
+                            {
+                                string tempvalue = bookDS.Tables[0].AsEnumerable()
+                                    .Where(x => x.Field<string>("loginname") == ln && x.Field<int>("completeddate") == Convert.ToInt32(tdate))
+                                    .Select(x => x.Field<string>(s)).FirstOrDefault();
+
+                                if (string.IsNullOrEmpty(tempvalue))
+                                {
+                                    Yvalue.Add("0");
+                                }
+                                else
+                                {
+                                    Yvalue.Add(tempvalue);
+                                }
+                            }
+                            tempYaxis.Add(ln, string.Join(",", Yvalue));
+
+
+                            if (string.IsNullOrEmpty(worktotal))
+                            {
+                                worktotal = "0";
+                            }
+
+                            temprankYaxis.Add(ln, worktotal);
+                        }
+                        Yaxis.Add(tempYaxis);
+                        temprankYaxis = temprankYaxis.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+                        Yaxis.Add(temprankYaxis);
+                        tempYaxis = new Dictionary<string, string>();
+                        temprankYaxis = new Dictionary<string, string>();
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
+            }
+        }
+        [Test()]
+        public void CreateReportAsync()
+        {
+            Type type = Type.GetType("Attitude_Loose.Test.SponsorReport");
+            Object obj = Activator.CreateInstance(type);
+            MethodInfo methodInfo = type.GetMethod("CreateBook");
+            object classInstance = Activator.CreateInstance(type, null);
+            object bookDS = null;
+            using (var conn = new NpgsqlConnection(CTRPConst.connString))
+            {
+                conn.Open();
+                try
+                {
+                    string savepath = "";
+                    string templatepath = "";
+                    DataSet conclusionDS = new DataSet();
+                    object[] parametersArray = new object[] { conn, "2018-05-01", "2018-05-02", "" , "", conclusionDS };
+                    bookDS = methodInfo.Invoke(classInstance, parametersArray);
+                    //DataSet bookDS = reports.CreateBook(conn, startDate, endDate, out savepath, out templatepath, out conclusionDS);
+                    CTRPFunctions.WriteExcelByDataSet((DataSet)bookDS, savepath, templatepath, 2, 1);
+                    if (conclusionDS.Tables.Count > 0)
+                    {
+                        CTRPFunctions.WriteExcelByDataSet(conclusionDS, savepath, null, 2, 18);
+                    }
+                    CTRPFunctions.SendEmail("Turnround Report", "Attached please find. \r\n This is turnround report from " + "2018-05-01" + " to " + "2018-05-02", "ran.pan@nih.gov", savepath);
                 }
                 catch (Exception ex)
                 {
@@ -80,12 +173,15 @@ namespace Attitude_Loose.Test
                 }
             }
         }
-
-
         [Test()]
         public void EmialTest()
         {
             CTRPFunctions.SendEmail("Turnround Report", "This is a test email. ", "ran.pan@nih.gov", @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Turnround Report_201803 By Ran Code.xlsx");
+        }
+        [Test()]
+        public void RelativePath()
+        {
+            string savepath = Environment.CurrentDirectory;
         }
 
         [Test()]
@@ -102,56 +198,56 @@ namespace Attitude_Loose.Test
             }
         }
 
-        [Test()]
-        public void CreateTurnroundReportTest()
-        {
-            CTRPReports reports = new CTRPReports();
-            string s1 = "2018-04-01";
-            string s2 = "2018-05-01";
-            using (var conn = new NpgsqlConnection(CTRPConst.connString))
-            {
-                conn.Open();
+        //[Test()]
+        //public void CreateTurnroundReportTest()
+        //{
+        //    CTRPReports reports = new CTRPReports();
+        //    string s1 = "2018-04-01";
+        //    string s2 = "2018-05-01";
+        //    using (var conn = new NpgsqlConnection(CTRPConst.connString))
+        //    {
+        //        conn.Open();
 
-                try
-                {
-                    string savepath = CTRPConst.turnround_savepath + "_" + s1.Replace("-", "") + "-" + s2.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
-                    string templatepath = CTRPConst.turnround_template_file;
-                    DataSet conclusionturnroundDS = new DataSet();
-                    DataSet turnroundDS = reports.TurnroundBook(conn, s1, s2, out conclusionturnroundDS);
+        //        try
+        //        {
+        //            string savepath = CTRPConst.turnround_savepath + "_" + s1.Replace("-", "") + "-" + s2.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
+        //            string templatepath = CTRPConst.turnround_template_file;
+        //            DataSet conclusionturnroundDS = new DataSet();
+        //            DataSet turnroundDS = reports.TurnroundBook(conn, s1, s2, out conclusionturnroundDS);
 
-                    CTRPFunctions.WriteExcelByDataSet(turnroundDS, savepath, templatepath, 2, 1);
-                    CTRPFunctions.WriteExcelByDataSet(conclusionturnroundDS, savepath, null, 2, 18);
+        //            CTRPFunctions.WriteExcelByDataSet(turnroundDS, savepath, templatepath, 2, 1);
+        //            CTRPFunctions.WriteExcelByDataSet(conclusionturnroundDS, savepath, null, 2, 18);
 
-                }
-                catch (Exception ex)
-                {
-                    throw;
-                }
-            }
-        }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            throw;
+        //        }
+        //    }
+        //}
 
-        [Test()]
-        public void CreateSponsorNotMatchReportTest()
-        {
-            CTRPReports reports = new CTRPReports();
-            using (var conn = new NpgsqlConnection(CTRPConst.connString))
-            {
-                conn.Open();
-                try
-                {
-                    string savepath = CTRPConst.sponsornotmatch_savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
-                    string templatepath = CTRPConst.sponsornotmatch_template_file;
-                    DataSet sponsorDS = reports.SponsorNotMatchBook(conn);
+        //[Test()]
+        //public void CreateSponsorNotMatchReportTest()
+        //{
+        //    CTRPReports reports = new CTRPReports();
+        //    using (var conn = new NpgsqlConnection(CTRPConst.connString))
+        //    {
+        //        conn.Open();
+        //        try
+        //        {
+        //            string savepath = CTRPConst.sponsornotmatch_savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
+        //            string templatepath = CTRPConst.sponsornotmatch_template_file;
+        //            DataSet sponsorDS = reports.SponsorNotMatchBook(conn);
 
-                    CTRPFunctions.WriteExcelByDataSet(sponsorDS, savepath, templatepath, 2, 1);
-                    CTRPFunctions.SendEmail("Sponsor Report", "Attached please find. \r\n This is sponsor report generated at " + DateTime.Now.ToString(), "kirsten.larco@nih.gov", savepath);
-                }
-                catch (Exception ex)
-                {
-                    throw;
-                }
-            }
-        }
+        //            CTRPFunctions.WriteExcelByDataSet(sponsorDS, savepath, templatepath, 2, 1);
+        //            CTRPFunctions.SendEmail("Sponsor Report", "Attached please find. \r\n This is sponsor report generated at " + DateTime.Now.ToString(), "kirsten.larco@nih.gov", savepath);
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            throw;
+        //        }
+        //    }
+        //}
 
         [Test()]
         public void LoginTest()

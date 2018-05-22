@@ -12,8 +12,7 @@ namespace Attitude_Loose.Service
     {
         void CreateRecord(Record record);
         void SaveRecord();
-        IEnumerable<Record> GetRecords();
-        IEnumerable<Record> GetRecordsByPage(string userId, int currentPage, int noOfRecords, string sortBy, string filterBy);
+        IEnumerable<Record> GetRecordsByUser(string userid);
     }
 
     public class RecordService : IRecordService
@@ -38,15 +37,10 @@ namespace Attitude_Loose.Service
             SaveRecord();
         }
 
-        public IEnumerable<Record> GetRecords()
+        public IEnumerable<Record> GetRecordsByUser(string userid)
         {
-            var topic = recordRepository.GetAll().OrderByDescending(g => g.CreatedDate);
+            var topic = recordRepository.GetMany(x=>x.UserId == userid).OrderByDescending(g => g.CreatedDate);
             return topic;
-        }
-
-        public IEnumerable<Record> GetRecordsByPage(string userId, int currentPage, int noOfRecords, string sortBy, string filterBy)
-        {
-            return recordRepository.GetRecordsByPage(userId, currentPage, noOfRecords, sortBy, filterBy);
         }
     }
 

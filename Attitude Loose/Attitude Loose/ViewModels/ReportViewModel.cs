@@ -63,6 +63,8 @@ namespace Attitude_Loose.ViewModels
         public string[] Loginname { get; set; }
         public string[] ChartName { get; set; }
         public string[] ChartType { get; set; }
+        public string[] XLabel { get; set; }
+        public string[] YLabel { get; set; }
 
         public ReportAnalysisViewModel()
         {

@@ -142,6 +142,9 @@
     <Reference Include="nunit.framework, Version=3.9.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.9.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Quartz, Version=3.0.4.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quartz.3.0.4\lib\net452\Quartz.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -149,6 +152,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.4.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -282,13 +286,13 @@
     <Compile Include="Infrastructure\Logging.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201805162022083_Initial.cs" />
-    <Compile Include="Migrations\201805162022083_Initial.Designer.cs">
-      <DependentUpon>201805162022083_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201805222100126_ScheduleFixTry.cs" />
+    <Compile Include="Migrations\201805222100126_ScheduleFixTry.Designer.cs">
+      <DependentUpon>201805222100126_ScheduleFixTry.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805162033144_A2.cs" />
-    <Compile Include="Migrations\201805162033144_A2.Designer.cs">
-      <DependentUpon>201805162033144_A2.cs</DependentUpon>
+    <Compile Include="Migrations\201805222115013_ScheduleCreateDate.cs" />
+    <Compile Include="Migrations\201805222115013_ScheduleCreateDate.Designer.cs">
+      <DependentUpon>201805222115013_ScheduleCreateDate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -301,6 +305,7 @@
     <Compile Include="Models\Metric.cs" />
     <Compile Include="Models\Record.cs" />
     <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Topic.cs" />
     <Compile Include="Models\UserProfile.cs" />
     <Compile Include="NuGet.Modules\JsonHelper.cs" />
@@ -313,12 +318,14 @@
     <Compile Include="Repository\MetricRepository.cs" />
     <Compile Include="Repository\RecordRepository.cs" />
     <Compile Include="Repository\ReportRepository.cs" />
+    <Compile Include="Repository\ScheduleRepository.cs" />
     <Compile Include="Repository\TopicRepository.cs" />
     <Compile Include="Repository\UserProfileRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Service\MetricService.cs" />
     <Compile Include="Service\RecordService.cs" />
     <Compile Include="Service\ReportService.cs" />
+    <Compile Include="Service\ScheduleService.cs" />
     <Compile Include="Service\TopicService.cs" />
     <Compile Include="Service\UserProfileService.cs" />
     <Compile Include="Service\UserService.cs" />
@@ -327,8 +334,10 @@
     <Compile Include="Test\CTRPConst.cs" />
     <Compile Include="Test\CTRPFunctions.cs" />
     <Compile Include="Test\CTRPReports.cs" />
+    <Compile Include="Test\CTRPSchedule.cs" />
     <Compile Include="Test\TestUserStore.cs" />
     <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
+    <Compile Include="ViewModels\RecordViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModel.cs" />
     <Compile Include="ViewModels\TopicViewModel.cs" />
     <Compile Include="ViewModels\UserProfileViewModel.cs" />
@@ -343,6 +352,11 @@
     <Content Include="Content\CustomStyles.css" />
     <Content Include="Content\dashboard.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\kendo\examples-offline.css" />
+    <Content Include="Content\kendo\kendo.common.min.css" />
+    <Content Include="Content\kendo\kendo.default.min.css" />
+    <Content Include="Content\kendo\kendo.default.mobile.min.css" />
+    <Content Include="Content\kendo\kendo.rtl.min.css" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -553,6 +567,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Excel\Turnround Report_20180501-20180502_20180521154724.xlsx" />
     <None Include="Properties\PublishProfiles\AttitudeLoose - Web Deploy.pubxml" />
     <Content Include="Images\ClinicalBackground.jpg" />
     <Content Include="Images\CTRPBrand.png" />
@@ -687,6 +702,9 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\kendo\console.js" />
+    <Content Include="Scripts\kendo\jszip.min.js" />
+    <Content Include="Scripts\kendo\kendo.all.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
@@ -705,6 +723,17 @@
     <Content Include="Scripts\underscore.js" />
     <Content Include="Scripts\underscore.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="SQL\Onhold\Code.txt" />
+    <Content Include="SQL\Sponsor\Code.txt" />
+    <Content Include="SQL\Turnround\Abbreviate.txt" />
+    <Content Include="SQL\Turnround\Amendment.txt" />
+    <Content Include="SQL\Turnround\Original.txt" />
+    <Content Include="SQL\Workload\Admin Abstraction.txt" />
+    <Content Include="SQL\Workload\Admin QC.txt" />
+    <Content Include="Templates\Monthly Turnaround Template.xlsx" />
+    <Content Include="Templates\Sponsor Not Match Report Template.xlsx" />
+    <Content Include="Templates\Onhold Report Template.xlsx" />
+    <None Include="Views\Report\Test.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -753,6 +782,7 @@
     <Content Include="Views\Report\Analysis.cshtml" />
     <Content Include="Views\Report\Chart.cshtml" />
     <Content Include="Views\Report\Report.cshtml" />
+    <Content Include="Views\Report\History.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -765,11 +795,11 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805162022083_Initial.resx">
-      <DependentUpon>201805162022083_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805222100126_ScheduleFixTry.resx">
+      <DependentUpon>201805222100126_ScheduleFixTry.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805162033144_A2.resx">
-      <DependentUpon>201805162033144_A2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805222115013_ScheduleCreateDate.resx">
+      <DependentUpon>201805222115013_ScheduleCreateDate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

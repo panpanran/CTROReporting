@@ -16,5 +16,7 @@ namespace Attitude_Loose.Models
         public virtual Department Department { get; set; }
 
         public string ReportName { get; set; }
+
+        public virtual ICollection<Record> Records { get; set; }
     }
 }

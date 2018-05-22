@@ -80,7 +80,7 @@ namespace Attitude_Loose.Controllers
             }
             else
             {
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Report", "Report");
             }
         }
 
@@ -107,7 +107,7 @@ namespace Attitude_Loose.Controllers
                     var Email = user.Email;
                     userProfileService.CreateUserProfile(userId, Email);
                     await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Report", "Report");
                 }
                 else
                 {
@@ -152,7 +152,7 @@ namespace Attitude_Loose.Controllers
         {
             AuthenticationManager.SignOut();
             System.Web.HttpContext.Current.Session.Clear();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Report", "Report");
         }
 
         [HttpGet]

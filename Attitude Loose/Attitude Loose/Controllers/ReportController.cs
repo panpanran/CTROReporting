@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using System;
+using AutoMapper;
+using System.Linq;
+using System.IO;
+using Attitude_Loose.Test;
 
 namespace Attitude_Loose.Controllers
 {
@@ -16,11 +20,14 @@ namespace Attitude_Loose.Controllers
         private IUserProfileService userProfileService;
         private readonly IReportService reportService;
         private readonly IRecordService recordService;
-        public ReportController(IReportService reportService, IRecordService recordService, IUserProfileService userProfileService)
+        private readonly ITopicService topicService;
+
+        public ReportController(IReportService reportService, IRecordService recordService, IUserProfileService userProfileService, ITopicService topicService)
         {
             this.reportService = reportService;
             this.recordService = recordService;
             this.userProfileService = userProfileService;
+            this.topicService = topicService;
         }
 
         public PartialViewResult ProgressBar(ReportProgressViewModel model)
@@ -47,14 +54,20 @@ namespace Attitude_Loose.Controllers
             string[] Xaxis = { };
             string[] ChartName = { };
             string[] ChartType = { };
+            string[] XLabel = { };
+            string[] YLabel = { };
+
             List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
             string[] loginname = { };
-            home.CreatPDAWorkloadAnalysisChart("2018-04-02", "2018-04-02", "", out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
+
+            home.CreateAnalysisChart("2018-04-02", "2018-04-02", "", "PDAAbstraction", out XLabel, out YLabel, out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
             model.Loginname = loginname;
             model.Xaxis = Xaxis;
             model.Yaxis = Yaxis;
             model.ChartName = ChartName;
             model.ChartType = ChartType;
+            model.XLabel = XLabel;
+            model.YLabel = YLabel;
 
             var reports = reportService.GetReports();
             model.Reports = reportService.ToSelectListItems(reports, "chart", -1);
@@ -65,23 +78,24 @@ namespace Attitude_Loose.Controllers
         public ActionResult Analysis(ReportAnalysisViewModel model)
         {
             CTROHome home = new CTROHome();
+
             string[] Xaxis = { };
             string[] ChartName = { };
             string[] ChartType = { };
+            string[] XLabel = { };
+            string[] YLabel = { };
             List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
             string[] loginname = { };
 
             if (ModelState.IsValid)
             {
-                if (model.SelectedAnalysis == "1")
-                {
-                    home.CreatPDAWorkloadAnalysisChart(model.StartDate, model.EndDate, "", out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
-                }
+                string reportname = reportService.GetReportById(model.SelectedAnalysis).ReportName.Replace(" - ", "");
+                home.CreateAnalysisChart(model.StartDate, model.EndDate, "", reportname, out XLabel, out YLabel, out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
                 model.AnalysisResult = true;
             }
             else
             {
-                home.CreatPDAWorkloadAnalysisChart("2018-04-02", "2018-04-02", "", out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
+                home.CreateAnalysisChart("2018-04-02", "2018-04-02", "", "PDAAbstraction", out XLabel, out YLabel, out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
                 model.AnalysisResult = false;
             }
             model.Loginname = loginname;
@@ -89,6 +103,8 @@ namespace Attitude_Loose.Controllers
             model.Yaxis = Yaxis;
             model.ChartName = ChartName;
             model.ChartType = ChartType;
+            model.XLabel = XLabel;
+            model.YLabel = YLabel;
             var reports = reportService.GetReports();
             model.Reports = reportService.ToSelectListItems(reports, "chart", -1);
 
@@ -106,7 +122,7 @@ namespace Attitude_Loose.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Report(ReportGenerateViewModel model)
+        public ActionResult Report(ReportGenerateViewModel model)
         {
             UserProfile userprofile = userProfileService.GetByUserID(User.Identity.GetUserId());
             model.ReportResult = false;
@@ -116,35 +132,35 @@ namespace Attitude_Loose.Controllers
                 ReportId = Convert.ToInt32(model.SelectedReport),
                 UserId = User.Identity.GetUserId(),
                 StartDate = model.StartDate,
-                EndDate = model.EndDate
+                EndDate = model.EndDate,
             };
 
             if (ModelState.IsValid)
             {
+                string reportname = reportService.GetReportById(model.SelectedReport).ReportName;
                 CTROHome home = new CTROHome();
-                int turnround = 0;
-                switch (model.SelectedReport)
-                {
-                    case "3":
-                        turnround = await home.CreateTurnroundReportAsync(model.StartDate, model.EndDate, userprofile.Email);
-                        break;
-                    case "4":
-                        turnround = await home.CreateSponsorNotMatcReportAsync(userprofile.Email);
-                        break;
-                }
+                string savepath = "";
+                int turnround = home.CreateReport(model.StartDate, model.EndDate, userprofile.Email, reportname, out savepath);
 
-                //int turnround = await home.CreateTurnroundReportAsync(model.StartDate, model.EndDate, userprofile.Email);
                 if (turnround == 1)
                 {
+                    record.FilePath = "../Excel/" + Path.GetFileName(savepath);
                     recordService.CreateRecord(record);
                     model.ReportResult = true;
                 }
             }
             var reports = reportService.GetReports();
             model.Reports = reportService.ToSelectListItems(reports, "excel", -1);
-
             return View(model);
         }
 
+        [HttpGet]
+        public ActionResult History()
+        {
+            var records = recordService.GetRecordsByUser(User.Identity.GetUserId()).ToList();
+
+            var recordsList = Mapper.Map<IEnumerable<Record>, IEnumerable<RecordListViewModel>>(records).ToList();
+            return View(recordsList);
+        }
     }
 }

@@ -67,6 +67,8 @@
             var Xaxis = Model.Xaxis[ind];
             var ChartName = Model.ChartName[ind];
             var ChartType = Model.ChartType[ind];
+            var XLabel = Model.XLabel[ind];
+            var YLabel = Model.YLabel[ind];
 
             //dynamic tabs
       @:      var label = '@ChartName',
@@ -103,15 +105,19 @@
       @:                  display: true,
       @:                  scaleLabel: {
       @:                      display: true,
-      @:                      labelString: 'X'
+      @:                      labelString: '@XLabel'
       @:                  }
       @:              }],
       @:              yAxes: [{
       @:                  display: true,
       @:                  scaleLabel: {
       @:                      display: true,
-      @:                      labelString: 'Y'
-      @:                  }
+      @:                      labelString: '@YLabel'
+      @:                  },
+      @:            ticks:
+      @:      {
+      @:          beginAtZero: true
+      @:      }
       @:              }]
       @:          }
       @:      }

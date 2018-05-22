@@ -33,7 +33,7 @@
                     @Html.LabelFor(x => x.StartDate, new { @class = "col-md-4 form-control-label" })
                 </div>
                 <div class=" col-md-6">
-                    @Html.TextBoxFor(x => x.StartDate, new { @class = "ui-datepicker", @style = "display:block;float:left;" })
+                    @Html.TextBoxFor(x => x.StartDate, new { @class = "ui-datepicker",@id = "startdate", @style = "display:block;float:left;" })
                 </div>
             </div>
             <div class="row">
@@ -41,7 +41,7 @@
                     @Html.LabelFor(x => x.EndDate, new { @class = "col-md-4 form-control-label" })
                 </div>
                 <div class=" col-md-6">
-                    @Html.TextBoxFor(x => x.EndDate, new { @class = "ui-datepicker", @style = "display:block;float:left;" })
+                    @Html.TextBoxFor(x => x.EndDate, new { @class = "ui-datepicker", @id = "enddate", @style = "display:block;float:left;" })
                 </div>
             </div>
         </div>
@@ -82,20 +82,34 @@
 <script type="text/javascript">
     $(function () {
         var reportdatecard = $("#reportdatecard");
+        var startdate = $("#startdate");
+        var enddate = $("#enddate");
         $("#reportlist").selectmenu({
-            //create: function (event, data) {
-            //    $("#SelectedReport").val(null);
-            //},
+            create: function (event, data) {
+                $("#SelectedReport").val(null);
+            },
 
             change: function (event, data) {
                 $("#SelectedReport").val(data.item.value);
                 $("#StartDate").val("");
                 $("#EndDate").val("");
+
+                startdate.removeClass("disable");
+                startdate.datepicker('enable');
+                enddate.removeClass("disable");
+                enddate.datepicker('enable');
+
                 if (data.item.value == "4") {
-                    reportdatecard.addClass("invisible");
+                    startdate.addClass("disable");
+                    startdate.datepicker("disable");
+                    enddate.addClass("disable");
+                    enddate.datepicker("disable");
+                }
+                else if (data.item.value == "5") {
+                    enddate.addClass("disable");
+                    enddate.datepicker("disable");
                 }
                 else {
-                    reportdatecard.removeClass("invisible");
                 }
             }
         });
