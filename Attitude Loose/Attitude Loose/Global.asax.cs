@@ -1,4 +1,6 @@
 ﻿using Attitude_Loose.App_Start;
+using Attitude_Loose.Models;
+using Attitude_Loose.Service;
 using Attitude_Loose.Test;
 using System;
 using System.Collections.Generic;
@@ -22,8 +24,6 @@ namespace Attitude_Loose
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             IOCConfig.Run();
             AutoMapperConfig.Configure();
-            CTRPSchedule.Execute();
         }
-
     }
 }

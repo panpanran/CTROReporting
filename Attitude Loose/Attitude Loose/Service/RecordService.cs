@@ -39,8 +39,8 @@ namespace Attitude_Loose.Service
 
         public IEnumerable<Record> GetRecordsByUser(string userid)
         {
-            var topic = recordRepository.GetMany(x=>x.UserId == userid).OrderByDescending(g => g.CreatedDate);
-            return topic;
+            var record = recordRepository.GetMany(x=>x.UserId == userid).OrderByDescending(g => g.CreatedDate);
+            return record;
         }
     }
 

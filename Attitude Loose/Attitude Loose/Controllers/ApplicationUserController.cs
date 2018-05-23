@@ -1,6 +1,7 @@
 ﻿using Attitude_Loose.Models;
 using Attitude_Loose.Properties;
 using Attitude_Loose.Service;
+using Attitude_Loose.Test;
 using Attitude_Loose.ViewModels;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
@@ -9,6 +10,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Web;
@@ -22,8 +24,9 @@ namespace Attitude_Loose.Controllers
         private UserManager<ApplicationUser> userManager;
         private IUserProfileService userProfileService;
         private IUserService userService;
+        private IScheduleService scheduleService;
 
-        public ApplicationUserController(IUserProfileService userProfileService, IUserService userService, UserManager<ApplicationUser> userManager)
+        public ApplicationUserController(IScheduleService scheduleService,IUserProfileService userProfileService, IUserService userService, UserManager<ApplicationUser> userManager)
         {
             userManager.UserValidator = new UserValidator<ApplicationUser>(userManager)
             {
@@ -33,6 +36,7 @@ namespace Attitude_Loose.Controllers
             this.userManager = userManager;
             this.userProfileService = userProfileService;
             this.userService = userService;
+            this.scheduleService = scheduleService;
         }
 
         //
@@ -40,6 +44,8 @@ namespace Attitude_Loose.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+            Schedule schedule = scheduleService.GetSchedules().FirstOrDefault();
+            CTRPSchedule.Start(schedule);
             //if (Request.QueryString["guid"] != null)
             //    SocialGoalSessionFacade.JoinGroupOrGoal = Request.QueryString["guid"];
             ViewBag.ReturnUrl = returnUrl;

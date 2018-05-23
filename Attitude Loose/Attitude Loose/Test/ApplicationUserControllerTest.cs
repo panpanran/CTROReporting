@@ -58,7 +58,7 @@ namespace Attitude_Loose.Test
         [Test]
         public void ScheduleReport()
         {
-            CTRPSchedule.Execute();
+            //CTRPSchedule.Execute();
         }
 
         [Test()]
@@ -249,46 +249,46 @@ namespace Attitude_Loose.Test
         //    }
         //}
 
-        [Test()]
-        public void LoginTest()
-        {
-            var userManager = new UserManager<ApplicationUser>(new TestUserStore());
-            ApplicationUserController controller = new ApplicationUserController(userProfileService, userService, userManager);
-            var mockAuthenticationManager = new Mock<IAuthenticationManager>();
-            mockAuthenticationManager.Setup(am => am.SignOut());
-            mockAuthenticationManager.Setup(am => am.SignIn());
-            controller.AuthenticationManager = mockAuthenticationManager.Object;
-            ApplicationUser applicationUser = getApplicationUser();
-            userManager.CreateAsync(applicationUser, "123456");
-            var result = controller.Login(new LoginViewModel { UserName = "panpanr", Password = "123456", RememberMe = false }, "abcd").Result;
-            Assert.IsNotNull(result);
-            var addedUser = userManager.FindByName("panpanr");
-            Assert.IsNotNull(addedUser);
-            Assert.AreEqual("panpanr", addedUser.UserName);
-        }
+        //[Test()]
+        //public void LoginTest()
+        //{
+        //    var userManager = new UserManager<ApplicationUser>(new TestUserStore());
+        //    ApplicationUserController controller = new ApplicationUserController(userProfileService, userService, userManager);
+        //    var mockAuthenticationManager = new Mock<IAuthenticationManager>();
+        //    mockAuthenticationManager.Setup(am => am.SignOut());
+        //    mockAuthenticationManager.Setup(am => am.SignIn());
+        //    controller.AuthenticationManager = mockAuthenticationManager.Object;
+        //    ApplicationUser applicationUser = getApplicationUser();
+        //    userManager.CreateAsync(applicationUser, "123456");
+        //    var result = controller.Login(new LoginViewModel { UserName = "panpanr", Password = "123456", RememberMe = false }, "abcd").Result;
+        //    Assert.IsNotNull(result);
+        //    var addedUser = userManager.FindByName("panpanr");
+        //    Assert.IsNotNull(addedUser);
+        //    Assert.AreEqual("panpanr", addedUser.UserName);
+        //}
 
-        [Test()]
-        public void RegisterTest()
-        {
-            var userManager = new UserManager<ApplicationUser>(new TestUserStore());
-            ApplicationUserController controller = new ApplicationUserController(userProfileService, userService, userManager);
-            var mockAuthenticationManager = new Mock<IAuthenticationManager>();
-            mockAuthenticationManager.Setup(am => am.SignOut());
-            mockAuthenticationManager.Setup(am => am.SignIn());
-            controller.AuthenticationManager = mockAuthenticationManager.Object;
-            var result =
-                controller.Register(new RegisterViewModel
-                {
-                    UserName = "chenfei",
-                    Email = "chenfei@gmail.com",
-                    Password = "123456",
-                    ConfirmPassword = "123456"
-                }).Result;
-            Assert.IsNotNull(result);
-            var addedUser = userManager.FindByName("chenfei");
-            Assert.IsNotNull(addedUser);
-            Assert.AreEqual("chenfei", addedUser.UserName);
-        }
+        //[Test()]
+        //public void RegisterTest()
+        //{
+        //    var userManager = new UserManager<ApplicationUser>(new TestUserStore());
+        //    ApplicationUserController controller = new ApplicationUserController(userProfileService, userService, userManager);
+        //    var mockAuthenticationManager = new Mock<IAuthenticationManager>();
+        //    mockAuthenticationManager.Setup(am => am.SignOut());
+        //    mockAuthenticationManager.Setup(am => am.SignIn());
+        //    controller.AuthenticationManager = mockAuthenticationManager.Object;
+        //    var result =
+        //        controller.Register(new RegisterViewModel
+        //        {
+        //            UserName = "chenfei",
+        //            Email = "chenfei@gmail.com",
+        //            Password = "123456",
+        //            ConfirmPassword = "123456"
+        //        }).Result;
+        //    Assert.IsNotNull(result);
+        //    var addedUser = userManager.FindByName("chenfei");
+        //    Assert.IsNotNull(addedUser);
+        //    Assert.AreEqual("chenfei", addedUser.UserName);
+        //}
 
         public ApplicationUser getApplicationUser()
         {

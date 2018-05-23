@@ -1,4 +1,7 @@
-﻿using Attitude_Loose.Service;
+﻿using Attitude_Loose.Models;
+using Attitude_Loose.Service;
+using Autofac;
+using Microsoft.AspNet.Identity;
 using Quartz;
 using Quartz.Impl;
 using System;
@@ -9,29 +12,18 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Attitude_Loose.Test
 {
-    public class CTRPSchedule
+    public class CTRPSchedule 
     {
-        private IUserProfileService userProfileService;
-        private readonly IReportService reportService;
-        private readonly IRecordService recordService;
-
-        public CTRPSchedule(IReportService reportService, IRecordService recordService, IUserProfileService userProfileService)
+        public static void Start(Schedule schedule)
         {
-            this.reportService = reportService;
-            this.recordService = recordService;
-            this.userProfileService = userProfileService;
+            RunProgram(schedule).GetAwaiter().GetResult();
         }
 
-
-        public static void Execute()
-        {
-            RunProgram().GetAwaiter().GetResult();
-        }
-
-        private static async Task RunProgram()
+        private static async Task RunProgram(Schedule schedule)
         {
             try
             {
@@ -48,9 +40,10 @@ namespace Attitude_Loose.Test
                 // Trigger the job to run now, and then repeat every 10 seconds
                 ITrigger trigger = TriggerBuilder.Create()
                     .WithIdentity("trigger1", "group1")
-                    .StartAt(DateBuilder.DateOf(16,20,0,1,5))
+                    //.StartAt(DateBuilder.DateOf(16, 20, 0, 1, 5))
+                    .StartAt(schedule.StartTime)
                     .WithSimpleSchedule(x => x
-                        .WithInterval(new TimeSpan(7,0,0,0))
+                        .WithInterval(new TimeSpan(schedule.IntervalDays,0,0,0))
                         .RepeatForever())
                     .Build();
 

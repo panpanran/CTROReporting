@@ -2,6 +2,7 @@
 using Attitude_Loose.Models;
 using Attitude_Loose.Repository;
 using Attitude_Loose.Service;
+using Attitude_Loose.Test;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Microsoft.AspNet.Identity;
@@ -24,6 +25,7 @@ namespace Attitude_Loose.App_Start
         private static void SetAutofacContainer()
         {
             var builder = new ContainerBuilder();
+
             builder.RegisterType<DatabaseFactory>().As<IDatabaseFactory>().InstancePerRequest();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
 
@@ -36,9 +38,11 @@ namespace Attitude_Loose.App_Start
             builder.RegisterAssemblyTypes(typeof(UserProfileService).Assembly)
             .Where(t => t.Name.EndsWith("Service"))
             .AsImplementedInterfaces();
+            //builder.RegisterType<CTRPSchedule>().InstancePerRequest();
 
             builder.Register(c => new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EntitiesInitial())))
                 .As<UserManager<ApplicationUser>>().InstancePerRequest();
+
             var container = builder.Build();
             //Create relationship (Only can be used in MVC)
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

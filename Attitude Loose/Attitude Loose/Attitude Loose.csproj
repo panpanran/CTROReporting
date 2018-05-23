@@ -276,6 +276,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
+    <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\TopicController.cs" />
     <Compile Include="CTRO\CTROHome.cs" />
     <Compile Include="Global.asax.cs">
@@ -339,6 +340,7 @@
     <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
     <Compile Include="ViewModels\RecordViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModel.cs" />
+    <Compile Include="ViewModels\ScheduleViewModel.cs" />
     <Compile Include="ViewModels\TopicViewModel.cs" />
     <Compile Include="ViewModels\UserProfileViewModel.cs" />
   </ItemGroup>
@@ -780,9 +782,9 @@
     <Content Include="Views\Shared\_NavigationBar.cshtml" />
     <Content Include="Views\Report\ProgressBar.cshtml" />
     <Content Include="Views\Report\Analysis.cshtml" />
-    <Content Include="Views\Report\Chart.cshtml" />
     <Content Include="Views\Report\Report.cshtml" />
     <Content Include="Views\Report\History.cshtml" />
+    <Content Include="Views\Schedule\Schedule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

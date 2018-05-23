@@ -13,6 +13,7 @@ namespace Attitude_Loose.Service
         void CreateRecord(Schedule schedule);
         void SaveRecord();
         IEnumerable<Schedule> GetSchedulesByUser(string userid);
+        IEnumerable<Schedule> GetSchedules();
     }
 
     public class ScheduleService : IScheduleService
@@ -41,6 +42,12 @@ namespace Attitude_Loose.Service
         {
             var topic = scheduleRepository.GetMany(x => x.UserId == userid).OrderByDescending(g => g.CreatedDate);
             return topic;
+        }
+
+        public IEnumerable<Schedule> GetSchedules()
+        {
+            var schedule = scheduleRepository.GetAll();
+            return schedule;
         }
     }
 
