@@ -30,6 +30,12 @@ namespace Attitude_Loose.Controllers
             this.topicService = topicService;
         }
 
+        public ActionResult GetReportList()
+        {
+            var reportlist = reportService.GetReports().Where(x => x.ReportType == "excel").Select(x => new { ReportName = x.ReportName }).ToList();
+            return Json(reportlist, JsonRequestBehavior.AllowGet);
+        }
+
         public PartialViewResult ProgressBar(ReportProgressViewModel model)
         {
             //var createProgress = new ReportProgressViewModel();
@@ -89,7 +95,7 @@ namespace Attitude_Loose.Controllers
 
             if (ModelState.IsValid)
             {
-                string reportname = reportService.GetReportById(model.SelectedAnalysis).ReportName.Replace(" - ", "");
+                string reportname = reportService.GetReportById(Convert.ToInt32(model.SelectedAnalysis)).ReportName.Replace(" - ", "");
                 home.CreateAnalysisChart(model.StartDate, model.EndDate, "", reportname, out XLabel, out YLabel, out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
                 model.AnalysisResult = true;
             }
@@ -126,28 +132,12 @@ namespace Attitude_Loose.Controllers
         {
             UserProfile userprofile = userProfileService.GetByUserID(User.Identity.GetUserId());
             model.ReportResult = false;
-            //Add record to database
-            Record record = new Record
-            {
-                ReportId = Convert.ToInt32(model.SelectedReport),
-                UserId = User.Identity.GetUserId(),
-                StartDate = model.StartDate,
-                EndDate = model.EndDate,
-            };
 
             if (ModelState.IsValid)
             {
-                string reportname = reportService.GetReportById(model.SelectedReport).ReportName;
-                CTROHome home = new CTROHome();
-                string savepath = "";
-                int turnround = home.CreateReport(model.StartDate, model.EndDate, userprofile.Email, reportname, out savepath);
-
-                if (turnround == 1)
-                {
-                    record.FilePath = "../Excel/" + Path.GetFileName(savepath);
-                    recordService.CreateRecord(record);
-                    model.ReportResult = true;
-                }
+                string reportname = reportService.GetReportById(Convert.ToInt32(model.SelectedReport)).ReportName;
+                model.ReportResult = reportService.CreateReport(Convert.ToInt32(model.SelectedReport), User.Identity.GetUserId(), 
+                    model.StartDate, model.EndDate, userprofile.Email);
             }
             var reports = reportService.GetReports();
             model.Reports = reportService.ToSelectListItems(reports, "excel", -1);

@@ -7,6 +7,7 @@ using AutoMapper;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
@@ -44,10 +45,8 @@ namespace Attitude_Loose.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            Schedule schedule = scheduleService.GetSchedules().FirstOrDefault();
-            CTRPSchedule.Start(schedule);
-            //if (Request.QueryString["guid"] != null)
-            //    SocialGoalSessionFacade.JoinGroupOrGoal = Request.QueryString["guid"];
+            List<Schedule> schedulelist = scheduleService.GetSchedules().ToList();
+            CTRPSchedule.Start(schedulelist);
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }

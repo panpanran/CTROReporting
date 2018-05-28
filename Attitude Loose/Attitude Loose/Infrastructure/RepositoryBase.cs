@@ -34,11 +34,21 @@ namespace Attitude_Loose.Infrastructure
             return dbset.Where(where).FirstOrDefault<T>();
         }
 
+        public virtual T GetById(int id)
+        {
+            return dbset.Find(id);
+        }
+
         public virtual void Update(T entity)
         {
             dataContext.Entry(entity).CurrentValues.SetValues(entity);
             //dbset.Attach(entity);
             //dataContext.Entry(entity).State = EntityState.Modified;
+        }
+
+        public virtual void Delete(T entity)
+        {
+            dbset.Remove(entity);
         }
 
         public virtual IEnumerable<T> GetAll()

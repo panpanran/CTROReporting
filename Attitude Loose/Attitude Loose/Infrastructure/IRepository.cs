@@ -12,6 +12,8 @@ namespace Attitude_Loose.Infrastructure
         T Get(Expression<Func<T, bool>> where);
         void Update(T entity);
         IEnumerable<T> GetAll();
+        T GetById(int id);
         IEnumerable<T> GetMany(Expression<Func<T, bool>> where);
+        void Delete(T entity);
     }
 }

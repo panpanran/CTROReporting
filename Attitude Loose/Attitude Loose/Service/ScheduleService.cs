@@ -10,10 +10,13 @@ namespace Attitude_Loose.Service
 {
     public interface IScheduleService
     {
-        void CreateRecord(Schedule schedule);
-        void SaveRecord();
+        void CreateSchedule(Schedule schedule);
+        void SaveSchedule();
+        Schedule GetByScheduleID(int scheduleid);
         IEnumerable<Schedule> GetSchedulesByUser(string userid);
         IEnumerable<Schedule> GetSchedules();
+        void UpdateSchedule(Schedule schedule);
+        void DeleteSchedule(int id);
     }
 
     public class ScheduleService : IScheduleService
@@ -32,11 +35,18 @@ namespace Attitude_Loose.Service
             unitOfWork.Commit();
         }
 
-        public void CreateRecord(Schedule schedule)
+        public void CreateSchedule(Schedule schedule)
         {
             scheduleRepository.Add(schedule);
             SaveRecord();
         }
+
+        public Schedule GetByScheduleID(int scheduleid)
+        {
+            var schedule = scheduleRepository.GetById(scheduleid);
+            return schedule;
+        }
+
 
         public IEnumerable<Schedule> GetSchedulesByUser(string userid)
         {
@@ -49,6 +59,25 @@ namespace Attitude_Loose.Service
             var schedule = scheduleRepository.GetAll();
             return schedule;
         }
+
+        public void UpdateSchedule(Schedule schedule)
+        {
+            scheduleRepository.Update(schedule);
+            SaveSchedule();
+        }
+
+        public void DeleteSchedule(int id)
+        {
+            var schedule = scheduleRepository.GetById(id);
+            scheduleRepository.Delete(schedule);
+            SaveSchedule();
+        }
+
+        public void SaveSchedule()
+        {
+            unitOfWork.Commit();
+        }
+
     }
 
 }

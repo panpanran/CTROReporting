@@ -23,5 +23,9 @@ namespace Attitude_Loose.Models
 
         public virtual ApplicationUser User { get; set; }
 
+        public Schedule()
+        {
+            CreatedDate = DateTime.Now;
+        }
     }
 }
