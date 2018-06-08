@@ -8,19 +8,19 @@ namespace Attitude_Loose.Test
 {
     public class CTRPConst
     {
-        public enum ReportType {
-            Turnround = 1,
-            [Description("Sponsor Not Match")]
-            Sponsor
-        }
+        //public enum ReportType {
+        //    Turnround = 1,
+        //    [Description("Sponsor Not Match")]
+        //    Sponsor
+        //}
 
-        public enum AnalysisType
-        {
-            [Description("PDA - Abstraction")]
-            PDAAbstraction = 1,
-            [Description("PDA - QC")]
-            PDAQC
-        }
+        //public enum AnalysisType
+        //{
+        //    [Description("PDA - Abstraction")]
+        //    PDAAbstraction = 1,
+        //    [Description("PDA - QC")]
+        //    PDAQC
+        //}
 
         //holiday
         public static DateTime[] Holidays = new DateTime[]{
@@ -39,6 +39,7 @@ namespace Attitude_Loose.Test
 
         //database connection
         public const string connString = "Server=localhost;Port=5434;User Id=copparead;Password=copparead_at_ctrp1;Database=pa_ctrpn";
+        public const string EWconnString = "Server=nciws-p258-v;Port=5434;User Id=copparead;Password=copparead_at_ctrp1;Database=pa_ctrpn";
         //turnround
         public const string turnround_template_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Templates\Monthly Turnaround Template.xlsx";
         public const string turnround_original_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\Turnround\Original.txt";
@@ -56,8 +57,18 @@ namespace Attitude_Loose.Test
         public const string onhold_template_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Templates\Onhold Report Template.xlsx";
         public const string onhold_original_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\Onhold\Code.txt";
         public const string onhold_savepath = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Excel\Onhold Report";
-
-
+        //pdaabstractor
+        public const string pdaabstractor_template_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Templates\PDA Abstractor and QC Template.xlsx";
+        public const string pdaabstractor_original_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\PDAAbstractor\Code.txt";
+        public const string pdaabstractor_savepath = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Excel\PDA Abstractor and QC Template Report";
+        //biomarker
+        public const string biomarker_template_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Templates\Biomarker Template.xlsx";
+        public const string biomarker_original_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\Biomarker\Code.txt";
+        public const string biomarker_savepath = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Excel\Biomarker Report";
+        //Workload
+        public const string workload_template_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Templates\Workload Template.xlsx";
+        public const string workload_sdaabstraction_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\Workload\Scientific Abstraction.txt";
+        public const string workload_savepath = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Excel\Workload Report";
 
     }
 }

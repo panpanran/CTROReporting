@@ -9,6 +9,7 @@ using Attitude_Loose.ViewModels;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using Moq;
+using MySql.Data.MySqlClient;
 using Npgsql;
 using NUnit.Framework;
 using Quartz;
@@ -16,6 +17,7 @@ using Quartz.Impl;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -56,9 +58,20 @@ namespace Attitude_Loose.Test
         }
 
         [Test]
-        public void ScheduleReport()
+        public void WorkloadReort()
         {
-            //CTRPSchedule.Execute();
+            CTROHome cTROHome = new CTROHome();
+            string savepath = "";
+            int result = cTROHome.CreateReport("2018-06-01", "2018-06-09", "", "Workload", out savepath);
+        }
+
+        [Test]
+        public void EW()
+        {
+            //EWContinueReview ewcr = new EWContinueReview();
+            //ewcr.BulkUpdate("");
+            EWTSRFeedback eWHome = new EWTSRFeedback();
+            eWHome.BulkUpdate("assigned_to_=%27Ran%20Pan%27%20and%20summary%20like%20%27%25NCI-%25%27%20and%20assigned>%272018-06-08%27");
         }
 
         [Test()]
@@ -198,56 +211,61 @@ namespace Attitude_Loose.Test
             }
         }
 
-        //[Test()]
-        //public void CreateTurnroundReportTest()
-        //{
-        //    CTRPReports reports = new CTRPReports();
-        //    string s1 = "2018-04-01";
-        //    string s2 = "2018-05-01";
-        //    using (var conn = new NpgsqlConnection(CTRPConst.connString))
-        //    {
-        //        conn.Open();
+        [Test()]
+        public void ConnectMySQL()
+        {
+            using (var conn = new MySqlConnection(CTRPConst.EWconnString))
+            {
+                conn.Open();
 
-        //        try
-        //        {
-        //            string savepath = CTRPConst.turnround_savepath + "_" + s1.Replace("-", "") + "-" + s2.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
-        //            string templatepath = CTRPConst.turnround_template_file;
-        //            DataSet conclusionturnroundDS = new DataSet();
-        //            DataSet turnroundDS = reports.TurnroundBook(conn, s1, s2, out conclusionturnroundDS);
+                try
+                {
+                    string ran = "";
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+        }
 
-        //            CTRPFunctions.WriteExcelByDataSet(turnroundDS, savepath, templatepath, 2, 1);
-        //            CTRPFunctions.WriteExcelByDataSet(conclusionturnroundDS, savepath, null, 2, 18);
+        [Test()]
+        public void CreateReportTest()
+        {
+            SDABiomarkerReport reports = new SDABiomarkerReport();
+            using (var conn = new NpgsqlConnection(CTRPConst.connString))
+            {
+                conn.Open();
+                try
+                {
+                    DataSet outputDS = new DataSet();
+                    DataSet conclusionDS = new DataSet();
+                    string savepath = CTRPConst.biomarker_savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
+                    string templatepath = CTRPConst.biomarker_template_file;
+                    NpgsqlCommand cmd = null;
+                    NpgsqlDataReader datareader = null;
+                    //login_name
+                    string[] status_name = { "PENDING", "ACTIVE", "DELECTED_IN_CADSR" };
+                    foreach (string name in status_name)
+                    {
+                        string pdaabstractortext = System.IO.File.ReadAllText(CTRPConst.biomarker_original_file).Replace("statusVal", name);
+                        cmd = new NpgsqlCommand(pdaabstractortext, conn);
+                        datareader = cmd.ExecuteReader();
+                        DataTable nciDT = new DataTable();
+                        nciDT.Load(datareader);
+                        nciDT.TableName = name;
+                        outputDS.Tables.Add(nciDT);
+                    }
 
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw;
-        //        }
-        //    }
-        //}
+                    CTRPFunctions.WriteExcelByDataSet((DataSet)outputDS, savepath, templatepath, 2, 1);
 
-        //[Test()]
-        //public void CreateSponsorNotMatchReportTest()
-        //{
-        //    CTRPReports reports = new CTRPReports();
-        //    using (var conn = new NpgsqlConnection(CTRPConst.connString))
-        //    {
-        //        conn.Open();
-        //        try
-        //        {
-        //            string savepath = CTRPConst.sponsornotmatch_savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
-        //            string templatepath = CTRPConst.sponsornotmatch_template_file;
-        //            DataSet sponsorDS = reports.SponsorNotMatchBook(conn);
-
-        //            CTRPFunctions.WriteExcelByDataSet(sponsorDS, savepath, templatepath, 2, 1);
-        //            CTRPFunctions.SendEmail("Sponsor Report", "Attached please find. \r\n This is sponsor report generated at " + DateTime.Now.ToString(), "kirsten.larco@nih.gov", savepath);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw;
-        //        }
-        //    }
-        //}
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+        }
 
         //[Test()]
         //public void LoginTest()

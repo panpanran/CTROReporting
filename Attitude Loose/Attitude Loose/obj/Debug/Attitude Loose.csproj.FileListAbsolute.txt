@@ -543,3 +543,7 @@ C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Quartz.pdb
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Quartz.xml
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ScheduleFixTry.resources
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ScheduleCreateDate.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Google.Protobuf.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\MySql.Data.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Google.Protobuf.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\MySql.Data.xml

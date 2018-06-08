@@ -62,12 +62,12 @@ namespace Attitude_Loose.Service
                 EndDate = enddate,
             };
 
-            string reportname = GetReportById(selectedreport).ReportName;
+            string reportname = GetReportById(selectedreport).ReportName.Replace(" - ", "");
             CTROHome home = new CTROHome();
             string savepath = "";
-            int turnround = home.CreateReport(startdate, enddate, email, reportname, out savepath);
+            int report = home.CreateReport(startdate, enddate, email, reportname, out savepath);
 
-            if (turnround == 1)
+            if (report == 1)
             {
                 record.FilePath = "../Excel/" + Path.GetFileName(savepath);
                 recordService.CreateRecord(record);

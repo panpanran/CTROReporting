@@ -81,11 +81,11 @@ namespace Attitude_Loose.Test
     {
         public async Task Execute(IJobExecutionContext context)
         {
-            JobDataMap dataMap = context.JobDetail.JobDataMap;
+           JobDataMap dataMap = context.JobDetail.JobDataMap;
             DateTime starttime = dataMap.GetDateTime("starttime");
             int intervaldays = dataMap.GetInt("intervaldays");
             int reportid = dataMap.GetInt("reportid");
-            string reportname = dataMap.GetString("reportname");
+            string reportname = dataMap.GetString("reportname").Replace(" - ", "");
             string userid = dataMap.GetString("userid");
             string email = dataMap.GetString("email");
             string startdate = starttime.AddDays(-intervaldays).ToString("yyyy-MM-dd");

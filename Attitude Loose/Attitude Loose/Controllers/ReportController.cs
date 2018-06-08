@@ -135,7 +135,6 @@ namespace Attitude_Loose.Controllers
 
             if (ModelState.IsValid)
             {
-                string reportname = reportService.GetReportById(Convert.ToInt32(model.SelectedReport)).ReportName;
                 model.ReportResult = reportService.CreateReport(Convert.ToInt32(model.SelectedReport), User.Identity.GetUserId(), 
                     model.StartDate, model.EndDate, userprofile.Email);
             }

@@ -19,7 +19,7 @@ namespace Attitude_Loose.Test
     }
 
     #region turnround
-    public class TurnroundReport: CTRPReports
+    public class TurnroundReport : CTRPReports
     {
         public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out string savepath, out string templatepath, out DataSet conclusionDS)
         {
@@ -331,6 +331,122 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
             return outputDS;
         }
     }
+
+    public class WorkloadReport : CTRPReports
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out string savepath, out string templatepath, out DataSet rankDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            rankDS = new DataSet();
+            savepath = "";
+            templatepath = "";
+
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+            //NCI
+            string sdaabstraction_file = System.IO.File.ReadAllText(CTRPConst.workload_sdaabstraction_file).Replace("startDate", startDate).Replace("endDate", endDate);
+            cmd = new NpgsqlCommand(sdaabstraction_file, conn);
+            datareader = cmd.ExecuteReader();
+            DataTable nciDT = new DataTable();
+            DataTable rankDT = new DataTable();
+            nciDT.Load(datareader);
+            outputDS.Tables.Add(CreateSheet(nciDT, "Sci Abstractions", out rankDT));
+            rankDS.Tables.Add(rankDT);
+            return outputDS;
+        }
+
+        public override DataTable CreateSheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
+        {
+            DateTime starttime = new DateTime();
+            DateTime endtime = new DateTime();
+            DateTime onholddate = new DateTime();
+            DateTime offholddate = new DateTime();
+            //DateTime reactivateddate = new DateTime();
+            DataTable outputDT = inputDT.Clone();
+            DataTable tempDT = new DataTable();
+            outputDT.TableName = tablename;
+            outputDT.Columns.Add("processingtime", typeof(TimeSpan));
+            TimeSpan overalldurations = new TimeSpan();
+            TimeSpan onholdtime = new TimeSpan();
+            TimeSpan processingtime = new TimeSpan();
+
+            try
+            {
+                foreach (DataRow row in inputDT.Rows)
+                {
+                    starttime = (DateTime)row["startedtime"];
+                    endtime = (DateTime)row["completedtime"];
+                    onholddate = string.IsNullOrEmpty(row["onholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["onholddate"]);
+                    offholddate = string.IsNullOrEmpty(row["offholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["offholddate"]);
+                    //reactivateddate = string.IsNullOrEmpty(row["reactivateddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["reactivateddate"]);
+                    if (endtime >= starttime)
+                    {
+                        overalldurations = endtime - starttime;
+                        if (overalldurations.Days > 1)
+                        {
+                            overalldurations = overalldurations - TimeSpan.FromDays(overalldurations.Days - CTRPFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                        }
+                    }
+
+
+                    if (offholddate >= onholddate)
+                    {
+                        //exclude the onholddate not within processing
+                        if (onholddate <= endtime && onholddate >= starttime)
+                        {
+                            onholdtime = offholddate - onholddate;
+                        }
+                    }
+
+                    processingtime = overalldurations - onholdtime;
+
+                    if (!row.Table.Columns.Contains("processingtime"))
+                    {
+                        row.Table.Columns.Add("processingtime", typeof(TimeSpan));
+                    }
+
+                    row["processingtime"] = processingtime;
+
+                    var Duplicate = outputDT.AsEnumerable().Where(x => x.Field<string>("trialid") == row["trialid"].ToString() &&
+x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
+
+                    if (Duplicate.Count() == 1)
+                    {
+                        int index = outputDT.Rows.IndexOf(Duplicate.First());
+                        outputDT.Rows[index]["onholddescription"] += "Additional On-Hold " + row["onholddate"].ToString() + " - " + row["offholddate"].ToString() + ": " + row["onholddescription"];
+                        outputDT.Rows[index]["processingtime"] = (TimeSpan)(outputDT.Rows[index]["processingtime"]) - onholdtime;
+                    }
+                    else
+                    {
+                        outputDT.ImportRow(row);
+                    }
+
+
+                    //}
+                    //CTRPFunctions.SendEmail("dd", "dd", "ran.pan@nih.gov");
+                }
+                //tempDT = outputDT.AsEnumerable()
+                //    //.Where(x => x.Field<string>("additionalcomments") == "")  //if compute the multi on-hold records
+                //    .GroupBy(x => x.Field<DateTime>("tsrdate").Date)
+                //    .Select(x => new { TSRDate = String.Format("{0:MM/dd/yyyy}", x.Key.Date), TSRNumber = x.Count(), AvgProcessingTime = String.Format("{0:.##}", x.Select(y => y.Field<int>("processingtime")).Average()) }).ToDataTable();
+                //tempDT.Rows.Add("Grand Total"
+                //    , outputDT.Rows.Count
+                //    , String.Format("{0:.##}", outputDT.AsEnumerable()
+                //    //.Where(x => x.Field<string>("additionalcomments") == "") //if compute the multi on-hold records
+                //    .Select(x => x.Field<int>("processingtime")).Average()));
+                conclusionDT = tempDT;
+                conclusionDT.TableName = tablename;
+                return outputDT;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+    }
+
     #endregion
 
     #region Onhold
@@ -346,7 +462,7 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
             NpgsqlCommand cmd = null;
             NpgsqlDataReader datareader = null;
             //NCI
-            string onholdtext = System.IO.File.ReadAllText(CTRPConst.onhold_original_file).Replace("startDate",startDate);
+            string onholdtext = System.IO.File.ReadAllText(CTRPConst.onhold_original_file).Replace("startDate", startDate);
             cmd = new NpgsqlCommand(onholdtext, conn);
             datareader = cmd.ExecuteReader();
             DataTable nciDT = new DataTable();
@@ -356,6 +472,66 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
             return outputDS;
         }
     }
+    #endregion
+
+    #region PDA Abstraction and QC
+    public class PDAAbstractorReport : CTRPReports
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out string savepath, out string templatepath, out DataSet conclusionDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            conclusionDS = new DataSet();
+            savepath = CTRPConst.pdaabstractor_savepath + "_" + startDate.Replace("-", "") + "-" + endDate.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
+            templatepath = CTRPConst.pdaabstractor_template_file;
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+            //login_name
+            string[] login_name = { "adanoa", "gebenienee", "otubut", "phontharaksaj" };
+            foreach (string name in login_name)
+            {
+                string pdaabstractortext = System.IO.File.ReadAllText(CTRPConst.pdaabstractor_original_file).Replace("startDate", startDate).Replace("endDate", endDate).Replace("username", name);
+                cmd = new NpgsqlCommand(pdaabstractortext, conn);
+                datareader = cmd.ExecuteReader();
+                DataTable nciDT = new DataTable();
+                nciDT.Load(datareader);
+                nciDT.TableName = name;
+                outputDS.Tables.Add(nciDT);
+            }
+            return outputDS;
+        }
+    }
+
+    #endregion
+
+    #region Biomarker
+    public class SDABiomarkerReport : CTRPReports
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out string savepath, out string templatepath, out DataSet conclusionDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            conclusionDS = new DataSet();
+            savepath = CTRPConst.biomarker_savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
+            templatepath = CTRPConst.biomarker_template_file;
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+            //login_name
+            string[] status_name = { "PENDING", "ACTIVE", "DELECTED_IN_CADSR"};
+            foreach (string name in status_name)
+            {
+                string pdaabstractortext = System.IO.File.ReadAllText(CTRPConst.biomarker_original_file).Replace("statusVal", name);
+                cmd = new NpgsqlCommand(pdaabstractortext, conn);
+                datareader = cmd.ExecuteReader();
+                DataTable nciDT = new DataTable();
+                nciDT.Load(datareader);
+                nciDT.TableName = name;
+                outputDS.Tables.Add(nciDT);
+            }
+            return outputDS;
+        }
+    }
+
     #endregion
 
 }

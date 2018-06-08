@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.Office.Interop.Excel;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Reflection;
@@ -25,7 +27,7 @@ namespace Attitude_Loose.Test
             SmtpClient client = new SmtpClient();
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("ctroreporting@gmail.com", "panran1986");
+            client.Credentials = new System.Net.NetworkCredential("ctroreporting@gmail.com", "Prss_1234");
             client.Port = 587; // You can use Port 25 if 587 is blocked (mine is!)
             client.Host = "smtp.gmail.com";
             client.EnableSsl = true;
@@ -52,9 +54,9 @@ namespace Attitude_Loose.Test
             }
         }
 
-        public static DataTable ToDataTable<T>(this IEnumerable<T> source)
+        public static System.Data.DataTable ToDataTable<T>(this IEnumerable<T> source)
         {
-            var table = new DataTable();
+            var table = new System.Data.DataTable();
 
             int i = 0;
             var props = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
@@ -78,7 +80,6 @@ namespace Attitude_Loose.Test
 
         public static void WriteExcelByDataSet(DataSet dataset, string savepath, string templatepath, int startrow, int startcolumn)
         {
-            string data = null;
             Excel.Application xlApp;
             Excel.Workbook xlWorkBook;
             Excel.Worksheet xlWorkSheet;
@@ -101,26 +102,42 @@ namespace Attitude_Loose.Test
                     xlWorkSheet.Rows.WrapText = true;
                     Excel.Range EntireRow = xlWorkSheet.Cells.EntireRow;
                     //EntireRow.RowHeight = 15;
-                    EntireRow.ColumnWidth = 20;
+                    //EntireRow.ColumnWidth = 20;
                     // column headings
                     //for (var i = 0; i < dataset.Tables[n].Columns.Count; i++)
                     //{
                     //    xlWorkSheet.Cells[1, i + 1] = dataset.Tables[n].Columns[i].ColumnName;
                     //}
 
-                    for (int i = 0; i <= dataset.Tables[n].Rows.Count - 1; i++)
-                    {
-                        for (int j = 0; j <= dataset.Tables[n].Columns.Count - 1; j++)
-                        {
-                            data = dataset.Tables[n].Rows[i].ItemArray[j].ToString();
-                            if (dataset.Tables[n].Columns[j].ColumnName == "additionalcomments" && !string.IsNullOrEmpty(data))
-                            {
-                                xlWorkSheet.Cells[i + startrow, j + startcolumn].RowHeight = 45;
-                            }
+                    //for (int i = 0; i <= dataset.Tables[n].Rows.Count - 1; i++)
+                    //{
+                    //    for (int j = 0; j <= dataset.Tables[n].Columns.Count - 1; j++)
+                    //    {
+                    //        data = dataset.Tables[n].Rows[i].ItemArray[j].ToString();
+                    //        if (dataset.Tables[n].Columns[j].ColumnName == "additionalcomments" && !string.IsNullOrEmpty(data))
+                    //        {
+                    //            xlWorkSheet.Cells[i + startrow, j + startcolumn].RowHeight = 45;
+                    //        }
 
-                            xlWorkSheet.Cells[i + startrow, j + startcolumn] = data;
+                    //        xlWorkSheet.Cells[i + startrow, j + startcolumn] = data;
+                    //    }
+                    //}
+                    var startCell = (Range)xlWorkSheet.Cells[startrow, startcolumn];
+                    var endCell = (Range)xlWorkSheet.Cells[dataset.Tables[n].Rows.Count + startrow - 1, dataset.Tables[n].Columns.Count + startcolumn - 1];
+                    var writeRange = xlWorkSheet.Range[startCell, endCell];
+                    var datas = new object[dataset.Tables[n].Rows.Count, dataset.Tables[n].Columns.Count];
+                    for (var row = 0; row <= dataset.Tables[n].Rows.Count - 1; row++)
+                    {
+                        for (var column = 0; column <= dataset.Tables[n].Columns.Count - 1; column++)
+                        {
+                            if (dataset.Tables[n].Columns[column].ColumnName == "additionalcomments" && !string.IsNullOrEmpty(dataset.Tables[n].Rows[row].ItemArray[column].ToString()))
+                            {
+                                xlWorkSheet.Cells[row + startrow, column + startcolumn].RowHeight = 45;
+                            }
+                            datas[row, column] = dataset.Tables[n].Rows[row].ItemArray[column].ToString();
                         }
                     }
+                    writeRange.Value2 = datas;
                     ReleaseObject(xlWorkSheet);
                 }
 
@@ -225,14 +242,14 @@ namespace Attitude_Loose.Test
             return reportdatelist;
         }
 
-        public static void ScheduleReport()
+        public static string GetHTMLByUrl(string url)
         {
-            var startTimeSpan = TimeSpan.Zero;
-            var periodTimeSpan = TimeSpan.FromMinutes(1);
-            var timer = new System.Threading.Timer((e) =>
+            string htmlCode = "";
+            using (WebClient client = new WebClient())
             {
-                Console.WriteLine("Ran Pan" + DateTime.Now.ToShortDateString());
-            }, null, startTimeSpan, periodTimeSpan);
+                htmlCode = client.DownloadString(url);
+            }
+            return htmlCode;
         }
     }
 }

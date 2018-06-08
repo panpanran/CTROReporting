@@ -1,0 +1,125 @@
+﻿using Attitude_Loose.Models;
+using Attitude_Loose.Test;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Web;
+using System.Web.Script.Serialization;
+
+namespace Attitude_Loose.CTRO
+{
+    public interface IEWHome
+    {
+        void Update(Ticket ticket);
+        Ticket GetById(string id);
+        IEnumerable<string> GetIDList(string where);
+    }
+
+    public class EWHome : IEWHome
+    {
+        public IEnumerable<string> GetIDList(string where)
+        {
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWSelect?$KB=CBIIT&$login=panr2&$password=Rp0126$$&$table=ctro_tickets&$lang=en&where=" + where;
+            string html = CTRPFunctions.GetHTMLByUrl(url);
+            string[] stringSeparators = new string[] { "\r\n" };
+            string[] lines = html.Split(stringSeparators, StringSplitOptions.None);
+            return lines;
+        }
+
+        public Ticket GetById(string id)
+        {
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWRead?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Rp0126$$&$lang=en&id=" + id;
+            string html = CTRPFunctions.GetHTMLByUrl(url);
+            string fullname = GetValueByFieldName("EWREST_full_name", html);
+            string email = GetValueByFieldName("EWREST_email", html);
+            string summary = GetValueByFieldName("EWREST_summary", html);
+            Ticket ticket = new Ticket
+            {
+                TicketId = id,
+                FullName = fullname,
+                Email = email,
+                Summary = summary
+            };
+            return ticket;
+        }
+
+        public string GetValueByFieldName(string fieldname, string content)
+        {
+            string pattern = fieldname + @"='(.*?)';";
+            Regex rgx = new Regex(pattern, RegexOptions.IgnoreCase);
+            Match match = rgx.Match(content);
+            string value = match.Value.Replace(fieldname + "='", "").Replace("';", "");
+            return value;
+        }
+
+        public virtual void Update(Ticket ticket)
+        { }
+
+    }
+
+    public class EWTSRFeedback : EWHome
+    {
+
+        public override void Update(Ticket ticket)
+        {
+            string content = @"From: Pan, Ran (NIH/NCI) [C]
+   To: emailRep
+   Subject: summaryRep
+
+   Hi nameRep,
+
+   Thank you for verifying the TSR.
+
+   Best,
+
+   Ran Pan";
+            content = content.Replace("emailRep", ticket.Email)
+                .Replace("summaryRep", ticket.Summary)
+                .Replace("nameRep", ticket.FullName);
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Rp0126$$&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
+            string html = CTRPFunctions.GetHTMLByUrl(url);
+        }
+
+
+        public void BulkUpdate(string where)
+        {
+            //Update(GetById("80232"));
+
+            string[] ticketlist = GetIDList(where).ToArray();
+            for (int i = 1; i < ticketlist.Length - 1; i++)
+            {
+                string id = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ", ""));
+                Update(GetById(id));
+            }
+        }
+    }
+
+
+    public class EWContinueReview : EWHome
+    {
+
+        public override void Update(Ticket ticket)
+        {
+            //string content = @"Board Approval Number updated to 05/31/2018, uploaded Continuing Review document. ";
+            //string content = @"Trial is out of scope for CTRP. No action required.";
+            string content = @"No action required, trial present in PA as NCI-2014-01029 is a CCR/CTEP trial and all updates should be submitted via CTEP services. ";
+
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Rp0126$$&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
+            string html = CTRPFunctions.GetHTMLByUrl(url);
+        }
+
+
+        public void BulkUpdate(string where)
+        {
+            Update(GetById("80338"));
+
+            //string[] ticketlist = GetIDList(where).ToArray();
+            //for (int i = 1; i < ticketlist.Length - 1; i++)
+            //{
+            //    string id = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ",""));
+            //    Update(GetById(id));
+            //}
+        }
+    }
+}
