@@ -349,6 +349,7 @@
     <Compile Include="Test\CTRPFunctions.cs" />
     <Compile Include="Test\CTRPReports.cs" />
     <Compile Include="Test\CTRPSchedule.cs" />
+    <Compile Include="Test\EWTest.cs" />
     <Compile Include="Test\TestUserStore.cs" />
     <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
     <Compile Include="ViewModels\RecordViewModel.cs" />
@@ -748,12 +749,14 @@
     <Content Include="SQL\Workload\Admin Abstraction.txt" />
     <Content Include="SQL\Workload\Admin QC.txt" />
     <Content Include="SQL\Workload\Scientific Abstraction.txt" />
+    <Content Include="SQL\Zeroaccrual\Complete Zeroaccrual.txt" />
     <Content Include="Templates\Monthly Turnaround Template.xlsx" />
     <Content Include="Templates\Sponsor Not Match Report Template.xlsx" />
     <Content Include="Templates\Onhold Report Template.xlsx" />
     <Content Include="Templates\PDA Abstractor and QC Template.xlsx" />
     <Content Include="Templates\Biomarker Template.xlsx" />
     <Content Include="Templates\Workload Template.xlsx" />
+    <Content Include="Templates\Zero Accrual Report Template.xlsx" />
     <None Include="Views\Report\Test.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

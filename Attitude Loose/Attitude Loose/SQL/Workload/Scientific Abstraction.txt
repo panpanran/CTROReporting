@@ -7,6 +7,7 @@ select
 	study_onhold.offhold_date "offholddate",
 	study_onhold.onhold_reason_code "onholdreason",
     study_onhold.onhold_reason_text "onholddescription",
+	'' "additionalcomments",
 	document_workflow_status.status_code "processingstatus",
 	csm_user.login_name "loginname",
 	started.milestone_date "startedtime", 

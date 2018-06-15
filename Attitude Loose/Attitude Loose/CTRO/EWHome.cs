@@ -34,12 +34,16 @@ namespace Attitude_Loose.CTRO
             string fullname = GetValueByFieldName("EWREST_full_name", html);
             string email = GetValueByFieldName("EWREST_email", html);
             string summary = GetValueByFieldName("EWREST_summary", html);
+            string assigned_to_ = GetValueByFieldName("EWREST_assigned_to_", html);
+            string state = GetValueByFieldName("EWREST_state", html);
             Ticket ticket = new Ticket
             {
                 TicketId = id,
                 FullName = fullname,
                 Email = email,
-                Summary = summary
+                Summary = summary,
+                AssignedTo = assigned_to_,
+                State = state
             };
             return ticket;
         }
@@ -122,4 +126,70 @@ namespace Attitude_Loose.CTRO
             //}
         }
     }
+
+    public class EWZeroaccrual : EWHome
+    {
+        public List<Ticket> GetTickets(string where)
+        {
+            List<Ticket> tickets = new List<Ticket>();
+            string[] ticketlist = GetIDList(where).ToArray();
+            for (int i = 1; i < ticketlist.Length - 1; i++)
+            {
+                string id = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ", ""));
+                tickets.Add(GetById(id));
+            }
+            return tickets;
+        }
+
+        public override void Update(Ticket ticket)
+        {
+            string content = @"From: Pan, Ran (NIH/NCI) [C]
+   To: emailRep
+   Subject: summaryRep
+
+   Hi nameRep,
+
+   Thank you for verifying the TSR.
+
+   Best,
+
+   Ran Pan";
+            content = content.Replace("emailRep", ticket.Email)
+                .Replace("summaryRep", ticket.Summary)
+                .Replace("nameRep", ticket.FullName);
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Rp0126$$&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
+            string html = CTRPFunctions.GetHTMLByUrl(url);
+        }
+
+        public void AssignedTo(Ticket ticket)
+        {
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Rp0126$$&$lang=en&id=" + ticket.TicketId + "&description=" + ticket.Summary;
+            string html = CTRPFunctions.GetHTMLByUrl(url);
+        }
+
+        public void BulkClose(string where)
+        {
+            string[] ticketlist = GetIDList(where).ToArray();
+            for (int i = 1; i < ticketlist.Length - 1; i++)
+            {
+                string id = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ", ""));
+                Update(GetById(id));
+            }
+        }
+
+        public void BulkAssigneTo(string where)
+        {
+            string[] ticketlist = GetIDList(where).ToArray();
+            for (int i = 1; i < ticketlist.Length - 1; i++)
+            {
+                string id = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ", ""));
+                Ticket ticket = GetById(id);
+                if(ticket.State == "Open")
+                {
+                    AssignedTo(ticket);
+                }
+            }
+        }
+    }
+
 }

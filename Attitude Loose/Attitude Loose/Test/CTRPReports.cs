@@ -10,7 +10,7 @@ namespace Attitude_Loose.Test
 {
     public abstract class CTRPReports
     {
-        public abstract DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out string savepath, out string templatepath, out DataSet conclusionDS);
+        public abstract DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out Dictionary<string, string> outputParams, out DataSet conclusionDS);
         public virtual DataTable CreateSheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
         {
             conclusionDT = new DataTable();
@@ -21,10 +21,13 @@ namespace Attitude_Loose.Test
     #region turnround
     public class TurnroundReport : CTRPReports
     {
-        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out string savepath, out string templatepath, out DataSet conclusionDS)
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out Dictionary<string, string> outputParams, out DataSet conclusionDS)
         {
-            savepath = CTRPConst.turnround_savepath + "_" + startDate.Replace("-", "") + "-" + endDate.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
-            templatepath = CTRPConst.turnround_template_file;
+            outputParams = new Dictionary<string, string>();
+            outputParams.Add("savepath", CTRPConst.turnround_savepath + "_" + startDate.Replace("-", "") + "-" + endDate.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx");
+            outputParams.Add("templatepath", CTRPConst.turnround_template_file);
+            outputParams.Add("startcell", "2,1");
+            outputParams.Add("startcellconclusion", "2,18");
 
             //All
             DataSet outputDS = new DataSet();
@@ -171,13 +174,17 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
     #region sponsor not match
     public class SponsorReport : CTRPReports
     {
-        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out string savepath, out string templatepath, out DataSet conclusionDS)
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out Dictionary<string, string> outputParams, out DataSet conclusionDS)
         {
+            outputParams = new Dictionary<string, string>();
             //All
             DataSet outputDS = new DataSet();
             conclusionDS = new DataSet();
-            savepath = CTRPConst.sponsornotmatch_savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
-            templatepath = CTRPConst.sponsornotmatch_template_file;
+            outputParams.Add("savepath", CTRPConst.sponsornotmatch_savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx");
+            outputParams.Add("templatepath", CTRPConst.sponsornotmatch_template_file);
+            outputParams.Add("startcell", "2,1");
+            outputParams.Add("startcellconclusion", "2,18");
+
             NpgsqlCommand cmd = null;
             NpgsqlDataReader datareader = null;
             //NCI
@@ -285,13 +292,17 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
             }
         }
 
-        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out string savepath, out string templatepath, out DataSet rankDS)
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out Dictionary<string, string> outputParams, out DataSet rankDS)
         {
             //All
             DataSet outputDS = new DataSet();
             rankDS = new DataSet();
-            savepath = "";
-            templatepath = "";
+            //All
+            outputParams = new Dictionary<string, string>();
+            outputParams.Add("savepath", "");
+            outputParams.Add("templatepath", "");
+            outputParams.Add("startcell", "2,1");
+            outputParams.Add("startcellconclusion", "2,18");
 
             NpgsqlCommand cmd = null;
             NpgsqlDataReader datareader = null;
@@ -309,13 +320,17 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
     }
     public class PDAQCReport : PDAAbstractionReport
     {
-        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out string savepath, out string templatepath, out DataSet rankDS)
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out Dictionary<string, string> outputParams, out DataSet rankDS)
         {
             //All
             DataSet outputDS = new DataSet();
             rankDS = new DataSet();
-            savepath = "";
-            templatepath = "";
+
+            outputParams = new Dictionary<string, string>();
+            outputParams.Add("savepath", "");
+            outputParams.Add("templatepath", "");
+            outputParams.Add("startcell", "2,1");
+            outputParams.Add("startcellconclusion", "2,18");
 
             NpgsqlCommand cmd = null;
             NpgsqlDataReader datareader = null;
@@ -334,24 +349,28 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
 
     public class WorkloadReport : CTRPReports
     {
-        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out string savepath, out string templatepath, out DataSet rankDS)
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out Dictionary<string, string> outputParams, out DataSet rankDS)
         {
             //All
             DataSet outputDS = new DataSet();
             rankDS = new DataSet();
-            savepath = "";
-            templatepath = "";
+
+            outputParams = new Dictionary<string, string>();
+            outputParams.Add("savepath", CTRPConst.workload_savepath + "_" + startDate.Replace("-", "") + "-" + endDate.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx");
+            outputParams.Add("templatepath", CTRPConst.workload_template_file);
+            outputParams.Add("startcell", "2,1");
+            outputParams.Add("startcellconclusion", "2,18");
 
             NpgsqlCommand cmd = null;
             NpgsqlDataReader datareader = null;
-            //NCI
+            //SDA Abstraction
             string sdaabstraction_file = System.IO.File.ReadAllText(CTRPConst.workload_sdaabstraction_file).Replace("startDate", startDate).Replace("endDate", endDate);
             cmd = new NpgsqlCommand(sdaabstraction_file, conn);
             datareader = cmd.ExecuteReader();
             DataTable nciDT = new DataTable();
             DataTable rankDT = new DataTable();
             nciDT.Load(datareader);
-            outputDS.Tables.Add(CreateSheet(nciDT, "Sci Abstractions", out rankDT));
+            outputDS.Tables.Add(CreateSheet(nciDT, "SciAbstraction", out rankDT));
             rankDS.Tables.Add(rankDT);
             return outputDS;
         }
@@ -375,6 +394,7 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
             {
                 foreach (DataRow row in inputDT.Rows)
                 {
+                    onholdtime = new TimeSpan();
                     starttime = (DateTime)row["startedtime"];
                     endtime = (DateTime)row["completedtime"];
                     onholddate = string.IsNullOrEmpty(row["onholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["onholddate"]);
@@ -385,7 +405,8 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
                         overalldurations = endtime - starttime;
                         if (overalldurations.Days > 1)
                         {
-                            overalldurations = overalldurations - TimeSpan.FromDays(overalldurations.Days - CTRPFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                            //TimeSpan ss = TimeSpan.FromDays(overalldurations.Days + 2 - CTRPFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                            overalldurations = overalldurations - TimeSpan.FromDays(overalldurations.Days + 2 - CTRPFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
                         }
                     }
 
@@ -396,6 +417,12 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
                         if (onholddate <= endtime && onholddate >= starttime)
                         {
                             onholdtime = offholddate - onholddate;
+                            if (onholdtime.Days > 1)
+                            {
+                                //TimeSpan ss = TimeSpan.FromDays(overalldurations.Days + 2 - CTRPFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                                onholdtime = onholdtime - TimeSpan.FromDays(onholdtime.Days + 2 - CTRPFunctions.CountBusinessDays(onholddate, offholddate, CTRPConst.Holidays));
+                            }
+
                         }
                     }
 
@@ -414,7 +441,7 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
                     if (Duplicate.Count() == 1)
                     {
                         int index = outputDT.Rows.IndexOf(Duplicate.First());
-                        outputDT.Rows[index]["onholddescription"] += "Additional On-Hold " + row["onholddate"].ToString() + " - " + row["offholddate"].ToString() + ": " + row["onholddescription"];
+                        outputDT.Rows[index]["additionalcomments"] += "Additional On-Hold " + row["onholddate"].ToString() + " - " + row["offholddate"].ToString() + ": " + row["onholddescription"];
                         outputDT.Rows[index]["processingtime"] = (TimeSpan)(outputDT.Rows[index]["processingtime"]) - onholdtime;
                     }
                     else
@@ -452,13 +479,17 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
     #region Onhold
     public class OnholdReport : CTRPReports
     {
-        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out string savepath, out string templatepath, out DataSet conclusionDS)
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out Dictionary<string, string> outputParams, out DataSet conclusionDS)
         {
             //All
             DataSet outputDS = new DataSet();
             conclusionDS = new DataSet();
-            savepath = CTRPConst.onhold_savepath + " from " + startDate + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
-            templatepath = CTRPConst.onhold_template_file;
+            outputParams = new Dictionary<string, string>();
+            outputParams.Add("savepath", CTRPConst.onhold_savepath + " from " + startDate + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx");
+            outputParams.Add("templatepath", CTRPConst.onhold_template_file);
+            outputParams.Add("startcell", "2,1");
+            outputParams.Add("startcellconclusion", "2,18");
+
             NpgsqlCommand cmd = null;
             NpgsqlDataReader datareader = null;
             //NCI
@@ -477,13 +508,18 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
     #region PDA Abstraction and QC
     public class PDAAbstractorReport : CTRPReports
     {
-        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out string savepath, out string templatepath, out DataSet conclusionDS)
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out Dictionary<string, string> outputParams, out DataSet conclusionDS)
         {
             //All
             DataSet outputDS = new DataSet();
             conclusionDS = new DataSet();
-            savepath = CTRPConst.pdaabstractor_savepath + "_" + startDate.Replace("-", "") + "-" + endDate.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
-            templatepath = CTRPConst.pdaabstractor_template_file;
+
+            outputParams = new Dictionary<string, string>();
+            outputParams.Add("savepath", CTRPConst.pdaabstractor_savepath + "_" + startDate.Replace("-", "") + "-" + endDate.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx");
+            outputParams.Add("templatepath", CTRPConst.pdaabstractor_template_file);
+            outputParams.Add("startcell", "2,1");
+            outputParams.Add("startcellconclusion", "2,18");
+
             NpgsqlCommand cmd = null;
             NpgsqlDataReader datareader = null;
             //login_name
@@ -507,17 +543,21 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
     #region Biomarker
     public class SDABiomarkerReport : CTRPReports
     {
-        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out string savepath, out string templatepath, out DataSet conclusionDS)
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out Dictionary<string, string> outputParams, out DataSet conclusionDS)
         {
             //All
             DataSet outputDS = new DataSet();
             conclusionDS = new DataSet();
-            savepath = CTRPConst.biomarker_savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
-            templatepath = CTRPConst.biomarker_template_file;
+            outputParams = new Dictionary<string, string>();
+            outputParams.Add("savepath", CTRPConst.biomarker_savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx");
+            outputParams.Add("templatepath", CTRPConst.biomarker_template_file);
+            outputParams.Add("startcell", "2,1");
+            outputParams.Add("startcellconclusion", "2,18");
+
             NpgsqlCommand cmd = null;
             NpgsqlDataReader datareader = null;
             //login_name
-            string[] status_name = { "PENDING", "ACTIVE", "DELECTED_IN_CADSR"};
+            string[] status_name = { "PENDING", "ACTIVE", "DELECTED_IN_CADSR" };
             foreach (string name in status_name)
             {
                 string pdaabstractortext = System.IO.File.ReadAllText(CTRPConst.biomarker_original_file).Replace("statusVal", name);
@@ -528,6 +568,34 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
                 nciDT.TableName = name;
                 outputDS.Tables.Add(nciDT);
             }
+            return outputDS;
+        }
+    }
+
+    #endregion
+
+    #region Zeroaccrual
+    public class ZeroaccrualReport : CTRPReports
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out Dictionary<string,string> outputParams, out DataSet conclusionDS)
+        {
+            outputParams = new Dictionary<string, string>();
+            //All
+            DataSet outputDS = new DataSet();
+            conclusionDS = new DataSet();
+            outputParams.Add("savepath", CTRPConst.zeroaccrual_savepath);
+            outputParams.Add("templatepath", CTRPConst.zeroaccrual_template_file);
+            outputParams.Add("startcell", "2,1");
+            outputParams.Add("startcellconclusion", "2,18");
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+            string zerotext = System.IO.File.ReadAllText(CTRPConst.zeroaccrual_complete_file).Replace("startDate", startDate);
+            cmd = new NpgsqlCommand(zerotext, conn);
+            datareader = cmd.ExecuteReader();
+            DataTable nciDT = new DataTable();
+            nciDT.Load(datareader);
+            nciDT.TableName = "Accrual";
+            outputDS.Tables.Add(nciDT);
             return outputDS;
         }
     }

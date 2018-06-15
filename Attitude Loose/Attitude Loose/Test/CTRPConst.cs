@@ -69,6 +69,10 @@ namespace Attitude_Loose.Test
         public const string workload_template_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Templates\Workload Template.xlsx";
         public const string workload_sdaabstraction_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\Workload\Scientific Abstraction.txt";
         public const string workload_savepath = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Excel\Workload Report";
+        //Zeroaccrual
+        public const string zeroaccrual_template_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Templates\Zero Accrual Report Template.xlsx";
+        public const string zeroaccrual_complete_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\Zeroaccrual\Complete Zeroaccrual.txt";
+        public const string zeroaccrual_savepath = @"C:\Users\panr2\Downloads\DataWarehouse\Accrual Report\Zero Accrual Attachment\Zeroaccrual Report";
 
     }
 }

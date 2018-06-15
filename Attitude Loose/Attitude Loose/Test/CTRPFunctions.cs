@@ -101,6 +101,7 @@ namespace Attitude_Loose.Test
                     xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets[dataset.Tables[n].TableName];
                     xlWorkSheet.Rows.WrapText = true;
                     Excel.Range EntireRow = xlWorkSheet.Cells.EntireRow;
+                    //xlWorkSheet.AutoFilterMode = false;
                     //EntireRow.RowHeight = 15;
                     //EntireRow.ColumnWidth = 20;
                     // column headings
@@ -138,6 +139,7 @@ namespace Attitude_Loose.Test
                         }
                     }
                     writeRange.Value2 = datas;
+                    //writeRange.AutoFilter(1, Type.Missing, Excel.XlAutoFilterOperator.xlAnd, Type.Missing, true);
                     ReleaseObject(xlWorkSheet);
                 }
 

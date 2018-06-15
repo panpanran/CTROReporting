@@ -14,5 +14,9 @@ namespace Attitude_Loose.Models
         public string Summary { get; set; }
 
         public string FullName { get; set; }
+
+        public string AssignedTo { get; set; }
+
+        public string State { get; set; }
     }
 }
