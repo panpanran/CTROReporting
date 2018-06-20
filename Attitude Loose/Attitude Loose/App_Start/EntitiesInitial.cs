@@ -22,6 +22,7 @@ namespace Attitude_Loose.App_Start
         public DbSet<Record> Records { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<ReportSetting> ReportSetting { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

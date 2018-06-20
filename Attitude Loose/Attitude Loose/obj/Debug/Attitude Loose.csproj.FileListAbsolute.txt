@@ -547,3 +547,7 @@ C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Google.Protobuf.dl
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\MySql.Data.dll
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Google.Protobuf.xml
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\MySql.Data.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ReportSetting.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ReportSettingChange.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ReportSettingCategory.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ReportChange.resources

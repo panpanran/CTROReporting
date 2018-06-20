@@ -17,7 +17,7 @@ namespace Attitude_Loose.Service
         Report GetReportById(int reportid);
         IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<Report> reports, string reporttype, int selectedId);
         Report GetByReportName(string name);
-        bool CreateReport(int selectedreport, string userid, string startdate, string enddate, string email);
+        bool CreateReport(int selectedreport, string userid, string startdate, string enddate, ApplicationUser user);
     }
 
     public class ReportService : IReportService
@@ -25,10 +25,12 @@ namespace Attitude_Loose.Service
         private readonly IReportRepository reportRepository;
         private readonly IUnitOfWork unitOfWork;
         private readonly IRecordService recordService;
+        private readonly IReportSettingService recportsettingService;
 
-        public ReportService(IReportRepository reportRepository, IUnitOfWork unitOfWork, IRecordService recordService)
+        public ReportService(IReportRepository reportRepository, IUnitOfWork unitOfWork, IRecordService recordService, IReportSettingService recportsettingService)
         {
             this.recordService = recordService;
+            this.recportsettingService = recportsettingService;
             this.reportRepository = reportRepository;
             this.unitOfWork = unitOfWork;
         }
@@ -51,7 +53,7 @@ namespace Attitude_Loose.Service
             return schedule;
         }
 
-        public bool CreateReport(int selectedreport, string userid, string startdate, string enddate, string email)
+        public bool CreateReport(int selectedreport, string userid, string startdate, string enddate, ApplicationUser user)
         {
             bool result = false;
             Record record = new Record
@@ -62,12 +64,15 @@ namespace Attitude_Loose.Service
                 EndDate = enddate,
             };
 
-            string reportname = GetReportById(selectedreport).ReportName.Replace(" - ", "");
+            Report report = GetReportById(selectedreport);
+            string reportname = report.ReportName.Replace(" - ", "");
+            ReportSetting[] reportSettings = recportsettingService.GetReportSettingsByReportId(selectedreport).ToArray();
+
             CTROHome home = new CTROHome();
             string savepath = "";
-            int report = home.CreateReport(startdate, enddate, email, reportname, out savepath);
+            int reportflag = home.CreateReport(startdate, enddate, user, reportSettings, report, out savepath);
 
-            if (report == 1)
+            if (reportflag == 1)
             {
                 record.FilePath = "../Excel/" + Path.GetFileName(savepath);
                 recordService.CreateRecord(record);
@@ -80,7 +85,7 @@ namespace Attitude_Loose.Service
         public IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<Report> reports, string reporttype, int selectedId)
         {
             return
-                reports.Where(x => x.ReportType == reporttype).OrderBy(report => report.ReportId)
+                reports.Where(x => x.ReportType == reporttype).OrderBy(report => report.ReportName)
                       .Select(report =>
                           new SelectListItem
                           {
@@ -90,5 +95,4 @@ namespace Attitude_Loose.Service
                           });
         }
     }
-
 }

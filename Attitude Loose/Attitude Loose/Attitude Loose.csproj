@@ -307,6 +307,22 @@
     <Compile Include="Migrations\201805222115013_ScheduleCreateDate.Designer.cs">
       <DependentUpon>201805222115013_ScheduleCreateDate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806191833433_ReportSetting.cs" />
+    <Compile Include="Migrations\201806191833433_ReportSetting.Designer.cs">
+      <DependentUpon>201806191833433_ReportSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806191836553_ReportSettingChange.cs" />
+    <Compile Include="Migrations\201806191836553_ReportSettingChange.Designer.cs">
+      <DependentUpon>201806191836553_ReportSettingChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806191904588_ReportSettingCategory.cs" />
+    <Compile Include="Migrations\201806191904588_ReportSettingCategory.Designer.cs">
+      <DependentUpon>201806191904588_ReportSettingCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806191925247_ReportChange.cs" />
+    <Compile Include="Migrations\201806191925247_ReportChange.Designer.cs">
+      <DependentUpon>201806191925247_ReportChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Configuration\RecordConfiguration.cs" />
@@ -318,6 +334,7 @@
     <Compile Include="Models\Metric.cs" />
     <Compile Include="Models\Record.cs" />
     <Compile Include="Models\Report.cs" />
+    <Compile Include="Models\ReportSetting.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Ticket.cs" />
     <Compile Include="Models\Topic.cs" />
@@ -332,6 +349,7 @@
     <Compile Include="Repository\MetricRepository.cs" />
     <Compile Include="Repository\RecordRepository.cs" />
     <Compile Include="Repository\ReportRepository.cs" />
+    <Compile Include="Repository\ReportSettingRepository.cs" />
     <Compile Include="Repository\ScheduleRepository.cs" />
     <Compile Include="Repository\TopicRepository.cs" />
     <Compile Include="Repository\UserProfileRepository.cs" />
@@ -339,6 +357,7 @@
     <Compile Include="Service\MetricService.cs" />
     <Compile Include="Service\RecordService.cs" />
     <Compile Include="Service\ReportService.cs" />
+    <Compile Include="Service\ReportSettingService.cs" />
     <Compile Include="Service\ScheduleService.cs" />
     <Compile Include="Service\TopicService.cs" />
     <Compile Include="Service\UserProfileService.cs" />
@@ -740,6 +759,7 @@
     <Content Include="Scripts\underscore.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="SQL\Biomarker\Code.txt" />
+    <Content Include="SQL\Offhold\Code.txt" />
     <Content Include="SQL\Onhold\Code.txt" />
     <Content Include="SQL\PDAAbstractor\Code.txt" />
     <Content Include="SQL\Sponsor\Code.txt" />
@@ -757,6 +777,7 @@
     <Content Include="Templates\Biomarker Template.xlsx" />
     <Content Include="Templates\Workload Template.xlsx" />
     <Content Include="Templates\Zero Accrual Report Template.xlsx" />
+    <Content Include="Templates\Offhold Report Template.xlsx" />
     <None Include="Views\Report\Test.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -824,6 +845,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805222115013_ScheduleCreateDate.resx">
       <DependentUpon>201805222115013_ScheduleCreateDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806191833433_ReportSetting.resx">
+      <DependentUpon>201806191833433_ReportSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806191836553_ReportSettingChange.resx">
+      <DependentUpon>201806191836553_ReportSettingChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806191904588_ReportSettingCategory.resx">
+      <DependentUpon>201806191904588_ReportSettingCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806191925247_ReportChange.resx">
+      <DependentUpon>201806191925247_ReportChange.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

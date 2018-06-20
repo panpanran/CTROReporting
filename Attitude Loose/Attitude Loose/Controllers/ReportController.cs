@@ -19,20 +19,24 @@ namespace Attitude_Loose.Controllers
     {
         private IUserProfileService userProfileService;
         private readonly IReportService reportService;
+        private readonly IReportSettingService reportsettingService;
         private readonly IRecordService recordService;
         private readonly ITopicService topicService;
+        private IUserService userService;
 
-        public ReportController(IReportService reportService, IRecordService recordService, IUserProfileService userProfileService, ITopicService topicService)
+        public ReportController(IUserService userService, IReportService reportService, IRecordService recordService, IUserProfileService userProfileService, ITopicService topicService, IReportSettingService reportsettingService)
         {
             this.reportService = reportService;
+            this.reportsettingService = reportsettingService;
             this.recordService = recordService;
             this.userProfileService = userProfileService;
+            this.userService = userService;
             this.topicService = topicService;
         }
 
         public ActionResult GetReportList()
         {
-            var reportlist = reportService.GetReports().Where(x => x.ReportType == "excel").Select(x => new { ReportName = x.ReportName }).ToList();
+            var reportlist = reportService.GetReports().Where(x => x.ReportType == "excel").Select(x => new { ReportName = x.ReportName }).OrderBy(x=>x.ReportName).ToList();
             return Json(reportlist, JsonRequestBehavior.AllowGet);
         }
 
@@ -65,8 +69,9 @@ namespace Attitude_Loose.Controllers
 
             List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
             string[] loginname = { };
+            ReportSetting[] reportSettings = reportsettingService.GetReportSettingsByReportId(1).ToArray();
 
-            home.CreateAnalysisChart("2018-04-02", "2018-04-02", "", "PDAAbstraction", out XLabel, out YLabel, out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
+            home.CreateAnalysisChart("2018-04-02", "2018-04-02", reportSettings, "PDAAbstraction", out XLabel, out YLabel, out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
             model.Loginname = loginname;
             model.Xaxis = Xaxis;
             model.Yaxis = Yaxis;
@@ -92,16 +97,17 @@ namespace Attitude_Loose.Controllers
             string[] YLabel = { };
             List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
             string[] loginname = { };
+            ReportSetting[] reportSettings = reportsettingService.GetReportSettingsByReportId(Convert.ToInt32(model.SelectedAnalysis)).ToArray();
 
             if (ModelState.IsValid)
             {
                 string reportname = reportService.GetReportById(Convert.ToInt32(model.SelectedAnalysis)).ReportName.Replace(" - ", "");
-                home.CreateAnalysisChart(model.StartDate, model.EndDate, "", reportname, out XLabel, out YLabel, out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
+                home.CreateAnalysisChart(model.StartDate, model.EndDate, reportSettings, reportname, out XLabel, out YLabel, out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
                 model.AnalysisResult = true;
             }
             else
             {
-                home.CreateAnalysisChart("2018-04-02", "2018-04-02", "", "PDAAbstraction", out XLabel, out YLabel, out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
+                home.CreateAnalysisChart("2018-04-02", "2018-04-02", reportSettings, "PDAAbstraction", out XLabel, out YLabel, out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
                 model.AnalysisResult = false;
             }
             model.Loginname = loginname;
@@ -131,12 +137,14 @@ namespace Attitude_Loose.Controllers
         public ActionResult Report(ReportGenerateViewModel model)
         {
             UserProfile userprofile = userProfileService.GetByUserID(User.Identity.GetUserId());
+            ApplicationUser user = userService.GetByUserID(User.Identity.GetUserId());
+
             model.ReportResult = false;
 
             if (ModelState.IsValid)
             {
                 model.ReportResult = reportService.CreateReport(Convert.ToInt32(model.SelectedReport), User.Identity.GetUserId(), 
-                    model.StartDate, model.EndDate, userprofile.Email);
+                    model.StartDate, model.EndDate, user);
             }
             var reports = reportService.GetReports();
             model.Reports = reportService.ToSelectListItems(reports, "excel", -1);

@@ -17,6 +17,13 @@ namespace Attitude_Loose.Models
 
         public string ReportName { get; set; }
 
+        public string Template { get; set; }
+
+        public string Savepath { get; set; }
+
         public virtual ICollection<Record> Records { get; set; }
+
+        public virtual ICollection<ReportSetting> ReportSettings { get; set; }
+
     }
 }

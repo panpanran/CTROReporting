@@ -57,53 +57,53 @@ namespace Attitude_Loose.Test
 
         }
 
-        [Test]
-        public void ZeroAccrualReort()
-        {
-            //Create report by different organization name
-            ZeroaccrualReport reports = new ZeroaccrualReport();
-            using (var conn = new NpgsqlConnection(CTRPConst.connString))
-            {
-                conn.Open();
-                try
-                {
-                    DataSet conclusionDS = new DataSet();
-                    Dictionary<string, string> outputParams = new Dictionary<string, string>();
+        //[Test]
+        //public void ZeroAccrualReort()
+        //{
+        //    //Create report by different organization name
+        //    ZeroaccrualReport reports = new ZeroaccrualReport();
+        //    using (var conn = new NpgsqlConnection(CTRPConst.connString))
+        //    {
+        //        conn.Open();
+        //        try
+        //        {
+        //            DataSet conclusionDS = new DataSet();
+        //            Dictionary<string, string> outputParams = new Dictionary<string, string>();
 
-                    string savepath = "";
-                    string templatepath = "";
-                    string startDate = "2017-01-01";
-                    DataSet tempDS = reports.CreateBook(conn, startDate, "", out outputParams, out conclusionDS);
-                    templatepath = outputParams["templatepath"];
-                    //organization
-                    string[] org_name = tempDS.Tables["Accrual"].AsEnumerable().Select(x => x.Field<string>("leadorganization")).Distinct().ToArray();
-                    foreach (string name in org_name)
-                    {
-                        DataSet outputDS = new DataSet();
-                        DataTable nciDT = tempDS.Tables["Accrual"].AsEnumerable().Where(x=> x.Field<string>("leadorganization") == name).CopyToDataTable();
-                        nciDT.TableName = "Accrual";
-                        outputDS.Tables.Add(nciDT);
-                        savepath = CTRPConst.zeroaccrual_savepath + " " + name.Replace("/"," ").Replace("\\", " ") + " from " + startDate + ".xlsx";
-                        CTRPFunctions.WriteExcelByDataSet((DataSet)outputDS, savepath, templatepath, 2, 1);
-                    }
-
-
-                }
-                catch (Exception ex)
-                {
-                    throw;
-                }
-            }
-        }
+        //            string savepath = "";
+        //            string templatepath = "";
+        //            string startDate = "2017-01-01";
+        //            DataSet tempDS = reports.CreateBook(conn, startDate, "", out outputParams, out conclusionDS);
+        //            templatepath = outputParams["templatepath"];
+        //            //organization
+        //            string[] org_name = tempDS.Tables["Accrual"].AsEnumerable().Select(x => x.Field<string>("leadorganization")).Distinct().ToArray();
+        //            foreach (string name in org_name)
+        //            {
+        //                DataSet outputDS = new DataSet();
+        //                DataTable nciDT = tempDS.Tables["Accrual"].AsEnumerable().Where(x=> x.Field<string>("leadorganization") == name).CopyToDataTable();
+        //                nciDT.TableName = "Accrual";
+        //                outputDS.Tables.Add(nciDT);
+        //                savepath = CTRPConst.zeroaccrual_savepath + " " + name.Replace("/"," ").Replace("\\", " ") + " from " + startDate + ".xlsx";
+        //                CTRPFunctions.WriteExcelByDataSet((DataSet)outputDS, savepath, templatepath, 2, 1);
+        //            }
 
 
-        [Test]
-        public void WorkloadReort()
-        {
-            CTROHome cTROHome = new CTROHome();
-            string savepath = "";
-            int result = cTROHome.CreateReport("2018-05-21", "2018-05-25", "", "Workload", out savepath);
-        }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            throw;
+        //        }
+        //    }
+        //}
+
+
+        //[Test]
+        //public void WorkloadReort()
+        //{
+        //    CTROHome cTROHome = new CTROHome();
+        //    string savepath = "";
+        //    int result = cTROHome.CreateReport("2018-05-21", "2018-05-25", "", "Workload", out savepath);
+        //}
 
         [Test()]
         public void CreateAnalysisChart()
@@ -260,43 +260,43 @@ namespace Attitude_Loose.Test
             }
         }
 
-        [Test()]
-        public void CreateReportTest()
-        {
-            SDABiomarkerReport reports = new SDABiomarkerReport();
-            using (var conn = new NpgsqlConnection(CTRPConst.connString))
-            {
-                conn.Open();
-                try
-                {
-                    DataSet outputDS = new DataSet();
-                    DataSet conclusionDS = new DataSet();
-                    string savepath = CTRPConst.biomarker_savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
-                    string templatepath = CTRPConst.biomarker_template_file;
-                    NpgsqlCommand cmd = null;
-                    NpgsqlDataReader datareader = null;
-                    //login_name
-                    string[] status_name = { "PENDING", "ACTIVE", "DELECTED_IN_CADSR" };
-                    foreach (string name in status_name)
-                    {
-                        string pdaabstractortext = System.IO.File.ReadAllText(CTRPConst.biomarker_original_file).Replace("statusVal", name);
-                        cmd = new NpgsqlCommand(pdaabstractortext, conn);
-                        datareader = cmd.ExecuteReader();
-                        DataTable nciDT = new DataTable();
-                        nciDT.Load(datareader);
-                        nciDT.TableName = name;
-                        outputDS.Tables.Add(nciDT);
-                    }
+        //[Test()]
+        //public void CreateReportTest()
+        //{
+        //    SDABiomarkerReport reports = new SDABiomarkerReport();
+        //    using (var conn = new NpgsqlConnection(CTRPConst.connString))
+        //    {
+        //        conn.Open();
+        //        try
+        //        {
+        //            DataSet outputDS = new DataSet();
+        //            DataSet conclusionDS = new DataSet();
+        //            string savepath = CTRPConst.biomarker_savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
+        //            string templatepath = CTRPConst.biomarker_template_file;
+        //            NpgsqlCommand cmd = null;
+        //            NpgsqlDataReader datareader = null;
+        //            //login_name
+        //            string[] status_name = { "PENDING", "ACTIVE", "DELECTED_IN_CADSR" };
+        //            foreach (string name in status_name)
+        //            {
+        //                string pdaabstractortext = System.IO.File.ReadAllText(CTRPConst.biomarker_original_file).Replace("statusVal", name);
+        //                cmd = new NpgsqlCommand(pdaabstractortext, conn);
+        //                datareader = cmd.ExecuteReader();
+        //                DataTable nciDT = new DataTable();
+        //                nciDT.Load(datareader);
+        //                nciDT.TableName = name;
+        //                outputDS.Tables.Add(nciDT);
+        //            }
 
-                    CTRPFunctions.WriteExcelByDataSet((DataSet)outputDS, savepath, templatepath, 2, 1);
+        //            CTRPFunctions.WriteExcelByDataSet((DataSet)outputDS, savepath, templatepath, 2, 1);
 
-                }
-                catch (Exception ex)
-                {
-                    throw;
-                }
-            }
-        }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            throw;
+        //        }
+        //    }
+        //}
 
         //[Test()]
         //public void LoginTest()

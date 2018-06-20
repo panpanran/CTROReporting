@@ -47,7 +47,6 @@ namespace Attitude_Loose.Test
                         .UsingJobData("reportid", schedule.ReportId)
                         .UsingJobData("reportname", schedule.Report.ReportName)
                         .UsingJobData("userid", schedule.UserId)
-                        .UsingJobData("email", schedule.User.Email)
                         .Build();
 
                     // Trigger the job to run now, and then repeat every 10 seconds
@@ -87,9 +86,9 @@ namespace Attitude_Loose.Test
             int reportid = dataMap.GetInt("reportid");
             string reportname = dataMap.GetString("reportname").Replace(" - ", "");
             string userid = dataMap.GetString("userid");
-            string email = dataMap.GetString("email");
             string startdate = starttime.AddDays(-intervaldays).ToString("yyyy-MM-dd");
             string enddate = starttime.ToString("yyyy-MM-dd");
+
             Record record = new Record
             {
                 ReportId = reportid,
@@ -97,18 +96,23 @@ namespace Attitude_Loose.Test
                 StartDate = startdate,
                 EndDate = enddate,
             };
-
+            DatabaseFactory factory = new DatabaseFactory();
+            UnitOfWork unitOfWork = new UnitOfWork(factory);
+            ReportSettingRepository reportSettingRepository = new ReportSettingRepository(factory);
+            ReportSetting[] reportSettings = reportSettingRepository.GetMany(x => x.ReportId == reportid).ToArray();
+            ReportRepository reportRepository = new ReportRepository(factory);
+            Report report = reportRepository.GetById(reportid);
+            UserRepository userRepository = new UserRepository(factory);
+            ApplicationUser user = userRepository.Get(x=>x.Id == userid);
 
             CTROHome home = new CTROHome();
             string savepath = "";
-            int result = home.CreateReport(startdate, enddate, email, reportname, out savepath);
+            int result = home.CreateReport(startdate, enddate, user, reportSettings, report, out savepath);
 
             if (result == 1)
             {
                 record.FilePath = "../Excel/" + Path.GetFileName(savepath);
                 //Add Record
-                DatabaseFactory factory = new DatabaseFactory();
-                UnitOfWork unitOfWork = new UnitOfWork(factory);
                 RecordRepository recordRepository = new RecordRepository(factory);
                 recordRepository.Add(record);
                 unitOfWork.Commit();

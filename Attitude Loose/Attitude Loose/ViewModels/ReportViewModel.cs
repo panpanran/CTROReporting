@@ -12,6 +12,31 @@ namespace Attitude_Loose.ViewModels
     {
     }
 
+    public class ReporSettingViewModel
+    {
+        public int ReportSettingId { get; set; }
+
+        public int ReportId { get; set; }
+
+        public string Category { get; set; }
+
+        public string Code { get; set; }
+
+        public int Startrow { get; set; }
+
+        public int Startcolumn { get; set; }
+
+        public int AdditionStartrow { get; set; }
+
+        public int AdditionStartcolumn { get; set; }
+
+        public string ReportName { get; set; }
+
+        public string Template { get; set; }
+
+        public string Savepath { get; set; }
+    }
+
     public class ReportGenerateViewModel
     {
         [Display(Name = "Start Date")]

@@ -78,6 +78,67 @@ namespace Attitude_Loose.Test
             return table;
         }
 
+        public static void WriteExcelByDataTable(System.Data.DataTable datatable, string savepath, string templatepath, int startrow, int startcolumn)
+        {
+            Excel.Application xlApp;
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+
+            xlApp = new Excel.Application();
+            try
+            {
+
+                if (!File.Exists(savepath))
+                {
+                    System.IO.File.Copy(templatepath, savepath, true);
+                }
+
+                xlWorkBook = xlApp.Workbooks.Open(savepath, misValue);
+
+                xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets[datatable.TableName];
+                xlWorkSheet.Rows.WrapText = true;
+                Excel.Range EntireRow = xlWorkSheet.Cells.EntireRow;
+
+                var startCell = (Range)xlWorkSheet.Cells[startrow, startcolumn];
+                var endCell = (Range)xlWorkSheet.Cells[datatable.Rows.Count + startrow - 1, datatable.Columns.Count + startcolumn - 1];
+                var writeRange = xlWorkSheet.Range[startCell, endCell];
+                var datas = new object[datatable.Rows.Count, datatable.Columns.Count];
+                for (var row = 0; row <= datatable.Rows.Count - 1; row++)
+                {
+                    for (var column = 0; column <= datatable.Columns.Count - 1; column++)
+                    {
+                        if (datatable.Columns[column].ColumnName == "additionalcomments" && !string.IsNullOrEmpty(datatable.Rows[row].ItemArray[column].ToString()))
+                        {
+                            xlWorkSheet.Cells[row + startrow, column + startcolumn].RowHeight = 45;
+                        }
+                        datas[row, column] = datatable.Rows[row].ItemArray[column].ToString();
+                    }
+                }
+                writeRange.Value2 = datas;
+                //writeRange.AutoFilter(1, Type.Missing, Excel.XlAutoFilterOperator.xlAnd, Type.Missing, true);
+                ReleaseObject(xlWorkSheet);
+
+                //xlWorkBook.Sheets["Sheet1"].Delete();
+                xlWorkBook.Save();
+                xlWorkBook.Close(true, misValue, misValue);
+                xlApp.Quit();
+
+                ReleaseObject(xlWorkBook);
+                ReleaseObject(xlApp);
+
+            }
+            catch (Exception ex)
+            {
+                xlApp.Quit();
+                ReleaseObject(xlApp);
+
+                File.Delete(savepath);
+                throw;
+            }
+        }
+
+
         public static void WriteExcelByDataSet(DataSet dataset, string savepath, string templatepath, int startrow, int startcolumn)
         {
             Excel.Application xlApp;

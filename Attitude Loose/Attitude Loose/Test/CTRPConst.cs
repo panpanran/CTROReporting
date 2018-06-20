@@ -57,6 +57,10 @@ namespace Attitude_Loose.Test
         public const string onhold_template_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Templates\Onhold Report Template.xlsx";
         public const string onhold_original_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\Onhold\Code.txt";
         public const string onhold_savepath = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Excel\Onhold Report";
+        //offhold
+        public const string offhold_template_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Templates\Offhold Report Template.xlsx";
+        public const string offhold_original_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\Offhold\Code.txt";
+        public const string offhold_savepath = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Excel\Offhold Report";
         //pdaabstractor
         public const string pdaabstractor_template_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Templates\PDA Abstractor and QC Template.xlsx";
         public const string pdaabstractor_original_file = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\SQL\PDAAbstractor\Code.txt";
