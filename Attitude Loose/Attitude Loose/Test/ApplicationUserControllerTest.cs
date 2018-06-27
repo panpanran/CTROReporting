@@ -245,19 +245,19 @@ namespace Attitude_Loose.Test
         [Test()]
         public void ConnectMySQL()
         {
-            using (var conn = new MySqlConnection(CTRPConst.EWconnString))
-            {
-                conn.Open();
+            //using (var conn = new MySqlConnection(CTRPConst.EWconnString))
+            //{
+            //    conn.Open();
 
-                try
-                {
-                    string ran = "";
-                }
-                catch (Exception ex)
-                {
-                    throw;
-                }
-            }
+            //    try
+            //    {
+            //        string ran = "";
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        throw;
+            //    }
+            //}
         }
 
         //[Test()]

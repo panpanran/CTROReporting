@@ -369,6 +369,7 @@
     <Compile Include="Test\CTRPReports.cs" />
     <Compile Include="Test\CTRPSchedule.cs" />
     <Compile Include="Test\EWTest.cs" />
+    <Compile Include="Test\NormalTest.cs" />
     <Compile Include="Test\TestUserStore.cs" />
     <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
     <Compile Include="ViewModels\RecordViewModel.cs" />

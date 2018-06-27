@@ -91,11 +91,16 @@ namespace Attitude_Loose.CTRO
             //Update(GetById("80232"));
 
             string[] ticketlist = GetIDList(where).ToArray();
-            for (int i = 1; i < ticketlist.Length - 1; i++)
+            for (int i = 13; i < ticketlist.Length - 1; i++)
             {
                 string id = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ", ""));
                 Update(GetById(id));
             }
+        }
+
+        public void UpdateByID(string id)
+        {
+            Update(GetById(id));
         }
     }
 

@@ -17,6 +17,7 @@ namespace Attitude_Loose.Test
             //EWContinueReview ewcr = new EWContinueReview();
             //ewcr.BulkUpdate("");
             EWTSRFeedback eWHome = new EWTSRFeedback();
+            //eWHome.UpdateByID("81080");
             eWHome.BulkUpdate("assigned_to_=%27Ran%20Pan%27%20and category=19 and%20assigned>%27" + DateTime.Now.ToString("yyyy-MM-dd") + "%27");
         }
 
