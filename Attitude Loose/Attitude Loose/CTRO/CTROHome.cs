@@ -16,7 +16,7 @@ namespace Attitude_Loose.CTRO
         //excel
         public int CreateReport(string startDate, string endDate, ApplicationUser user, ReportSetting[] reportsettings, Report report, out string savepath)
         {
-            Type type = Type.GetType("Attitude_Loose.Test." + report.ReportName.Replace(" - ", "") + "Report");
+            Type type = Type.GetType("Attitude_Loose.Test." + report.ReportName.Replace(" - ", "").Replace(" ","") + "Report");
             Object obj = Activator.CreateInstance(type);
             MethodInfo methodInfo = type.GetMethod("CreateBook");
             object classInstance = Activator.CreateInstance(type, null);

@@ -300,7 +300,7 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
     {
     }
 
-    public class WorkloadReport : CTRPReports
+    public class TrialProcessingReport : CTRPReports
     {
         public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet rankDS)
         {
@@ -326,9 +326,20 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
                     outputDS.Tables.Add(CreateValidationSheet(tempDT, reportSetting.Category, out tempconclusionDT));
                     rankDS.Tables.Add(tempconclusionDT);
                 }
+                else if (reportSetting.Category == "SDA Abstraction")
+                {
+                    outputDS.Tables.Add(CreateSDAAbstractionSheet(tempDT, reportSetting.Category, out tempconclusionDT));
+                    rankDS.Tables.Add(tempconclusionDT);
+                }
+                else if (reportSetting.Category == "SDA QC")
+                {
+                    outputDS.Tables.Add(CreateSDAQCSheet(tempDT, reportSetting.Category, out tempconclusionDT));
+                    rankDS.Tables.Add(tempconclusionDT);
+                }
+
                 else
                 {
-                    outputDS.Tables.Add(CreateSheet(tempDT, reportSetting.Category, out tempconclusionDT));
+                    outputDS.Tables.Add(CreatePDASheet(tempDT, reportSetting.Category, out tempconclusionDT));
                     rankDS.Tables.Add(tempconclusionDT);
                 }
             }
@@ -336,7 +347,7 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
             return outputDS;
         }
 
-        public override DataTable CreateSheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
+        public DataTable CreatePDASheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
         {
             DateTime starttime = new DateTime();
             DateTime endtime = new DateTime();
@@ -410,14 +421,224 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
                         outputDT.ImportRow(row);
                     }
                 }
+
                 tempDT = outputDT.AsEnumerable().Select(x => new { username = x.Field<string>("loginname") }).ToDataTable();
                 tempDT = outputDT.AsEnumerable()
                     //.Where(x => x.Field<string>("additionalcomments") == "")  //if compute the multi on-hold records
-                    .GroupBy(x => x.Field<string>("loginname"))
-                    .Select(x => new { username = x.Key.ToString(), assignmentnumber = x.Count(), avgtime = String.Format("{0:.##}", x.Select(y => y.Field<TimeSpan>("processingtime").Minutes).Average()) }).OrderBy(x => x.assignmentnumber).ToDataTable();
-                tempDT.Rows.Add("Grand Total"
-                    , outputDT.Rows.Count
-                    , String.Format("{0:.##}", outputDT.AsEnumerable().Select(x => x.Field<TimeSpan>("processingtime").Minutes).Average()));
+                    .GroupBy(x => new { username = x.Field<string>("loginname"), category = x.Field<string>("trialtype") })
+                    .Select(x => new { x.Key.username, x.Key.category, assignmentnumber = x.Count(), avgtime = String.Format("{0:.##}", x.Select(y => y.Field<TimeSpan>("processingtime").TotalMinutes).Average()) }).OrderBy(x => x.category).ThenBy(x => x.assignmentnumber).ToDataTable();
+                tempDT.Rows.Add("Grand Total",
+                    "All",
+                    outputDT.Rows.Count,
+                    String.Format("{0:.##}", outputDT.AsEnumerable().Select(x => x.Field<TimeSpan>("processingtime").TotalMinutes).Average()));
+                conclusionDT = tempDT;
+                conclusionDT.TableName = tablename;
+                return outputDT;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public DataTable CreateSDAAbstractionSheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
+        {
+            DateTime starttime = new DateTime();
+            DateTime endtime = new DateTime();
+            DateTime onholddate = new DateTime();
+            DateTime offholddate = new DateTime();
+            //DateTime reactivateddate = new DateTime();
+            DataTable outputDT = inputDT.Clone();
+            DataTable tempDT = new DataTable();
+            outputDT.TableName = tablename;
+            outputDT.Columns.Add("processingtime", typeof(TimeSpan));
+            TimeSpan overalldurations = new TimeSpan();
+            TimeSpan onholdtime = new TimeSpan();
+            TimeSpan processingtime = new TimeSpan();
+
+            try
+            {
+                foreach (DataRow row in inputDT.Rows)
+                {
+                    onholdtime = new TimeSpan();
+                    starttime = (DateTime)row["startedtime"];
+                    endtime = (DateTime)row["completedtime"];
+                    onholddate = string.IsNullOrEmpty(row["onholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["onholddate"]);
+                    offholddate = string.IsNullOrEmpty(row["offholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["offholddate"]);
+                    //reactivateddate = string.IsNullOrEmpty(row["reactivateddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["reactivateddate"]);
+                    if (endtime >= starttime)
+                    {
+                        overalldurations = endtime - starttime;
+                        if (overalldurations.Days > 1)
+                        {
+                            //TimeSpan ss = TimeSpan.FromDays(overalldurations.Days + 2 - CTRPFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                            overalldurations = overalldurations - TimeSpan.FromDays(overalldurations.Days + 2 - CTRPFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                        }
+                    }
+
+
+                    if (offholddate >= onholddate)
+                    {
+                        //exclude the onholddate not within processing
+                        if (onholddate <= endtime && onholddate >= starttime)
+                        {
+                            onholdtime = offholddate - onholddate;
+                            if (onholdtime.Days > 1)
+                            {
+                                //TimeSpan ss = TimeSpan.FromDays(overalldurations.Days + 2 - CTRPFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                                onholdtime = onholdtime - TimeSpan.FromDays(onholdtime.Days + 2 - CTRPFunctions.CountBusinessDays(onholddate, offholddate, CTRPConst.Holidays));
+                            }
+
+                        }
+                    }
+
+                    processingtime = overalldurations - onholdtime;
+
+                    if (!row.Table.Columns.Contains("processingtime"))
+                    {
+                        row.Table.Columns.Add("processingtime", typeof(TimeSpan));
+                    }
+
+                    row["processingtime"] = processingtime;
+
+                    var Duplicate = outputDT.AsEnumerable().Where(x => x.Field<string>("trialid") == row["trialid"].ToString() &&
+x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
+
+                    if (Duplicate.Count() == 1)
+                    {
+                        int index = outputDT.Rows.IndexOf(Duplicate.First());
+                        outputDT.Rows[index]["additionalcomments"] += "Additional On-Hold " + row["onholddate"].ToString() + " - " + row["offholddate"].ToString() + ": " + row["onholddescription"];
+                        outputDT.Rows[index]["processingtime"] = (TimeSpan)(outputDT.Rows[index]["processingtime"]) - onholdtime;
+                    }
+                    else
+                    {
+                        outputDT.ImportRow(row);
+                    }
+                }
+                tempDT = outputDT.AsEnumerable()
+                    .GroupBy(x => new { username = x.Field<string>("loginname"), category = x.Field<string>("trialtype") })
+                    .Select(x => new { x.Key.username, x.Key.category, assignmentnumber = x.Count().ToString(),
+                    avgtime = String.Format("{0:.##}", x.Select(y => y.Field<TimeSpan>("processingtime").TotalMinutes).Average()) + "(min)" }).
+                    OrderBy(x => x.category).ThenBy(x => Convert.ToInt32(x.assignmentnumber.Replace("(min)",""))).ToDataTable();
+                tempDT.Rows.Add("Grand Total",
+                    "All",
+                    outputDT.Rows.Count.ToString(),
+                    String.Format("{0:.##}", outputDT.AsEnumerable().Select(x => x.Field<TimeSpan>("processingtime").TotalMinutes).Average()) + "(min)");
+                tempDT.Rows.Add("", "", "", "");
+                tempDT.Rows.Add("Abstractor", "Category", "Assignment Number", "Total Time");
+                tempDT.Merge(outputDT.AsEnumerable()
+                    .GroupBy(x => new { username = x.Field<string>("loginname") })
+                    .Select(x => new
+                    {
+                        x.Key.username,
+                        category = "All",
+                        assignmentnumber = x.Count().ToString(),
+                        avgtime = String.Format("{0:.##}", x.Select(y => y.Field<string>("trialtype") == "Abbreviated" ? 0.35 : (y.Field<string>("trialtype") == "Original" ? 2 : 0.75)).Sum()) + "(hour)"}).
+                        OrderBy(x => Convert.ToDouble(x.avgtime.Replace("(hour)", ""))).ToDataTable());
+                conclusionDT = tempDT;
+                conclusionDT.TableName = tablename;
+                return outputDT;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public DataTable CreateSDAQCSheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
+        {
+            DateTime starttime = new DateTime();
+            DateTime endtime = new DateTime();
+            DateTime onholddate = new DateTime();
+            DateTime offholddate = new DateTime();
+            //DateTime reactivateddate = new DateTime();
+            DataTable outputDT = inputDT.Clone();
+            DataTable tempDT = new DataTable();
+            outputDT.TableName = tablename;
+            outputDT.Columns.Add("processingtime", typeof(TimeSpan));
+            TimeSpan overalldurations = new TimeSpan();
+            TimeSpan onholdtime = new TimeSpan();
+            TimeSpan processingtime = new TimeSpan();
+
+            try
+            {
+                foreach (DataRow row in inputDT.Rows)
+                {
+                    onholdtime = new TimeSpan();
+                    starttime = (DateTime)row["startedtime"];
+                    endtime = (DateTime)row["completedtime"];
+                    onholddate = string.IsNullOrEmpty(row["onholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["onholddate"]);
+                    offholddate = string.IsNullOrEmpty(row["offholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["offholddate"]);
+                    //reactivateddate = string.IsNullOrEmpty(row["reactivateddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["reactivateddate"]);
+                    if (endtime >= starttime)
+                    {
+                        overalldurations = endtime - starttime;
+                        if (overalldurations.Days > 1)
+                        {
+                            //TimeSpan ss = TimeSpan.FromDays(overalldurations.Days + 2 - CTRPFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                            overalldurations = overalldurations - TimeSpan.FromDays(overalldurations.Days + 2 - CTRPFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                        }
+                    }
+
+
+                    if (offholddate >= onholddate)
+                    {
+                        //exclude the onholddate not within processing
+                        if (onholddate <= endtime && onholddate >= starttime)
+                        {
+                            onholdtime = offholddate - onholddate;
+                            if (onholdtime.Days > 1)
+                            {
+                                //TimeSpan ss = TimeSpan.FromDays(overalldurations.Days + 2 - CTRPFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                                onholdtime = onholdtime - TimeSpan.FromDays(onholdtime.Days + 2 - CTRPFunctions.CountBusinessDays(onholddate, offholddate, CTRPConst.Holidays));
+                            }
+
+                        }
+                    }
+
+                    processingtime = overalldurations - onholdtime;
+
+                    if (!row.Table.Columns.Contains("processingtime"))
+                    {
+                        row.Table.Columns.Add("processingtime", typeof(TimeSpan));
+                    }
+
+                    row["processingtime"] = processingtime;
+
+                    var Duplicate = outputDT.AsEnumerable().Where(x => x.Field<string>("trialid") == row["trialid"].ToString() &&
+x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
+
+                    if (Duplicate.Count() == 1)
+                    {
+                        int index = outputDT.Rows.IndexOf(Duplicate.First());
+                        outputDT.Rows[index]["additionalcomments"] += "Additional On-Hold " + row["onholddate"].ToString() + " - " + row["offholddate"].ToString() + ": " + row["onholddescription"];
+                        outputDT.Rows[index]["processingtime"] = (TimeSpan)(outputDT.Rows[index]["processingtime"]) - onholdtime;
+                    }
+                    else
+                    {
+                        outputDT.ImportRow(row);
+                    }
+                }
+
+                tempDT = outputDT.AsEnumerable()
+                .GroupBy(x => new { username = x.Field<string>("loginname"), category = x.Field<string>("trialtype") })
+                .Select(x => new { x.Key.username, x.Key.category, assignmentnumber = x.Count().ToString(), avgtime = String.Format("{0:.##}", x.Select(y => y.Field<TimeSpan>("processingtime").TotalMinutes).Average()) + "(min)" }).OrderBy(x => x.category).ThenBy(x => Convert.ToInt32(x.assignmentnumber.Replace("(min)", ""))).ToDataTable();
+                tempDT.Rows.Add("Grand Total",
+                    "All",
+                    outputDT.Rows.Count.ToString(),
+                    String.Format("{0:.##}", outputDT.AsEnumerable().Select(x => x.Field<TimeSpan>("processingtime").TotalMinutes).Average()) + "(min)");
+                tempDT.Rows.Add("", "", "", "");
+                tempDT.Rows.Add("Abstractor", "Category", "Assignment Number", "Total Time");
+                tempDT.Merge(outputDT.AsEnumerable()
+                    .GroupBy(x => new { username = x.Field<string>("loginname") })
+                    .Select(x => new
+                    {
+                        x.Key.username,
+                        category = "All",
+                        assignmentnumber = x.Count().ToString(),
+                        avgtime = String.Format("{0:.##}", x.Select(y => y.Field<string>("trialtype") == "Abbreviated" ? 0.25 : (y.Field<string>("trialtype") == "Original" ? 1.5 : 0.5)).Sum()) + "(hour)"
+                    }).OrderBy(x => Convert.ToDouble(x.avgtime.Replace("(hour)", ""))).ToDataTable());
+
                 conclusionDT = tempDT;
                 conclusionDT.TableName = tablename;
                 return outputDT;
@@ -434,9 +655,9 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
             tempDT = inputDT.AsEnumerable().Select(x => new { username = x.Field<string>("loginname") }).ToDataTable();
             tempDT = inputDT.AsEnumerable()
                 //.Where(x => x.Field<string>("additionalcomments") == "")  //if compute the multi on-hold records
-                .GroupBy(x => x.Field<string>("loginname"))
-                .Select(x => new { username = x.Key.ToString(), assignmentnumber = x.Count()}).OrderBy(x=>x.assignmentnumber).ToDataTable();
-            tempDT.Rows.Add("Grand Total", inputDT.Rows.Count);
+                .GroupBy(x => new { username = x.Field<string>("loginname"), category = x.Field<string>("trialtype") })
+                .Select(x => new { x.Key.username, x.Key.category, assignmentnumber = x.Count() }).OrderBy(x => x.category).ThenBy(x => x.assignmentnumber).ToDataTable();
+            tempDT.Rows.Add("Grand Total", "All", inputDT.Rows.Count);
             conclusionDT = tempDT;
             conclusionDT.TableName = tablename;
             return inputDT;
