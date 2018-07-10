@@ -36,7 +36,7 @@ namespace Attitude_Loose.Controllers
 
         public ActionResult GetReportList()
         {
-            var reportlist = reportService.GetReports().Where(x => x.ReportType == "excel").Select(x => new { ReportName = x.ReportName }).OrderBy(x=>x.ReportName).ToList();
+            var reportlist = reportService.GetReports().Select(x => new { ReportName = x.ReportName }).OrderBy(x=>x.ReportName).ToList();
             return Json(reportlist, JsonRequestBehavior.AllowGet);
         }
 
@@ -55,81 +55,11 @@ namespace Attitude_Loose.Controllers
 
         [HttpGet]
         [OutputCache(Duration = 10, VaryByParam = "none")]
-        public ActionResult Analysis()
-        {
-            var model = new ReportAnalysisViewModel();
-            model.AnalysisResult = false;
-
-            CTROHome home = new CTROHome();
-            string[] Xaxis = { };
-            string[] ChartName = { };
-            string[] ChartType = { };
-            string[] XLabel = { };
-            string[] YLabel = { };
-
-            List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
-            string[] loginname = { };
-            ReportSetting[] reportSettings = reportsettingService.GetReportSettingsByReportId(1).ToArray();
-
-            home.CreateAnalysisChart("2018-04-02", "2018-04-02", reportSettings, "PDAAbstraction", out XLabel, out YLabel, out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
-            model.Loginname = loginname;
-            model.Xaxis = Xaxis;
-            model.Yaxis = Yaxis;
-            model.ChartName = ChartName;
-            model.ChartType = ChartType;
-            model.XLabel = XLabel;
-            model.YLabel = YLabel;
-
-            var reports = reportService.GetReports();
-            model.Reports = reportService.ToSelectListItems(reports, "chart", -1);
-            return View(model);
-        }
-
-        [HttpPost]
-        public ActionResult Analysis(ReportAnalysisViewModel model)
-        {
-            CTROHome home = new CTROHome();
-
-            string[] Xaxis = { };
-            string[] ChartName = { };
-            string[] ChartType = { };
-            string[] XLabel = { };
-            string[] YLabel = { };
-            List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
-            string[] loginname = { };
-            ReportSetting[] reportSettings = reportsettingService.GetReportSettingsByReportId(Convert.ToInt32(model.SelectedAnalysis)).ToArray();
-
-            if (ModelState.IsValid)
-            {
-                string reportname = reportService.GetReportById(Convert.ToInt32(model.SelectedAnalysis)).ReportName.Replace(" - ", "");
-                home.CreateAnalysisChart(model.StartDate, model.EndDate, reportSettings, reportname, out XLabel, out YLabel, out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
-                model.AnalysisResult = true;
-            }
-            else
-            {
-                home.CreateAnalysisChart("2018-04-02", "2018-04-02", reportSettings, "PDAAbstraction", out XLabel, out YLabel, out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
-                model.AnalysisResult = false;
-            }
-            model.Loginname = loginname;
-            model.Xaxis = Xaxis;
-            model.Yaxis = Yaxis;
-            model.ChartName = ChartName;
-            model.ChartType = ChartType;
-            model.XLabel = XLabel;
-            model.YLabel = YLabel;
-            var reports = reportService.GetReports();
-            model.Reports = reportService.ToSelectListItems(reports, "chart", -1);
-
-            return View(model);
-        }
-
-        [HttpGet]
-        [OutputCache(Duration = 10, VaryByParam = "none")]
         public ActionResult Report()
         {
             var model = new ReportGenerateViewModel();
             var reports = reportService.GetReports();
-            model.Reports = reportService.ToSelectListItems(reports, "excel", -1);
+            model.Reports = reportService.ToSelectListItems(reports, -1);
             return View(model);
         }
 
@@ -147,7 +77,7 @@ namespace Attitude_Loose.Controllers
                     model.StartDate, model.EndDate, user);
             }
             var reports = reportService.GetReports();
-            model.Reports = reportService.ToSelectListItems(reports, "excel", -1);
+            model.Reports = reportService.ToSelectListItems(reports, -1);
             return View(model);
         }
 

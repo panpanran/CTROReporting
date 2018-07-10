@@ -43,7 +43,7 @@ namespace Attitude_Loose.Controllers
         {
             var model = new ReportGenerateViewModel();
             var reports = reportService.GetReports();
-            model.Reports = reportService.ToSelectListItems(reports, "excel", -1);
+            model.Reports = reportService.ToSelectListItems(reports, -1);
             return View(model);
         }
 

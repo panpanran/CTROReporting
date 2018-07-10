@@ -3,6 +3,7 @@ using Attitude_Loose.Test;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Script.Serialization;
@@ -88,14 +89,14 @@ namespace Attitude_Loose.CTRO
 
         public void BulkUpdate(string where)
         {
-            //Update(GetById("80232"));
+            Update(GetById("81526"));
 
-            string[] ticketlist = GetIDList(where).ToArray();
-            for (int i = 1; i < ticketlist.Length - 1; i++)
-            {
-                string id = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ", ""));
-                Update(GetById(id));
-            }
+            //string[] ticketlist = GetIDList(where).ToArray();
+            //for (int i = 1; i < ticketlist.Length - 1; i++)
+            //{
+            //    string id = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ", ""));
+            //    Update(GetById(id));
+            //}
         }
 
         public void UpdateByID(string id)

@@ -23,6 +23,8 @@ namespace Attitude_Loose.App_Start
         public DbSet<Department> Departments { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<ReportSetting> ReportSetting { get; set; }
+        public DbSet<Attitude_Loose.Models.Chart> Chart { get; set; }
+        public DbSet<ChartSetting> ChartSetting { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

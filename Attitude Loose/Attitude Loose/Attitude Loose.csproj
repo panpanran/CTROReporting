@@ -284,8 +284,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="CacheClass.cs" />
     <Compile Include="Controllers\ApplicationUserController.cs" />
+    <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\TopicController.cs" />
@@ -323,8 +323,22 @@
     <Compile Include="Migrations\201806191925247_ReportChange.Designer.cs">
       <DependentUpon>201806191925247_ReportChange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807061959109_ChartTable.cs" />
+    <Compile Include="Migrations\201807061959109_ChartTable.Designer.cs">
+      <DependentUpon>201807061959109_ChartTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807062001245_ChartSettingTable.cs" />
+    <Compile Include="Migrations\201807062001245_ChartSettingTable.Designer.cs">
+      <DependentUpon>201807062001245_ChartSettingTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807092029304_addreporttype chart.cs" />
+    <Compile Include="Migrations\201807092029304_addreporttype chart.Designer.cs">
+      <DependentUpon>201807092029304_addreporttype chart.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Chart.cs" />
+    <Compile Include="Models\ChartSetting.cs" />
     <Compile Include="Models\Configuration\RecordConfiguration.cs" />
     <Compile Include="Models\Configuration\TopicConfiguration.cs" />
     <Compile Include="Models\Configuration\UserProfileConfiguration.cs" />
@@ -346,6 +360,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Repository\ChartRepository.cs" />
+    <Compile Include="Repository\ChartSettingRepository.cs" />
     <Compile Include="Repository\MetricRepository.cs" />
     <Compile Include="Repository\RecordRepository.cs" />
     <Compile Include="Repository\ReportRepository.cs" />
@@ -354,6 +370,8 @@
     <Compile Include="Repository\TopicRepository.cs" />
     <Compile Include="Repository\UserProfileRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Service\ChartService.cs" />
+    <Compile Include="Service\ChartSettingService.cs" />
     <Compile Include="Service\MetricService.cs" />
     <Compile Include="Service\RecordService.cs" />
     <Compile Include="Service\ReportService.cs" />
@@ -364,14 +382,16 @@
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Test\ApplicationUserControllerTest.cs" />
+    <Compile Include="Test\CTRPChart.cs" />
     <Compile Include="Test\CTRPConst.cs" />
     <Compile Include="Test\CTRPFunctions.cs" />
-    <Compile Include="Test\CTRPReports.cs" />
+    <Compile Include="Test\CTRPReport.cs" />
     <Compile Include="Test\CTRPSchedule.cs" />
     <Compile Include="Test\EWTest.cs" />
     <Compile Include="Test\NormalTest.cs" />
     <Compile Include="Test\TestUserStore.cs" />
     <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
+    <Compile Include="ViewModels\ChartViewModel.cs" />
     <Compile Include="ViewModels\RecordViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModel.cs" />
     <Compile Include="ViewModels\ScheduleViewModel.cs" />
@@ -779,6 +799,7 @@
     <Content Include="Templates\Workload Template.xlsx" />
     <Content Include="Templates\Zero Accrual Report Template.xlsx" />
     <Content Include="Templates\Offhold Report Template.xlsx" />
+    <Content Include="Views\Chart\Chart.cshtml" />
     <None Include="Views\Report\Test.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -825,7 +846,6 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_NavigationBar.cshtml" />
     <Content Include="Views\Report\ProgressBar.cshtml" />
-    <Content Include="Views\Report\Analysis.cshtml" />
     <Content Include="Views\Report\Report.cshtml" />
     <Content Include="Views\Report\History.cshtml" />
     <Content Include="Views\Schedule\Schedule.cshtml" />
@@ -858,6 +878,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806191925247_ReportChange.resx">
       <DependentUpon>201806191925247_ReportChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807061959109_ChartTable.resx">
+      <DependentUpon>201807061959109_ChartTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807062001245_ChartSettingTable.resx">
+      <DependentUpon>201807062001245_ChartSettingTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807092029304_addreporttype chart.resx">
+      <DependentUpon>201807092029304_addreporttype chart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

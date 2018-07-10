@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -18,12 +19,16 @@ namespace Attitude_Loose
         protected void Application_Start()
         {
             Database.SetInitializer(new TopicSampleData());
+            IOCConfig.Run();
+            AutoMapperConfig.Configure();
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            IOCConfig.Run();
-            AutoMapperConfig.Configure();
+
+            //api
+            GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
 }

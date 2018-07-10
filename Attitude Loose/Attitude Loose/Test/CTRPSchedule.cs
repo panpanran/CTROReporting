@@ -99,7 +99,6 @@ namespace Attitude_Loose.Test
             DatabaseFactory factory = new DatabaseFactory();
             UnitOfWork unitOfWork = new UnitOfWork(factory);
             ReportSettingRepository reportSettingRepository = new ReportSettingRepository(factory);
-            ReportSetting[] reportSettings = reportSettingRepository.GetMany(x => x.ReportId == reportid).ToArray();
             ReportRepository reportRepository = new ReportRepository(factory);
             Report report = reportRepository.GetById(reportid);
             UserRepository userRepository = new UserRepository(factory);
@@ -107,11 +106,11 @@ namespace Attitude_Loose.Test
 
             CTROHome home = new CTROHome();
             string savepath = "";
-            int result = home.CreateReport(startdate, enddate, user, reportSettings, report, out savepath);
+            int result = home.CreateReport(startdate, enddate, user, report, out savepath);
 
             if (result == 1)
             {
-                record.FilePath = "../Excel/" + Path.GetFileName(savepath);
+                record.FilePath = "../Excel/" + user.UserName + "/" + Path.GetFileName(savepath);
                 //Add Record
                 RecordRepository recordRepository = new RecordRepository(factory);
                 recordRepository.Add(record);

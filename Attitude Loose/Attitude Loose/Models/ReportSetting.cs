@@ -11,6 +11,8 @@ namespace Attitude_Loose.Models
 
         public int ReportId { get; set; }
 
+        public string ReportType { get; set; }
+
         public string Category { get; set; }
 
         public string Code { get; set; }
@@ -24,6 +26,5 @@ namespace Attitude_Loose.Models
         public int AdditionStartcolumn { get; set; }
 
         public virtual Report Report { get; set; }
-
     }
 }

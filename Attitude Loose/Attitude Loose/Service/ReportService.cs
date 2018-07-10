@@ -15,7 +15,7 @@ namespace Attitude_Loose.Service
     {
         IEnumerable<Report> GetReports();
         Report GetReportById(int reportid);
-        IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<Report> reports, string reporttype, int selectedId);
+        IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<Report> reports, int selectedId);
         Report GetByReportName(string name);
         bool CreateReport(int selectedreport, string userid, string startdate, string enddate, ApplicationUser user);
     }
@@ -66,15 +66,14 @@ namespace Attitude_Loose.Service
 
             Report report = GetReportById(selectedreport);
             string reportname = report.ReportName.Replace(" - ", "");
-            ReportSetting[] reportSettings = recportsettingService.GetReportSettingsByReportId(selectedreport).ToArray();
 
             CTROHome home = new CTROHome();
             string savepath = "";
-            int reportflag = home.CreateReport(startdate, enddate, user, reportSettings, report, out savepath);
+            int reportflag = home.CreateReport(startdate, enddate, user, report, out savepath);
 
             if (reportflag == 1)
             {
-                record.FilePath = "../Excel/" + Path.GetFileName(savepath);
+                record.FilePath = "../Excel/" + user.UserName + "/" + Path.GetFileName(savepath);
                 recordService.CreateRecord(record);
                 result = true;
             }
@@ -82,10 +81,10 @@ namespace Attitude_Loose.Service
             return result;
         }
 
-        public IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<Report> reports, string reporttype, int selectedId)
+        public IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<Report> reports, int selectedId)
         {
             return
-                reports.Where(x => x.ReportType == reporttype).OrderBy(report => report.ReportName)
+                reports.OrderBy(report => report.ReportName)
                       .Select(report =>
                           new SelectListItem
                           {

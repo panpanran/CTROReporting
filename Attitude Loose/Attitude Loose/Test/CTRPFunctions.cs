@@ -1,4 +1,5 @@
-﻿using Microsoft.Office.Interop.Excel;
+﻿using Attitude_Loose.Models;
+using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -78,7 +79,7 @@ namespace Attitude_Loose.Test
             return table;
         }
 
-        public static void WriteExcelByDataTable(System.Data.DataTable datatable, string savepath, string templatepath, int startrow, int startcolumn)
+        public static void WriteExcelByDataTable(System.Data.DataTable datatable, ApplicationUser user, string savepath, string templatepath, int startrow, int startcolumn, bool ifchart)
         {
             Excel.Application xlApp;
             Excel.Workbook xlWorkBook;
@@ -88,6 +89,11 @@ namespace Attitude_Loose.Test
             xlApp = new Excel.Application();
             try
             {
+                string pathtext = @"C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\Excel\" + user.UserName;
+                if (!Directory.Exists(pathtext))
+                {
+                    Directory.CreateDirectory(pathtext);
+                }
 
                 if (!File.Exists(savepath))
                 {
@@ -115,6 +121,13 @@ namespace Attitude_Loose.Test
                         datas[row, column] = datatable.Rows[row].ItemArray[column].ToString();
                     }
                 }
+
+                //Chart
+                if(ifchart == true)
+                {
+                    CreateExcelChart(xlWorkSheet, writeRange);
+                }
+
                 writeRange.Value2 = datas;
                 //writeRange.AutoFilter(1, Type.Missing, Excel.XlAutoFilterOperator.xlAnd, Type.Missing, true);
                 ReleaseObject(xlWorkSheet);
@@ -136,6 +149,18 @@ namespace Attitude_Loose.Test
                 File.Delete(savepath);
                 throw;
             }
+        }
+
+        public static void CreateExcelChart(Excel.Worksheet xlWorkSheet, Excel.Range chartRange)
+        {
+            object misValue = System.Reflection.Missing.Value;
+
+            Excel.ChartObjects xlCharts = (Excel.ChartObjects)xlWorkSheet.ChartObjects(Type.Missing);
+            Excel.ChartObject myChart = (Excel.ChartObject)xlCharts.Add(10, 80, 300, 250);
+            Excel.Chart chartPage = myChart.Chart;
+
+            chartPage.SetSourceData(chartRange, misValue);
+            chartPage.ChartType = Excel.XlChartType.xlColumnClustered;
         }
 
 
