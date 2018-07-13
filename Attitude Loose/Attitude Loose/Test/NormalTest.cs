@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -34,6 +35,23 @@ namespace Attitude_Loose.Test
             string responseText = responseStream.ReadToEnd();
             Console.WriteLine(responseText); // Displays the HTML of the website
             response.Close();
+        }
+
+        [Test]
+        public void ConcurrentTest()
+        {
+            var dict = new ConcurrentDictionary<string, int>();
+            if (dict.TryAdd("k1", 42))
+            {
+                Console.WriteLine("Added");
+            }
+            if (dict.TryUpdate("k1", 21, 42))
+            {
+                Console.WriteLine("42 updated to 21");
+            }
+            dict["k1"] = 42; // Overwrite unconditionally
+            int r1 = dict.AddOrUpdate("k1", 3, (s, i) => i * 2);
+            int r2 = dict.GetOrAdd("k2", 3);
         }
     }
 }

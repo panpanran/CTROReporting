@@ -1,4 +1,4 @@
-﻿using Attitude_Loose.CTRO;
+﻿using Attitude_Loose.EW;
 using Attitude_Loose.Models;
 using NUnit.Framework;
 using System;
@@ -27,5 +27,13 @@ namespace Attitude_Loose.Test
             EWZeroaccrual eWHome = new EWZeroaccrual();
             eWHome.BulkAssigneTo("summary like '%Trials with Zero Accruals 2017%' and assigned_to_='Julia Shpigenur'");
         }
+
+        [Test]
+        public void OriginalIncomingEmailFormat()
+        {
+            EWFormatOriginalIncomingEmail eWHome = new EWFormatOriginalIncomingEmail();
+            eWHome.BulkUpdate("full_name is null and assigned_to_ is null");
+        }
+
     }
 }

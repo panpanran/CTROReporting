@@ -290,7 +290,9 @@
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\TopicController.cs" />
     <Compile Include="CTRO\CTROHome.cs" />
-    <Compile Include="CTRO\EWHome.cs" />
+    <Compile Include="EW\EWHome.cs" />
+    <Compile Include="EW\EWParticipant.cs" />
+    <Compile Include="EW\EWTicket.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -346,6 +348,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Metric.cs" />
+    <Compile Include="Models\Participant.cs" />
     <Compile Include="Models\Record.cs" />
     <Compile Include="Models\Report.cs" />
     <Compile Include="Models\ReportSetting.cs" />

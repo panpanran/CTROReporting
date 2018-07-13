@@ -263,4 +263,83 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
             return loginname;
         }
     }
+
+    public class PDAWorkloadChart : CTRPChart
+    {
+        public DataTable CreateDailySheet(DataTable inputDT)
+        {
+            DataTable outputDT = inputDT.AsEnumerable().Select(x => new { loginname = x.Field<string>("loginname"), completeddate= String.Format("{0:yyyyMMdd}", x.Field<DateTime>("completeddate")),workhour = x.Field<Decimal>("workhour") }).ToDataTable();
+            return outputDT;
+        }
+
+        public override string[] CreateBook(NpgsqlConnection conn, string startDate, string endDate, Attitude_Loose.Models.Chart chart, out string[] Xaxis, out List<Dictionary<string, string>> Yaxis)
+        {
+            //All
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+            List<DataTable> nciDT = new List<DataTable>();
+
+            //NCI
+            for (int i = 0; i < chart.ChartSettings.Count; i++)
+            {
+                string chart_text = chart.ChartSettings.ToArray()[i].Code.Replace("startDate", startDate).Replace("endDate", endDate);
+                cmd = new NpgsqlCommand(chart_text, conn);
+                datareader = cmd.ExecuteReader();
+                DataTable tempdatatable = new DataTable();
+                tempdatatable.Load(datareader);
+                tempdatatable.TableName = chart.ChartSettings.ToArray()[i].Category;
+                nciDT.Add(tempdatatable);
+            }
+            string[] loginname = { };
+            Yaxis = new List<Dictionary<string, string>>();
+            Dictionary<string, string> tempYaxis = new Dictionary<string, string>();
+            Dictionary<string, string> temprankYaxis = new Dictionary<string, string>();
+
+
+            DataTable dailyDT = CreateDailySheet(nciDT.Where(x=>x.TableName == "Daily Hours").FirstOrDefault());
+            DataTable conclusionDT = nciDT.Where(x => x.TableName == "Total Hours").FirstOrDefault();
+
+            loginname = dailyDT.AsEnumerable().Select(x => x.Field<string>("loginname")).Distinct().ToArray();
+            List<string> tempdates = dailyDT.AsEnumerable().OrderBy(x => Convert.ToInt32(x.Field<string>("completeddate"))).Select(x => x.Field<string>("completeddate")).Distinct().ToList();
+            Xaxis = new string[] { string.Join(",", tempdates), "" };
+
+            foreach (string ln in loginname)
+            {
+                string worktotal = conclusionDT.AsEnumerable().Where(x => x.Field<string>("loginname") == ln).Select(x => x.Field<Decimal>("workhour").ToString()).FirstOrDefault();
+                List<string> Yvalue = new List<string>();
+                foreach (string tdate in tempdates)
+                {
+                    string tempvalue = dailyDT.AsEnumerable()
+                        .Where(x => x.Field<string>("loginname") == ln && x.Field<string>("completeddate") == tdate)
+                        .Select(x => x.Field<Decimal>("workhour").ToString()).FirstOrDefault();
+
+                    if (string.IsNullOrEmpty(tempvalue))
+                    {
+                        Yvalue.Add("0");
+                    }
+                    else
+                    {
+                        Yvalue.Add(tempvalue);
+                    }
+                }
+                tempYaxis.Add(ln, string.Join(",", Yvalue));
+
+
+                if (string.IsNullOrEmpty(worktotal))
+                {
+                    worktotal = "0";
+                }
+
+                temprankYaxis.Add(ln, worktotal);
+            }
+            Yaxis.Add(tempYaxis);
+            temprankYaxis = temprankYaxis.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+            Yaxis.Add(temprankYaxis);
+            tempYaxis = new Dictionary<string, string>();
+            temprankYaxis = new Dictionary<string, string>();
+
+            return loginname;
+        }
+    }
+
 }

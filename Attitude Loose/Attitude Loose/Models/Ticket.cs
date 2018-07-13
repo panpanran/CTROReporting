@@ -18,5 +18,7 @@ namespace Attitude_Loose.Models
         public string AssignedTo { get; set; }
 
         public string State { get; set; }
+
+        public string Original_incoming_email { get; set; }
     }
 }
