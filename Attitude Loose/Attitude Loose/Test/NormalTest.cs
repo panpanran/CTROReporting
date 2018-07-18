@@ -6,6 +6,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Sockets;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace Attitude_Loose.Test
@@ -13,6 +15,55 @@ namespace Attitude_Loose.Test
     [TestFixture()]
     public class NormalTest
     {
+        [Test]
+        public Task<Socket> AcceptAsync(Socket socket)
+        {
+            if (socket == null)
+                throw new ArgumentNullException("socket");
+
+            var tcs = new TaskCompletionSource<Socket>();
+
+            socket.BeginAccept(asyncResult =>
+            {
+                try
+                {
+                    var s = asyncResult.AsyncState as Socket;
+                    var client = s.EndAccept(asyncResult);
+
+                    tcs.SetResult(client);
+                }
+                catch (Exception ex)
+                {
+                    tcs.SetException(ex);
+                }
+
+            }, socket);
+
+            return tcs.Task;
+        }
+
+        [Test]
+        public void ArgumentExceptionTest()
+        {
+            try
+            {
+                string a = "";
+                if (a == "")
+                {
+                    throw new ArgumentNullException();
+                }
+            }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+        }
+
+
         [Test]
         public void TractSourceTest()
         {

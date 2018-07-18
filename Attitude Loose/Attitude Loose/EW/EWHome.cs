@@ -41,7 +41,7 @@ namespace Attitude_Loose.EW
             {
                 EWParticipant ewparticipant = new EWParticipant();
                 string temp = "https://cbiitsupport.nci.nih.gov/ewws/EWSelect?$KB=CBIIT&$login=panr2&$password=Rp0126$$&$table=participant&$lang=en&where=email=%27" + originalincomingemail + "%27";
-                string participanttext = ewparticipant.GetIDList("email=%27" + originalincomingemail + "%27").ToArray()[1];
+                string participanttext = ewparticipant.GetIDList("email=%27" + originalincomingemail + "%27 or alternate_email=%27" + originalincomingemail + "%27").ToArray()[1];
                 string id = GetValueByFieldName("EWREST_id_0", participanttext.Replace(" ", ""));
                 if (!string.IsNullOrEmpty(id))
                 {
@@ -61,7 +61,7 @@ namespace Attitude_Loose.EW
             }
             else
             {
-                url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Rp0126$$&$lang=en&id=" + ticket.TicketId + "&full_name=Please Create New User";
+                url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Rp0126$$&$lang=en&id=" + ticket.TicketId + "&full_name=Please create a new user or add this email to the 'alternate email' of the existing user";
                 string html = CTRPFunctions.GetHTMLByUrl(url);
             }
         }
@@ -69,14 +69,14 @@ namespace Attitude_Loose.EW
 
         public void BulkUpdate(string where)
         {
-            Update(GetById("80100"));
+            //Update(GetById("80100"));
 
-            //string[] ticketlist = GetIDList(where).ToArray();
-            //for (int i = 1; i < ticketlist.Length - 1; i++)
-            //{
-            //    string id = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ", ""));
-            //    Update(GetById(id));
-            //}
+            string[] ticketlist = GetIDList(where).ToArray();
+            for (int i = 1; i < ticketlist.Length - 1; i++)
+            {
+                string id = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ", ""));
+                Update(GetById(id));
+            }
         }
     }
 

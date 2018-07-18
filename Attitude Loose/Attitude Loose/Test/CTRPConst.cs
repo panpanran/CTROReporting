@@ -26,6 +26,7 @@ namespace Attitude_Loose.Test
         //database connection
         //public const string connString = "Server=localhost;Port=5434;User Id=panran;Password=P@nR@n123;Database=pa_ctrpn";
         //public const string connString = "Server=localhost;Port=5434;User Id=dwprod;Password=dwprod_at_ctrp17;Database=dw_ctrpn";
-        public const string connString = "Server=localhost;Port=5434;User Id=copparead;Password=rftev@LIENSuj#43wU;Database=dw_ctrpn";
+        public const string connString = "Server=localhost;Port=5434;User Id=panran;Password=Prss_1234;Database=dw_ctrpn";
+        //public const string connString = "Server=localhost;Port=5434;User Id=copparead;Password=rftev@LIENSuj#43wU;Database=dw_ctrpn";
     }
 }

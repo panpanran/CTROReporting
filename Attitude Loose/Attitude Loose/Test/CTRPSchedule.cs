@@ -1,4 +1,5 @@
 ﻿using Attitude_Loose.CTRO;
+using Attitude_Loose.EW;
 using Attitude_Loose.Infrastructure;
 using Attitude_Loose.Models;
 using Attitude_Loose.Repository;
@@ -24,10 +25,11 @@ namespace Attitude_Loose.Test
     {
         public static void Start(List<Schedule> schedulelist)
         {
-            RunProgram(schedulelist).GetAwaiter().GetResult();
+            ScheduleReports(schedulelist).GetAwaiter().GetResult();
+            ScheduleFormatTickets().GetAwaiter().GetResult();
         }
 
-        private static async Task RunProgram(List<Schedule> schedulelist)
+        private static async Task ScheduleReports(List<Schedule> schedulelist)
         {
             try
             {
@@ -49,7 +51,7 @@ namespace Attitude_Loose.Test
                         .UsingJobData("userid", schedule.UserId)
                         .Build();
 
-                    // Trigger the job to run now, and then repeat every 10 seconds
+                    // Trigger the job to run now, and then repeat every internaldays
                     ITrigger trigger = TriggerBuilder.Create()
                         .WithIdentity("trigger" + schedule.ScheduleId, "group" + schedule.ReportId)
                         //.StartAt(DateBuilder.DateOf(16, 20, 0, 1, 5))
@@ -74,6 +76,40 @@ namespace Attitude_Loose.Test
                 Console.WriteLine(se);
             }
         }
+
+        private static async Task ScheduleFormatTickets()
+        {
+            try
+            {
+                IScheduler scheduler = await StdSchedulerFactory.GetDefaultScheduler();
+                await scheduler.Clear();
+                // and start it off
+                await scheduler.Start();
+                    // define the job and tie it to our HelloJob class
+                    IJobDetail job = JobBuilder.Create<SimpleJob>()
+                        .WithIdentity("jobEW" , "groupEW")
+                        .Build();
+
+                    // Trigger the job to run now, and then repeat every internaldays
+                    ITrigger trigger = TriggerBuilder.Create()
+                        .WithIdentity("triggerEW", "groupEW")
+                        //.StartAt(DateBuilder.DateOf(16, 20, 0, 1, 5))
+                        .StartAt(DateTime.Now)
+                        .WithSimpleSchedule(x => x
+                            .WithInterval(new TimeSpan(0, 10, 0))
+                            .RepeatForever())
+                        .Build();
+
+                    // Tell quartz to schedule the job using our trigger
+                    await scheduler.ScheduleJob(job, trigger);
+
+            }
+            catch (SchedulerException se)
+            {
+                Console.WriteLine(se);
+            }
+        }
+
     }
 
     public class ScheduleJob : IJob
@@ -116,6 +152,15 @@ namespace Attitude_Loose.Test
                 recordRepository.Add(record);
                 unitOfWork.Commit();
             }
+        }
+    }
+
+    public class SimpleJob : IJob
+    {
+        public async Task Execute(IJobExecutionContext context)
+        {
+            EWFormatOriginalIncomingEmail eWHome = new EWFormatOriginalIncomingEmail();
+            eWHome.BulkUpdate("full_name is null and assigned_to_ is null");
         }
     }
 }

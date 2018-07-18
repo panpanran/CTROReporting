@@ -218,7 +218,7 @@ namespace Attitude_Loose.Test
             }
         }
         [Test()]
-        public void EmialTest()
+        public void EmailTest()
         {
             CTRPFunctions.SendEmail("Turnround Report", "This is a test email. ", "ran.pan@nih.gov", @"C:\Users\panr2\Downloads\DataWarehouse\Turnround Report\Turnround Report_201803 By Ran Code.xlsx");
         }
