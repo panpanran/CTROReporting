@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,12 +10,52 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.Web;
+using System.Xml.Linq;
 
 namespace Attitude_Loose.Test
 {
     [TestFixture()]
     public class NormalTest
     {
+
+        [Test]
+        public void EventlogTest()
+        {
+            if (!EventLog.SourceExists("RanSource"))
+            {
+                EventLog.CreateEventSource("RanSource", "MyNewLog");
+                Console.WriteLine("CreatedEventSource");
+                Console.WriteLine("Please restart application");
+                Console.ReadKey();
+                return;
+            }
+            EventLog myLog = new EventLog();
+            myLog.Source = "MySource";
+            myLog.WriteEntry("Log event!");
+        }
+
+
+        [Test]
+        public void XMLTest()
+        {
+            XNamespace ew = "ContactList";
+            XElement root = new XElement(ew + "Root");
+            Console.WriteLine(root);
+            XAttribute contacts = new XAttribute("contacts", root);
+        }
+
+
+        [Test]
+        public void DEBUGTest(Socket socket)
+        {
+#if (DEBUG)
+            Console.WriteLine("Debug Mode");
+#elif (RELEASE)
+               Console.WriteLine("Release Mode");
+#endif
+        }
+
+
         [Test]
         public Task<Socket> AcceptAsync(Socket socket)
         {

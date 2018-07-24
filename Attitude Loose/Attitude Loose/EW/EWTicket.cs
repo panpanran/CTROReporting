@@ -12,7 +12,7 @@ namespace Attitude_Loose.EW
     {
         public IEnumerable<string> GetIDList(string where)
         {
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWSelect?$KB=CBIIT&$login=panr2&$password=Rp0126$$&$table=ctro_tickets&$lang=en&where=" + where;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWSelect?$KB=CBIIT&$login=panr2&$password=Prss_1234&$table=ctro_tickets&$lang=en&where=" + where;
             string html = CTRPFunctions.GetHTMLByUrl(url);
             string[] stringSeparators = new string[] { "\r\n" };
             string[] lines = html.Split(stringSeparators, StringSplitOptions.None);
@@ -21,7 +21,7 @@ namespace Attitude_Loose.EW
 
         public Ticket GetById(string id)
         {
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWRead?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Rp0126$$&$lang=en&id=" + id;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWRead?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + id;
             string html = CTRPFunctions.GetHTMLByUrl(url);
             string fullname = GetValueByFieldName("EWREST_full_name", html);
             string email = GetValueByFieldName("EWREST_email", html);
@@ -76,14 +76,14 @@ namespace Attitude_Loose.EW
             content = content.Replace("emailRep", ticket.Email)
                 .Replace("summaryRep", ticket.Summary)
                 .Replace("nameRep", ticket.FullName);
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Rp0126$$&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
             string html = CTRPFunctions.GetHTMLByUrl(url);
         }
 
 
         public void BulkUpdate(string where)
         {
-            //Update(GetById("81717"));
+            //Update(GetById("82066"));
 
             string[] ticketlist = GetIDList(where).ToArray();
             for (int i = 1; i < ticketlist.Length - 1; i++)
@@ -108,7 +108,7 @@ namespace Attitude_Loose.EW
             //string content = @"Trial is out of scope for CTRP. No action required.";
             string content = @"No action required, trial present in PA as NCI-2014-01029 is a CCR/CTEP trial and all updates should be submitted via CTEP services. ";
 
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Rp0126$$&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
             string html = CTRPFunctions.GetHTMLByUrl(url);
         }
 
@@ -156,13 +156,13 @@ namespace Attitude_Loose.EW
             content = content.Replace("emailRep", ticket.Email)
                 .Replace("summaryRep", ticket.Summary)
                 .Replace("nameRep", ticket.FullName);
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Rp0126$$&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
             string html = CTRPFunctions.GetHTMLByUrl(url);
         }
 
         public void AssignedTo(Ticket ticket)
         {
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Rp0126$$&$lang=en&id=" + ticket.TicketId + "&description=" + ticket.Summary;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&description=" + ticket.Summary;
             string html = CTRPFunctions.GetHTMLByUrl(url);
         }
 

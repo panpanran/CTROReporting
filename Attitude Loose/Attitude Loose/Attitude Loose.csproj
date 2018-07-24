@@ -384,7 +384,7 @@
     <Compile Include="Service\UserProfileService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="Test\ApplicationUserControllerTest.cs" />
+    <Compile Include="Test\CTRPTest.cs" />
     <Compile Include="Test\CTRPChart.cs" />
     <Compile Include="Test\CTRPConst.cs" />
     <Compile Include="Test\CTRPFunctions.cs" />
@@ -794,7 +794,7 @@
     <Content Include="SQL\Workload\Admin QC.txt" />
     <Content Include="SQL\Workload\Scientific Abstraction.txt" />
     <Content Include="SQL\Zeroaccrual\Complete Zeroaccrual.txt" />
-    <Content Include="Templates\Monthly Turnaround Template.xlsx" />
+    <Content Include="Templates\Turnaround Template.xlsx" />
     <Content Include="Templates\Sponsor Not Match Report Template.xlsx" />
     <Content Include="Templates\Onhold Report Template.xlsx" />
     <Content Include="Templates\PDA Abstractor and QC Template.xlsx" />
@@ -803,6 +803,7 @@
     <Content Include="Templates\Zero Accrual Report Template.xlsx" />
     <Content Include="Templates\Offhold Report Template.xlsx" />
     <Content Include="Views\Chart\Chart.cshtml" />
+    <Content Include="Templates\Reactivated Report Template.xlsx" />
     <None Include="Views\Report\Test.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

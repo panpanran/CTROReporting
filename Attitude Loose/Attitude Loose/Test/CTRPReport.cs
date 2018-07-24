@@ -19,8 +19,8 @@ namespace Attitude_Loose.Test
         }
     }
 
-    #region turnround
-    public class TurnroundReport : CTRPReport
+    #region turnaround
+    public class TurnaroundReport : CTRPReport
     {
         public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
         {
@@ -897,6 +897,31 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
         }
     }
     #endregion
+
+    #region Reactivated
+    public class ReactivatedReport : CTRPReport
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            conclusionDS = new DataSet();
+
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+            //NCI
+            string codetext = reportSettings[0].Code;
+            cmd = new NpgsqlCommand(codetext, conn);
+            datareader = cmd.ExecuteReader();
+            DataTable nciDT = new DataTable();
+            nciDT.Load(datareader);
+            nciDT.TableName = reportSettings[0].Category;
+            outputDS.Tables.Add(nciDT);
+            return outputDS;
+        }
+    }
+    #endregion
+
 
     #region PDA Abstraction and QC
     public class PDAAbstractorReport : CTRPReport

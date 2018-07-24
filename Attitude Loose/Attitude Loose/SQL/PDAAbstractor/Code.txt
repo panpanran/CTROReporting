@@ -5,8 +5,8 @@ study_protocol.submission_number "submissionnumber",
 csm_user.login_name "abstractor",
 abstraction.milestone_date "abstractiondate",
 qc.milestone_date "qcdate",
-REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(abstraction.comment_text, '“', '"'), '”', '"'), '‘', ''''), '’', '""'), '–', '-'), '…', '...') AS "abstractorcomments", 
-REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(qc.comment_text, '“', '"'), '”', '"'), '‘', ''''), '’', '""'), '–', '-'), '…', '...') AS "qccomments"
+REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(abstraction.comment_text, '"', '"'), '"', '"'), '‘', ''''), '’', '""'), '–', '-'), '…', '...') AS "abstractorcomments", 
+REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(qc.comment_text, '"', '"'), '"', '"'), '‘', ''''), '’', '""'), '–', '-'), '…', '...') AS "qccomments"
 from study_protocol
 join (select * from study_milestone where milestone_code = 'ADMINISTRATIVE_PROCESSING_COMPLETED_DATE') abstraction
 on abstraction.study_protocol_identifier = study_protocol.identifier

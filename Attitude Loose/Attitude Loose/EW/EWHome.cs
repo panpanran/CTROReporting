@@ -40,17 +40,17 @@ namespace Attitude_Loose.EW
             if (!string.IsNullOrEmpty(originalincomingemail))
             {
                 EWParticipant ewparticipant = new EWParticipant();
-                string temp = "https://cbiitsupport.nci.nih.gov/ewws/EWSelect?$KB=CBIIT&$login=panr2&$password=Rp0126$$&$table=participant&$lang=en&where=email=%27" + originalincomingemail + "%27";
+                string temp = "https://cbiitsupport.nci.nih.gov/ewws/EWSelect?$KB=CBIIT&$login=panr2&$password=Prss_1234&$table=participant&$lang=en&where=email=%27" + originalincomingemail + "%27";
                 string participanttext = ewparticipant.GetIDList("email=%27" + originalincomingemail + "%27 or alternate_email=%27" + originalincomingemail + "%27").ToArray()[1];
                 string id = GetValueByFieldName("EWREST_id_0", participanttext.Replace(" ", ""));
                 if (!string.IsNullOrEmpty(id))
                 {
                     Participant participant = ewparticipant.GetById(id);
-                    url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Rp0126$$&$lang=en&id=" + ticket.TicketId
+                    url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId
                         + "&original_incoming_email=" + originalincomingemail
                         + "&work_phone=" + participant.Phone
                         + "&email=" + originalincomingemail
-                        + "&organization_name=" + participant.Organization
+                        + "&organization_name=" + participant.Organization.Replace("&","%26")
                         + "&full_name=" + participant.FullName;
                 }
             }
@@ -61,7 +61,7 @@ namespace Attitude_Loose.EW
             }
             else
             {
-                url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Rp0126$$&$lang=en&id=" + ticket.TicketId + "&full_name=Please create a new user or add this email to the 'alternate email' of the existing user";
+                url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&full_name=Please create a new user or add this email to the 'alternate email' of the existing user";
                 string html = CTRPFunctions.GetHTMLByUrl(url);
             }
         }

@@ -20,7 +20,7 @@ namespace Attitude_Loose.Test
         {
             MailMessage msg = new MailMessage();
             msg.To.Add(new MailAddress(ToEmail));
-            msg.From = new MailAddress("ctroreporting@gmail.com", "CTRO Reporting System");
+            msg.From = new MailAddress("ran.pan@nih.gov", "CTRO Reporting System");
             msg.Subject = Subject;
             msg.Body = Body;
             msg.IsBodyHtml = true;
@@ -28,12 +28,12 @@ namespace Attitude_Loose.Test
             SmtpClient client = new SmtpClient();
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("ctroreporting@gmail.com", "Prss_1234");
-            client.Port = 587; // You can use Port 25 if 587 is blocked (mine is!)
-            client.Host = "smtp.gmail.com";
-            client.EnableSsl = true;
+            client.Credentials = new System.Net.NetworkCredential("ran.pan@nih.gov", "Prss_1234");
+            client.Port = 25; // You can use Port 25 if 587 is blocked (mine is!)
+            client.Host = "mailfwd.nih.gov";
+            client.EnableSsl = false;
 
-            if (AttachmentFileName != null)
+            if (!string.IsNullOrEmpty(AttachmentFileName))
             {
                 Attachment attachment = new Attachment(AttachmentFileName, MediaTypeNames.Application.Octet);
                 ContentDisposition disposition = attachment.ContentDisposition;
