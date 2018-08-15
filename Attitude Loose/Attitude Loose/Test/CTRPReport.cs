@@ -922,6 +922,38 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
     }
     #endregion
 
+    #region TSRSent
+    public class TSRSentReport : CTRPReport
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            conclusionDS = new DataSet();
+
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+            //NCI
+            string codetext = string.Empty;
+            if (DateTime.Now.Date.DayOfWeek == DayOfWeek.Monday)
+            {
+                codetext = reportSettings[0].Code.Replace("tsrDate", "now()::date - 3");
+            }
+            else
+            {
+                codetext = reportSettings[0].Code.Replace("tsrDate", "now()::date - 1");
+            }
+            cmd = new NpgsqlCommand(codetext, conn);
+            datareader = cmd.ExecuteReader();
+            DataTable nciDT = new DataTable();
+            nciDT.Load(datareader);
+            nciDT.TableName = reportSettings[0].Category;
+            outputDS.Tables.Add(nciDT);
+            return outputDS;
+        }
+    }
+    #endregion
+
 
     #region PDA Abstraction and QC
     public class PDAAbstractorReport : CTRPReport
@@ -987,32 +1019,37 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
 
     #endregion
 
-    //    #region Zeroaccrual
-    //    public class ZeroaccrualReport : CTRPReports
-    //    {
-    //        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, out Dictionary<string,string> outputParams, out DataSet conclusionDS)
-    //        {
-    //            outputParams = new Dictionary<string, string>();
-    //            //All
-    //            DataSet outputDS = new DataSet();
-    //            conclusionDS = new DataSet();
-    //            outputParams.Add("savepath", CTRPConst.zeroaccrual_savepath);
-    //            outputParams.Add("templatepath", CTRPConst.zeroaccrual_template_file);
-    //            outputParams.Add("startcell", "2,1");
-    //            outputParams.Add("startcellconclusion", "2,18");
-    //            NpgsqlCommand cmd = null;
-    //            NpgsqlDataReader datareader = null;
-    //            string zerotext = System.IO.File.ReadAllText(CTRPConst.zeroaccrual_complete_file).Replace("startDate", startDate);
-    //            cmd = new NpgsqlCommand(zerotext, conn);
-    //            datareader = cmd.ExecuteReader();
-    //            DataTable nciDT = new DataTable();
-    //            nciDT.Load(datareader);
-    //            nciDT.TableName = "Accrual";
-    //            outputDS.Tables.Add(nciDT);
-    //            return outputDS;
-    //        }
-    //    }
+    #region zeroaccrual
+    public class Zeroaccrualreport : CTRPReport
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            conclusionDS = new DataSet();
 
-    //    #endregion
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+
+            foreach (ReportSetting reportSetting in reportSettings)
+            {
+                //abbreviated
+                string codetext = reportSetting.Code;
+                cmd = new NpgsqlCommand(codetext, conn);
+                datareader = cmd.ExecuteReader();
+                DataTable tempDT = new DataTable();
+                DataTable tempconclusionDT = new DataTable();
+                tempDT.TableName = reportSetting.Category;
+                tempDT.Load(datareader);
+                outputDS.Tables.Add(tempDT);
+                conclusionDS.Tables.Add(tempconclusionDT);
+            }
+
+            return outputDS;
+        }
+
+    }
+
+    #endregion
 
 }

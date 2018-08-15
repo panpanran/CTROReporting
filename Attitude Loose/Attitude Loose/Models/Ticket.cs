@@ -19,6 +19,11 @@ namespace Attitude_Loose.Models
 
         public string State { get; set; }
 
+        public string OrganizationName { get; set; }
+
         public string Original_incoming_email { get; set; }
+
+        public string Internal_analysis { get; set; }
+
     }
 }

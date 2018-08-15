@@ -29,6 +29,8 @@ namespace Attitude_Loose.EW
             string assigned_to_ = GetValueByFieldName("EWREST_assigned_to_", html);
             string state = GetValueByFieldName("EWREST_state", html);
             string original_incoming_email = GetValueByFieldName("EWREST_original_incoming_email", html);
+            string organization_name = GetValueByFieldName("EWREST_organization_name", html);
+            string internal_analysis = GetValueByFieldName("EWREST_internal_analysis", html);
             Ticket ticket = new Ticket
             {
                 TicketId = id,
@@ -37,7 +39,9 @@ namespace Attitude_Loose.EW
                 Summary = summary,
                 AssignedTo = assigned_to_,
                 State = state,
-                Original_incoming_email = original_incoming_email
+                Original_incoming_email = original_incoming_email,
+                OrganizationName = organization_name,
+                Internal_analysis = internal_analysis
             };
             return ticket;
         }
@@ -55,7 +59,6 @@ namespace Attitude_Loose.EW
         { }
 
     }
-
 
     public class EWTSRFeedback : EWTicket
     {
@@ -190,5 +193,4 @@ namespace Attitude_Loose.EW
             }
         }
     }
-
 }

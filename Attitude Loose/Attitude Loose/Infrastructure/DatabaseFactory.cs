@@ -6,12 +6,12 @@ using System.Web;
 
 namespace Attitude_Loose.Infrastructure
 {
-    public interface IDatabaseFactory
+    public interface IDatabaseFactory : IDisposable
     {
         EntitiesInitial Get();
     }
 
-    public class DatabaseFactory : IDatabaseFactory
+    public class DatabaseFactory : Disposable, IDatabaseFactory
     {
         private EntitiesInitial dataContext;
         public EntitiesInitial Get()
@@ -19,5 +19,12 @@ namespace Attitude_Loose.Infrastructure
             //if dataContext is null then dataContext = new EntitiesInitial()
             return dataContext ?? (dataContext = new EntitiesInitial());
         }
+
+        protected override void DisposeCore()
+        {
+            if (dataContext != null)
+                dataContext.Dispose();
+        }
+
     }
 }

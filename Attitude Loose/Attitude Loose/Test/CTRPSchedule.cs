@@ -82,9 +82,9 @@ namespace Attitude_Loose.Test
             try
             {
                 IScheduler scheduler = await StdSchedulerFactory.GetDefaultScheduler();
-                await scheduler.Clear();
-                // and start it off
-                await scheduler.Start();
+                //await scheduler.Clear();
+                //// and start it off
+                //await scheduler.Start();
                     // define the job and tie it to our HelloJob class
                     IJobDetail job = JobBuilder.Create<SimpleJob>()
                         .WithIdentity("jobEW" , "groupEW")
@@ -96,7 +96,7 @@ namespace Attitude_Loose.Test
                         //.StartAt(DateBuilder.DateOf(16, 20, 0, 1, 5))
                         .StartAt(DateTime.Now)
                         .WithSimpleSchedule(x => x
-                            .WithInterval(new TimeSpan(0, 10, 0))
+                            .WithInterval(new TimeSpan(0, 5, 0))
                             .RepeatForever())
                         .Build();
 
@@ -159,8 +159,18 @@ namespace Attitude_Loose.Test
     {
         public async Task Execute(IJobExecutionContext context)
         {
-            EWFormatOriginalIncomingEmail eWHome = new EWFormatOriginalIncomingEmail();
-            eWHome.BulkUpdate("full_name is null and assigned_to_ is null");
+            EWFormatOriginalIncomingEmail ewFormat = new EWFormatOriginalIncomingEmail();
+            string[] tickets = ewFormat.GetIDList("full_name is null and assigned_to_ is null").ToArray();
+            ewFormat.BulkUpdate(tickets);
+            EWTriageAccrual ewTriageAccrual = new EWTriageAccrual();
+            ewTriageAccrual.BulkUpdate(tickets);
+            EWTriageClinicalTrialsDotGov ewTriageClinicalTrialsDotGov = new EWTriageClinicalTrialsDotGov();
+            ewTriageClinicalTrialsDotGov.BulkUpdate(tickets);
+            EWTriageScientific ewEWTriageScientific = new EWTriageScientific();
+            ewEWTriageScientific.BulkUpdate(tickets);
+            EWTriageTSRFeedback ewTriageTSRFeedback = new EWTriageTSRFeedback();
+            ewTriageTSRFeedback.BulkUpdate(tickets);
+
         }
     }
 }

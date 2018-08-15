@@ -32,7 +32,33 @@ namespace Attitude_Loose.Test
         public void OriginalIncomingEmailFormat()
         {
             EWFormatOriginalIncomingEmail eWHome = new EWFormatOriginalIncomingEmail();
-            eWHome.BulkUpdate("full_name is null and assigned_to_ is null");
+            string[] tickets = eWHome.GetIDList("full_name is null and assigned_to_ is null").ToArray();
+            eWHome.BulkUpdate(tickets);
+        }
+
+        [Test]
+        public void TriageAccrual()
+        {
+            EWTriageAccrual eWHome = new EWTriageAccrual();
+            string[] tickets = eWHome.GetIDList("category%20is%20null%20and%20assigned_to_%20is%20null%20and%20email%20is%20not%20null%20and%20modified_by=%27panr2%27").ToArray();
+
+            eWHome.BulkUpdate(tickets);
+        }
+
+        [Test]
+        public void TriageClinicalTrialsDotGov()
+        {
+            EWTriageClinicalTrialsDotGov eWHome = new EWTriageClinicalTrialsDotGov();
+            string[] tickets = eWHome.GetIDList("category%20is%20null%20and%20assigned_to_%20is%20null%20and%20email%20is%20not%20null%20and%20modified_by=%27panr2%27").ToArray();
+            eWHome.BulkUpdate(tickets);
+        }
+
+        [Test]
+        public void TriageScientific()
+        {
+            EWTriageScientific eWHome = new EWTriageScientific();
+            string[] tickets = {"1", "EWREST_id='82839'", "3"};
+            eWHome.BulkUpdate(tickets);
         }
 
     }

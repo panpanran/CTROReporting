@@ -297,6 +297,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\DatabaseFactory.cs" />
+    <Compile Include="Infrastructure\Disposable.cs" />
     <Compile Include="Infrastructure\IRepository.cs" />
     <Compile Include="Infrastructure\Logging.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
@@ -804,6 +805,7 @@
     <Content Include="Templates\Offhold Report Template.xlsx" />
     <Content Include="Views\Chart\Chart.cshtml" />
     <Content Include="Templates\Reactivated Report Template.xlsx" />
+    <Content Include="Templates\TSR Sent Template.xlsx" />
     <None Include="Views\Report\Test.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

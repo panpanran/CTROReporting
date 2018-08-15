@@ -50,7 +50,7 @@ namespace Attitude_Loose.EW
                         + "&original_incoming_email=" + originalincomingemail
                         + "&work_phone=" + participant.Phone
                         + "&email=" + originalincomingemail
-                        + "&organization_name=" + participant.Organization.Replace("&","%26")
+                        + "&organization_name=" + participant.Organization.Replace("&", "%26")
                         + "&full_name=" + participant.FullName;
                 }
             }
@@ -67,16 +67,164 @@ namespace Attitude_Loose.EW
         }
 
 
-        public void BulkUpdate(string where)
+        public void BulkUpdate(string[] ticketlist)
         {
             //Update(GetById("80100"));
 
-            string[] ticketlist = GetIDList(where).ToArray();
             for (int i = 1; i < ticketlist.Length - 1; i++)
             {
                 string id = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ", ""));
                 Update(GetById(id));
             }
+        }
+    }
+
+    public class EWTriageAccrual : EWTicket
+    {
+
+        public override void Update(Ticket ticket)
+        {
+            string description = "TriageAccrual";
+
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&description=" + description;
+            string html = CTRPFunctions.GetHTMLByUrl(url);
+        }
+
+
+        public void BulkUpdate(string[] ticketlist)
+        {
+            //Update(GetById("80100"));
+
+            for (int i = 1; i < ticketlist.Length - 1; i++)
+            {
+                string id = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ", ""));
+                Ticket ticket = GetById(id);
+                if (ticket.State == "New Request")
+                {
+                    if (ticket.Internal_analysis.ToLower().Replace("closed to accrual", "").Replace("target accrual", "").Contains("accrual"))
+                    {
+                        if (ticket.Summary.ToLower().Contains("participating site") && !ticket.Summary.ToLower().Contains("accrual"))
+                        { }
+                        else
+                        {
+                            UpdateByID(id);
+                        }
+                    }
+                }
+            }
+        }
+
+        public void UpdateByID(string id)
+        {
+            Update(GetById(id));
+        }
+    }
+
+    public class EWTriageClinicalTrialsDotGov : EWTicket
+    {
+
+        public override void Update(Ticket ticket)
+        {
+            string description = "TriageClinicalTrialsDotGov";
+
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&description=" + description;
+            string html = CTRPFunctions.GetHTMLByUrl(url);
+        }
+
+        public void BulkUpdate(string[] ticketlist)
+        {
+            //Update(GetById("80100"));
+
+            for (int i = 1; i < ticketlist.Length - 1; i++)
+            {
+                string id = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ", ""));
+                Ticket ticket = GetById(id);
+                if (ticket.State == "New Request")
+                {
+                    if (ticket.OrganizationName == "NIH, National Library of Medicine (NLM)" || ticket.Summary.Contains("CTEP Study Results Review"))
+                    {
+                        UpdateByID(id);
+                    }
+                }
+            }
+        }
+
+        public void UpdateByID(string id)
+        {
+            Update(GetById(id));
+        }
+    }
+
+    public class EWTriageScientific : EWTicket
+    {
+
+        public override void Update(Ticket ticket)
+        {
+            string description = "TriageScientific";
+
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&description=" + description;
+            string html = CTRPFunctions.GetHTMLByUrl(url);
+        }
+
+        public void BulkUpdate(string[] ticketlist)
+        {
+            //Update(GetById("80100"));
+
+            for (int i = 1; i < ticketlist.Length - 1; i++)
+            {
+                string id = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ", ""));
+                Ticket ticket = GetById(id);
+                if (ticket.State == "New Request")
+                {
+                    if (ticket.Summary.Contains("Trial Comparison Document Review"))
+                    {
+                        UpdateByID(id);
+                    }
+                }
+            }
+        }
+
+        public void UpdateByID(string id)
+        {
+            Update(GetById(id));
+        }
+    }
+
+    public class EWTriageTSRFeedback : EWTicket
+    {
+
+        public override void Update(Ticket ticket)
+        {
+            string description = "TriageTSRFeedback";
+
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&description=" + description;
+            string html = CTRPFunctions.GetHTMLByUrl(url);
+        }
+
+        public void BulkUpdate(string[] ticketlist)
+        {
+            //Update(GetById("80100"));
+
+            for (int i = 1; i < ticketlist.Length - 1; i++)
+            {
+                string id = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ", ""));
+                Ticket ticket = GetById(id);
+                if (ticket.State == "New Request")
+                {
+                    if (ticket.Summary.ToLower().Contains("trial amendment tsr for review") ||
+                        ticket.Summary.ToLower().Contains("trial files attached for review") ||
+                        ticket.Summary.ToLower().Contains("feedback for") ||
+                        ticket.Summary.ToLower().Contains("tsr update"))
+                    {
+                        UpdateByID(id);
+                    }
+                }
+            }
+        }
+
+        public void UpdateByID(string id)
+        {
+            Update(GetById(id));
         }
     }
 
