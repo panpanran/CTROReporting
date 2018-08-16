@@ -1,0 +1,18 @@
+select 
+study_protocol.nci_id,
+study_onhold.onhold_date,
+study_onhold.onhold_reason_code,
+study_onhold.onhold_reason_text,
+study_checkout.user_identifier
+from 
+(select * from study_protocol) study_protocol
+join (select * from study_onhold where offhold_date is null and onhold_date > 'startDate') study_onhold
+on study_onhold.study_protocol_identifier = study_protocol.identifier
+join (select * from study_checkout 
+where exists 
+(select 1 from
+(select study_protocol_identifier,max(date_last_created) date_last_created from study_checkout group by study_protocol_identifier) temp_checkout
+ where study_checkout.study_protocol_identifier = temp_checkout.study_protocol_identifier and
+ study_checkout.date_last_created = temp_checkout.date_last_created)) study_checkout
+on study_checkout.study_protocol_identifier = study_protocol.identifier
+order by onhold_date;

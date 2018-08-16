@@ -1,0 +1,20 @@
+select csm_user.login_name "loginname", 
+csm_user.first_name ||' '||csm_user.last_name "processor", 
+	study_protocol.nci_id "trialid",
+	study_protocol.submission_number "submissionnumber", 
+	started.milestone_date "starteddate", 
+	completed.milestone_date "completeddate",
+	study_onhold.onhold_date "onholddate",
+	study_onhold.offhold_date "offholddate"
+from study_protocol
+join (select * from study_milestone where milestone_code = 'ADMINISTRATIVE_QC_START') started
+on started.study_protocol_identifier = study_protocol.identifier
+join (select * from study_milestone where milestone_code = 'ADMINISTRATIVE_QC_COMPLETE' and 
+	  milestone_date::date >= 'startDate' AND milestone_date::date <= 'endDate' ) completed
+on completed.study_protocol_identifier = study_protocol.identifier
+join (select * from csm_user) csm_user
+on csm_user.user_id = completed.user_last_created_id
+left join study_onhold
+on study_onhold.study_protocol_identifier = study_protocol.identifier
+order by csm_user.login_name,completed.milestone_date;
+

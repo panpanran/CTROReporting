@@ -1,0 +1,58 @@
+﻿@model Attitude_Loose.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "CTRP Reporting";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href='@Url.Action("Index", "Home")'>CTRP Reporting</a>
+</nav>
+
+<div class="container-fluid" style="margin-top:5px;">
+    <div class="row">
+        <div class="col-md-8">
+            @*<img src="~/Images/ClinicalBackground.jpg" style="background-size: cover" />*@
+        </div>
+        <div class="col-md-3">
+            <section id="loginForm">
+                @using (Html.BeginForm("Login", "ApplicationUser", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <br>
+                    <h4>Use a local account to log in.</h4>
+                    <hr />
+                    @Html.ValidationSummary(true)
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 form-control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.UserName)
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 form-control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
+                    </div>
+                    <div>
+                        <input type="submit" value="Log in" class="btn btn-primary" />
+                    </div>
+                    <p>
+                        @Html.ActionLink("Register", "Register") if you don't have a local account.
+                    </p>
+                }
+            </section>
+        </div>
+    </div>
+</div>
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

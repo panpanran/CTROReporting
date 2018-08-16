@@ -1,0 +1,560 @@
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\ApplicationInsights.config
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\roslyn\csc.exe
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\roslyn\vbc.exe
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\roslyn\VBCSCompiler.exe
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Attitude Loose.dll.config
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Attitude Loose.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Attitude Loose.pdb
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Antlr3.Runtime.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\EntityFramework.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\EntityFramework.SqlServer.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.AI.Web.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.ApplicationInsights.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Newtonsoft.Json.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Owin.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\System.Web.Helpers.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\System.Web.Mvc.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\System.Web.Optimization.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\System.Web.Razor.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Deployment.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Razor.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\WebGrease.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.AI.Web.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.ApplicationInsights.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\System.Web.Helpers.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\System.Web.Mvc.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\System.Web.Optimization.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\System.Web.Razor.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Deployment.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Razor.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Antlr3.Runtime.pdb
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Newtonsoft.Json.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\EntityFramework.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\EntityFramework.SqlServer.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.pdb
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\BootstrapMvc.Bootstrap3.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\BootstrapMvc.Core.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\bin\BootstrapMvc.Mvc5.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Projects\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csprojResolveAssemblyReference.cache
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\ApplicationInsights.config
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\roslyn\csc.exe
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\roslyn\vbc.exe
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\roslyn\VBCSCompiler.exe
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Attitude Loose.dll.config
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Attitude Loose.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Attitude Loose.pdb
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Antlr3.Runtime.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\BootstrapMvc.Bootstrap3.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\BootstrapMvc.Core.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\BootstrapMvc.Mvc5.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\EntityFramework.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\EntityFramework.SqlServer.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.Web.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.ApplicationInsights.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Newtonsoft.Json.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Owin.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.Helpers.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.Mvc.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.Optimization.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.Razor.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Deployment.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Razor.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\WebGrease.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.Web.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.ApplicationInsights.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.Helpers.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.Mvc.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.Optimization.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.Razor.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Deployment.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Razor.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Antlr3.Runtime.pdb
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Newtonsoft.Json.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\EntityFramework.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\EntityFramework.SqlServer.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.pdb
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\ApplicationInsights.config
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\roslyn\csc.exe
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\roslyn\vbc.exe
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\roslyn\VBCSCompiler.exe
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Attitude Loose.dll.config
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Attitude Loose.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Attitude Loose.pdb
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Antlr3.Runtime.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\BootstrapMvc.Bootstrap3.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\BootstrapMvc.Core.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\BootstrapMvc.Mvc5.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\EntityFramework.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\EntityFramework.SqlServer.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.AI.Web.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.ApplicationInsights.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Newtonsoft.Json.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Owin.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\System.Web.Helpers.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\System.Web.Mvc.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\System.Web.Optimization.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\System.Web.Razor.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Deployment.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Razor.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\WebGrease.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.AI.Web.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.ApplicationInsights.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\System.Web.Helpers.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\System.Web.Mvc.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\System.Web.Optimization.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\System.Web.Razor.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Deployment.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Razor.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Antlr3.Runtime.pdb
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Newtonsoft.Json.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\EntityFramework.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\EntityFramework.SqlServer.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csprojResolveAssemblyReference.cache
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.pdb
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Autofac.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Autofac.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Autofac.Integration.Mvc.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\Autofac.Integration.Mvc.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Autofac.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Autofac.Integration.Mvc.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Autofac.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Autofac.Integration.Mvc.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csproj.GenerateResource.Cache
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.init.resources
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csproj.GenerateResource.Cache
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\AutoMapper.dll
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\bin\AutoMapper.xml
+C:\Users\panr2\Documents\Visual Studio 2015\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Properties.Resources.resources
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\AutoMapper.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\AutoMapper.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Properties.Resources.resources
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Net.Http.Formatting.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.Http.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.Http.WebHost.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Net.Http.Formatting.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.Http.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Web.Http.WebHost.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csprojResolveAssemblyReference.cache
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csproj.CoreCompileInputs.cache
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\NUnit3.TestAdapter.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\nunit.engine.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\nunit.engine.api.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Mono.Cecil.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Mono.Cecil.Pdb.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Mono.Cecil.Mdb.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Mono.Cecil.Rocks.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Castle.Core.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Moq.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\nunit.framework.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Castle.Core.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Moq.pdb
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\Moq.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\nunit.framework.xml
+C:\Users\rp3yf\Downloads\My Program\C#\Attitude Loose\Attitude Loose\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\ApplicationInsights.config
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\NUnit3.TestAdapter.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\nunit.engine.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\nunit.engine.api.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Mono.Cecil.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\roslyn\csc.exe
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\roslyn\vbc.exe
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\roslyn\VBCSCompiler.exe
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Attitude Loose.dll.config
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Attitude Loose.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Attitude Loose.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Antlr3.Runtime.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Autofac.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Autofac.Integration.Mvc.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\AutoMapper.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\BootstrapMvc.Bootstrap3.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\BootstrapMvc.Core.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\BootstrapMvc.Mvc5.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Castle.Core.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\EntityFramework.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\EntityFramework.SqlServer.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.Web.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.ApplicationInsights.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Moq.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Newtonsoft.Json.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\nunit.framework.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Owin.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Net.Http.Formatting.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.Helpers.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.Http.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.Http.WebHost.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.Mvc.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.Optimization.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.Razor.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Deployment.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Razor.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\WebGrease.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Autofac.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Autofac.Integration.Mvc.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\AutoMapper.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Castle.Core.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.Web.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.ApplicationInsights.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Moq.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Moq.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\nunit.framework.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Net.Http.Formatting.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.Http.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.Http.WebHost.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.Helpers.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.Mvc.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.Optimization.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.Razor.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Deployment.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Razor.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Antlr3.Runtime.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Newtonsoft.Json.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\EntityFramework.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\EntityFramework.SqlServer.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Properties.Resources.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csproj.GenerateResource.cache
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csproj.CoreCompileInputs.cache
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csproj.CopyComplete
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Npgsql.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Npgsql.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\NUnit3.TestAdapter.pdb
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\ApplicationInsights.config
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\NUnit3.TestAdapter.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\NUnit3.TestAdapter.pdb
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\nunit.engine.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\nunit.engine.api.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Mono.Cecil.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\roslyn\csc.exe
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\roslyn\vbc.exe
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\roslyn\VBCSCompiler.exe
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Attitude Loose.dll.config
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Attitude Loose.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Attitude Loose.pdb
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Antlr3.Runtime.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Autofac.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Autofac.Integration.Mvc.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\AutoMapper.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\BootstrapMvc.Bootstrap3.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\BootstrapMvc.Core.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\BootstrapMvc.Mvc5.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Castle.Core.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\EntityFramework.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\EntityFramework.SqlServer.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.AI.Web.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.ApplicationInsights.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Moq.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Newtonsoft.Json.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Npgsql.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\nunit.framework.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Owin.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Net.Http.Formatting.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.Helpers.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.Http.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.Http.WebHost.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.Mvc.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.Optimization.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.Razor.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Deployment.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Razor.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\WebGrease.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Autofac.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Autofac.Integration.Mvc.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\AutoMapper.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Castle.Core.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\EntityFramework.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\EntityFramework.SqlServer.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.AI.Web.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.ApplicationInsights.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Moq.pdb
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Moq.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Npgsql.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\nunit.framework.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Net.Http.Formatting.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.Http.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.Http.WebHost.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.Helpers.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.Mvc.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.Optimization.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.Razor.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Deployment.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\System.Web.WebPages.Razor.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Antlr3.Runtime.pdb
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Newtonsoft.Json.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csprojResolveAssemblyReference.cache
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.InitialCreate.resources
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.AddBatch.resources
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Properties.Resources.resources
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csproj.GenerateResource.Cache
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csproj.CoreCompileInputs.cache
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.dll
+C:\Users\rp3yf\Downloads\Git\CTRP\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange.WebServices.Auth.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange.WebServices.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.IdentityModel.Extensions.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange.WebServices.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange.WebServices.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange.WebServices.Auth.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Exchange.WebServices.Auth.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Chart.Mvc.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Chart.Mvc.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Chart.Mvc.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude Loose.csprojResolveAssemblyReference.cache
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Quartz.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Quartz.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Quartz.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ScheduleFixTry.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ScheduleCreateDate.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Google.Protobuf.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\MySql.Data.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Google.Protobuf.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\MySql.Data.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ReportSetting.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ReportSettingChange.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ReportSettingCategory.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ReportChange.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ChartTable.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ChartSettingTable.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.addreporttypechart.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Autofac.Integration.WebApi.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Autofac.Integration.WebApi.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Autofac.Integration.WebApi.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.DeleteTopicMetric.resources

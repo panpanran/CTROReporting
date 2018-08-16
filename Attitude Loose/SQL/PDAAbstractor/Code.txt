@@ -1,0 +1,20 @@
+select 
+study_protocol.nci_id "trialid",
+case when summary4funding.type_code = 'INDUSTRIAL' then 'Abbreviated' else 'Complete' end "trialtype",
+study_protocol.submission_number "submissionnumber",
+csm_user.login_name "abstractor",
+abstraction.milestone_date "abstractiondate",
+qc.milestone_date "qcdate",
+REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(abstraction.comment_text, '"', '"'), '"', '"'), '‘', ''''), '’', '""'), '–', '-'), '…', '...') AS "abstractorcomments", 
+REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(qc.comment_text, '"', '"'), '"', '"'), '‘', ''''), '’', '""'), '–', '-'), '…', '...') AS "qccomments"
+from study_protocol
+join (select * from study_milestone where milestone_code = 'ADMINISTRATIVE_PROCESSING_COMPLETED_DATE') abstraction
+on abstraction.study_protocol_identifier = study_protocol.identifier
+join (select * from study_milestone where milestone_code = 'ADMINISTRATIVE_QC_COMPLETE' 
+	  and milestone_date >= 'startDate' and milestone_date <='endDate' and lower(comment_text) not like '%no changes%') qc
+on qc.study_protocol_identifier = study_protocol.identifier
+join (select * from csm_user where login_name = 'username') csm_user
+on csm_user.user_id = abstraction.user_last_created_id
+join (select distinct study_protocol_identifier, type_code from study_resourcing where summ_4_rept_indicator = true) summary4funding
+on summary4funding.study_protocol_identifier = study_protocol.identifier
+order by abstractor,qc.milestone_date;
