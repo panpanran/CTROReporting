@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 
 namespace Attitude_Loose.Service
 {
@@ -15,14 +16,14 @@ namespace Attitude_Loose.Service
         void UpdateUser(ApplicationUser user);
     }
 
-    public class UserService : IUserService
+    public class UserServiceController : ApiController,IUserService
     {
         private readonly IUserRepository userRepository;
         private readonly IUserProfileRepository userProfileRepository;
         private readonly IUnitOfWork unitOfWork;
 
 
-        public UserService(IUserRepository userRepository, IUserProfileRepository userProfileRepository, IUnitOfWork unitOfWork)
+        public UserServiceController(IUserRepository userRepository, IUserProfileRepository userProfileRepository, IUnitOfWork unitOfWork)
         {
             this.userRepository = userRepository;
             this.userProfileRepository = userProfileRepository;

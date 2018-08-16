@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -22,8 +23,9 @@ namespace Attitude_Loose.Models
 
         public string UserId { get; set; }
 
+        [JsonIgnore]
         public virtual ApplicationUser User { get; set; }
-
+        [JsonIgnore]
         public virtual Report Report { get; set; }
 
         public Record()

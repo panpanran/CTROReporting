@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,7 +21,7 @@ namespace Attitude_Loose.Models
         public string XLabel { get; set; }
 
         public string YLabel { get; set; }
-
+        [JsonIgnore]
         public virtual Chart Chart { get; set; }
     }
 }

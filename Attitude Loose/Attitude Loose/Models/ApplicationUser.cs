@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -23,16 +24,9 @@ namespace Attitude_Loose.Models
 
         public int RoleId { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<Record> Records { get; set; }
-
+        [JsonIgnore]
         public virtual ICollection<Schedule> Schedules { get; set; }
-        //public virtual ICollection<Goal> Goals { get; set; }
-
-        //public virtual ICollection<FollowUser> FollowFromUser { get; set; }
-
-        //public virtual ICollection<FollowUser> FollowToUser { get; set; }
-
-        //public virtual ICollection<GroupRequest> GroupRequests { get; set; }
-
     }
 }

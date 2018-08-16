@@ -1,10 +1,10 @@
 ﻿using Attitude_Loose.Infrastructure;
 using Attitude_Loose.Models;
 using Attitude_Loose.Repository;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Web.Http;
+using System.Web.Http.Dependencies;
 
 namespace Attitude_Loose.Service
 {
@@ -15,12 +15,12 @@ namespace Attitude_Loose.Service
         IEnumerable<Record> GetRecordsByUser(string userid);
     }
 
-    public class RecordService : IRecordService
+    public class RecordServiceController : ApiController, IRecordService
     {
         private readonly IRecordRepository recordRepository;
         private readonly IUnitOfWork unitOfWork;
 
-        public RecordService(IRecordRepository recordRepository, IUnitOfWork unitOfWork)
+        public RecordServiceController(IRecordRepository recordRepository, IUnitOfWork unitOfWork)
         {
             this.recordRepository = recordRepository;
             this.unitOfWork = unitOfWork;
@@ -37,9 +37,10 @@ namespace Attitude_Loose.Service
             SaveRecord();
         }
 
+
         public IEnumerable<Record> GetRecordsByUser(string userid)
         {
-            var record = recordRepository.GetMany(x=>x.UserId == userid).OrderByDescending(g => g.CreatedDate);
+            var record = recordRepository.GetMany(x => x.UserId == userid).OrderByDescending(g => g.CreatedDate);
             return record;
         }
     }

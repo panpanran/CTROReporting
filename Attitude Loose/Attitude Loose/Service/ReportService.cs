@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 
 namespace Attitude_Loose.Service
@@ -20,14 +21,14 @@ namespace Attitude_Loose.Service
         bool CreateReport(int selectedreport, string userid, string startdate, string enddate, ApplicationUser user);
     }
 
-    public class ReportService : IReportService
+    public class ReportServiceController : ApiController,IReportService
     {
         private readonly IReportRepository reportRepository;
         private readonly IUnitOfWork unitOfWork;
         private readonly IRecordService recordService;
         private readonly IReportSettingService recportsettingService;
 
-        public ReportService(IReportRepository reportRepository, IUnitOfWork unitOfWork, IRecordService recordService, IReportSettingService recportsettingService)
+        public ReportServiceController(IReportRepository reportRepository, IUnitOfWork unitOfWork, IRecordService recordService, IReportSettingService recportsettingService)
         {
             this.recordService = recordService;
             this.recportsettingService = recportsettingService;

@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Attitude_Loose.Repository;
 using Attitude_Loose.Infrastructure;
+using System.Web.Http;
 
 namespace Attitude_Loose.Service
 {
@@ -17,14 +18,14 @@ namespace Attitude_Loose.Service
         Attitude_Loose.Models.Chart GetByChartName(string name);
     }
 
-    public class ChartService : IChartService
+    public class ChartServiceController : ApiController,IChartService
     {
         private readonly IChartRepository ChartRepository;
         private readonly IUnitOfWork unitOfWork;
         private readonly IRecordService recordService;
         private readonly IChartSettingService recportsettingService;
 
-        public ChartService(IChartRepository ChartRepository, IUnitOfWork unitOfWork, IRecordService recordService, IChartSettingService recportsettingService)
+        public ChartServiceController(IChartRepository ChartRepository, IUnitOfWork unitOfWork, IRecordService recordService, IChartSettingService recportsettingService)
         {
             this.recordService = recordService;
             this.recportsettingService = recportsettingService;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,11 +17,11 @@ namespace Attitude_Loose.Models
         public DateTime CreatedDate { get; set; }
 
         public int ReportId { get; set; }
-
+        [JsonIgnore]
         public virtual Report Report { get; set; }
 
         public string UserId { get; set; }
-
+        [JsonIgnore]
         public virtual ApplicationUser User { get; set; }
 
         public Schedule()

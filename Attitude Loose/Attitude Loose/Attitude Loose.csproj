@@ -56,6 +56,9 @@
       <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=4.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.4.2.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
     <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
@@ -285,10 +288,8 @@
     <Compile Include="CacheClass.cs" />
     <Compile Include="Controllers\ApplicationUserController.cs" />
     <Compile Include="Controllers\ChartController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
-    <Compile Include="Controllers\TopicController.cs" />
     <Compile Include="CTRO\CTROHome.cs" />
     <Compile Include="EW\EWHome.cs" />
     <Compile Include="EW\EWParticipant.cs" />
@@ -338,24 +339,23 @@
     <Compile Include="Migrations\201807092029304_addreporttype chart.Designer.cs">
       <DependentUpon>201807092029304_addreporttype chart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808161938420_DeleteTopicMetric.cs" />
+    <Compile Include="Migrations\201808161938420_DeleteTopicMetric.Designer.cs">
+      <DependentUpon>201808161938420_DeleteTopicMetric.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Chart.cs" />
     <Compile Include="Models\ChartSetting.cs" />
     <Compile Include="Models\Configuration\RecordConfiguration.cs" />
-    <Compile Include="Models\Configuration\TopicConfiguration.cs" />
     <Compile Include="Models\Configuration\UserProfileConfiguration.cs" />
     <Compile Include="Models\Department.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\Metric.cs" />
     <Compile Include="Models\Participant.cs" />
     <Compile Include="Models\Record.cs" />
     <Compile Include="Models\Report.cs" />
     <Compile Include="Models\ReportSetting.cs" />
     <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\Ticket.cs" />
-    <Compile Include="Models\Topic.cs" />
     <Compile Include="Models\UserProfile.cs" />
     <Compile Include="NuGet.Modules\JsonHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -366,22 +366,18 @@
     </Compile>
     <Compile Include="Repository\ChartRepository.cs" />
     <Compile Include="Repository\ChartSettingRepository.cs" />
-    <Compile Include="Repository\MetricRepository.cs" />
     <Compile Include="Repository\RecordRepository.cs" />
     <Compile Include="Repository\ReportRepository.cs" />
     <Compile Include="Repository\ReportSettingRepository.cs" />
     <Compile Include="Repository\ScheduleRepository.cs" />
-    <Compile Include="Repository\TopicRepository.cs" />
     <Compile Include="Repository\UserProfileRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Service\ChartService.cs" />
     <Compile Include="Service\ChartSettingService.cs" />
-    <Compile Include="Service\MetricService.cs" />
     <Compile Include="Service\RecordService.cs" />
     <Compile Include="Service\ReportService.cs" />
     <Compile Include="Service\ReportSettingService.cs" />
     <Compile Include="Service\ScheduleService.cs" />
-    <Compile Include="Service\TopicService.cs" />
     <Compile Include="Service\UserProfileService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Startup.cs" />
@@ -399,7 +395,6 @@
     <Compile Include="ViewModels\RecordViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModel.cs" />
     <Compile Include="ViewModels\ScheduleViewModel.cs" />
-    <Compile Include="ViewModels\TopicViewModel.cs" />
     <Compile Include="ViewModels\UserProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -837,10 +832,6 @@
     <Content Include="Views\Shared\_PageLayout.cshtml" />
     <Content Include="Views\ApplicationUser\EditProfile.cshtml" />
     <Content Include="Scripts\underscore.min.map" />
-    <Content Include="Views\Topic\Create.cshtml" />
-    <Content Include="Views\Topic\Test.cshtml" />
-    <Content Include="Views\Topic\TopicList.cshtml" />
-    <Content Include="Views\Topic\_TopicList.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -893,6 +884,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807092029304_addreporttype chart.resx">
       <DependentUpon>201807092029304_addreporttype chart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808161938420_DeleteTopicMetric.resx">
+      <DependentUpon>201808161938420_DeleteTopicMetric.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

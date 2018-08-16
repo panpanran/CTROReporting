@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 
 namespace Attitude_Loose.Service
 {
@@ -19,12 +20,12 @@ namespace Attitude_Loose.Service
         void DeleteSchedule(int id);
     }
 
-    public class ScheduleService : IScheduleService
+    public class ScheduleServiceController : ApiController,IScheduleService
     {
         private readonly IScheduleRepository scheduleRepository;
         private readonly IUnitOfWork unitOfWork;
 
-        public ScheduleService(IScheduleRepository scheduleRepository, IUnitOfWork unitOfWork)
+        public ScheduleServiceController(IScheduleRepository scheduleRepository, IUnitOfWork unitOfWork)
         {
             this.scheduleRepository = scheduleRepository;
             this.unitOfWork = unitOfWork;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,6 +26,7 @@ namespace Attitude_Loose.Models
 
         public int AdditionStartcolumn { get; set; }
 
+        [JsonIgnore]
         public virtual Report Report { get; set; }
     }
 }

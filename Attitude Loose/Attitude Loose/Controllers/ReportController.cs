@@ -21,17 +21,15 @@ namespace Attitude_Loose.Controllers
         private readonly IReportService reportService;
         private readonly IReportSettingService reportsettingService;
         private readonly IRecordService recordService;
-        private readonly ITopicService topicService;
         private IUserService userService;
 
-        public ReportController(IUserService userService, IReportService reportService, IRecordService recordService, IUserProfileService userProfileService, ITopicService topicService, IReportSettingService reportsettingService)
+        public ReportController(IUserService userService, IReportService reportService, IRecordService recordService, IUserProfileService userProfileService, IReportSettingService reportsettingService)
         {
             this.reportService = reportService;
             this.reportsettingService = reportsettingService;
             this.recordService = recordService;
             this.userProfileService = userProfileService;
             this.userService = userService;
-            this.topicService = topicService;
         }
 
         public ActionResult GetReportList()

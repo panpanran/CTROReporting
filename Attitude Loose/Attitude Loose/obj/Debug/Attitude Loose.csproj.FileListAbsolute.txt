@@ -554,3 +554,7 @@ C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loo
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ChartTable.resources
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.ChartSettingTable.resources
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.addreporttypechart.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Autofac.Integration.WebApi.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Autofac.Integration.WebApi.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Autofac.Integration.WebApi.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Debug\Attitude_Loose.Migrations.DeleteTopicMetric.resources

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 
 namespace Attitude_Loose.Service
 {
@@ -17,13 +18,13 @@ namespace Attitude_Loose.Service
         void UpdateUserProfile(UserProfile user);
     }
 
-    public class UserProfileService : IUserProfileService
+    public class UserProfileServiceController : ApiController, IUserProfileService
     {
         private readonly IUserProfileRepository userProfileRepository;
         private readonly IUnitOfWork unitOfWork;
 
 
-        public UserProfileService(IUserProfileRepository userProfileRepository, IUnitOfWork unitOfWork)
+        public UserProfileServiceController(IUserProfileRepository userProfileRepository, IUnitOfWork unitOfWork)
         {
             this.userProfileRepository = userProfileRepository;
             this.unitOfWork = unitOfWork;

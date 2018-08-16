@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -12,16 +13,19 @@ namespace Attitude_Loose.Models
         // Foreign key
         public int DepartmentId { get; set; }
 
-        public virtual Department Department { get; set; }
-
         public string ReportName { get; set; }
 
         public string Template { get; set; }
 
         public string Savepath { get; set; }
 
+        [JsonIgnore]
+        public virtual Department Department { get; set; }
+
+        [JsonIgnore]
         public virtual ICollection<Record> Records { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<ReportSetting> ReportSettings { get; set; }
 
     }

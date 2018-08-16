@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,7 @@ namespace Attitude_Loose.Models
 
         public string DepartmentName { get; set; }
         // Navigation property 
+        [JsonIgnore]
         public virtual ICollection<Report> Reports { get; set; }
     }
 }

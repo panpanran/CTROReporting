@@ -15,8 +15,6 @@ namespace Attitude_Loose.App_Start
             : base("AttitudeLooseEntities")
         {
         }
-        public DbSet<Metric> Metrics { get; set; }
-        public DbSet<Topic> Topics { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Report> Reports { get; set; }
         public DbSet<Record> Records { get; set; }
@@ -31,7 +29,6 @@ namespace Attitude_Loose.App_Start
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Configurations.Add(new UserProfileConfiguration());
-            modelBuilder.Configurations.Add(new TopicConfiguration());
             modelBuilder.Configurations.Add(new RecordConfiguration());
         }
 
@@ -45,14 +42,6 @@ namespace Attitude_Loose.App_Start
     {
         protected override void Seed(EntitiesInitial context)
         {
-            new List<Metric>
-            {
-                new Metric { Type ="Entertainment"},
-                new Metric { Type ="Politics"},
-                new Metric { Type ="Life"}
-
-            }.ForEach(m => context.Metrics.Add(m));
-
             new List<Department>
             {
                 new Department { DepartmentName ="PDA"},
@@ -65,6 +54,5 @@ namespace Attitude_Loose.App_Start
             context.Commit();
 
         }
-
     }
 }

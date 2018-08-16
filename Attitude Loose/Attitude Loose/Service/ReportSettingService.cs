@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 
 namespace Attitude_Loose.Service
 {
@@ -14,12 +15,12 @@ namespace Attitude_Loose.Service
         ReportSetting GetReportSettingById(int reportsettingid);
     }
 
-    public class ReportSettingService : IReportSettingService
+    public class ReportSettingServiceController : ApiController,IReportSettingService
     {
         private readonly IReportSettingRepository reportsettingRepository;
         private readonly IUnitOfWork unitOfWork;
 
-        public ReportSettingService(IReportSettingRepository reportsettingRepository, IUnitOfWork unitOfWork)
+        public ReportSettingServiceController(IReportSettingRepository reportsettingRepository, IUnitOfWork unitOfWork)
         {
             this.reportsettingRepository = reportsettingRepository;
             this.unitOfWork = unitOfWork;

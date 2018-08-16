@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 
 namespace Attitude_Loose.Service
 {
@@ -14,12 +15,12 @@ namespace Attitude_Loose.Service
         ChartSetting GetChartSettingById(int Chartsettingid);
     }
 
-    public class ChartSettingService : IChartSettingService
+    public class ChartSettingServiceController : ApiController,IChartSettingService
     {
         private readonly IChartSettingRepository ChartsettingRepository;
         private readonly IUnitOfWork unitOfWork;
 
-        public ChartSettingService(IChartSettingRepository ChartsettingRepository, IUnitOfWork unitOfWork)
+        public ChartSettingServiceController(IChartSettingRepository ChartsettingRepository, IUnitOfWork unitOfWork)
         {
             this.ChartsettingRepository = ChartsettingRepository;
             this.unitOfWork = unitOfWork;

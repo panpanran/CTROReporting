@@ -49,8 +49,8 @@ namespace Attitude_Loose.Test
             userProfileRepository = new Mock<IUserProfileRepository>();
             unitOfWork = new Mock<IUnitOfWork>();
 
-            userService = new UserService(userRepository.Object, userProfileRepository.Object, unitOfWork.Object);
-            userProfileService = new UserProfileService(userProfileRepository.Object, unitOfWork.Object);
+            userService = new UserServiceController(userRepository.Object, userProfileRepository.Object, unitOfWork.Object);
+            userProfileService = new UserProfileServiceController(userProfileRepository.Object, unitOfWork.Object);
 
             controllerContext = new Mock<ControllerContext>();
             applicationuserController = new Mock<ApplicationUserController>();
