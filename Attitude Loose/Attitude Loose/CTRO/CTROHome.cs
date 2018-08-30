@@ -9,11 +9,18 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Web;
+using System.Web.Caching;
 
 namespace Attitude_Loose.CTRO
 {
     public class CTROHome
     {
+        private object GetCache(string key)
+        {
+            return HttpRuntime.Cache.Get(key);
+        }
+
         //excel
         public int CreateReport(string startDate, string endDate, ApplicationUser user, Report report, out string savepath)
         {
@@ -48,40 +55,55 @@ namespace Attitude_Loose.CTRO
 
             savepath = pathtext.ToString();
 
-            using (var conn = new NpgsqlConnection(CTRPConst.connString))
+            //Cache
+            string key = report.ReportId + startDate + endDate;
+            object pathCache = GetCache(key);
+            if (pathCache == null)
             {
-                conn.Open();
-                try
-                {
-                    ReportSetting[] reportSettings = report.ReportSettings.ToArray();
-                    DataSet conclusionDS = new DataSet();
-                    object[] parametersArray = new object[] { conn, startDate, endDate, reportSettings, conclusionDS };
-                    bookObject = methodInfo.Invoke(classInstance, parametersArray);
-                    conclusionDS = (DataSet)parametersArray[4];
-                    DataSet bookDS = (DataSet)bookObject;
-                    bool ifchart = false;
-                    for (int n = 0; n < bookDS.Tables.Count; n++)
-                    {
-                        ReportSetting reportsetting = reportSettings.Where(x => x.Category == bookDS.Tables[n].TableName).FirstOrDefault();
-                        if (reportsetting.ReportType == "chart")
-                        {
-                            ifchart = true;
-                        }
-                        CTRPFunctions.WriteExcelByDataTable(bookDS.Tables[n], user, savepath, report.Template, reportsetting.Startrow, reportsetting.Startcolumn, ifchart);
-                        if (reportsetting.AdditionStartrow > 0 && reportsetting.AdditionStartcolumn > 0)
-                        {
-                            CTRPFunctions.WriteExcelByDataTable(conclusionDS.Tables[n], user, savepath, null, reportsetting.AdditionStartrow, reportsetting.AdditionStartcolumn, ifchart);
-                        }
-                    }
+                HttpRuntime.Cache.Add(key, savepath, null, Cache.NoAbsoluteExpiration, new TimeSpan(4, 0, 0), CacheItemPriority.Default, null);
+                pathCache = savepath;
 
-                    CTRPFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
-                    return 1;
-                }
-                catch (Exception ex)
+
+                using (var conn = new NpgsqlConnection(CTRPConst.connString))
                 {
-                    return 0;
-                    throw;
+                    conn.Open();
+                    try
+                    {
+                        ReportSetting[] reportSettings = report.ReportSettings.ToArray();
+                        DataSet conclusionDS = new DataSet();
+                        object[] parametersArray = new object[] { conn, startDate, endDate, reportSettings, conclusionDS };
+                        bookObject = methodInfo.Invoke(classInstance, parametersArray);
+                        conclusionDS = (DataSet)parametersArray[4];
+                        DataSet bookDS = (DataSet)bookObject;
+                        bool ifchart = false;
+                        for (int n = 0; n < bookDS.Tables.Count; n++)
+                        {
+                            ReportSetting reportsetting = reportSettings.Where(x => x.Category == bookDS.Tables[n].TableName).FirstOrDefault();
+                            if (reportsetting.ReportType == "chart")
+                            {
+                                ifchart = true;
+                            }
+                            CTRPFunctions.WriteExcelByDataTable(bookDS.Tables[n], user, savepath, report.Template, reportsetting.Startrow, reportsetting.Startcolumn, ifchart);
+                            if (reportsetting.AdditionStartrow > 0 && reportsetting.AdditionStartcolumn > 0)
+                            {
+                                CTRPFunctions.WriteExcelByDataTable(conclusionDS.Tables[n], user, savepath, null, reportsetting.AdditionStartrow, reportsetting.AdditionStartcolumn, ifchart);
+                            }
+                        }
+
+                        CTRPFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
+                        return 1;
+                    }
+                    catch (Exception ex)
+                    {
+                        return 0;
+                        throw;
+                    }
                 }
+            }
+            else
+            {
+                System.IO.File.Copy(pathCache.ToString(), savepath, true);
+                return 1;
             }
         }
 
@@ -164,12 +186,12 @@ namespace Attitude_Loose.CTRO
 
         public void CreateChart(string startDate, string endDate, Attitude_Loose.Models.Chart chart, out string[] XLabel, out string[] YLabel, out string[] Xaxis, out string[] ChartName, out string[] ChartType, out List<Dictionary<string, string>> Yaxis, out string[] Loginname)
         {
-            Type type = Type.GetType("Attitude_Loose.Test." + chart.ChartName.Replace(" - ","") + "Chart");
+            Type type = Type.GetType("Attitude_Loose.Test." + chart.ChartName.Replace(" - ", "") + "Chart");
             Object obj = Activator.CreateInstance(type);
             MethodInfo methodInfo = type.GetMethod("CreateBook");
             object classInstance = Activator.CreateInstance(type, null);
 
-            Xaxis = new string[]{ };
+            Xaxis = new string[] { };
             Yaxis = new List<Dictionary<string, string>>();
             Dictionary<string, string> tempYaxis = new Dictionary<string, string>();
             Dictionary<string, string> temprankYaxis = new Dictionary<string, string>();
@@ -178,7 +200,7 @@ namespace Attitude_Loose.CTRO
                 conn.Open();
                 try
                 {
-                    object[] parametersArray = new object[] { conn, startDate, endDate, chart, Xaxis, Yaxis};
+                    object[] parametersArray = new object[] { conn, startDate, endDate, chart, Xaxis, Yaxis };
                     Loginname = (string[])methodInfo.Invoke(classInstance, parametersArray);
 
                     ChartName = chart.ChartSettings.Select(x => x.Category).ToArray();

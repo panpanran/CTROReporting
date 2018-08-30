@@ -170,7 +170,8 @@ namespace Attitude_Loose.Test
             ewEWTriageScientific.BulkUpdate(tickets);
             EWTriageTSRFeedback ewTriageTSRFeedback = new EWTriageTSRFeedback();
             ewTriageTSRFeedback.BulkUpdate(tickets);
-
+            EWTriageOnHoldTrials ewTriageOnHoldTrials = new EWTriageOnHoldTrials();
+            ewTriageOnHoldTrials.BulkUpdate(tickets);
         }
     }
 }

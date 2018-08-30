@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Caching;
 using System.Web.Mvc;
+//using System.Runtime.Caching;
 
 namespace Attitude_Loose
 {
@@ -109,4 +110,24 @@ namespace Attitude_Loose
         }
         #endregion
     }
+
+
+    //public class InMemoryCache : ICacheService
+    //{
+    //    public T GetOrSet<T>(string cacheKey, Func<T> getItemCallback) where T : class
+    //    {
+    //        T item = MemoryCache.Default.Get(cacheKey) as T;
+    //        if (item == null)
+    //        {
+    //            item = getItemCallback();
+    //            MemoryCache.Default.Add(cacheKey, item, DateTime.Now.AddMinutes(10));
+    //        }
+    //        return item;
+    //    }
+    //}
+
+    //interface ICacheService
+    //{
+    //    T GetOrSet<T>(string cacheKey, Func<T> getItemCallback) where T : class;
+    //}
 }

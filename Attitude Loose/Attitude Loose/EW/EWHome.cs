@@ -228,4 +228,39 @@ namespace Attitude_Loose.EW
         }
     }
 
+    public class EWTriageOnHoldTrials : EWTicket
+    {
+
+        public override void Update(Ticket ticket)
+        {
+            string description = "TriageOnHoldTrials";
+
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&description=" + description;
+            string html = CTRPFunctions.GetHTMLByUrl(url);
+        }
+
+        public void BulkUpdate(string[] ticketlist)
+        {
+            //Update(GetById("80100"));
+
+            for (int i = 1; i < ticketlist.Length - 1; i++)
+            {
+                string id = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ", ""));
+                Ticket ticket = GetById(id);
+                if (ticket.State == "New Request")
+                {
+                    if (ticket.Summary.Contains("Trial PROCESSING ON HOLD"))
+                    {
+                        UpdateByID(id);
+                    }
+                }
+            }
+        }
+
+        public void UpdateByID(string id)
+        {
+            Update(GetById(id));
+        }
+    }
+
 }

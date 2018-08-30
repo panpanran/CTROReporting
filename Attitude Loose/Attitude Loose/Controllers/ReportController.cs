@@ -11,6 +11,8 @@ using AutoMapper;
 using System.Linq;
 using System.IO;
 using Attitude_Loose.Test;
+using System.Web;
+using System.Web.Caching;
 
 namespace Attitude_Loose.Controllers
 {
@@ -64,6 +66,7 @@ namespace Attitude_Loose.Controllers
         [HttpPost]
         public ActionResult Report(ReportGenerateViewModel model)
         {
+            //Get Data from Cache
             UserProfile userprofile = userProfileService.GetByUserID(User.Identity.GetUserId());
             ApplicationUser user = userService.GetByUserID(User.Identity.GetUserId());
 
@@ -71,7 +74,7 @@ namespace Attitude_Loose.Controllers
 
             if (ModelState.IsValid)
             {
-                model.ReportResult = reportService.CreateReport(Convert.ToInt32(model.SelectedReport), User.Identity.GetUserId(), 
+                model.ReportResult = reportService.CreateReport(Convert.ToInt32(model.SelectedReport), User.Identity.GetUserId(),
                     model.StartDate, model.EndDate, user);
             }
             var reports = reportService.GetReports();

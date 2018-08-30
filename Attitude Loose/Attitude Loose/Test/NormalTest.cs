@@ -14,6 +14,7 @@ using System.Xml.Linq;
 
 namespace Attitude_Loose.Test
 {
+
     [TestFixture()]
     public class NormalTest
     {

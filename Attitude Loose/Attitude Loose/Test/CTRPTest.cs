@@ -33,77 +33,40 @@ namespace Attitude_Loose.Test
     [TestFixture()]
     public class CTRPTest
     {
-        Mock<IUserRepository> userRepository;
-        Mock<IUserProfileRepository> userProfileRepository;
+        Mock<IReportRepository> reportRepository;
+        Mock<IRecordRepository> recordRepository;
         Mock<IUnitOfWork> unitOfWork;
-        Mock<ControllerContext> controllerContext;
-        IUserService userService;
-        IUserProfileService userProfileService;
-        Mock<ApplicationUserController> applicationuserController;
+        Mock<IReportSettingRepository> reportsettingRepository;
+
+        IRecordService recordService;
+        Mock<IReportService> reportService;
+        IReportSettingService reportsettingService;
 
 
         [SetUp]
         public void SetUp()
         {
-            userRepository = new Mock<IUserRepository>();
-            userProfileRepository = new Mock<IUserProfileRepository>();
+            reportRepository = new Mock<IReportRepository>();
+            recordRepository = new Mock<IRecordRepository>();
+            reportsettingRepository = new Mock<IReportSettingRepository>();
             unitOfWork = new Mock<IUnitOfWork>();
 
-            userService = new UserServiceController(userRepository.Object, userProfileRepository.Object, unitOfWork.Object);
-            userProfileService = new UserProfileServiceController(userProfileRepository.Object, unitOfWork.Object);
-
-            controllerContext = new Mock<ControllerContext>();
-            applicationuserController = new Mock<ApplicationUserController>();
-
+            recordService = new RecordServiceController(recordRepository.Object, unitOfWork.Object);
+            reportsettingService = new ReportSettingServiceController(reportsettingRepository.Object, unitOfWork.Object);
+            //reportService = new ReportServiceController(reportRepository.Object, unitOfWork.Object, recordService, reportsettingService);            
+            reportService = new Mock<IReportService>(); ;
         }
 
-        //[Test]
-        //public void ZeroAccrualReort()
-        //{
-        //    //Create report by different organization name
-        //    ZeroaccrualReport reports = new ZeroaccrualReport();
-        //    using (var conn = new NpgsqlConnection(CTRPConst.connString))
-        //    {
-        //        conn.Open();
-        //        try
-        //        {
-        //            DataSet conclusionDS = new DataSet();
-        //            Dictionary<string, string> outputParams = new Dictionary<string, string>();
-
-        //            string savepath = "";
-        //            string templatepath = "";
-        //            string startDate = "2017-01-01";
-        //            DataSet tempDS = reports.CreateBook(conn, startDate, "", out outputParams, out conclusionDS);
-        //            templatepath = outputParams["templatepath"];
-        //            //organization
-        //            string[] org_name = tempDS.Tables["Accrual"].AsEnumerable().Select(x => x.Field<string>("leadorganization")).Distinct().ToArray();
-        //            foreach (string name in org_name)
-        //            {
-        //                DataSet outputDS = new DataSet();
-        //                DataTable nciDT = tempDS.Tables["Accrual"].AsEnumerable().Where(x=> x.Field<string>("leadorganization") == name).CopyToDataTable();
-        //                nciDT.TableName = "Accrual";
-        //                outputDS.Tables.Add(nciDT);
-        //                savepath = CTRPConst.zeroaccrual_savepath + " " + name.Replace("/"," ").Replace("\\", " ") + " from " + startDate + ".xlsx";
-        //                CTRPFunctions.WriteExcelByDataSet((DataSet)outputDS, savepath, templatepath, 2, 1);
-        //            }
-
-
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            throw;
-        //        }
-        //    }
-        //}
-
-
-        //[Test]
-        //public void WorkloadReort()
-        //{
-        //    CTROHome cTROHome = new CTROHome();
-        //    string savepath = "";
-        //    int result = cTROHome.CreateReport("2018-05-21", "2018-05-25", "", "Workload", out savepath);
-        //}
+        [Test]
+        public void GetReportsTest()
+        {
+            var itemMock = new Mock<Report>();
+            var items = new List<Report> { itemMock.Object }; //<--IEnumerable<IMyObject>
+            //reportRepository.Setup(x=>x.GetAll()).Returns()
+            var reportlist = reportService.Setup(x => x.GetReports()).Returns(items);
+            var reportresult = reportService.Object.GetReports();
+            Assert.AreEqual(reportresult, items, "not matching");
+        }
 
         [Test()]
         public void CreateAnalysisChart()
@@ -201,7 +164,7 @@ namespace Attitude_Loose.Test
                     string savepath = "";
                     string templatepath = "";
                     DataSet conclusionDS = new DataSet();
-                    object[] parametersArray = new object[] { conn, "2018-05-01", "2018-05-02", "" , "", conclusionDS };
+                    object[] parametersArray = new object[] { conn, "2018-05-01", "2018-05-02", "", "", conclusionDS };
                     bookDS = methodInfo.Invoke(classInstance, parametersArray);
                     //DataSet bookDS = reports.CreateBook(conn, startDate, endDate, out savepath, out templatepath, out conclusionDS);
                     CTRPFunctions.WriteExcelByDataSet((DataSet)bookDS, savepath, templatepath, 2, 1);
