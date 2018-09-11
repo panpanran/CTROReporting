@@ -38,7 +38,7 @@ namespace Attitude_Loose.Service
 
         public IEnumerable<Report> GetReports()
         {
-            var report = reportRepository.GetAll();
+            var report = reportRepository.GetAll().Where(x =>x.Active == true);
             return report;
         }
 

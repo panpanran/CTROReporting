@@ -224,7 +224,16 @@ C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Sec
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude Loose.csprojResolveAssemblyReference.cache
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_Loose.Properties.Resources.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude Loose.csproj.GenerateResource.cache
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude Loose.csproj.CoreCompileInputs.cache
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude Loose.csproj.CopyComplete
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude Loose.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude Loose.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Autofac.Integration.WebApi.dll
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Autofac.Integration.WebApi.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\bin\Autofac.Integration.WebApi.xml
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude Loose.csprojAssemblyReference.cache
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_Loose.Migrations.ScheduleFixTry.resources
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_Loose.Migrations.ScheduleCreateDate.resources
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_Loose.Migrations.ReportSetting.resources
@@ -234,9 +243,11 @@ C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_L
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_Loose.Migrations.ChartTable.resources
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_Loose.Migrations.ChartSettingTable.resources
 C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_Loose.Migrations.addreporttypechart.resources
-C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_Loose.Properties.Resources.resources
-C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude Loose.csproj.GenerateResource.cache
-C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude Loose.csproj.CoreCompileInputs.cache
-C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude Loose.csproj.CopyComplete
-C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude Loose.dll
-C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude Loose.pdb
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_Loose.Migrations.DeleteTopicMetric.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_Loose.Migrations.AddActiveColumn.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_Loose.Migrations.ApplicationUserChanged.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_Loose.Migrations.ApplicationUserChanged1.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_Loose.Migrations.ApplicationUserChanged2.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_Loose.Migrations.ApplicationUserChanged3.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_Loose.Migrations.ApplicationUserAndDepartment.resources
+C:\Users\panr2\Downloads\C#\Attitude Loose\Attitude Loose\obj\Release\Attitude_Loose.Migrations.ApplicationUserAndDepartment1.resources

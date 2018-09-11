@@ -313,7 +313,7 @@ namespace Attitude_Loose.Test
                 UserName = "panpanr",
                 RoleId = 0,
                 Id = "402bd590-fdc7-49ad-9728-40efbfe512ec",
-                DateCreated = DateTime.Now,
+                CreatedDate = DateTime.Now,
                 LastLoginTime = DateTime.Now,
                 //ProfilePicUrl = null,
             };

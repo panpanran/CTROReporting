@@ -17,7 +17,7 @@ namespace Attitude_Loose.App_Start
                     .ForMember(x => x.ReportName, opt => opt.MapFrom(source => source.Report.ReportName));
                     cfg.CreateMap<Schedule, ScheduleListViewModel>().ForMember(x => x.UserName, opt => opt.MapFrom(source => source.User.UserName))
                     .ForMember(x => x.ReportName, opt => opt.MapFrom(source => source.Report.ReportName));
-
+                    cfg.CreateMap<ApplicationUser, UserManagementViewModel>().ForMember(x => x.DepartmentName, opt => opt.MapFrom(source => source.Department.DepartmentName));
                 });
         }
     }

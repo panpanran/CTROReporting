@@ -9,7 +9,7 @@ namespace Attitude_Loose.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(Attitude_Loose.App_Start.EntitiesInitial context)

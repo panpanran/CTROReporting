@@ -11,8 +11,12 @@ namespace Attitude_Loose.Models
         public int DepartmentId { get; set; }
 
         public string DepartmentName { get; set; }
+
         // Navigation property 
         [JsonIgnore]
         public virtual ICollection<Report> Reports { get; set; }
+
+        //[JsonIgnore]
+        public virtual ICollection<ApplicationUser> ApplicationUsers { get; set; }
     }
 }

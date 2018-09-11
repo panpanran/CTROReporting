@@ -17,6 +17,8 @@ namespace Attitude_Loose.Models
 
         public string Template { get; set; }
 
+        public bool Active { get; set; }
+
         public string Savepath { get; set; }
 
         [JsonIgnore]
@@ -27,6 +29,9 @@ namespace Attitude_Loose.Models
 
         [JsonIgnore]
         public virtual ICollection<ReportSetting> ReportSettings { get; set; }
+
+        [JsonIgnore]
+        public virtual ICollection<Schedule> Schedules { get; set; }
 
     }
 }

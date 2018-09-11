@@ -21,7 +21,7 @@ namespace Attitude_Loose.ViewModels
         public string ProfilePicUrl { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
-        public DateTime DateCreated { get; set; }
+        public DateTime CreatedDate { get; set; }
 
         public DateTime? LastLoginTime { get; set; }
 

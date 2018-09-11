@@ -87,6 +87,34 @@ namespace Attitude_Loose.ViewModels
         public string ConfirmPassword { get; set; }
     }
 
+    public class UserManagementViewModel
+    {
+        [Required]
+        public string Id { get; set; }
+
+
+        [Required]
+        [Display(Name = "User name")]
+        public string UserName { get; set; }
+
+        [Required]
+        public string DepartmentName { get; set; }
+
+        [Required]
+        [Display(Name = "Email")]
+        [EmailAddress]
+        public string Email { get; set; }
+
+        public string CreatedDate { get; set; }
+
+        public string LastLoginTime { get; set; }
+
+        [Required]
+        public string Activated { get; set; }
+
+
+    }
+
     public class ResetPasswordViewModel
     {
         [Required]

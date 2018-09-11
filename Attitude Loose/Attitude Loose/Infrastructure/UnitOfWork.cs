@@ -10,6 +10,7 @@ namespace Attitude_Loose.Infrastructure
     public interface IUnitOfWork
     {
         void Commit();
+        void Dispose();
     }
 
     public class UnitOfWork : IUnitOfWork
@@ -30,6 +31,25 @@ namespace Attitude_Loose.Infrastructure
         public void Commit()
         {
             DataContext.Commit();
+        }
+
+        private bool disposed = false;
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    DataContext.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

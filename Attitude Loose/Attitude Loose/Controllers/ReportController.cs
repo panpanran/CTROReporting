@@ -57,6 +57,12 @@ namespace Attitude_Loose.Controllers
         [OutputCache(Duration = 10, VaryByParam = "none")]
         public ActionResult Report()
         {
+            ApplicationUser user = userService.GetByUserID(User.Identity.GetUserId());
+            if (user != null)
+            {
+                user.LastLoginTime = DateTime.Now;
+                userService.UpdateUser(user);
+            }
             var model = new ReportGenerateViewModel();
             var reports = reportService.GetReports();
             model.Reports = reportService.ToSelectListItems(reports, -1);

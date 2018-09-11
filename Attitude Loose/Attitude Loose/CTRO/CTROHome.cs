@@ -1,4 +1,5 @@
-﻿using Attitude_Loose.Models;
+﻿using Attitude_Loose.Infrastructure;
+using Attitude_Loose.Models;
 using Attitude_Loose.Test;
 using Microsoft.AspNet.Identity;
 using Npgsql;
@@ -60,10 +61,6 @@ namespace Attitude_Loose.CTRO
             object pathCache = GetCache(key);
             if (pathCache == null)
             {
-                HttpRuntime.Cache.Add(key, savepath, null, Cache.NoAbsoluteExpiration, new TimeSpan(4, 0, 0), CacheItemPriority.Default, null);
-                pathCache = savepath;
-
-
                 using (var conn = new NpgsqlConnection(CTRPConst.connString))
                 {
                     conn.Open();
@@ -91,10 +88,14 @@ namespace Attitude_Loose.CTRO
                         }
 
                         CTRPFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
+                        HttpRuntime.Cache.Add(key, savepath, null, Cache.NoAbsoluteExpiration, new TimeSpan(4, 0, 0), CacheItemPriority.Default, null);
+                        pathCache = savepath;
+
                         return 1;
                     }
                     catch (Exception ex)
                     {
+                        Logging.WriteLog(ex.Message);
                         return 0;
                         throw;
                     }
@@ -103,6 +104,7 @@ namespace Attitude_Loose.CTRO
             else
             {
                 System.IO.File.Copy(pathCache.ToString(), savepath, true);
+                CTRPFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
                 return 1;
             }
         }

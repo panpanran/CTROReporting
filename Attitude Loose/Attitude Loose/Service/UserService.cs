@@ -14,6 +14,11 @@ namespace Attitude_Loose.Service
     {
         ApplicationUser GetByUserID(string userid);
         void UpdateUser(ApplicationUser user);
+        IEnumerable<ApplicationUser> GetUsers();
+        void DeleteUser(string userid);
+        void CreateUser(ApplicationUser user);
+        void SaveUser();
+        void DisposeUser();
     }
 
     public class UserServiceController : ApiController,IUserService
@@ -30,10 +35,22 @@ namespace Attitude_Loose.Service
             this.unitOfWork = unitOfWork;
         }
 
+        public IEnumerable<ApplicationUser> GetUsers()
+        {
+            var users = userRepository.GetAll();
+            return users;
+        }
+
         public ApplicationUser GetByUserID(string userid)
         {
-            var userprofile = userRepository.Get(u => u.Id == userid);
-            return userprofile;
+            var user = userRepository.Get(u => u.Id == userid);
+            return user;
+        }
+
+        public void CreateUser(ApplicationUser user)
+        {
+            userRepository.Add(user);
+            SaveUser();
         }
 
         public void UpdateUser(ApplicationUser user)
@@ -42,9 +59,23 @@ namespace Attitude_Loose.Service
             SaveUser();
         }
 
+        public void DeleteUser(string userid)
+        {
+            var user = userRepository.Get(u => u.Id == userid);
+            userRepository.Delete(user);
+            SaveUser();
+        }
+
+
         public void SaveUser()
         {
             unitOfWork.Commit();
         }
+
+        public void DisposeUser()
+        {
+            unitOfWork.Dispose();
+        }
+
     }
 }

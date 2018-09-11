@@ -8,7 +8,7 @@ namespace Attitude_Loose.Infrastructure
 {
     public class Logging
     {
-        public static void WriteLog()
+        public static void WriteLog(string ex)
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + DateTime.Now.ToString("yyyy-MM-dd") + ".txt";
             if (!File.Exists(path))
@@ -16,14 +16,14 @@ namespace Attitude_Loose.Infrastructure
                 // Create a file to write to.
                 using (StreamWriter sw = File.CreateText(path))
                 {
-                    Log("Ran Test1", sw);
+                    Log(ex, sw);
                 }
             }
             else
             {
                 using (StreamWriter sw = File.AppendText(path))
                 {
-                    Log("Ran Test2", sw);
+                    Log(ex, sw);
                 }
             }
         }

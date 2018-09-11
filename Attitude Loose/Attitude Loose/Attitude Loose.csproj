@@ -118,6 +118,12 @@
       <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -236,14 +242,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.AspNet.Identity.Core">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Owin">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
@@ -288,6 +288,7 @@
     <Compile Include="CacheClass.cs" />
     <Compile Include="Controllers\ApplicationUserController.cs" />
     <Compile Include="Controllers\ChartController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="CTRO\CTROHome.cs" />
@@ -343,6 +344,34 @@
     <Compile Include="Migrations\201808161938420_DeleteTopicMetric.Designer.cs">
       <DependentUpon>201808161938420_DeleteTopicMetric.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809061812242_AddActiveColumn.cs" />
+    <Compile Include="Migrations\201809061812242_AddActiveColumn.Designer.cs">
+      <DependentUpon>201809061812242_AddActiveColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809071728364_ApplicationUserChanged.cs" />
+    <Compile Include="Migrations\201809071728364_ApplicationUserChanged.Designer.cs">
+      <DependentUpon>201809071728364_ApplicationUserChanged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809071758096_ApplicationUserChanged1.cs" />
+    <Compile Include="Migrations\201809071758096_ApplicationUserChanged1.Designer.cs">
+      <DependentUpon>201809071758096_ApplicationUserChanged1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809071921082_ApplicationUserChanged2.cs" />
+    <Compile Include="Migrations\201809071921082_ApplicationUserChanged2.Designer.cs">
+      <DependentUpon>201809071921082_ApplicationUserChanged2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809071927049_ApplicationUserChanged3.cs" />
+    <Compile Include="Migrations\201809071927049_ApplicationUserChanged3.Designer.cs">
+      <DependentUpon>201809071927049_ApplicationUserChanged3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809101739195_ApplicationUserAndDepartment.cs" />
+    <Compile Include="Migrations\201809101739195_ApplicationUserAndDepartment.Designer.cs">
+      <DependentUpon>201809101739195_ApplicationUserAndDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809101853202_ApplicationUserAndDepartment1.cs" />
+    <Compile Include="Migrations\201809101853202_ApplicationUserAndDepartment1.Designer.cs">
+      <DependentUpon>201809101853202_ApplicationUserAndDepartment1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Chart.cs" />
@@ -366,6 +395,7 @@
     </Compile>
     <Compile Include="Repository\ChartRepository.cs" />
     <Compile Include="Repository\ChartSettingRepository.cs" />
+    <Compile Include="Repository\DepartmentRepository.cs" />
     <Compile Include="Repository\RecordRepository.cs" />
     <Compile Include="Repository\ReportRepository.cs" />
     <Compile Include="Repository\ReportSettingRepository.cs" />
@@ -374,6 +404,7 @@
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="Service\ChartService.cs" />
     <Compile Include="Service\ChartSettingService.cs" />
+    <Compile Include="Service\DepartmentService.cs" />
     <Compile Include="Service\RecordService.cs" />
     <Compile Include="Service\ReportService.cs" />
     <Compile Include="Service\ReportSettingService.cs" />
@@ -648,6 +679,7 @@
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\Background.jpg" />
     <Content Include="Images\calendar.gif" />
@@ -801,6 +833,7 @@
     <Content Include="Views\Chart\Chart.cshtml" />
     <Content Include="Templates\Reactivated Report Template.xlsx" />
     <Content Include="Templates\TSR Sent Template.xlsx" />
+    <Content Include="Views\ApplicationUser\UserManagement.cshtml" />
     <None Include="Views\Report\Test.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -813,15 +846,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\ApplicationUser\Register.cshtml" />
@@ -851,7 +875,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Images\ProfilePics\" />
     <Folder Include="UploadedFiles\" />
-    <Folder Include="Views\Base\" />
+    <Folder Include="Views\Department\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -887,6 +911,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808161938420_DeleteTopicMetric.resx">
       <DependentUpon>201808161938420_DeleteTopicMetric.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809061812242_AddActiveColumn.resx">
+      <DependentUpon>201809061812242_AddActiveColumn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809071728364_ApplicationUserChanged.resx">
+      <DependentUpon>201809071728364_ApplicationUserChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809071758096_ApplicationUserChanged1.resx">
+      <DependentUpon>201809071758096_ApplicationUserChanged1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809071921082_ApplicationUserChanged2.resx">
+      <DependentUpon>201809071921082_ApplicationUserChanged2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809071927049_ApplicationUserChanged3.resx">
+      <DependentUpon>201809071927049_ApplicationUserChanged3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809101739195_ApplicationUserAndDepartment.resx">
+      <DependentUpon>201809101739195_ApplicationUserAndDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809101853202_ApplicationUserAndDepartment1.resx">
+      <DependentUpon>201809101853202_ApplicationUserAndDepartment1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

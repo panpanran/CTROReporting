@@ -1,4 +1,5 @@
-﻿using Attitude_Loose.Models;
+﻿using Attitude_Loose.App_Start;
+using Attitude_Loose.Models;
 using Attitude_Loose.Properties;
 using Attitude_Loose.Service;
 using Attitude_Loose.Test;
@@ -25,9 +26,10 @@ namespace Attitude_Loose.Controllers
         private UserManager<ApplicationUser> userManager;
         private IUserProfileService userProfileService;
         private IUserService userService;
+        private IDepartmentService departmentService;
         private IScheduleService scheduleService;
 
-        public ApplicationUserController(IScheduleService scheduleService,IUserProfileService userProfileService, IUserService userService, UserManager<ApplicationUser> userManager)
+        public ApplicationUserController(IScheduleService scheduleService, IUserProfileService userProfileService, IUserService userService, IDepartmentService departmentService, UserManager<ApplicationUser> userManager)
         {
             userManager.UserValidator = new UserValidator<ApplicationUser>(userManager)
             {
@@ -35,12 +37,42 @@ namespace Attitude_Loose.Controllers
                 RequireUniqueEmail = true
             };
             this.userManager = userManager;
+            this.departmentService = departmentService;
             this.userProfileService = userProfileService;
             this.userService = userService;
             this.scheduleService = scheduleService;
         }
 
-        //
+        public ActionResult UserManagement()
+        {
+            var users = userService.GetUsers();
+            var usersList = Mapper.Map<IEnumerable<ApplicationUser>, IEnumerable<UserManagementViewModel>>(users).ToList();
+            return View(usersList);
+        }
+
+        //public ActionResult ActivatedSelection()
+        //{
+        //    var activated = new List<ApplicationUser> { new ApplicationUser { Activated = true }, new ApplicationUser { Activated = false } };
+        //    return Json(activated, JsonRequestBehavior.AllowGet);
+        //}
+
+        public ActionResult UpdateUser(UserManagementViewModel model)
+        {
+            ApplicationUser user = userService.GetByUserID(model.Id);
+            user.Activated = Convert.ToBoolean(model.Activated);
+            user.Email = model.Email;
+            user.UserName = model.UserName;
+            user.DepartmentId = departmentService.GetByDepartmentName(model.DepartmentName).DepartmentId;
+            userService.UpdateUser(user);
+            return View();
+        }
+
+        public ActionResult DeleteUser(UserManagementViewModel model)
+        {
+            userService.DeleteUser(model.Id);
+            return View();
+        }
+
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -51,7 +83,6 @@ namespace Attitude_Loose.Controllers
             return View();
         }
 
-        //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
@@ -63,7 +94,6 @@ namespace Attitude_Loose.Controllers
                 var user = await userManager.FindAsync(model.UserName, model.Password);
                 if (user != null)
                 {
-                    user.LastLoginTime = DateTime.Now;
                     await SignInAsync(user, model.RememberMe);
                     return RedirectToLocal(returnUrl);
                 }
@@ -104,7 +134,7 @@ namespace Attitude_Loose.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, LastLoginTime = DateTime.Now };
+                var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, LastLoginTime = DateTime.Now, CreatedDate = DateTime.Now };
                 var result = await userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -164,7 +194,6 @@ namespace Attitude_Loose.Controllers
         [OutputCache(Duration = 5)]
         public ViewResult UserProfile(string id)
         {
-            var currentuserid = User.Identity.GetUserId();
             var user = userService.GetByUserID(id);
             var userProfile = userProfileService.GetByUserID(id);
             UserProfileViewModel userprofile = new UserProfileViewModel()
@@ -173,7 +202,7 @@ namespace Attitude_Loose.Controllers
                 LastName = userProfile.LastName,
                 Email = userProfile.Email,
                 UserName = user.UserName,
-                DateCreated = user.DateCreated,
+                CreatedDate = user.CreatedDate,
                 LastLoginTime = user.LastLoginTime,
                 UserId = user.Id,
                 ProfilePicUrl = userProfile.ProfilePicUrl,

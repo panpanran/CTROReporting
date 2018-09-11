@@ -36,12 +36,6 @@ namespace Attitude_Loose.Service
             unitOfWork.Commit();
         }
 
-        public void CreateSchedule(Schedule schedule)
-        {
-            scheduleRepository.Add(schedule);
-            SaveRecord();
-        }
-
         public Schedule GetByScheduleID(int scheduleid)
         {
             var schedule = scheduleRepository.GetById(scheduleid);
@@ -59,6 +53,12 @@ namespace Attitude_Loose.Service
         {
             var schedule = scheduleRepository.GetAll();
             return schedule;
+        }
+
+        public void CreateSchedule(Schedule schedule)
+        {
+            scheduleRepository.Add(schedule);
+            SaveRecord();
         }
 
         public void UpdateSchedule(Schedule schedule)

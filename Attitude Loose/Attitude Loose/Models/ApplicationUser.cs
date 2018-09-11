@@ -11,21 +11,23 @@ namespace Attitude_Loose.Models
 {
     public class ApplicationUser : IdentityUser
     {
-        public ApplicationUser()
-        {
-            DateCreated = DateTime.Now;
-        }
+        public DateTime CreatedDate { get; set; }
 
-        public DateTime DateCreated { get; set; }
-
-        public DateTime? LastLoginTime { get; set; }
+        public DateTime LastLoginTime { get; set; }
 
         public bool Activated { get; set; }
+
+        // Foreign key
+        public int? DepartmentId { get; set; }
 
         public int RoleId { get; set; }
 
         [JsonIgnore]
+        public virtual Department Department { get; set; }
+
+        [JsonIgnore]
         public virtual ICollection<Record> Records { get; set; }
+
         [JsonIgnore]
         public virtual ICollection<Schedule> Schedules { get; set; }
     }

@@ -12,7 +12,7 @@ namespace Attitude_Loose.App_Start
     public class EntitiesInitial : IdentityDbContext<ApplicationUser>
     {
         public EntitiesInitial()
-            : base("AttitudeLooseEntities")
+            : base("CTROReportingEntities")
         {
         }
         public DbSet<UserProfile> UserProfiles { get; set; }
@@ -27,6 +27,7 @@ namespace Attitude_Loose.App_Start
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            //Database.SetInitializer<EntitiesInitial>(null);
             base.OnModelCreating(modelBuilder);
             modelBuilder.Configurations.Add(new UserProfileConfiguration());
             modelBuilder.Configurations.Add(new RecordConfiguration());
@@ -39,6 +40,7 @@ namespace Attitude_Loose.App_Start
     }
 
     public class TopicSampleData : CreateDatabaseIfNotExists<EntitiesInitial>
+    //public class TopicSampleData : DropCreateDatabaseIfModelChanges<EntitiesInitial>
     {
         protected override void Seed(EntitiesInitial context)
         {
@@ -49,10 +51,7 @@ namespace Attitude_Loose.App_Start
                 new Department { DepartmentName ="All"}
 
             }.ForEach(m => context.Departments.Add(m));
-
-
             context.Commit();
-
         }
     }
 }
