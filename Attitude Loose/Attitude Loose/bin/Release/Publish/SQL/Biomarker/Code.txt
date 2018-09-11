@@ -1,0 +1,26 @@
+select 
+study_protocol.nci_id,
+study_protocol.nct_id,
+study_overall_status.status_code,
+document_workflow_status.status_code,
+planned_marker_sync_cadsr.name,
+planned_marker.status_code,
+planned_marker.assay_use_code,
+planned_marker.assay_purpose_code
+from (select * from study_protocol
+where exists (select 1 from
+(select nci_id, max(submission_number) submission_number from study_protocol 
+-- where nci_id = 'NCI-2016-01897'
+group by nci_id) s1
+where study_protocol.nci_id = s1.nci_id and study_protocol.submission_number = s1.submission_number)) study_protocol
+join planned_activity
+on planned_activity.study_protocol_identifier = study_protocol.identifier
+join (select * from planned_marker where status_code = 'statusVal') planned_marker
+on planned_marker.identifier = planned_activity.identifier
+join planned_marker_sync_cadsr
+on planned_marker_sync_cadsr.identifier = planned_marker.pm_sync_identifier
+join (select * from study_overall_status where current = true and status_code != 'WITHDRAWN') study_overall_status
+on study_overall_status.study_protocol_identifier = study_protocol.identifier
+join (select * from document_workflow_status where current = true and status_code != 'REJECTED' and status_code != 'SUBMISSION_TERMINATED') document_workflow_status
+on document_workflow_status.study_protocol_identifier = study_protocol.identifier
+order by nci_id;
