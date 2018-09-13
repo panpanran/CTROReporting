@@ -1,4 +1,5 @@
-﻿using CTRPReporting.Models;
+﻿using CTRPReporting.Infrastructure;
+using CTRPReporting.Models;
 using CTRPReporting.Test;
 using System;
 using System.Collections.Generic;
@@ -21,48 +22,55 @@ namespace CTRPReporting.EW
     {
         public override void Update(Ticket ticket)
         {
-            string originalincomingemail = Regex.Match(ticket.Original_incoming_email, "<.*?>").Value.Replace("<", "").Replace(">", "");
-            if (string.IsNullOrEmpty(originalincomingemail))
+            try
             {
-                originalincomingemail = Regex.Match(ticket.Original_incoming_email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$").Value;
-            }
-            //string fullname = "";
-
-            //if (ticket.Original_incoming_email.Contains("\""))
-            //{
-            //    fullname = Regex.Match(ticket.Original_incoming_email, ", .*?\"").Value.Replace(", ", "").Replace("\\\"", "") + " " + Regex.Match(ticket.Original_incoming_email, "\".*?,").Value.Replace("\"", "").Replace(",", "");
-            //}
-            //else
-            //{
-            //    fullname = Regex.Match(ticket.Original_incoming_email, ".*?<").Value.Replace("<", "");
-            //}
-            string url = null;
-            if (!string.IsNullOrEmpty(originalincomingemail))
-            {
-                EWParticipant ewparticipant = new EWParticipant();
-                string temp = "https://cbiitsupport.nci.nih.gov/ewws/EWSelect?$KB=CBIIT&$login=panr2&$password=Prss_1234&$table=participant&$lang=en&where=email=%27" + originalincomingemail + "%27";
-                string participanttext = ewparticipant.GetIDList("email=%27" + originalincomingemail + "%27 or alternate_email=%27" + originalincomingemail + "%27").ToArray()[1];
-                string id = GetValueByFieldName("EWREST_id_0", participanttext.Replace(" ", ""));
-                if (!string.IsNullOrEmpty(id))
+                string originalincomingemail = Regex.Match(ticket.Original_incoming_email, "<.*?>").Value.Replace("<", "").Replace(">", "");
+                if (string.IsNullOrEmpty(originalincomingemail))
                 {
-                    Participant participant = ewparticipant.GetById(id);
-                    url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId
-                        + "&original_incoming_email=" + originalincomingemail
-                        + "&work_phone=" + participant.Phone
-                        + "&email=" + originalincomingemail
-                        + "&organization_name=" + participant.Organization.Replace("&", "%26")
-                        + "&full_name=" + participant.FullName;
+                    originalincomingemail = Regex.Match(ticket.Original_incoming_email, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$").Value;
+                }
+                //string fullname = "";
+
+                //if (ticket.Original_incoming_email.Contains("\""))
+                //{
+                //    fullname = Regex.Match(ticket.Original_incoming_email, ", .*?\"").Value.Replace(", ", "").Replace("\\\"", "") + " " + Regex.Match(ticket.Original_incoming_email, "\".*?,").Value.Replace("\"", "").Replace(",", "");
+                //}
+                //else
+                //{
+                //    fullname = Regex.Match(ticket.Original_incoming_email, ".*?<").Value.Replace("<", "");
+                //}
+                string url = null;
+                if (!string.IsNullOrEmpty(originalincomingemail))
+                {
+                    EWParticipant ewparticipant = new EWParticipant();
+                    string temp = "https://cbiitsupport.nci.nih.gov/ewws/EWSelect?$KB=CBIIT&$login=panr2&$password=Prss_1234&$table=participant&$lang=en&where=email=%27" + originalincomingemail + "%27";
+                    string participanttext = ewparticipant.GetIDList("email=%27" + originalincomingemail + "%27 or alternate_email=%27" + originalincomingemail + "%27").ToArray()[1];
+                    string id = GetValueByFieldName("EWREST_id_0", participanttext.Replace(" ", ""));
+                    if (!string.IsNullOrEmpty(id))
+                    {
+                        Participant participant = ewparticipant.GetById(id);
+                        url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId
+                            + "&original_incoming_email=" + originalincomingemail
+                            + "&work_phone=" + participant.Phone
+                            + "&email=" + originalincomingemail
+                            + "&organization_name=" + participant.Organization.Replace("&", "%26")
+                            + "&full_name=" + participant.FullName;
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(url))
+                {
+                    string html = CTRPFunctions.GetHTMLByUrl(url);
+                }
+                else
+                {
+                    url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&full_name=Please create a new user or add this email to the 'alternate email' of the existing user";
+                    string html = CTRPFunctions.GetHTMLByUrl(url);
                 }
             }
-
-            if (!string.IsNullOrEmpty(url))
+            catch (Exception ex)
             {
-                string html = CTRPFunctions.GetHTMLByUrl(url);
-            }
-            else
-            {
-                url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&full_name=Please create a new user or add this email to the 'alternate email' of the existing user";
-                string html = CTRPFunctions.GetHTMLByUrl(url);
+                Logging.WriteLog(ex.Message);
             }
         }
 

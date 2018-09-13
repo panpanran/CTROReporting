@@ -39,7 +39,7 @@ namespace CTRPReporting.Test
                 await scheduler.Start();
                 foreach (Schedule schedule in schedulelist)
                 {
-                     bool bb = await scheduler.CheckExists(new JobKey("job" + schedule.ScheduleId, "group" + schedule.ReportId));
+                    bool existJob = await scheduler.CheckExists(new JobKey("job" + schedule.ScheduleId, "group" + schedule.ReportId));
                     List<IJobExecutionContext> jobs = scheduler.GetCurrentlyExecutingJobs().Result.ToList();
                     // define the job and tie it to our HelloJob class
                     IJobDetail job = JobBuilder.Create<ScheduleJob>()

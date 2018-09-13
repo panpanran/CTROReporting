@@ -10,7 +10,7 @@ namespace CTRPReporting.Infrastructure
     {
         public static void WriteLog(string ex)
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory + DateTime.Now.ToString("yyyy-MM-dd") + ".txt";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "/Logging/" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt";
             if (!File.Exists(path))
             {
                 // Create a file to write to.

@@ -1,0 +1,10 @@
+
+Log Entry : 12:24:41 PM Wednesday, September 12, 2018
+  :
+  :Could not find a part of the path 'C:\Excel\panpanr\Offhold Report_20180912122440_panpanr.xlsx'.
+-------------------------------
+
+Log Entry : 12:26:30 PM Wednesday, September 12, 2018
+  :
+  :Could not find a part of the path 'C:\Program Files (x86)\Excel\panpanr\Offhold Report_20180912122628_panpanr.xlsx'.
+-------------------------------

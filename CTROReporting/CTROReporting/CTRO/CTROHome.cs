@@ -32,7 +32,7 @@ namespace CTRPReporting.CTRO
             object bookObject = null;
 
             StringBuilder pathtext = new StringBuilder();
-            pathtext.Append(@"C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\" + user.UserName + @"\");
+            pathtext.Append(AppDomain.CurrentDomain.BaseDirectory + "/Excel/" + user.UserName + "/");
 
             if (report.ReportName == "SDA - Biomarker")
             {
@@ -55,17 +55,16 @@ namespace CTRPReporting.CTRO
             }
 
             savepath = pathtext.ToString();
-
-            //Cache
-            string key = report.ReportId + startDate + endDate;
-            object pathCache = GetCache(key);
-            if (pathCache == null)
+            try
             {
-                using (var conn = new NpgsqlConnection(CTRPConst.connString))
+                //Cache
+                string key = report.ReportId + startDate + endDate;
+                object pathCache = GetCache(key);
+                if (pathCache == null)
                 {
-                    conn.Open();
-                    try
+                    using (var conn = new NpgsqlConnection(CTRPConst.connString))
                     {
+                        conn.Open();
                         ReportSetting[] reportSettings = report.ReportSettings.ToArray();
                         DataSet conclusionDS = new DataSet();
                         object[] parametersArray = new object[] { conn, startDate, endDate, reportSettings, conclusionDS };
@@ -90,22 +89,19 @@ namespace CTRPReporting.CTRO
                         CTRPFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
                         HttpRuntime.Cache.Add(key, savepath, null, Cache.NoAbsoluteExpiration, new TimeSpan(4, 0, 0), CacheItemPriority.Default, null);
                         pathCache = savepath;
-
-                        return 1;
-                    }
-                    catch (Exception ex)
-                    {
-                        Logging.WriteLog(ex.Message);
-                        return 0;
-                        throw;
                     }
                 }
-            }
-            else
-            {
-                System.IO.File.Copy(pathCache.ToString(), savepath, true);
-                CTRPFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
+                else
+                {
+                    System.IO.File.Copy(pathCache.ToString(), savepath, true);
+                    CTRPFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
+                }
                 return 1;
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog(ex.Message);
+                return 0;
             }
         }
 

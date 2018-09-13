@@ -12,11 +12,11 @@ namespace CTRPReporting.Models
         public int RecordId { get; set; }
 
         public int ReportId { get; set; }
-
+        [JsonIgnore]
         public string StartDate { get; set; }
-
+        [JsonIgnore]
         public string EndDate { get; set; }
-
+        [JsonIgnore]
         public string FilePath { get; set; }
 
         public DateTime CreatedDate { get; set; }

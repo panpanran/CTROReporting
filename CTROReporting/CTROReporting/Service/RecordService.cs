@@ -1,6 +1,7 @@
 ﻿using CTRPReporting.Infrastructure;
 using CTRPReporting.Models;
 using CTRPReporting.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -37,6 +38,11 @@ namespace CTRPReporting.Service
             SaveRecord();
         }
 
+        public IEnumerable<Record> GetRecordsToday()
+        {
+            var records = recordRepository.GetAll().Where(x=>x.CreatedDate.Date == DateTime.Today.Date).OrderByDescending(x => x.CreatedDate);
+            return records;
+        }
 
         public IEnumerable<Record> GetRecordsByUser(string userid)
         {

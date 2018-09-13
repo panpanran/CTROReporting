@@ -3,6 +3,7 @@ using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.OleDb;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -79,6 +80,56 @@ namespace CTRPReporting.Test
             return table;
         }
 
+        public static DataSet ReadExcelToDataSet(string pathname)
+        {
+            string connectionString = string.Format("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties='Excel 12.0;HDR=yes'", pathname);
+
+
+            DataSet data = new DataSet();
+
+            foreach (var sheetName in GetExcelSheetNames(connectionString))
+            {
+                using (OleDbConnection con = new OleDbConnection(connectionString))
+                {
+                    var dataTable = new System.Data.DataTable();
+                    dataTable.TableName = sheetName;
+                    string query = string.Format("SELECT * FROM [{0}]", sheetName);
+                    con.Open();
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(query, con);
+                    adapter.Fill(dataTable);
+                    data.Tables.Add(dataTable);
+                }
+            }
+
+            return data;
+        }
+
+        private static string[] GetExcelSheetNames(string connectionString)
+        {
+            System.Data.DataTable dt = null;
+
+            using (OleDbConnection conn = new OleDbConnection(connectionString))
+            {
+                conn.Open();
+                dt = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
+
+                if (dt == null)
+                {
+                    return null;
+                }
+
+                String[] excelSheetNames = new String[dt.Rows.Count];
+                int i = 0;
+
+                foreach (DataRow row in dt.Rows)
+                {
+                    excelSheetNames[i] = row["TABLE_NAME"].ToString();
+                    i++;
+                }
+                return excelSheetNames;
+            }
+        }
+
         public static void WriteExcelByDataTable(System.Data.DataTable datatable, ApplicationUser user, string savepath, string templatepath, int startrow, int startcolumn, bool ifchart)
         {
             Excel.Application xlApp;
@@ -89,7 +140,7 @@ namespace CTRPReporting.Test
             xlApp = new Excel.Application();
             try
             {
-                string pathtext = @"C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\" + user.UserName;
+                string pathtext = AppDomain.CurrentDomain.BaseDirectory + "/Excel/" + user.UserName;
                 if (!Directory.Exists(pathtext))
                 {
                     Directory.CreateDirectory(pathtext);
@@ -123,7 +174,7 @@ namespace CTRPReporting.Test
                 }
 
                 //Chart
-                if(ifchart == true)
+                if (ifchart == true)
                 {
                     CreateExcelChart(xlWorkSheet, writeRange);
                 }
