@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using CTRPReporting.Infrastructure;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
@@ -13,6 +14,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
@@ -27,76 +29,125 @@ namespace CTRPReporting.Test
         [Test]
         public void ProtocolAbstractionTest()
         {
-            IWebDriver driver = new ChromeDriver();
-            //Notice navigation is slightly different than the Java version
-            //This is because 'get' is a keyword in C#
-            driver.Navigate().GoToUrl("https://trials-stage.nci.nih.gov/pa/protected/studyProtocolexecute.action");
+            try
+            {
+                IWebDriver driver = new ChromeDriver();
+                //Notice navigation is slightly different than the Java version
+                //This is because 'get' is a keyword in C#
+                driver.Navigate().GoToUrl("https://trials.nci.nih.gov/pa/protected/studyProtocolexecute.action");
+                //Login
+                IWebElement username = driver.FindElement(By.Id("j_username"));
+                username.SendKeys("panr");
+                IWebElement password = driver.FindElement(By.Id("j_password"));
+                password.SendKeys("Prss_5678");
+                password.Submit();
+                IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
+                acceptclaim.Click();
 
-            //Read Data
-            DataSet trialdata = CTRPFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\Temporary Report\2017-2018 Comparison January to September 20180912.xlsx");
-            string trial = "NCI-2017-00086";
-            string siteLocalTrialIdentifier = "12345";
-            string recStatus = "Closed To Accrual and Intervention";
-            string recStatusDate = "09/01/2018";
+                //Read Data
+                string trial = "NCI-2017-00086";
+                string siteLocalTrialIdentifier = "12345";
+                string recStatus = "Closed To Accrual and Intervention";
+                string recStatusDate = "09/01/2018";
+                string poid = "1757021";
+                string comment = "test";
+                DataSet trialdata = CTRPFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\MGH to MGHCC\MGHCC List.xlsx");
 
-            //Login
-            IWebElement username = driver.FindElement(By.Id("j_username"));
-            username.SendKeys("panr");
-            IWebElement password = driver.FindElement(By.Id("j_password"));
-            password.SendKeys("Prss_5678");
-            password.Submit();
-            IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
-            acceptclaim.Click();
+                //Do Loop
+                foreach (DataTable table in trialdata.Tables)
+                {
+                    foreach (DataRow row in table.Rows)
+                    {
+                        trial = row.ItemArray[0].ToString();
+                        siteLocalTrialIdentifier = row.ItemArray[1].ToString();
+                        recStatus = row.ItemArray[2].ToString();
+                        recStatusDate = row.ItemArray[3].ToString();
+                        poid = row.ItemArray[4].ToString();
+                        comment = "Add organization MGHCC for EW ticket 77588";
 
-            //Find Trial
-            IWebElement trialSearchMenuOption = driver.FindElement(By.Id("trialSearchMenuOption"));
-            trialSearchMenuOption.Click();
-            IWebElement identifier = driver.FindElement(By.Id("identifier"));
-            identifier.SendKeys(trial);
-            identifier.SendKeys(Keys.Enter);
-            IWebElement triallink = driver.FindElements(By.TagName("a")).First(element => element.Text == trial);
-            triallink.Click();
-            //Checkout
-            IWebElement checkoutspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Admin Check Out");
-            checkoutspan.Click();
-            //Participating Site
-            IWebElement participatingsitelink = driver.FindElements(By.TagName("a")).First(element => element.Text == "Participating Sites");
-            participatingsitelink.Click();
-            IWebElement addsitelink = driver.FindElements(By.TagName("a")).First(element => element.Text == "Add");
-            addsitelink.Click();
-            IWebElement lookuplink = driver.FindElements(By.TagName("a")).First(element => element.Text == "Look Up");
-            lookuplink.Click();
-            IWebElement popupInner = driver.FindElement(By.Id("popupInner"));
-            //Popwindow for organization look up
-            string currentwindow = driver.CurrentWindowHandle;
-            driver.SwitchTo().Frame("popupFrame");
-            IWebElement txtorgNameSearch = driver.FindElement(By.Name("orgName"));
-            txtorgNameSearch.SendKeys("Massachusetts General Hospital Cancer Center");
-            IWebElement searchspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Search");
-            searchspan.Click();
-            //Wait 2 seconds
-            Thread.Sleep(2000);
-            IWebElement selectspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Select");
-            selectspan.Click();
-            //Back to main window
-            driver.SwitchTo().Window(currentwindow);
-            IWebElement txtsiteLocalTrialIdentifier = driver.FindElement(By.Id("siteLocalTrialIdentifier"));
-            txtsiteLocalTrialIdentifier.SendKeys(siteLocalTrialIdentifier);
-            IWebElement ddlrecStatus = driver.FindElement(By.Id("recStatus"));
-            ddlrecStatus.SendKeys(recStatus);
-            //Set readonly field by JS
-            IWebElement txtrecStatusDate = driver.FindElement(By.Id("recStatusDate"));
-            IJavaScriptExecutor rectatusDateJS = (IJavaScriptExecutor)driver;
-            rectatusDateJS.ExecuteScript("document.getElementById('recStatusDate').setAttribute('value', '" + recStatusDate + "')");
-            IWebElement sitesavespan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Save");
-            sitesavespan.Click();
-            //Investigators
-            IWebElement tabinvestigator = driver.FindElements(By.TagName("a")).First(element => element.Text == "Investigators");
-            tabinvestigator.Click();
-            IWebElement spanadd = driver.FindElements(By.TagName("span")).First(element => element.Text == "Add");
-            spanadd.Click();
 
-            driver.Quit();
+
+                        //Find Trial
+                        IWebElement trialSearchMenuOption = driver.FindElement(By.Id("trialSearchMenuOption"));
+                        trialSearchMenuOption.Click();
+                        IWebElement identifier = driver.FindElement(By.Id("identifier"));
+                        identifier.SendKeys(trial);
+                        identifier.SendKeys(Keys.Enter);
+                        IWebElement triallink = driver.FindElements(By.TagName("a")).First(element => element.Text == trial);
+                        triallink.Click();
+                        //Checkout
+                        IWebElement checkoutspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Admin Check Out");
+                        checkoutspan.Click();
+                        //Participating Site
+                        IWebElement participatingsitelink = driver.FindElements(By.TagName("a")).First(element => element.Text == "Participating Sites");
+                        participatingsitelink.Click();
+                        IWebElement addsitelink = driver.FindElements(By.TagName("a")).First(element => element.Text == "Add");
+                        addsitelink.Click();
+                        IWebElement lookuplink = driver.FindElements(By.TagName("a")).First(element => element.Text == "Look Up");
+                        lookuplink.Click();
+                        IWebElement popupInner = driver.FindElement(By.Id("popupInner"));
+                        //Popwindow for organization look up
+                        string currentwindow = driver.CurrentWindowHandle;
+                        driver.SwitchTo().Frame("popupFrame");
+                        IWebElement txtorgNameSearch = driver.FindElement(By.Name("orgName"));
+                        txtorgNameSearch.SendKeys("Massachusetts General Hospital Cancer Center");
+                        IWebElement searchsitespan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Search");
+                        searchsitespan.Click();
+                        //Wait 2 seconds
+                        Thread.Sleep(2000);
+                        IWebElement selectsitespan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Select");
+                        selectsitespan.Click();
+                        //Back to main window
+                        driver.SwitchTo().Window(currentwindow);
+                        IWebElement txtsiteLocalTrialIdentifier = driver.FindElement(By.Id("siteLocalTrialIdentifier"));
+                        txtsiteLocalTrialIdentifier.SendKeys(siteLocalTrialIdentifier);
+                        IWebElement ddlrecStatus = driver.FindElement(By.Id("recStatus"));
+                        ddlrecStatus.SendKeys(recStatus);
+                        //Set readonly field by JS
+                        IWebElement txtrecStatusDate = driver.FindElement(By.Id("recStatusDate"));
+                        IJavaScriptExecutor rectatusDateJS = (IJavaScriptExecutor)driver;
+                        rectatusDateJS.ExecuteScript("document.getElementById('recStatusDate').setAttribute('value', '" + recStatusDate + "')");
+                        IWebElement txtparticipatingOrganizationsfacilitySave_dateOpenedForAccrual = driver.FindElement(By.Id("participatingOrganizationscreate_dateOpenedForAccrual"));
+                        rectatusDateJS.ExecuteScript("document.getElementById('participatingOrganizationscreate_dateOpenedForAccrual').setAttribute('value', '" + recStatusDate + "')");
+
+                        IWebElement sitesavespan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Save");
+                        sitesavespan.Click();
+                        ////Investigatorsjavascript:void(0)
+                        //IWebElement tabinvestigator = driver.FindElements(By.TagName("a")).First(element => element.Text == "Investigators");
+                        //tabinvestigator.Click();
+                        //IWebElement spanadd = driver.FindElements(By.TagName("span")).First(element => element.Text == "Add");
+                        //spanadd.Click();
+                        //currentwindow = driver.CurrentWindowHandle;
+                        //driver.SwitchTo().Frame("popupFrame");
+                        //IWebElement txtpoID = driver.FindElement(By.Id("poID"));
+                        //txtpoID.SendKeys(poid);
+                        //IWebElement searchinvestigatorspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Search");
+                        //searchinvestigatorspan.Click();
+                        ////Wait 2 seconds
+                        //Thread.Sleep(2000);
+                        //IWebElement selectinvestigatorspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Select");
+                        //selectinvestigatorspan.Click();
+                        //driver.SwitchTo().Window(currentwindow);
+                        //Checkin
+                        IWebElement trialidentification = driver.FindElements(By.TagName("a")).First(element => element.Text == "Trial Identification");
+                        trialidentification.Click();
+                        IWebElement btnadmincheckin = driver.FindElements(By.TagName("span")).First(element => element.Text == "Admin Check In");
+                        btnadmincheckin.Click();
+                        IWebElement btnproceedcheckin = driver.FindElements(By.TagName("button")).First(element => element.Text == "Proceed with Check-in");
+                        btnproceedcheckin.Click();
+                        IWebElement txtcomments = driver.FindElement(By.Id("comments"));
+                        txtcomments.SendKeys(comment);
+                        IWebElement btnOk = driver.FindElements(By.TagName("button")).First(element => element.Text == "Ok");
+                        btnOk.Click();
+                    }
+                }
+
+                driver.Quit();
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
+            }
         }
 
         [Test]

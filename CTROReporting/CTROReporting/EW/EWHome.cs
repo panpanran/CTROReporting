@@ -70,7 +70,7 @@ namespace CTRPReporting.EW
             }
             catch (Exception ex)
             {
-                Logging.WriteLog(ex.Message);
+                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
             }
         }
 

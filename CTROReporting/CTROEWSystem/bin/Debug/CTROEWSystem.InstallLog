@@ -1,0 +1,80 @@
+﻿Installing assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+Installing service EWTicket Service...
+Creating EventLog source EWTicket Service in log Application...
+Rolling back assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+Restoring event log to previous state for source EWTicket Service.
+An exception occurred during the Rollback phase of the System.Diagnostics.EventLogInstaller installer.
+System.Security.SecurityException: The source was not found, but some or all event logs could not be searched.  Inaccessible logs: Security.
+An exception occurred during the Rollback phase of the installation. This exception will be ignored and the rollback will continue. However, the machine might not fully revert to its initial state after the rollback is complete.
+Installing assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+Installing service EWTicket Service...
+Service EWTicket Service has been successfully installed.
+Creating EventLog source EWTicket Service in log Application...
+Committing assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+Installing assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+Installing service EWTicketTrageService...
+Service EWTicketTrageService has been successfully installed.
+Creating EventLog source EWTicketTrageService in log Application...
+Committing assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+Uninstalling assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+Removing EventLog source EWTicketTrageService.
+An exception occurred during the uninstallation of the System.Diagnostics.EventLogInstaller installer.
+System.Security.SecurityException: Requested registry access is not allowed.
+An exception occurred while uninstalling. This exception will be ignored and the uninstall will continue. However, the application might not be fully uninstalled after the uninstall is complete.
+Uninstalling assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+Removing EventLog source EWTicketTrageService.
+Service EWTicketTrageService is being removed from the system...
+Service EWTicketTrageService was successfully removed from the system.
+Uninstalling assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+Removing EventLog source EWTicket Service.
+Service EWTicket Service is being removed from the system...
+Service EWTicket Service was successfully removed from the system.
+Installing assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+Installing service EWTicketTriageService...
+Service EWTicketTriageService has been successfully installed.
+Creating EventLog source EWTicketTriageService in log Application...
+Committing assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe

@@ -1,0 +1,12 @@
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\obj\Debug\CTROEWSystem.csprojAssemblyReference.cache
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\obj\Debug\CTROEWSystem.csproj.CoreCompileInputs.cache
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe.config
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.pdb
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROLibrary.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROLibrary.pdb
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\obj\Debug\CTROEWSystem.csproj.CopyComplete
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\obj\Debug\CTROEWSystem.exe
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\obj\Debug\CTROEWSystem.pdb
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\obj\Debug\CTROEWSystem.ProjectInstaller.resources
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\obj\Debug\CTROEWSystem.csproj.GenerateResource.cache

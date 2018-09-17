@@ -2,28 +2,38 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 
 namespace CTRPReporting.Infrastructure
 {
     public class Logging
     {
-        public static void WriteLog(string ex)
+        public static void WriteLog(string classname, string methodname, string ex)
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory + "/Logging/" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt";
-            if (!File.Exists(path))
+            StringBuilder path = new StringBuilder(AppDomain.CurrentDomain.BaseDirectory + "/Logging/");
+
+            if (!Directory.Exists(path.ToString()))
+            {
+                Directory.CreateDirectory(path.ToString());
+            }
+
+            path.Append(DateTime.Now.ToString("yyyy-MM-dd") + ".txt");
+
+            string output = classname + " > " + methodname + " > " + ex;
+            if (!File.Exists(path.ToString()))
             {
                 // Create a file to write to.
-                using (StreamWriter sw = File.CreateText(path))
+                using (StreamWriter sw = File.CreateText(path.ToString()))
                 {
-                    Log(ex, sw);
+                    Log(output, sw);
                 }
             }
             else
             {
-                using (StreamWriter sw = File.AppendText(path))
+                using (StreamWriter sw = File.AppendText(path.ToString()))
                 {
-                    Log(ex, sw);
+                    Log(output, sw);
                 }
             }
         }
