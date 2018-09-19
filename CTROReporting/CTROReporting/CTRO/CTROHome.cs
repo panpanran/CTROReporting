@@ -1,6 +1,6 @@
 ﻿using CTRPReporting.Infrastructure;
 using CTRPReporting.Models;
-using CTRPReporting.Test;
+using CTRPReporting.CTRO;
 using Microsoft.AspNet.Identity;
 using Npgsql;
 using System;
@@ -25,7 +25,7 @@ namespace CTRPReporting.CTRO
         //excel
         public int CreateReport(string startDate, string endDate, ApplicationUser user, Report report, out string savepath)
         {
-            Type type = Type.GetType("CTRPReporting.Test." + report.ReportName.Replace(" - ", "").Replace(" ", "") + "Report");
+            Type type = Type.GetType("CTRPReporting.CTRO." + report.ReportName.Replace(" - ", "").Replace(" ", "") + "Report");
             Object obj = Activator.CreateInstance(type);
             MethodInfo methodInfo = type.GetMethod("CreateBook");
             object classInstance = Activator.CreateInstance(type, null);
@@ -62,7 +62,7 @@ namespace CTRPReporting.CTRO
                 object pathCache = GetCache(key);
                 if (pathCache == null)
                 {
-                    using (var conn = new NpgsqlConnection(CTRPConst.connString))
+                    using (var conn = new NpgsqlConnection(CTROConst.connString))
                     {
                         conn.Open();
                         ReportSetting[] reportSettings = report.ReportSettings.ToArray();
@@ -79,14 +79,14 @@ namespace CTRPReporting.CTRO
                             {
                                 ifchart = true;
                             }
-                            CTRPFunctions.WriteExcelByDataTable(bookDS.Tables[n], user, savepath, report.Template, reportsetting.Startrow, reportsetting.Startcolumn, ifchart);
+                            CTROFunctions.WriteExcelByDataTable(bookDS.Tables[n], user, savepath, report.Template, reportsetting.Startrow, reportsetting.Startcolumn, ifchart);
                             if (reportsetting.AdditionStartrow > 0 && reportsetting.AdditionStartcolumn > 0)
                             {
-                                CTRPFunctions.WriteExcelByDataTable(conclusionDS.Tables[n], user, savepath, null, reportsetting.AdditionStartrow, reportsetting.AdditionStartcolumn, ifchart);
+                                CTROFunctions.WriteExcelByDataTable(conclusionDS.Tables[n], user, savepath, null, reportsetting.AdditionStartrow, reportsetting.AdditionStartcolumn, ifchart);
                             }
                         }
 
-                        CTRPFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
+                        CTROFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
                         HttpRuntime.Cache.Add(key, savepath, null, Cache.NoAbsoluteExpiration, new TimeSpan(4, 0, 0), CacheItemPriority.Default, null);
                         pathCache = savepath;
                     }
@@ -94,7 +94,7 @@ namespace CTRPReporting.CTRO
                 else
                 {
                     System.IO.File.Copy(pathCache.ToString(), savepath, true);
-                    CTRPFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
+                    CTROFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
                 }
                 return 1;
             }
@@ -108,7 +108,7 @@ namespace CTRPReporting.CTRO
         //chart
         public void CreateAnalysisChart(string startDate, string endDate, ReportSetting[] reportsettings, string reportname, out string[] XLabel, out string[] YLabel, out string[] Xaxis, out string[] ChartName, out string[] ChartType, out List<Dictionary<string, string>> Yaxis, out string[] Loginname)
         {
-            Type type = Type.GetType("CTRPReporting.Test." + reportname + "Report");
+            Type type = Type.GetType("CTRPReporting.CTRO." + reportname + "Report");
             Object obj = Activator.CreateInstance(type);
             MethodInfo methodInfo = type.GetMethod("CreateBook");
             object classInstance = Activator.CreateInstance(type, null);
@@ -117,7 +117,7 @@ namespace CTRPReporting.CTRO
             Yaxis = new List<Dictionary<string, string>>();
             Dictionary<string, string> tempYaxis = new Dictionary<string, string>();
             Dictionary<string, string> temprankYaxis = new Dictionary<string, string>();
-            using (var conn = new NpgsqlConnection(CTRPConst.connString))
+            using (var conn = new NpgsqlConnection(CTROConst.connString))
             {
                 conn.Open();
                 try
@@ -184,7 +184,7 @@ namespace CTRPReporting.CTRO
 
         public void CreateChart(string startDate, string endDate, CTRPReporting.Models.Chart chart, out string[] XLabel, out string[] YLabel, out string[] Xaxis, out string[] ChartName, out string[] ChartType, out List<Dictionary<string, string>> Yaxis, out string[] Loginname)
         {
-            Type type = Type.GetType("CTRPReporting.Test." + chart.ChartName.Replace(" - ", "") + "Chart");
+            Type type = Type.GetType("CTRPReporting.CTRO." + chart.ChartName.Replace(" - ", "") + "Chart");
             Object obj = Activator.CreateInstance(type);
             MethodInfo methodInfo = type.GetMethod("CreateBook");
             object classInstance = Activator.CreateInstance(type, null);
@@ -193,7 +193,7 @@ namespace CTRPReporting.CTRO
             Yaxis = new List<Dictionary<string, string>>();
             Dictionary<string, string> tempYaxis = new Dictionary<string, string>();
             Dictionary<string, string> temprankYaxis = new Dictionary<string, string>();
-            using (var conn = new NpgsqlConnection(CTRPConst.connString))
+            using (var conn = new NpgsqlConnection(CTROConst.connString))
             {
                 conn.Open();
                 try

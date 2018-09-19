@@ -1,6 +1,6 @@
 ﻿using CTRPReporting.Models;
 using CTRPReporting.Service;
-using CTRPReporting.Test;
+using CTRPReporting.CTRO;
 using CTRPReporting.ViewModels;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
@@ -44,7 +44,7 @@ namespace CTRPReporting.Controllers
 
             //Refresh Schedules
             List<Schedule> schedulelist = scheduleService.GetSchedules().ToList();
-            CTRPSchedule.Start(schedulelist);
+            CTROSchedule.Start(schedulelist);
 
             return View();
         }
@@ -60,7 +60,7 @@ namespace CTRPReporting.Controllers
 
             //Refresh Schedules
             List<Schedule> schedulelist = scheduleService.GetSchedules().ToList();
-            CTRPSchedule.Start(schedulelist);
+            CTROSchedule.Start(schedulelist);
 
             return View();
         }
@@ -71,7 +71,7 @@ namespace CTRPReporting.Controllers
 
             //Refresh Schedules
             List<Schedule> schedulelist = scheduleService.GetSchedules().ToList();
-            CTRPSchedule.Start(schedulelist);
+            CTROSchedule.Start(schedulelist);
 
             return View();
         }

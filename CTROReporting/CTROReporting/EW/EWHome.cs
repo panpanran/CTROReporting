@@ -1,6 +1,6 @@
 ﻿using CTRPReporting.Infrastructure;
 using CTRPReporting.Models;
-using CTRPReporting.Test;
+using CTRPReporting.CTRO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,12 +60,12 @@ namespace CTRPReporting.EW
 
                 if (!string.IsNullOrEmpty(url))
                 {
-                    string html = CTRPFunctions.GetHTMLByUrl(url);
+                    string html = CTROFunctions.GetHTMLByUrl(url);
                 }
                 else
                 {
                     url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&full_name=Please create a new user or add this email to the 'alternate email' of the existing user";
-                    string html = CTRPFunctions.GetHTMLByUrl(url);
+                    string html = CTROFunctions.GetHTMLByUrl(url);
                 }
             }
             catch (Exception ex)
@@ -95,7 +95,7 @@ namespace CTRPReporting.EW
             string description = "TriageAccrual";
 
             string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&description=" + description;
-            string html = CTRPFunctions.GetHTMLByUrl(url);
+            string html = CTROFunctions.GetHTMLByUrl(url);
         }
 
 
@@ -136,7 +136,7 @@ namespace CTRPReporting.EW
             string description = "TriageClinicalTrialsDotGov";
 
             string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&description=" + description;
-            string html = CTRPFunctions.GetHTMLByUrl(url);
+            string html = CTROFunctions.GetHTMLByUrl(url);
         }
 
         public void BulkUpdate(string[] ticketlist)
@@ -171,7 +171,7 @@ namespace CTRPReporting.EW
             string description = "TriageScientific";
 
             string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&description=" + description;
-            string html = CTRPFunctions.GetHTMLByUrl(url);
+            string html = CTROFunctions.GetHTMLByUrl(url);
         }
 
         public void BulkUpdate(string[] ticketlist)
@@ -206,7 +206,7 @@ namespace CTRPReporting.EW
             string description = "TriageTSRFeedback";
 
             string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&description=" + description;
-            string html = CTRPFunctions.GetHTMLByUrl(url);
+            string html = CTROFunctions.GetHTMLByUrl(url);
         }
 
         public void BulkUpdate(string[] ticketlist)
@@ -244,7 +244,7 @@ namespace CTRPReporting.EW
             string description = "TriageOnHoldTrials";
 
             string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_1234&$lang=en&id=" + ticket.TicketId + "&description=" + description;
-            string html = CTRPFunctions.GetHTMLByUrl(url);
+            string html = CTROFunctions.GetHTMLByUrl(url);
         }
 
         public void BulkUpdate(string[] ticketlist)

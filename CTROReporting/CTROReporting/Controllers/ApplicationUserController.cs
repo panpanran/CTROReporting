@@ -1,7 +1,7 @@
 ﻿using CTRPReporting.App_Start;
 using CTRPReporting.Models;
 using CTRPReporting.Service;
-using CTRPReporting.Test;
+using CTRPReporting.CTRO;
 using CTRPReporting.ViewModels;
 using AutoMapper;
 using CTRPReporting.Properties;
@@ -78,7 +78,7 @@ namespace CTRPReporting.Controllers
         public ActionResult Login(string returnUrl)
         {
             List<Schedule> schedulelist = scheduleService.GetSchedules().ToList();
-            CTRPSchedule.Start(schedulelist);
+            CTROSchedule.Start(schedulelist);
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }

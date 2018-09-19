@@ -11,7 +11,7 @@ namespace CTROLibrary
     {
         public static void WriteLog(string classname, string methodname, string ex)
         {
-            StringBuilder path = new StringBuilder(@"C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem");
+            StringBuilder path = new StringBuilder(AppDomain.CurrentDomain.BaseDirectory + "/Logging/");
 
             if (!Directory.Exists(path.ToString()))
             {

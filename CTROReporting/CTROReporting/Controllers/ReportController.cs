@@ -10,7 +10,7 @@ using System;
 using AutoMapper;
 using System.Linq;
 using System.IO;
-using CTRPReporting.Test;
+using CTRPReporting.CTRO;
 using System.Web;
 using System.Web.Caching;
 

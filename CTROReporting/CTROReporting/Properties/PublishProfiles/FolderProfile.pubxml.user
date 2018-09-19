@@ -61,10 +61,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/15/2015 08:08:46</publishTime>
     </File>
     <File Include="bin/CTRPReporting.dll">
-      <publishTime>09/13/2018 16:30:15</publishTime>
+      <publishTime>09/19/2018 14:51:25</publishTime>
     </File>
     <File Include="bin/CTRPReporting.pdb">
-      <publishTime>09/13/2018 16:30:15</publishTime>
+      <publishTime>09/19/2018 14:51:25</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>

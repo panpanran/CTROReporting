@@ -2,7 +2,7 @@
 using CTRPReporting.Models;
 using CTRPReporting.Repository;
 using CTRPReporting.Service;
-using CTRPReporting.Test;
+using CTRPReporting.CTRO;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
@@ -45,7 +45,7 @@ namespace CTRPReporting.App_Start
             builder.RegisterAssemblyTypes(typeof(UserProfileServiceController).Assembly)
             .Where(t => t.Name.EndsWith("ServiceController"))
             .AsImplementedInterfaces();
-            //builder.RegisterType<CTRPSchedule>().InstancePerRequest();
+            //builder.RegisterType<CTROSchedule>().InstancePerRequest();
 
             builder.Register(c => new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new EntitiesInitial())))
                 .As<UserManager<ApplicationUser>>().InstancePerRequest();
