@@ -1,8 +1,8 @@
-﻿using CTRPReporting.Models;
-using CTRPReporting.ViewModels;
+﻿using CTROReporting.Models;
+using CTROReporting.ViewModels;
 using AutoMapper;
 
-namespace CTRPReporting.App_Start
+namespace CTROReporting.App_Start
 {
     public class AutoMapperConfig
     {

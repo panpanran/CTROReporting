@@ -61,10 +61,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/15/2015 08:08:46</publishTime>
     </File>
     <File Include="bin/CTRPReporting.dll">
-      <publishTime>09/19/2018 14:51:25</publishTime>
+      <publishTime>09/28/2018 13:51:47</publishTime>
     </File>
     <File Include="bin/CTRPReporting.pdb">
-      <publishTime>09/19/2018 14:51:25</publishTime>
+      <publishTime>09/28/2018 13:51:47</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
@@ -190,10 +190,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/05/2018 10:09:01</publishTime>
     </File>
     <File Include="bin/Quartz.dll">
-      <publishTime>03/03/2018 22:53:22</publishTime>
+      <publishTime>07/06/2018 13:09:44</publishTime>
     </File>
     <File Include="bin/Quartz.pdb">
-      <publishTime>03/03/2018 22:53:22</publishTime>
+      <publishTime>07/06/2018 13:09:44</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>04/05/2018 10:09:03</publishTime>
@@ -954,6 +954,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Images/replacement people.jpg">
       <publishTime>04/05/2018 10:08:42</publishTime>
     </File>
+    <File Include="libman.json">
+      <publishTime>09/26/2018 08:50:32</publishTime>
+    </File>
     <File Include="Mono.Cecil.dll">
       <publishTime>03/07/2018 18:32:26</publishTime>
     </File>
@@ -970,7 +973,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/07/2018 18:32:26</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/12/2018 14:04:47</publishTime>
+      <publishTime>09/21/2018 16:00:10</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js">
       <publishTime>05/12/2018 10:10:47</publishTime>
@@ -1480,7 +1483,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/13/2018 08:59:56</publishTime>
     </File>
     <File Include="Templates/PDA Abstractor and QC Template.xlsx">
-      <publishTime>07/09/2018 09:18:49</publishTime>
+      <publishTime>09/20/2018 10:59:33</publishTime>
     </File>
     <File Include="Templates/Reactivated Report Template.xlsx">
       <publishTime>07/24/2018 15:22:16</publishTime>
@@ -1504,10 +1507,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/11/2018 13:27:28</publishTime>
     </File>
     <File Include="Views/ApplicationUser/Login.cshtml">
-      <publishTime>09/11/2018 13:27:16</publishTime>
+      <publishTime>09/26/2018 14:11:03</publishTime>
     </File>
     <File Include="Views/ApplicationUser/Register.cshtml">
-      <publishTime>09/11/2018 13:27:16</publishTime>
+      <publishTime>09/26/2018 14:10:56</publishTime>
     </File>
     <File Include="Views/ApplicationUser/UserManagement.cshtml">
       <publishTime>09/11/2018 13:27:28</publishTime>
@@ -1588,7 +1591,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/05/2018 10:08:45</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/13/2018 16:30:17</publishTime>
+      <publishTime>09/24/2018 10:41:16</publishTime>
     </File>
   </ItemGroup>
 </Project>

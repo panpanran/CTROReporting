@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTROReporting", "CTROReport
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTROEWSystem", "CTROEWSystem\CTROEWSystem.csproj", "{6776D38E-2463-47CC-BE21-3AF8E5DEDCA7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTROLibrary", "EWTicketLibrary\CTROLibrary.csproj", "{5C16B84A-9F19-4260-89C0-F12D1EE89E17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTROLibrary", "CTROLibrary\CTROLibrary.csproj", "{5C16B84A-9F19-4260-89C0-F12D1EE89E17}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTROTest", "CTROTest\CTROTest.csproj", "{DD08FADD-B35B-44BD-AE06-21DDDFDD11C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CTROScheduleReport", "CTROScheduleReport\CTROScheduleReport.csproj", "{5D3AF2D3-F0E4-429F-A38D-67DA63747C8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{DD08FADD-B35B-44BD-AE06-21DDDFDD11C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD08FADD-B35B-44BD-AE06-21DDDFDD11C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD08FADD-B35B-44BD-AE06-21DDDFDD11C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D3AF2D3-F0E4-429F-A38D-67DA63747C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D3AF2D3-F0E4-429F-A38D-67DA63747C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D3AF2D3-F0E4-429F-A38D-67DA63747C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D3AF2D3-F0E4-429F-A38D-67DA63747C8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

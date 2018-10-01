@@ -1,7 +1,7 @@
-﻿using CTRPReporting.CTRO;
-using CTRPReporting.Infrastructure;
-using CTRPReporting.Models;
-using CTRPReporting.Repository;
+﻿using CTROReporting.CTRO;
+using CTROReporting.Infrastructure;
+using CTROReporting.Models;
+using CTROReporting.Repository;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +10,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace CTRPReporting.Service
+namespace CTROReporting.Service
 {
     public interface IReportService
     {

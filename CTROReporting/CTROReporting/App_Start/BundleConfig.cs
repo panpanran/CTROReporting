@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace CTRPReporting
+namespace CTROReporting
 {
     public class BundleConfig
     {

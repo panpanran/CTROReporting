@@ -1,0 +1,536 @@
+
+Log Entry : 3:29:37 PM Friday, September 28, 2018
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------
+
+Log Entry : 3:32:10 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > Cannot open database "CTROReportingEntities" requested by the login. The login failed.
+Login failed for user 'NIH\NCI-02117004-L$'.
+-------------------------------
+
+Log Entry : 3:32:36 PM Friday, September 28, 2018
+  :
+  :CTROScheduleService > OnStop > CTROScheduleService Stop
+-------------------------------
+
+Log Entry : 3:35:41 PM Friday, September 28, 2018
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------
+
+Log Entry : 3:36:09 PM Friday, September 28, 2018
+  :
+  :CTROScheduleService > OnStop > CTROScheduleService Stop
+-------------------------------
+
+Log Entry : 3:36:58 PM Friday, September 28, 2018
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job8----9/1/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job16----5/2/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job22----6/4/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job24----6/4/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job27----6/19/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job36----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job37----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job39----9/7/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job40----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job41----7/25/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job42----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job43----7/16/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job44----7/24/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job45----7/24/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job46----7/24/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job47----7/25/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job48----7/27/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job49----7/27/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job50----8/6/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:38:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job51----9/7/2018 3:32:00 PM
+-------------------------------
+
+Log Entry : 3:40:58 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job8----9/1/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:58 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job16----5/2/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:58 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job22----6/4/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:58 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job24----6/4/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:58 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job27----6/19/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job36----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job37----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job39----9/7/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job40----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job41----7/25/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job42----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job43----7/16/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job44----7/24/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job45----7/24/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job46----7/24/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job47----7/25/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job48----7/27/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job49----7/27/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job50----8/6/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:40:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job51----9/7/2018 3:32:00 PM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job8----9/1/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job16----5/2/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job22----6/4/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job24----6/4/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job27----6/19/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job36----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job37----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job39----9/7/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job40----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job41----7/25/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job42----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job43----7/16/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job44----7/24/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job45----7/24/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job46----7/24/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job47----7/25/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job48----7/27/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job49----7/27/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job50----8/6/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:42:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job51----9/7/2018 3:32:00 PM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job8----9/1/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job16----5/2/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job22----6/4/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job24----6/4/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job27----6/19/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job36----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job37----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job39----9/7/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job40----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job41----7/25/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job42----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job43----7/16/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job44----7/24/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job45----7/24/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job46----7/24/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job47----7/25/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job48----7/27/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job49----7/27/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job50----8/6/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:44:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job51----9/7/2018 3:32:00 PM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job8----9/1/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job16----5/2/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job22----6/4/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job24----6/4/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job27----6/19/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job36----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job37----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job39----9/7/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job40----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job41----7/25/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job42----7/23/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job43----7/16/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job44----7/24/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job45----7/24/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job46----7/24/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job47----7/25/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job48----7/27/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job49----7/27/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job50----8/6/2018 8:10:00 AM
+-------------------------------
+
+Log Entry : 3:46:59 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > JobScheduled:job51----9/7/2018 3:32:00 PM
+-------------------------------
+
+Log Entry : 3:47:27 PM Friday, September 28, 2018
+  :
+  :CTROScheduleService > OnStop > CTROScheduleService Stop
+-------------------------------

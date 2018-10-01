@@ -1,4 +1,5 @@
-﻿using CTRPReporting.Models;
+﻿using CTROReporting.Infrastructure;
+using CTROReporting.Models;
 using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ using System.Reflection;
 using System.Web;
 using Excel = Microsoft.Office.Interop.Excel;
 
-namespace CTRPReporting.CTRO
+namespace CTROReporting.CTRO
 {
     public static class CTROFunctions
     {
@@ -198,6 +199,7 @@ namespace CTRPReporting.CTRO
                 ReleaseObject(xlApp);
 
                 File.Delete(savepath);
+                Logging.WriteLog("CTROFunctions", MethodBase.GetCurrentMethod().Name, ex.Message);
                 throw;
             }
         }
@@ -295,6 +297,8 @@ namespace CTRPReporting.CTRO
                 ReleaseObject(xlApp);
 
                 File.Delete(savepath);
+                Logging.WriteLog("CTROFunctions", MethodBase.GetCurrentMethod().Name, ex.Message);
+
                 throw;
             }
         }

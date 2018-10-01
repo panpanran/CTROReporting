@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Web;
 
-namespace CTRPReporting.Infrastructure
+namespace CTROReporting.Infrastructure
 {
     public interface IRepository<T> where T : class
     {

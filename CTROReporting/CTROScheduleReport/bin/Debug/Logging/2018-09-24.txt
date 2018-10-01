@@ -1,0 +1,10 @@
+
+Log Entry : 10:08:45 AM Monday, September 24, 2018
+  :
+  :CTROScheduleService > OnStart > No Entity Framework provider found for the ADO.NET provider with invariant name 'System.Data.SqlClient'. Make sure the provider is registered in the 'entityFramework' section of the application config file. See http://go.microsoft.com/fwlink/?LinkId=260882 for more information.
+-------------------------------
+
+Log Entry : 10:31:29 AM Monday, September 24, 2018
+  :
+  :CTROScheduleService > OnStart > Object reference not set to an instance of an object.
+-------------------------------

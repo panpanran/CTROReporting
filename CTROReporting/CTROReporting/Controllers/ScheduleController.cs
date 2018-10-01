@@ -1,7 +1,7 @@
-﻿using CTRPReporting.Models;
-using CTRPReporting.Service;
-using CTRPReporting.CTRO;
-using CTRPReporting.ViewModels;
+﻿using CTROReporting.Models;
+using CTROReporting.Service;
+using CTROReporting.CTRO;
+using CTROReporting.ViewModels;
 using AutoMapper;
 using Microsoft.AspNet.Identity;
 using System;
@@ -10,8 +10,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Quartz;
 
-namespace CTRPReporting.Controllers
+namespace CTROReporting.Controllers
 {
     [Authorize]
     public class ScheduleController : Controller
@@ -42,9 +43,8 @@ namespace CTRPReporting.Controllers
             schedule.UserId = User.Identity.GetUserId();
             scheduleService.CreateSchedule(schedule);
 
-            //Refresh Schedules
-            List<Schedule> schedulelist = scheduleService.GetSchedules().ToList();
-            CTROSchedule.Start(schedulelist);
+            CTROSchedule ctroSchedule = new CTROSchedule();
+            ctroSchedule.CreateJob(schedule);
 
             return View();
         }
@@ -58,9 +58,8 @@ namespace CTRPReporting.Controllers
             schedule.ReportId = reportService.GetByReportName(model.ReportName).ReportId;
             scheduleService.UpdateSchedule(schedule);
 
-            //Refresh Schedules
-            List<Schedule> schedulelist = scheduleService.GetSchedules().ToList();
-            CTROSchedule.Start(schedulelist);
+            CTROSchedule ctroSchedule = new CTROSchedule();
+            ctroSchedule.UpdateJob(schedule);
 
             return View();
         }
@@ -69,9 +68,9 @@ namespace CTRPReporting.Controllers
         {
             scheduleService.DeleteSchedule(model.ScheduleId);
 
-            //Refresh Schedules
-            List<Schedule> schedulelist = scheduleService.GetSchedules().ToList();
-            CTROSchedule.Start(schedulelist);
+            Schedule schedule = scheduleService.GetByScheduleID(model.ScheduleId);
+            CTROSchedule ctroSchedule = new CTROSchedule();
+            ctroSchedule.DeleteJob(schedule);
 
             return View();
         }

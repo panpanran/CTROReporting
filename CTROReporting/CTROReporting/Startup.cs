@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute("CTROReportingConfig", typeof(CTRPReporting.Startup))]
-namespace CTRPReporting
+[assembly: OwinStartupAttribute("CTROReportingConfig", typeof(CTROReporting.Startup))]
+namespace CTROReporting
 {
     public partial class Startup
     {

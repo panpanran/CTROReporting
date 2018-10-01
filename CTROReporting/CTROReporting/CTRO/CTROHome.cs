@@ -1,6 +1,6 @@
-﻿using CTRPReporting.Infrastructure;
-using CTRPReporting.Models;
-using CTRPReporting.CTRO;
+﻿using CTROReporting.Infrastructure;
+using CTROReporting.Models;
+using CTROReporting.CTRO;
 using Microsoft.AspNet.Identity;
 using Npgsql;
 using System;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Web;
 using System.Web.Caching;
 
-namespace CTRPReporting.CTRO
+namespace CTROReporting.CTRO
 {
     public class CTROHome
     {
@@ -25,8 +25,7 @@ namespace CTRPReporting.CTRO
         //excel
         public int CreateReport(string startDate, string endDate, ApplicationUser user, Report report, out string savepath)
         {
-            Type type = Type.GetType("CTRPReporting.CTRO." + report.ReportName.Replace(" - ", "").Replace(" ", "") + "Report");
-            Object obj = Activator.CreateInstance(type);
+            Type type = Type.GetType("CTROReporting.CTRO." + report.ReportName.Replace(" - ", "").Replace(" ", "") + "Report");
             MethodInfo methodInfo = type.GetMethod("CreateBook");
             object classInstance = Activator.CreateInstance(type, null);
             object bookObject = null;
@@ -108,7 +107,7 @@ namespace CTRPReporting.CTRO
         //chart
         public void CreateAnalysisChart(string startDate, string endDate, ReportSetting[] reportsettings, string reportname, out string[] XLabel, out string[] YLabel, out string[] Xaxis, out string[] ChartName, out string[] ChartType, out List<Dictionary<string, string>> Yaxis, out string[] Loginname)
         {
-            Type type = Type.GetType("CTRPReporting.CTRO." + reportname + "Report");
+            Type type = Type.GetType("CTROReporting.CTRO." + reportname + "Report");
             Object obj = Activator.CreateInstance(type);
             MethodInfo methodInfo = type.GetMethod("CreateBook");
             object classInstance = Activator.CreateInstance(type, null);
@@ -175,16 +174,16 @@ namespace CTRPReporting.CTRO
                 }
                 catch (Exception ex)
                 {
-
+                    Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
                     throw;
                 }
             }
         }
 
 
-        public void CreateChart(string startDate, string endDate, CTRPReporting.Models.Chart chart, out string[] XLabel, out string[] YLabel, out string[] Xaxis, out string[] ChartName, out string[] ChartType, out List<Dictionary<string, string>> Yaxis, out string[] Loginname)
+        public void CreateChart(string startDate, string endDate, CTROReporting.Models.Chart chart, out string[] XLabel, out string[] YLabel, out string[] Xaxis, out string[] ChartName, out string[] ChartType, out List<Dictionary<string, string>> Yaxis, out string[] Loginname)
         {
-            Type type = Type.GetType("CTRPReporting.CTRO." + chart.ChartName.Replace(" - ", "") + "Chart");
+            Type type = Type.GetType("CTROReporting.CTRO." + chart.ChartName.Replace(" - ", "") + "Chart");
             Object obj = Activator.CreateInstance(type);
             MethodInfo methodInfo = type.GetMethod("CreateBook");
             object classInstance = Activator.CreateInstance(type, null);

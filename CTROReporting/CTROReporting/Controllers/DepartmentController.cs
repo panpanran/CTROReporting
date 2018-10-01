@@ -1,11 +1,11 @@
-﻿using CTRPReporting.Service;
+﻿using CTROReporting.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CTRPReporting.Controllers
+namespace CTROReporting.Controllers
 {
     [Authorize]
     public class DepartmentController : Controller

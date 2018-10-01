@@ -1,17 +1,21 @@
-﻿using CTRPReporting.CTRO;
-using CTRPReporting.Infrastructure;
-using CTRPReporting.Models;
-using CTRPReporting.Repository;
-using CTRPReporting.Service;
+﻿using CTROReporting.CTRO;
+using CTROReporting.Infrastructure;
+using CTROReporting.Models;
+using CTROReporting.Repository;
+using CTROReporting.Service;
 using Moq;
 using Npgsql;
 using NUnit.Framework;
+using Quartz;
+using Quartz.Impl;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Reflection;
-
+using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace CTROTest
 {
@@ -35,34 +39,61 @@ namespace CTROTest
             reportsettingRepository = new Mock<IReportSettingRepository>();
             unitOfWork = new Mock<IUnitOfWork>();
 
-            recordService = new RecordServiceController(recordRepository.Object, unitOfWork.Object);
-            reportsettingService = new ReportSettingServiceController(reportsettingRepository.Object, unitOfWork.Object);
+            //recordService = new RecordServiceController(recordRepository.Object, unitOfWork.Object);
+            //reportsettingService = new ReportSettingServiceController(reportsettingRepository.Object, unitOfWork.Object);
             //reportService = new ReportServiceController(reportRepository.Object, unitOfWork.Object, recordService, reportsettingService);            
-            reportService = new Mock<IReportService>(); ;
+            reportService = new Mock<IReportService>(); 
         }
 
-        [Test]
-        public void ScheduleTest()
+        [Test()]
+        public async Task ScheduleTest()
         {
-            List<Schedule> schedules = new List<Schedule>();
-            schedules.Add(
-                new Schedule
-                {
-                    ScheduleId = 1,
-                    ReportId = 2,
-                    CreatedDate = DateTime.Now,
-                    IntervalDays = 7,
-                    StartTime = DateTime.Now,
-                    UserId = "1551f213-a46f-4673-a6b9-64d683b5048b",
-                    Report = new Report { ReportId = 2, ReportName = "Ran Report"}
-                }
-                );
-            CTROSchedule.Start(schedules);
-            CTROSchedule.Start(schedules);
+            try
+            {
+                var schedules = CTROLibrary.CTROFunctions.GetDataFromJson<List<Schedule>>("ScheduleService", "GetSchedules");
+                var report = CTROLibrary.CTROFunctions.GetDataFromJson<Report>("ReportService", "GetReportById", "reportid=3");
+                var user = CTROLibrary.CTROFunctions.GetDataFromJson<ApplicationUser>("UserService", "GetByUserID", "userid=1551f213-a46f-4673-a6b9-64d683b5048b");
+                string startdate = schedules[0].StartTime.AddDays(-7).ToString("yyyy-MM-dd");
+                string enddate = schedules[0].StartTime.ToString("yyyy-MM-dd");
 
+                Record record = new Record
+                {
+                    ReportId = 3,
+                    UserId = "1551f213-a46f-4673-a6b9-64d683b5048b",
+                    StartDate = startdate,
+                    EndDate = enddate
+                };
+
+                var url = await CTROLibrary.CTROFunctions.CreateDataFromJson<Record>("RecordService", "CreateRecord", record);
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
+            }
         }
 
-        [Test]
+
+        [Test()]
+        public void ScheduleServiceTest()
+        {
+            try
+            {
+                if (StdSchedulerFactory.GetDefaultScheduler().Result.IsStarted)
+                {
+                    StdSchedulerFactory.GetDefaultScheduler().Result.Shutdown();
+                }
+                string json = new WebClient().DownloadString("http://local.ctroreporting.com/api/ScheduleService/GetSchedules");
+                List<Schedule> schedulelist = new JavaScriptSerializer().Deserialize<List<Schedule>>(json);
+                CTROSchedule ctroschedule = new CTROSchedule();
+                ctroschedule.Start(schedulelist);
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
+            }
+        }
+
+        [Test()]
         public void GetReportsTest()
         {
             var itemMock = new Mock<Report>();
@@ -76,7 +107,7 @@ namespace CTROTest
         [Test()]
         public void CreateAnalysisChart()
         {
-            Type type = Type.GetType("CTRPReporting.CTRO." + "PDAAbstraction" + "Report");
+            Type type = Type.GetType("CTROReporting.CTRO." + "PDAAbstraction" + "Report");
             Object obj = Activator.CreateInstance(type);
             MethodInfo methodInfo = type.GetMethod("CreateBook");
             object classInstance = Activator.CreateInstance(type, null);
@@ -156,7 +187,7 @@ namespace CTROTest
         [Test()]
         public void CreateReportAsync()
         {
-            Type type = Type.GetType("CTRPReporting.CTRO.SponsorReport");
+            Type type = Type.GetType("CTROReporting.CTRO.SponsorReport");
             Object obj = Activator.CreateInstance(type);
             MethodInfo methodInfo = type.GetMethod("CreateBook");
             object classInstance = Activator.CreateInstance(type, null);

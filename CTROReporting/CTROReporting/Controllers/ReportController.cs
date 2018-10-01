@@ -1,20 +1,15 @@
-﻿using CTRPReporting.CTRO;
-using CTRPReporting.Models;
-using CTRPReporting.Service;
-using CTRPReporting.ViewModels;
+﻿using CTROReporting.Models;
+using CTROReporting.Service;
+using CTROReporting.ViewModels;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using System;
 using AutoMapper;
 using System.Linq;
-using System.IO;
-using CTRPReporting.CTRO;
-using System.Web;
 using System.Web.Caching;
 
-namespace CTRPReporting.Controllers
+namespace CTROReporting.Controllers
 {
     [Authorize]
     public class ReportController : Controller

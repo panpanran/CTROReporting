@@ -67,15 +67,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EWTicketLibrary\CTROLibrary.csproj">
-      <Project>{5c16b84a-9f19-4260-89c0-f12d1ee89e17}</Project>
-      <Name>CTROLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="ProjectInstaller.resx">
       <DependentUpon>ProjectInstaller.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CTROLibrary\CTROLibrary.csproj">
+      <Project>{5c16b84a-9f19-4260-89c0-f12d1ee89e17}</Project>
+      <Name>CTROLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,5 @@
-﻿using CTRPReporting.Models;
-using CTRPReporting.Models.Configuration;
+﻿using CTROReporting.Models;
+using CTROReporting.Models.Configuration;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace CTRPReporting.App_Start
+namespace CTROReporting.App_Start
 {
     public class EntitiesInitial : IdentityDbContext<ApplicationUser>
     {
@@ -21,7 +21,7 @@ namespace CTRPReporting.App_Start
         public DbSet<Department> Departments { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
         public DbSet<ReportSetting> ReportSetting { get; set; }
-        public DbSet<CTRPReporting.Models.Chart> Chart { get; set; }
+        public DbSet<CTROReporting.Models.Chart> Chart { get; set; }
         public DbSet<ChartSetting> ChartSetting { get; set; }
 
 

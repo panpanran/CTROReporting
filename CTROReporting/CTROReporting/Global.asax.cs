@@ -1,7 +1,7 @@
-﻿using CTRPReporting.App_Start;
-using CTRPReporting.Models;
-using CTRPReporting.Service;
-using CTRPReporting.CTRO;
+﻿using CTROReporting.App_Start;
+using CTROReporting.Models;
+using CTROReporting.Service;
+using CTROReporting.CTRO;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,7 +12,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace CTRPReporting
+namespace CTROReporting
 {
     public class MvcApplication : System.Web.HttpApplication
     {

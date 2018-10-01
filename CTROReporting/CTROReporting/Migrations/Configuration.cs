@@ -1,18 +1,18 @@
-namespace CTRPReporting.Migrations
+namespace CTROReporting.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CTRPReporting.App_Start.EntitiesInitial>
+    internal sealed class Configuration : DbMigrationsConfiguration<CTROReporting.App_Start.EntitiesInitial>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(CTRPReporting.App_Start.EntitiesInitial context)
+        protected override void Seed(CTROReporting.App_Start.EntitiesInitial context)
         {
             //  This method will be called after migrating to the latest version.
 

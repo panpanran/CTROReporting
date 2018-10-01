@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace CTRPReporting.Models
+namespace CTROReporting.Models
 {
     public class UserProfile
     {

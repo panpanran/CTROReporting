@@ -1,4 +1,4 @@
-namespace CTRPReporting.Migrations
+namespace CTROReporting.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

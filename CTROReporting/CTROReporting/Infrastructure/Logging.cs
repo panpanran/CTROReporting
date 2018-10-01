@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace CTRPReporting.Infrastructure
+namespace CTROReporting.Infrastructure
 {
     public class Logging
     {

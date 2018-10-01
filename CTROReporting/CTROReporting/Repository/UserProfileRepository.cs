@@ -1,13 +1,13 @@
-﻿using CTRPReporting.App_Start;
-using CTRPReporting.Infrastructure;
-using CTRPReporting.Models;
+﻿using CTROReporting.App_Start;
+using CTROReporting.Infrastructure;
+using CTROReporting.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace CTRPReporting.Repository
+namespace CTROReporting.Repository
 {
     public interface IUserProfileRepository : IRepository<UserProfile>
     {

@@ -1,14 +1,14 @@
-﻿using CTRPReporting.CTRO;
-using CTRPReporting.Models;
-using CTRPReporting.Service;
-using CTRPReporting.ViewModels;
+﻿using CTROReporting.CTRO;
+using CTROReporting.Models;
+using CTROReporting.Service;
+using CTROReporting.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CTRPReporting.Controllers
+namespace CTROReporting.Controllers
 {
     [Authorize]
     public class ChartController : Controller
@@ -38,7 +38,7 @@ namespace CTRPReporting.Controllers
 
             List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
             string[] loginname = { };
-            CTRPReporting.Models.Chart chart = chartService.GetChartById(1);
+            CTROReporting.Models.Chart chart = chartService.GetChartById(1);
 
             home.CreateChart("2018-04-02", "2018-04-02", chart, out XLabel, out YLabel, out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
             model.Loginname = loginname;
@@ -67,7 +67,7 @@ namespace CTRPReporting.Controllers
             List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
             string[] loginname = { };
 
-            CTRPReporting.Models.Chart chart = chartService.GetChartById(Convert.ToInt32(model.SelectedChart));
+            CTROReporting.Models.Chart chart = chartService.GetChartById(Convert.ToInt32(model.SelectedChart));
 
             if (ModelState.IsValid)
             {

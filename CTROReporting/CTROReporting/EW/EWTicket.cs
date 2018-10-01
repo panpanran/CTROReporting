@@ -1,12 +1,12 @@
-﻿using CTRPReporting.Models;
-using CTRPReporting.CTRO;
+﻿using CTROReporting.Models;
+using CTROReporting.CTRO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace CTRPReporting.EW
+namespace CTROReporting.EW
 {
     public class EWTicket : IEWHome<Ticket>
     {

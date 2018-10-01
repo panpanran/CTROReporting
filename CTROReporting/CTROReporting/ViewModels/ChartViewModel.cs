@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace CTRPReporting.ViewModels
+namespace CTROReporting.ViewModels
 {
     public class ChartViewModel
     {

@@ -1,8 +1,8 @@
-﻿using CTRPReporting.Infrastructure;
-using CTRPReporting.Models;
-using CTRPReporting.Repository;
-using CTRPReporting.Service;
-using CTRPReporting.CTRO;
+﻿using CTROReporting.Infrastructure;
+using CTROReporting.Models;
+using CTROReporting.Repository;
+using CTROReporting.Service;
+using CTROReporting.CTRO;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
@@ -16,7 +16,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace CTRPReporting.App_Start
+namespace CTROReporting.App_Start
 {
     public class IOCConfig
     {

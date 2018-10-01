@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace CTRPReporting.Models
+namespace CTROReporting.Models
 {
     public class Schedule
     {
@@ -17,7 +17,7 @@ namespace CTRPReporting.Models
         public DateTime CreatedDate { get; set; }
 
         public int ReportId { get; set; }
-        [JsonIgnore]
+
         public virtual Report Report { get; set; }
 
         public string UserId { get; set; }

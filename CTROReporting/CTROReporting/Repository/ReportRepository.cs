@@ -1,11 +1,11 @@
-﻿using CTRPReporting.Infrastructure;
-using CTRPReporting.Models;
+﻿using CTROReporting.Infrastructure;
+using CTROReporting.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace CTRPReporting.Repository
+namespace CTROReporting.Repository
 {
     public class ReportRepository : RepositoryBase<Report>, IReportRepository
     {

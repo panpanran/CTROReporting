@@ -6,7 +6,7 @@ using System.Web.Caching;
 using System.Web.Mvc;
 //using System.Runtime.Caching;
 
-namespace CTRPReporting
+namespace CTROReporting
 {
     public class CacheClass : Controller
     {

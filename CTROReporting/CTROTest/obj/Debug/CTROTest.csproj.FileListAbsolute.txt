@@ -115,7 +115,6 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Xml.XmlSeria
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Xml.XPath.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Xml.XPath.XDocument.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Castle.Core.dll
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\CTRPReporting.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\EntityFramework.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Microsoft.AspNet.Identity.Core.dll
@@ -148,8 +147,6 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Web.Razor.dl
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Web.WebPages.Razor.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Web.WebPages.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Web.WebPages.Deployment.dll
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\CTRPReporting.pdb
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\CTRPReporting.dll.config
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Castle.Core.xml
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\EntityFramework.xml
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\EntityFramework.SqlServer.xml
@@ -178,7 +175,6 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Autofac.xml
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Microsoft.Owin.Security.xml
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Web.Http.WebHost.xml
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Autofac.Integration.Mvc.xml
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Autofac.Integration.WebApi.pdb
@@ -193,5 +189,13 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\obj\Debug\CTROTest.csproj.Cop
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\obj\Debug\CTROTest.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\obj\Debug\CTROTest.pdb
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\CTROLibrary.dll
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Web.Http.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\CTROLibrary.pdb
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\websocket-sharp.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\websocket-sharp.xml
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Web.Http.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\CTROReporting.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\CTROReporting.pdb
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\CTROReporting.dll.config
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\CTROLibrary.dll.config
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Net.Http.Primitives.dll

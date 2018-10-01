@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Web;
 
-namespace CTRPReporting.CTRO
+namespace CTROReporting.CTRO
 {
     public class CTROConst
     {

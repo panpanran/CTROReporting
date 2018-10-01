@@ -4,7 +4,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Web;
 
-namespace CTRPReporting.Models.Configuration
+namespace CTROReporting.Models.Configuration
 {
     public class RecordConfiguration : EntityTypeConfiguration<Record>
     {

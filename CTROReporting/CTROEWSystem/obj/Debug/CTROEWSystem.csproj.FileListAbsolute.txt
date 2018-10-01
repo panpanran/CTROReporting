@@ -10,3 +10,6 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\obj\Debug\CTROEWSystem.ex
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\obj\Debug\CTROEWSystem.pdb
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\obj\Debug\CTROEWSystem.ProjectInstaller.resources
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\obj\Debug\CTROEWSystem.csproj.GenerateResource.cache
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\Newtonsoft.Json.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROLibrary.dll.config

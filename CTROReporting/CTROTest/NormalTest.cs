@@ -1,5 +1,5 @@
-﻿using CTRPReporting.Infrastructure;
-using CTRPReporting.CTRO;
+﻿using CTROReporting.Infrastructure;
+using CTROReporting.CTRO;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -17,12 +17,32 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using WebSocketSharp;
 
 namespace CTROTest
 {
     [TestFixture()]
     public class NormalTest
     {
+        [Test]
+        public void WebSocketTest()
+        {
+            using (var ws = new WebSocket("ws://dragonsnest.far/Laputa"))
+            {
+                ws.OnMessage += (sender, e) =>
+                  Console.WriteLine("Laputa says: " + e.Data);
+                ws.Connect();
+                ws.OnOpen += (sender, e) => {
+                    ws.Send("BALUS");
+                };
+
+                ws.OnClose += (sender, e) => { };
+
+                Console.ReadKey(true);
+            }
+        }
+
+
         [Test]
         public void ProtocolAbstractionTest()
         {
@@ -59,7 +79,7 @@ namespace CTROTest
                         siteLocalTrialIdentifier = row.ItemArray[1].ToString();
                         recStatus = row.ItemArray[2].ToString();
                         recStatusDate = row.ItemArray[3].ToString();
-                        poid = row.ItemArray[4].ToString();
+                        //poid = row.ItemArray[4].ToString();
                         comment = "Add organization MGHCC for EW ticket 77588";
 
 
@@ -106,10 +126,12 @@ namespace CTROTest
                         rectatusDateJS.ExecuteScript("document.getElementById('recStatusDate').setAttribute('value', '" + recStatusDate + "')");
                         if (driver.FindElements(By.Id("participatingOrganizationscreate_dateOpenedForAccrual")).Count != 0)
                         {
-                            IWebElement txtparticipatingOrganizationsfacilitySave_dateOpenedForAccrual = driver.FindElement(By.Id("participatingOrganizationscreate_dateOpenedForAccrual"));
                             rectatusDateJS.ExecuteScript("document.getElementById('participatingOrganizationscreate_dateOpenedForAccrual').setAttribute('value', '" + "1/1/2010" + "')");
                         }
-
+                        if (recStatus == "Completed")
+                        {
+                            rectatusDateJS.ExecuteScript("document.getElementById('participatingOrganizationscreate_dateClosedForAccrual').setAttribute('value', '" + "1/1/2010" + "')");
+                        }
                         IWebElement sitesavespan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Save");
                         sitesavespan.Click();
                         ////Investigatorsjavascript:void(0)

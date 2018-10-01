@@ -1,0 +1,5 @@
+
+Log Entry : 10:33:16 AM Monday, September 24, 2018
+  :
+  :CTROTest > ScheduleTest > Object reference not set to an instance of an object.
+-------------------------------

@@ -1,4 +1,4 @@
-﻿using CTRPReporting.Models;
+﻿using CTROReporting.Models;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Web;
 
-namespace CTRPReporting.CTRO
+namespace CTROReporting.CTRO
 {
     public abstract class CTROReport
     {
@@ -1018,6 +1018,32 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
     }
 
     #endregion
+
+    #region Sponsor NCI with Actual PCD
+    public class SponsorNCIwithActualPCDReport : CTROReport
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            conclusionDS = new DataSet();
+
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+            //NCI
+            string codetext = reportSettings[0].Code;
+            cmd = new NpgsqlCommand(codetext, conn);
+            datareader = cmd.ExecuteReader();
+            DataTable nciDT = new DataTable();
+            nciDT.Load(datareader);
+            nciDT.TableName = "NCI";
+            outputDS.Tables.Add(nciDT);
+            return outputDS;
+        }
+    }
+
+    #endregion
+
 
     #region zeroaccrual
     public class Zeroaccrualreport : CTROReport

@@ -1,0 +1,27 @@
+
+Log Entry : 2:29:06 PM Monday, October 1, 2018
+  :
+  :NormalTest > ProtocolAbstractionTest > The chromedriver.exe file does not exist in the current directory or in a directory on the PATH environment variable. The driver can be downloaded at http://chromedriver.storage.googleapis.com/index.html.
+-------------------------------
+
+Log Entry : 2:30:05 PM Monday, October 1, 2018
+  :
+  :NormalTest > ProtocolAbstractionTest > The chromedriver.exe file does not exist in the current directory or in a directory on the PATH environment variable. The driver can be downloaded at http://chromedriver.storage.googleapis.com/index.html.
+-------------------------------
+
+Log Entry : 2:33:12 PM Monday, October 1, 2018
+  :
+  :NormalTest > ProtocolAbstractionTest > Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 3:24:30 PM Monday, October 1, 2018
+  :
+  :NormalTest > ProtocolAbstractionTest > Sequence contains no matching element
+-------------------------------
+
+Log Entry : 3:33:09 PM Monday, October 1, 2018
+  :
+  :NormalTest > ProtocolAbstractionTest > unknown error: Cannot read property 'setAttribute' of null
+  (Session info: chrome=69.0.3497.100)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.16299 x86_64)
+-------------------------------

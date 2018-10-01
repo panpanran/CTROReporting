@@ -1,16 +1,18 @@
-﻿using CTRPReporting.Models;
+﻿using CTROReporting.Infrastructure;
+using CTROReporting.Models;
 using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 
-namespace CTRPReporting.CTRO
+namespace CTROReporting.CTRO
 {
     public abstract class CTROChart
     {
-        public abstract string[] CreateBook(NpgsqlConnection conn, string startDate, string endDate, CTRPReporting.Models.Chart chart, out string[] Xaxis, out List<Dictionary<string, string>> Yaxis);
+        public abstract string[] CreateBook(NpgsqlConnection conn, string startDate, string endDate, CTROReporting.Models.Chart chart, out string[] Xaxis, out List<Dictionary<string, string>> Yaxis);
         public virtual DataTable CreateSheet(DataTable inputDT, string tablename)
         {
             return new DataTable();
@@ -107,6 +109,7 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
             }
             catch (Exception ex)
             {
+                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
                 throw;
             }
         }
@@ -195,12 +198,13 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
             }
             catch (Exception ex)
             {
+                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
                 throw;
             }
         }
 
 
-        public override string[] CreateBook(NpgsqlConnection conn, string startDate, string endDate, CTRPReporting.Models.Chart chart, out string[] Xaxis, out List<Dictionary<string, string>> Yaxis)
+        public override string[] CreateBook(NpgsqlConnection conn, string startDate, string endDate, CTROReporting.Models.Chart chart, out string[] Xaxis, out List<Dictionary<string, string>> Yaxis)
         {
             //All
             NpgsqlCommand cmd = null;
@@ -272,7 +276,7 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
             return outputDT;
         }
 
-        public override string[] CreateBook(NpgsqlConnection conn, string startDate, string endDate, CTRPReporting.Models.Chart chart, out string[] Xaxis, out List<Dictionary<string, string>> Yaxis)
+        public override string[] CreateBook(NpgsqlConnection conn, string startDate, string endDate, CTROReporting.Models.Chart chart, out string[] Xaxis, out List<Dictionary<string, string>> Yaxis)
         {
             //All
             NpgsqlCommand cmd = null;

@@ -1,62 +1,72 @@
-﻿using CTRPReporting.CTRO;
-using CTRPReporting.EW;
-using CTRPReporting.Infrastructure;
-using CTRPReporting.Models;
-using CTRPReporting.Repository;
-using CTRPReporting.Service;
-using Autofac;
-using Microsoft.AspNet.Identity;
-using Quartz;
+﻿using Quartz;
 using Quartz.Impl;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Mail;
 using System.Threading.Tasks;
 using System.Web;
-using System.Web.Mvc;
 using System.Reflection;
 using System.Web.Caching;
+using System.Runtime.Caching;
+using CTROReporting.Infrastructure;
+using CTROReporting.Repository;
+using CTROReporting.Models;
+using CTROReporting.EW;
 
-namespace CTRPReporting.CTRO
+namespace CTROReporting.CTRO
 {
     public class CTROSchedule
     {
-        private static object GetCache(string key)
+        public IScheduler Scheduler { get; set; }
+
+        private object GetCache(string key)
         {
-            return HttpRuntime.Cache.Get(key);
+            return MemoryCache.Default.Get(key);
         }
 
-
-        public static void Start(List<Schedule> schedulelist)
+        public CTROSchedule()
         {
-            ScheduleReports(schedulelist).GetAwaiter().GetResult();
+            //Cache
+            string key = "ctroscheduler";
+            Scheduler = (IScheduler)GetCache(key);
+            if (Scheduler == null)
+            {
+                if (StdSchedulerFactory.GetDefaultScheduler().Result.IsStarted)
+                {
+                    StdSchedulerFactory.GetDefaultScheduler().Result.Shutdown();
+                }
+                IScheduler schedulertemp = StdSchedulerFactory.GetDefaultScheduler().Result;
+                CacheItemPolicy cip = new CacheItemPolicy()
+                {
+                    AbsoluteExpiration = new DateTimeOffset(DateTime.Now.AddDays(1))
+                };
+                MemoryCache.Default.Set(key, schedulertemp, cip);
+                Scheduler = schedulertemp;
+            }
+        }
+
+        public void Start(List<Schedule> schedulelist)
+        {
+            ScheduleReports(schedulelist, Scheduler).GetAwaiter().GetResult();
             //ScheduleFormatTickets().GetAwaiter().GetResult();
         }
 
-        private static async Task ScheduleReports(List<Schedule> schedulelist)
+        public void CreateJob(Schedule schedule)
         {
+            if (Scheduler == null)
+            {
+                CTROSchedule ctroschedule = new CTROSchedule();
+                DatabaseFactory factory = new DatabaseFactory();
+                UnitOfWork unitOfWork = new UnitOfWork(factory);
+                ScheduleRepository scheduleRepository = new ScheduleRepository(factory);
+                List<Schedule> schedulelist = scheduleRepository.GetAll().ToList();
+                ctroschedule.Start(schedulelist);
+            }
+
             try
             {
-                //Cache
-                string key = "ScheduleList";
-                object pathCache = GetCache(key);
-                if (pathCache != null)
-                {
-                    IScheduler scheduler = await StdSchedulerFactory.GetDefaultScheduler();
-                    //List<IJobExecutionContext> jobs = scheduler.GetCurrentlyExecutingJobs().Result.ToList();
-
-                    await scheduler.Clear();
-                    // and start it off
-                    await scheduler.Start();
-                    foreach (Schedule schedule in schedulelist)
-                    {
-                        bool existJob = await scheduler.CheckExists(new JobKey("job" + schedule.ScheduleId, "group" + schedule.ReportId));
-                        // define the job and tie it to our HelloJob class
-                        IJobDetail job = JobBuilder.Create<ScheduleJob>()
+                IJobDetail job = JobBuilder.Create<ScheduleJob>()
                             .WithIdentity("job" + schedule.ScheduleId, "group" + schedule.ReportId)
                             .UsingJobData("starttime", DateTime.Now.ToString())
                             .UsingJobData("intervaldays", schedule.IntervalDays)
@@ -65,69 +75,134 @@ namespace CTRPReporting.CTRO
                             .UsingJobData("userid", schedule.UserId)
                             .Build();
 
-                        // Trigger the job to run now, and then repeat every internaldays
-                        ITrigger trigger = TriggerBuilder.Create()
-                            .WithIdentity("trigger" + schedule.ScheduleId, "group" + schedule.ReportId)
-                            //.StartAt(DateBuilder.DateOf(16, 20, 0, 1, 5))
-                            .StartAt(schedule.StartTime)
-                            .WithSimpleSchedule(x => x
-                                .WithInterval(new TimeSpan(schedule.IntervalDays, 0, 0, 0))
-                                .RepeatForever())
-                            .Build();
+                // Trigger the job to run now, and then repeat every internaldays
+                ITrigger trigger = TriggerBuilder.Create()
+                    .WithIdentity("trigger" + schedule.ScheduleId, "group" + schedule.ReportId)
+                    //.StartAt(DateBuilder.DateOf(16, 20, 0, 1, 5))
+                    .StartAt(schedule.StartTime)
+                    .WithSimpleSchedule(x => x
+                        .WithInterval(new TimeSpan(schedule.IntervalDays, 0, 0, 0))
+                        .RepeatForever())
+                    .Build();
 
-                        // Tell quartz to schedule the job using our trigger
-                        await scheduler.ScheduleJob(job, trigger);
-
-                        //// some sleep to show what's happening
-                        //await Task.Delay(TimeSpan.FromSeconds(60));
-
-                        //// and last shut down the scheduler when you are ready to close your program
-                        //await scheduler.Shutdown();
-                    }
-                }
-                else
-                {
-                    HttpRuntime.Cache.Add(key, schedulelist, new SqlCacheDependency("CTROReportingEntities", "Schedules"), Cache.NoAbsoluteExpiration, Cache.NoSlidingExpiration, CacheItemPriority.Default, null);
-                }
+                // Tell quartz to schedule the job using our trigger
+                Scheduler.ScheduleJob(job, trigger);
             }
-            catch (SchedulerException se)
+            catch (Exception ex)
             {
-                Logging.WriteLog("CTROSchedule", MethodBase.GetCurrentMethod().Name,se.Message);
+                Logging.WriteLog("CTROSchedule", MethodBase.GetCurrentMethod().Name, ex.Message);
             }
         }
 
-        private static async Task ScheduleFormatTickets()
+        public void UpdateJob(Schedule schedule)
         {
             try
             {
-                IScheduler scheduler = await StdSchedulerFactory.GetDefaultScheduler();
+                if (DeleteJob(schedule))
+                {
+                    CreateJob(schedule);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog("CTROSchedule", MethodBase.GetCurrentMethod().Name, ex.Message);
+            }
+        }
+
+        public bool DeleteJob(Schedule schedule)
+        {
+            JobKey jobkey = new JobKey("job" + schedule.ScheduleId, "group" + schedule.ReportId);
+            try
+            {
+                if (Scheduler.CheckExists(jobkey).Result)
+                {
+                    return Scheduler.DeleteJob(jobkey).Result;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog("CTROSchedule", MethodBase.GetCurrentMethod().Name, ex.Message);
+            }
+            return false;
+        }
+
+        private async Task ScheduleReports(List<Schedule> schedulelist, IScheduler scheduler)
+        {
+            try
+            {
                 await scheduler.Clear();
-                //// and start it off
+                // and start it off
                 await scheduler.Start();
-                // define the job and tie it to our HelloJob class
-                IJobDetail job = JobBuilder.Create<SimpleJob>()
-                        .WithIdentity("jobEW" , "groupEW")
+                foreach (Schedule schedule in schedulelist)
+                {
+                    // define the job and tie it to our HelloJob class
+                    IJobDetail job = JobBuilder.Create<ScheduleJob>()
+                        .WithIdentity("job" + schedule.ScheduleId, "group" + schedule.ReportId)
+                        .UsingJobData("starttime", DateTime.Now.ToString())
+                        .UsingJobData("intervaldays", schedule.IntervalDays)
+                        .UsingJobData("reportid", schedule.ReportId)
+                        .UsingJobData("reportname", schedule.Report.ReportName)
+                        .UsingJobData("userid", schedule.UserId)
                         .Build();
 
                     // Trigger the job to run now, and then repeat every internaldays
                     ITrigger trigger = TriggerBuilder.Create()
-                        .WithIdentity("triggerEW", "groupEW")
+                        .WithIdentity("trigger" + schedule.ScheduleId, "group" + schedule.ReportId)
                         //.StartAt(DateBuilder.DateOf(16, 20, 0, 1, 5))
-                        .StartAt(DateTime.Now)
+                        .StartAt(schedule.StartTime)
                         .WithSimpleSchedule(x => x
-                            .WithInterval(new TimeSpan(0, 5, 0))
+                            .WithInterval(new TimeSpan(schedule.IntervalDays, 0, 0, 0))
                             .RepeatForever())
                         .Build();
 
                     // Tell quartz to schedule the job using our trigger
                     await scheduler.ScheduleJob(job, trigger);
 
+                    //// some sleep to show what's happening
+                    //await Task.Delay(TimeSpan.FromSeconds(60));
+
+                    //// and last shut down the scheduler when you are ready to close your program
+                    //await scheduler.Shutdown();
+                }
             }
-            catch (SchedulerException se)
+            catch (SchedulerException ex)
             {
-                Console.WriteLine(se);
+                Logging.WriteLog("CTROSchedule", MethodBase.GetCurrentMethod().Name, ex.Message);
             }
         }
+
+        //private static async Task ScheduleFormatTickets()
+        //{
+        //    try
+        //    {
+        //        IScheduler scheduler = await StdSchedulerFactory.GetDefaultScheduler();
+        //        await scheduler.Clear();
+        //        //// and start it off
+        //        await scheduler.Start();
+        //        // define the job and tie it to our HelloJob class
+        //        IJobDetail job = JobBuilder.Create<SimpleJob>()
+        //                .WithIdentity("jobEW", "groupEW")
+        //                .Build();
+
+        //        // Trigger the job to run now, and then repeat every internaldays
+        //        ITrigger trigger = TriggerBuilder.Create()
+        //            .WithIdentity("triggerEW", "groupEW")
+        //            //.StartAt(DateBuilder.DateOf(16, 20, 0, 1, 5))
+        //            .StartAt(DateTime.Now)
+        //            .WithSimpleSchedule(x => x
+        //                .WithInterval(new TimeSpan(0, 5, 0))
+        //                .RepeatForever())
+        //            .Build();
+
+        //        // Tell quartz to schedule the job using our trigger
+        //        await scheduler.ScheduleJob(job, trigger);
+
+        //    }
+        //    catch (SchedulerException se)
+        //    {
+        //        Console.WriteLine(se);
+        //    }
+        //}
 
     }
 
@@ -135,62 +210,69 @@ namespace CTRPReporting.CTRO
     {
         public async Task Execute(IJobExecutionContext context)
         {
-           JobDataMap dataMap = context.JobDetail.JobDataMap;
-            DateTime starttime = dataMap.GetDateTime("starttime");
-            int intervaldays = dataMap.GetInt("intervaldays");
-            int reportid = dataMap.GetInt("reportid");
-            string reportname = dataMap.GetString("reportname").Replace(" - ", "");
-            string userid = dataMap.GetString("userid");
-            string startdate = starttime.AddDays(-intervaldays).ToString("yyyy-MM-dd");
-            string enddate = starttime.ToString("yyyy-MM-dd");
-
-            Record record = new Record
+            try
             {
-                ReportId = reportid,
-                UserId = userid,
-                StartDate = startdate,
-                EndDate = enddate,
-            };
-            DatabaseFactory factory = new DatabaseFactory();
-            UnitOfWork unitOfWork = new UnitOfWork(factory);
-            ReportSettingRepository reportSettingRepository = new ReportSettingRepository(factory);
-            ReportRepository reportRepository = new ReportRepository(factory);
-            Report report = reportRepository.GetById(reportid);
-            UserRepository userRepository = new UserRepository(factory);
-            ApplicationUser user = userRepository.Get(x=>x.Id == userid);
+                JobDataMap dataMap = context.JobDetail.JobDataMap;
+                DateTime starttime = dataMap.GetDateTime("starttime");
+                int intervaldays = dataMap.GetInt("intervaldays");
+                int reportid = dataMap.GetInt("reportid");
+                string reportname = dataMap.GetString("reportname").Replace(" - ", "");
+                string userid = dataMap.GetString("userid");
+                string startdate = starttime.AddDays(-intervaldays).ToString("yyyy-MM-dd");
+                string enddate = starttime.ToString("yyyy-MM-dd");
 
-            CTROHome home = new CTROHome();
-            string savepath = "";
-            int result = home.CreateReport(startdate, enddate, user, report, out savepath);
+                Record record = new Record
+                {
+                    ReportId = reportid,
+                    UserId = userid,
+                    StartDate = startdate,
+                    EndDate = enddate,
+                };
+                DatabaseFactory factory = new DatabaseFactory();
+                UnitOfWork unitOfWork = new UnitOfWork(factory);
+                ReportSettingRepository reportSettingRepository = new ReportSettingRepository(factory);
+                ReportRepository reportRepository = new ReportRepository(factory);
+                Report report = reportRepository.GetById(reportid);
+                UserRepository userRepository = new UserRepository(factory);
+                ApplicationUser user = userRepository.Get(x => x.Id == userid);
 
-            if (result == 1)
+                CTROHome home = new CTROHome();
+                string savepath = "";
+                int result = home.CreateReport(startdate, enddate, user, report, out savepath);
+
+                if (result == 1)
+                {
+                    record.FilePath = "../Excel/" + user.UserName + "/" + Path.GetFileName(savepath);
+                    //Add Record
+                    RecordRepository recordRepository = new RecordRepository(factory);
+                    recordRepository.Add(record);
+                    unitOfWork.Commit();
+                }
+            }
+            catch (Exception ex)
             {
-                record.FilePath = "../Excel/" + user.UserName + "/" + Path.GetFileName(savepath);
-                //Add Record
-                RecordRepository recordRepository = new RecordRepository(factory);
-                recordRepository.Add(record);
-                unitOfWork.Commit();
+                Logging.WriteLog("ScheduleJob", "Execute", ex.Message);
             }
         }
     }
 
-    public class SimpleJob : IJob
-    {
-        public async Task Execute(IJobExecutionContext context)
-        {
-            EWFormatOriginalIncomingEmail ewFormat = new EWFormatOriginalIncomingEmail();
-            string[] tickets = ewFormat.GetIDList("full_name is null and assigned_to_ is null").ToArray();
-            ewFormat.BulkUpdate(tickets);
-            EWTriageAccrual ewTriageAccrual = new EWTriageAccrual();
-            ewTriageAccrual.BulkUpdate(tickets);
-            EWTriageClinicalTrialsDotGov ewTriageClinicalTrialsDotGov = new EWTriageClinicalTrialsDotGov();
-            ewTriageClinicalTrialsDotGov.BulkUpdate(tickets);
-            EWTriageScientific ewEWTriageScientific = new EWTriageScientific();
-            ewEWTriageScientific.BulkUpdate(tickets);
-            EWTriageTSRFeedback ewTriageTSRFeedback = new EWTriageTSRFeedback();
-            ewTriageTSRFeedback.BulkUpdate(tickets);
-            EWTriageOnHoldTrials ewTriageOnHoldTrials = new EWTriageOnHoldTrials();
-            ewTriageOnHoldTrials.BulkUpdate(tickets);
-        }
-    }
+    //public class SimpleJob : IJob
+    //{
+    //    public async Task Execute(IJobExecutionContext context)
+    //    {
+    //        EWFormatOriginalIncomingEmail ewFormat = new EWFormatOriginalIncomingEmail();
+    //        string[] tickets = ewFormat.GetIDList("full_name is null and assigned_to_ is null").ToArray();
+    //        ewFormat.BulkUpdate(tickets);
+    //        EWTriageAccrual ewTriageAccrual = new EWTriageAccrual();
+    //        ewTriageAccrual.BulkUpdate(tickets);
+    //        EWTriageClinicalTrialsDotGov ewTriageClinicalTrialsDotGov = new EWTriageClinicalTrialsDotGov();
+    //        ewTriageClinicalTrialsDotGov.BulkUpdate(tickets);
+    //        EWTriageScientific ewEWTriageScientific = new EWTriageScientific();
+    //        ewEWTriageScientific.BulkUpdate(tickets);
+    //        EWTriageTSRFeedback ewTriageTSRFeedback = new EWTriageTSRFeedback();
+    //        ewTriageTSRFeedback.BulkUpdate(tickets);
+    //        EWTriageOnHoldTrials ewTriageOnHoldTrials = new EWTriageOnHoldTrials();
+    //        ewTriageOnHoldTrials.BulkUpdate(tickets);
+    //    }
+    //}
 }

@@ -1,10 +1,10 @@
-﻿using CTRPReporting.App_Start;
-using CTRPReporting.Models;
-using CTRPReporting.Service;
-using CTRPReporting.CTRO;
-using CTRPReporting.ViewModels;
+﻿using CTROReporting.App_Start;
+using CTROReporting.Models;
+using CTROReporting.Service;
+using CTROReporting.CTRO;
+using CTROReporting.ViewModels;
 using AutoMapper;
-using CTRPReporting.Properties;
+using CTROReporting.Properties;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using System;
@@ -17,8 +17,10 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Quartz.Impl;
+using Quartz;
 
-namespace CTRPReporting.Controllers
+namespace CTROReporting.Controllers
 {
     [Authorize]
     public class ApplicationUserController : Controller
@@ -78,7 +80,8 @@ namespace CTRPReporting.Controllers
         public ActionResult Login(string returnUrl)
         {
             List<Schedule> schedulelist = scheduleService.GetSchedules().ToList();
-            CTROSchedule.Start(schedulelist);
+            CTROSchedule ctroschedule = new CTROSchedule();
+            ctroschedule.Start(schedulelist);
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }

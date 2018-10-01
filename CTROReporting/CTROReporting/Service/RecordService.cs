@@ -1,13 +1,15 @@
-﻿using CTRPReporting.Infrastructure;
-using CTRPReporting.Models;
-using CTRPReporting.Repository;
+﻿using CTROReporting.Infrastructure;
+using CTROReporting.Models;
+using CTROReporting.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Dependencies;
 
-namespace CTRPReporting.Service
+namespace CTROReporting.Service
 {
     public interface IRecordService
     {
@@ -36,6 +38,13 @@ namespace CTRPReporting.Service
         {
             recordRepository.Add(record);
             SaveRecord();
+        }
+
+        public IHttpActionResult PostRecord(Record record)
+        {
+            recordRepository.Add(record);
+            SaveRecord();
+            return Ok();
         }
 
         public IEnumerable<Record> GetRecordsToday()
