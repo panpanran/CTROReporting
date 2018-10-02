@@ -46,13 +46,13 @@ namespace CTROReporting.CTRO
             }
         }
 
-        public void Start(List<Schedule> schedulelist)
+        public async Task Start(List<Schedule> schedulelist)
         {
-            ScheduleReports(schedulelist, Scheduler).GetAwaiter().GetResult();
+            await ScheduleReports(schedulelist, Scheduler);
             //ScheduleFormatTickets().GetAwaiter().GetResult();
         }
 
-        public void CreateJob(Schedule schedule)
+        public async Task CreateJob(Schedule schedule)
         {
             if (Scheduler == null)
             {
@@ -61,7 +61,7 @@ namespace CTROReporting.CTRO
                 UnitOfWork unitOfWork = new UnitOfWork(factory);
                 ScheduleRepository scheduleRepository = new ScheduleRepository(factory);
                 List<Schedule> schedulelist = scheduleRepository.GetAll().ToList();
-                ctroschedule.Start(schedulelist);
+                await ctroschedule.Start(schedulelist);
             }
 
             try
@@ -86,7 +86,7 @@ namespace CTROReporting.CTRO
                     .Build();
 
                 // Tell quartz to schedule the job using our trigger
-                Scheduler.ScheduleJob(job, trigger);
+                await Scheduler.ScheduleJob(job, trigger);
             }
             catch (Exception ex)
             {
@@ -94,13 +94,13 @@ namespace CTROReporting.CTRO
             }
         }
 
-        public void UpdateJob(Schedule schedule)
+        public async Task UpdateJob(Schedule schedule)
         {
             try
             {
                 if (DeleteJob(schedule))
                 {
-                    CreateJob(schedule);
+                   await CreateJob(schedule);
                 }
             }
             catch (Exception ex)
@@ -228,13 +228,9 @@ namespace CTROReporting.CTRO
                     StartDate = startdate,
                     EndDate = enddate,
                 };
-                DatabaseFactory factory = new DatabaseFactory();
-                UnitOfWork unitOfWork = new UnitOfWork(factory);
-                ReportSettingRepository reportSettingRepository = new ReportSettingRepository(factory);
-                ReportRepository reportRepository = new ReportRepository(factory);
-                Report report = reportRepository.GetById(reportid);
-                UserRepository userRepository = new UserRepository(factory);
-                ApplicationUser user = userRepository.Get(x => x.Id == userid);
+
+                var report = CTROLibrary.CTROFunctions.GetDataFromJson<Report>("ReportService", "GetReportById", "reportid="+ reportid.ToString());
+                var user = CTROLibrary.CTROFunctions.GetDataFromJson<ApplicationUser>("UserService", "GetByUserID", "userid="+ userid);
 
                 CTROHome home = new CTROHome();
                 string savepath = "";
@@ -244,9 +240,7 @@ namespace CTROReporting.CTRO
                 {
                     record.FilePath = "../Excel/" + user.UserName + "/" + Path.GetFileName(savepath);
                     //Add Record
-                    RecordRepository recordRepository = new RecordRepository(factory);
-                    recordRepository.Add(record);
-                    unitOfWork.Commit();
+                    var url = await CTROLibrary.CTROFunctions.CreateDataFromJson("RecordService", "CreateRecord", record);
                 }
             }
             catch (Exception ex)

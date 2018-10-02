@@ -79,9 +79,9 @@ namespace CTROReporting.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            List<Schedule> schedulelist = scheduleService.GetSchedules().ToList();
-            CTROSchedule ctroschedule = new CTROSchedule();
-            ctroschedule.Start(schedulelist);
+            //List<Schedule> schedulelist = scheduleService.GetSchedules().ToList();
+            //CTROSchedule ctroschedule = new CTROSchedule();
+            //ctroschedule.Start(schedulelist);
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }

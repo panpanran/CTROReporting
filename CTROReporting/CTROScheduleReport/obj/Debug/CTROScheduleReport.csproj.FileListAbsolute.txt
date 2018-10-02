@@ -68,7 +68,6 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\Autofac.x
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\Microsoft.Owin.Security.xml
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\System.Web.Http.WebHost.xml
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\Autofac.Integration.Mvc.xml
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\Autofac.Integration.WebApi.pdb
@@ -91,3 +90,8 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\EntityFra
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROReporting.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROReporting.pdb
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROReporting.dll.config
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROLibrary.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROLibrary.pdb
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROLibrary.dll.config
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\System.Net.Http.Extensions.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\System.Net.Http.Primitives.dll

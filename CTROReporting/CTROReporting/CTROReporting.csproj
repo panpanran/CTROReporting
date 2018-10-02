@@ -17,7 +17,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CTROReporting</RootNamespace>
     <AssemblyName>CTROReporting</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort>44324</IISExpressSSLPort>
@@ -29,6 +29,7 @@
     </NuGetPackageImportStamp>
     <Use64BitIISExpress />
     <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -168,14 +169,35 @@
     <Reference Include="System.ComponentModel" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.4.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -184,17 +206,14 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -232,6 +251,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebDriver, Version=3.14.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.14.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
@@ -307,73 +327,9 @@
     <Compile Include="Infrastructure\Logging.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201805222100126_ScheduleFixTry.cs" />
-    <Compile Include="Migrations\201805222100126_ScheduleFixTry.Designer.cs">
-      <DependentUpon>201805222100126_ScheduleFixTry.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805222115013_ScheduleCreateDate.cs" />
-    <Compile Include="Migrations\201805222115013_ScheduleCreateDate.Designer.cs">
-      <DependentUpon>201805222115013_ScheduleCreateDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806191833433_ReportSetting.cs" />
-    <Compile Include="Migrations\201806191833433_ReportSetting.Designer.cs">
-      <DependentUpon>201806191833433_ReportSetting.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806191836553_ReportSettingChange.cs" />
-    <Compile Include="Migrations\201806191836553_ReportSettingChange.Designer.cs">
-      <DependentUpon>201806191836553_ReportSettingChange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806191904588_ReportSettingCategory.cs" />
-    <Compile Include="Migrations\201806191904588_ReportSettingCategory.Designer.cs">
-      <DependentUpon>201806191904588_ReportSettingCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201806191925247_ReportChange.cs" />
-    <Compile Include="Migrations\201806191925247_ReportChange.Designer.cs">
-      <DependentUpon>201806191925247_ReportChange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807061959109_ChartTable.cs" />
-    <Compile Include="Migrations\201807061959109_ChartTable.Designer.cs">
-      <DependentUpon>201807061959109_ChartTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807062001245_ChartSettingTable.cs" />
-    <Compile Include="Migrations\201807062001245_ChartSettingTable.Designer.cs">
-      <DependentUpon>201807062001245_ChartSettingTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807092029304_addreporttype chart.cs" />
-    <Compile Include="Migrations\201807092029304_addreporttype chart.Designer.cs">
-      <DependentUpon>201807092029304_addreporttype chart.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201808161938420_DeleteTopicMetric.cs" />
-    <Compile Include="Migrations\201808161938420_DeleteTopicMetric.Designer.cs">
-      <DependentUpon>201808161938420_DeleteTopicMetric.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809061812242_AddActiveColumn.cs" />
-    <Compile Include="Migrations\201809061812242_AddActiveColumn.Designer.cs">
-      <DependentUpon>201809061812242_AddActiveColumn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809071728364_ApplicationUserChanged.cs" />
-    <Compile Include="Migrations\201809071728364_ApplicationUserChanged.Designer.cs">
-      <DependentUpon>201809071728364_ApplicationUserChanged.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809071758096_ApplicationUserChanged1.cs" />
-    <Compile Include="Migrations\201809071758096_ApplicationUserChanged1.Designer.cs">
-      <DependentUpon>201809071758096_ApplicationUserChanged1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809071921082_ApplicationUserChanged2.cs" />
-    <Compile Include="Migrations\201809071921082_ApplicationUserChanged2.Designer.cs">
-      <DependentUpon>201809071921082_ApplicationUserChanged2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809071927049_ApplicationUserChanged3.cs" />
-    <Compile Include="Migrations\201809071927049_ApplicationUserChanged3.Designer.cs">
-      <DependentUpon>201809071927049_ApplicationUserChanged3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809101739195_ApplicationUserAndDepartment.cs" />
-    <Compile Include="Migrations\201809101739195_ApplicationUserAndDepartment.Designer.cs">
-      <DependentUpon>201809101739195_ApplicationUserAndDepartment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201809101853202_ApplicationUserAndDepartment1.cs" />
-    <Compile Include="Migrations\201809101853202_ApplicationUserAndDepartment1.Designer.cs">
-      <DependentUpon>201809101853202_ApplicationUserAndDepartment1.cs</DependentUpon>
+    <Compile Include="Migrations\201810021332404_recordupdate.cs" />
+    <Compile Include="Migrations\201810021332404_recordupdate.Designer.cs">
+      <DependentUpon>201810021332404_recordupdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -883,56 +839,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805222100126_ScheduleFixTry.resx">
-      <DependentUpon>201805222100126_ScheduleFixTry.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805222115013_ScheduleCreateDate.resx">
-      <DependentUpon>201805222115013_ScheduleCreateDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806191833433_ReportSetting.resx">
-      <DependentUpon>201806191833433_ReportSetting.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806191836553_ReportSettingChange.resx">
-      <DependentUpon>201806191836553_ReportSettingChange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806191904588_ReportSettingCategory.resx">
-      <DependentUpon>201806191904588_ReportSettingCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806191925247_ReportChange.resx">
-      <DependentUpon>201806191925247_ReportChange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807061959109_ChartTable.resx">
-      <DependentUpon>201807061959109_ChartTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807062001245_ChartSettingTable.resx">
-      <DependentUpon>201807062001245_ChartSettingTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807092029304_addreporttype chart.resx">
-      <DependentUpon>201807092029304_addreporttype chart.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808161938420_DeleteTopicMetric.resx">
-      <DependentUpon>201808161938420_DeleteTopicMetric.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809061812242_AddActiveColumn.resx">
-      <DependentUpon>201809061812242_AddActiveColumn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809071728364_ApplicationUserChanged.resx">
-      <DependentUpon>201809071728364_ApplicationUserChanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809071758096_ApplicationUserChanged1.resx">
-      <DependentUpon>201809071758096_ApplicationUserChanged1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809071921082_ApplicationUserChanged2.resx">
-      <DependentUpon>201809071921082_ApplicationUserChanged2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809071927049_ApplicationUserChanged3.resx">
-      <DependentUpon>201809071927049_ApplicationUserChanged3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809101739195_ApplicationUserAndDepartment.resx">
-      <DependentUpon>201809101739195_ApplicationUserAndDepartment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201809101853202_ApplicationUserAndDepartment1.resx">
-      <DependentUpon>201809101853202_ApplicationUserAndDepartment1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810021332404_recordupdate.resx">
+      <DependentUpon>201810021332404_recordupdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

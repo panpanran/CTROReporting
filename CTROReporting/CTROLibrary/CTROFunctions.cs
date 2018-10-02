@@ -44,6 +44,7 @@ namespace CTROLibrary
 
             HttpResponseMessage response = await client.PostAsJsonAsync(
                 "api/" + servicename + "/" + methodname, data);
+
             response.EnsureSuccessStatusCode();
 
             // return URI of the created resource.

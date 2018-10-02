@@ -1,0 +1,15 @@
+
+Log Entry : 11:34:54 AM Tuesday, October 2, 2018
+  :
+  :ScheduleJob > Execute > Could not load file or assembly 'System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 11:53:03 AM Tuesday, October 2, 2018
+  :
+  :ScheduleJob > Execute > Could not load file or assembly 'System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 12:11:42 PM Tuesday, October 2, 2018
+  :
+  :ScheduleJob > Execute > user1551f213-a46f-4673-a6b9-64d683b5048b: reportTSR Sent
+-------------------------------

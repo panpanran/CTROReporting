@@ -60,6 +60,21 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Chart.Mvc.pdb">
       <publishTime>04/15/2015 08:08:46</publishTime>
     </File>
+    <File Include="bin/CTROLibrary.dll">
+      <publishTime>10/02/2018 12:04:54</publishTime>
+    </File>
+    <File Include="bin/CTROLibrary.dll.config">
+      <publishTime>10/01/2018 13:14:16</publishTime>
+    </File>
+    <File Include="bin/CTROLibrary.pdb">
+      <publishTime>10/02/2018 12:04:54</publishTime>
+    </File>
+    <File Include="bin/CTROReporting.dll">
+      <publishTime>10/02/2018 12:16:41</publishTime>
+    </File>
+    <File Include="bin/CTROReporting.pdb">
+      <publishTime>10/02/2018 12:16:41</publishTime>
+    </File>
     <File Include="bin/CTRPReporting.dll">
       <publishTime>09/28/2018 13:51:47</publishTime>
     </File>
@@ -231,8 +246,26 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/roslyn/VBCSCompiler.exe.config">
       <publishTime>04/05/2018 10:09:03</publishTime>
     </File>
+    <File Include="bin/System.Net.Http.Extensions.dll">
+      <publishTime>07/24/2015 14:15:58</publishTime>
+    </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>04/05/2018 10:09:00</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Primitives.dll">
+      <publishTime>07/24/2015 14:15:58</publishTime>
+    </File>
+    <File Include="bin/System.Security.Cryptography.Algorithms.dll">
+      <publishTime>11/05/2016 04:57:14</publishTime>
+    </File>
+    <File Include="bin/System.Security.Cryptography.Encoding.dll">
+      <publishTime>11/05/2016 04:57:08</publishTime>
+    </File>
+    <File Include="bin/System.Security.Cryptography.Primitives.dll">
+      <publishTime>11/05/2016 04:57:18</publishTime>
+    </File>
+    <File Include="bin/System.Security.Cryptography.X509Certificates.dll">
+      <publishTime>11/05/2016 04:57:18</publishTime>
     </File>
     <File Include="bin/System.Threading.Tasks.Extensions.dll">
       <publishTime>04/05/2018 10:08:57</publishTime>
@@ -934,7 +967,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/05/2018 10:08:38</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>09/11/2018 13:27:14</publishTime>
+      <publishTime>10/01/2018 09:27:06</publishTime>
     </File>
     <File Include="Images/Background.jpg">
       <publishTime>04/05/2018 10:08:42</publishTime>
@@ -973,7 +1006,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/07/2018 18:32:26</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/21/2018 16:00:10</publishTime>
+      <publishTime>10/02/2018 11:37:21</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js">
       <publishTime>05/12/2018 10:10:47</publishTime>
@@ -1504,22 +1537,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/13/2018 09:01:31</publishTime>
     </File>
     <File Include="Views/ApplicationUser/EditProfile.cshtml">
-      <publishTime>09/11/2018 13:27:28</publishTime>
+      <publishTime>10/01/2018 09:27:08</publishTime>
     </File>
     <File Include="Views/ApplicationUser/Login.cshtml">
-      <publishTime>09/26/2018 14:11:03</publishTime>
+      <publishTime>10/01/2018 09:27:08</publishTime>
     </File>
     <File Include="Views/ApplicationUser/Register.cshtml">
-      <publishTime>09/26/2018 14:10:56</publishTime>
+      <publishTime>10/01/2018 09:27:08</publishTime>
     </File>
     <File Include="Views/ApplicationUser/UserManagement.cshtml">
-      <publishTime>09/11/2018 13:27:28</publishTime>
+      <publishTime>10/01/2018 09:27:08</publishTime>
     </File>
     <File Include="Views/ApplicationUser/UserProfile.cshtml">
-      <publishTime>09/11/2018 13:27:16</publishTime>
+      <publishTime>10/01/2018 09:27:08</publishTime>
     </File>
     <File Include="Views/Chart/Chart.cshtml">
-      <publishTime>09/11/2018 13:27:28</publishTime>
+      <publishTime>10/01/2018 09:27:08</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>04/05/2018 10:08:45</publishTime>
@@ -1549,16 +1582,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/05/2018 10:08:45</publishTime>
     </File>
     <File Include="Views/Report/History.cshtml">
-      <publishTime>09/11/2018 13:27:16</publishTime>
+      <publishTime>10/01/2018 09:27:08</publishTime>
     </File>
     <File Include="Views/Report/ProgressBar.cshtml">
-      <publishTime>09/11/2018 14:03:23</publishTime>
+      <publishTime>10/01/2018 09:27:08</publishTime>
     </File>
     <File Include="Views/Report/Report.cshtml">
-      <publishTime>09/11/2018 13:27:16</publishTime>
+      <publishTime>10/01/2018 09:27:08</publishTime>
     </File>
     <File Include="Views/Schedule/Schedule.cshtml">
-      <publishTime>09/11/2018 13:27:28</publishTime>
+      <publishTime>10/01/2018 09:27:08</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/05/2018 10:08:45</publishTime>
@@ -1585,13 +1618,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/30/2018 16:16:02</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>09/11/2018 13:27:16</publishTime>
+      <publishTime>10/01/2018 09:27:08</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>04/05/2018 10:08:45</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/24/2018 10:41:16</publishTime>
+      <publishTime>10/02/2018 11:49:04</publishTime>
     </File>
   </ItemGroup>
 </Project>

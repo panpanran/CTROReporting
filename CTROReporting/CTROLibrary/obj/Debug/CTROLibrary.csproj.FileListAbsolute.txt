@@ -16,7 +16,6 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROLibrary\bin\Debug\System.Net.Http.
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROLibrary\bin\Debug\Newtonsoft.Json.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROLibrary\obj\Debug\CTROLibrary.csproj.CopyComplete
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROLibrary\obj\Debug\CTROLibrary.csprojAssemblyReference.cache
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROLibrary\bin\Debug\System.Net.Http.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROLibrary\bin\Debug\System.Security.Cryptography.Algorithms.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROLibrary\bin\Debug\System.Security.Cryptography.Encoding.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROLibrary\bin\Debug\System.Security.Cryptography.Primitives.dll

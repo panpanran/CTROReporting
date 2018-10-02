@@ -30,15 +30,11 @@ namespace CTROScheduleReport
         private Timer tickettimer = null;
         protected override void OnStart(string[] args)
         {
-            tickettimer = new Timer();
-            tickettimer.Interval = 120000; // every 3 minutes
-            tickettimer.Elapsed += new System.Timers.ElapsedEventHandler(tickettimerTick);
-            tickettimer.Enabled = true;
-            Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "CTROScheduleService Start");
-        }
+            //tickettimer = new Timer();
+            //tickettimer.Interval = 120000; // every 3 minutes
+            //tickettimer.Elapsed += new System.Timers.ElapsedEventHandler(tickettimerTick);
+            //tickettimer.Enabled = true;
 
-        private void tickettimerTick(object sender, ElapsedEventArgs e)
-        {
             try
             {
                 List<Schedule> schedulelist = CTROLibrary.CTROFunctions.GetDataFromJson<List<Schedule>>("ScheduleService", "GetSchedules");
@@ -49,6 +45,13 @@ namespace CTROScheduleReport
             {
                 Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
             }
+
+            Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "CTROScheduleService Start");
+        }
+
+        private void tickettimerTick(object sender, ElapsedEventArgs e)
+        {
+
         }
 
         protected override void OnStop()

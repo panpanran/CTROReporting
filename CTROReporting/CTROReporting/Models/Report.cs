@@ -27,7 +27,6 @@ namespace CTROReporting.Models
         [JsonIgnore]
         public virtual ICollection<Record> Records { get; set; }
 
-        [JsonIgnore]
         public virtual ICollection<ReportSetting> ReportSettings { get; set; }
 
         [JsonIgnore]
