@@ -31,7 +31,11 @@ namespace CTROReporting.CTRO
             object bookObject = null;
 
             StringBuilder pathtext = new StringBuilder();
-            pathtext.Append(AppDomain.CurrentDomain.BaseDirectory + "/Excel/" + user.UserName + "/");
+            pathtext.Append(CTROConst.reportpath + "/Excel/" + user.UserName + "/");
+            if (!Directory.Exists(pathtext.ToString()))
+            {
+                Directory.CreateDirectory(pathtext.ToString());
+            }
 
             if (report.ReportName == "SDA - Biomarker")
             {
@@ -95,6 +99,18 @@ namespace CTROReporting.CTRO
                     System.IO.File.Copy(pathCache.ToString(), savepath, true);
                     CTROFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
                 }
+                Record record = new Record
+                {
+                    ReportId = report.ReportId,
+                    UserId = user.Id,
+                    StartDate = startDate,
+                    EndDate = endDate,
+                };
+
+                record.FilePath = "../Excel/" + user.UserName + "/" + Path.GetFileName(savepath);
+                //Add Record
+                var url = CTROLibrary.CTROFunctions.CreateDataFromJson("RecordService", "CreateRecord", record);
+
                 return 1;
             }
             catch (Exception ex)

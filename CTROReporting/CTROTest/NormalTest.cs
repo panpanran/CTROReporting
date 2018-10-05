@@ -18,6 +18,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using WebSocketSharp;
+using System.Net.Mail;
 
 namespace CTROTest
 {
@@ -301,6 +302,48 @@ namespace CTROTest
             dict["k1"] = 42; // Overwrite unconditionally
             int r1 = dict.AddOrUpdate("k1", 3, (s, i) => i * 2);
             int r2 = dict.GetOrAdd("k2", 3);
+        }
+
+
+
+        [Test]
+        public void SendEmailTest()
+        {
+            MailMessage msg = new MailMessage();
+            msg.To.Add(new MailAddress("dena.sumaida@nih.gov"));
+            msg.From = new MailAddress("ncictro@mail.nih.gov", "CTRO Reporting System");
+            msg.Subject = "Test Public Email";
+            msg.Body = "Only for testing. Can you receive it ? Is it OK like this ?";
+            msg.IsBodyHtml = true;
+
+            SmtpClient client = new SmtpClient();
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new System.Net.NetworkCredential("ncictro@mail.nih.gov", "20180806!!N_c_i");
+            client.Port = 25; // You can use Port 25 if 587 is blocked (mine is!)
+            client.Host = "mailfwd.nih.gov";
+            client.EnableSsl = false;
+
+            //if (!string.IsNullOrEmpty(AttachmentFileName))
+            //{
+            //    Attachment attachment = new Attachment(AttachmentFileName, MediaTypeNames.Application.Octet);
+            //    ContentDisposition disposition = attachment.ContentDisposition;
+            //    disposition.CreationDate = File.GetCreationTime(AttachmentFileName);
+            //    disposition.ModificationDate = File.GetLastWriteTime(AttachmentFileName);
+            //    disposition.ReadDate = File.GetLastAccessTime(AttachmentFileName);
+            //    disposition.FileName = Path.GetFileName(AttachmentFileName);
+            //    disposition.Size = new FileInfo(AttachmentFileName).Length;
+            //    disposition.DispositionType = DispositionTypeNames.Attachment;
+            //    msg.Attachments.Add(attachment);
+            //}
+            try
+            {
+                client.Send(msg);
+            }
+            catch (Exception ex)
+            {
+                string errormessage = ex.Message;
+            }
         }
     }
 }

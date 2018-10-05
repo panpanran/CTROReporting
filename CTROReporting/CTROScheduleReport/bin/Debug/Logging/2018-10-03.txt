@@ -1,0 +1,80 @@
+
+Log Entry : 7:40:00 AM Wednesday, October 3, 2018
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------
+
+Log Entry : 8:10:02 AM Wednesday, October 3, 2018
+  :
+  :CTROHome > CreateReport > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:02 AM Wednesday, October 3, 2018
+  :
+  :CTROHome > CreateReport > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:03 AM Wednesday, October 3, 2018
+  :
+  :ScheduleJob > Execute > The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\Logging\2018-10-03.txt' because it is being used by another process.
+-------------------------------
+
+Log Entry : 8:10:04 AM Wednesday, October 3, 2018
+  :
+  :CTROHome > CreateReport > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:05 AM Wednesday, October 3, 2018
+  :
+  :CTROHome > CreateReport > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:05 AM Wednesday, October 3, 2018
+  :
+  :CTROHome > CreateReport > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:05 AM Wednesday, October 3, 2018
+  :
+  :ScheduleJob > Execute > The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\Logging\2018-10-03.txt' because it is being used by another process.
+-------------------------------
+
+Log Entry : 8:10:06 AM Wednesday, October 3, 2018
+  :
+  :CTROHome > CreateReport > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:07 AM Wednesday, October 3, 2018
+  :
+  :CTROHome > CreateReport > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:07 AM Wednesday, October 3, 2018
+  :
+  :CTROHome > CreateReport > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 12:13:24 PM Wednesday, October 3, 2018
+  :
+  :CTROScheduleService > OnStop > CTROScheduleService Stop
+-------------------------------
+
+Log Entry : 12:14:02 PM Wednesday, October 3, 2018
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------
+
+Log Entry : 12:14:06 PM Wednesday, October 3, 2018
+  :
+  :CTROScheduleService > OnStop > CTROScheduleService Stop
+-------------------------------
+
+Log Entry : 12:15:30 PM Wednesday, October 3, 2018
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------
+
+Log Entry : 4:14:29 PM Wednesday, October 3, 2018
+  :
+  :CTROScheduleService > OnStop > CTROScheduleService Stop
+-------------------------------

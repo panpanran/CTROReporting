@@ -139,3 +139,68 @@ Affected parameters are:
    logtoconsole = 
    logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.InstallLog
    assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe
+Uninstalling assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe
+Removing EventLog source CTROScheduleService.
+Service CTROScheduleService is being removed from the system...
+Service CTROScheduleService was successfully removed from the system.
+Attempt to stop service CTROScheduleService.
+Uninstalling assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe
+Removing EventLog source CTROScheduleService.
+Warning: The source CTROScheduleService is not registered on the local machine.
+Service CTROScheduleService is being removed from the system...
+Service CTROScheduleService was successfully removed from the system.
+Attempt to stop service CTROScheduleService.
+Uninstalling assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe
+Removing EventLog source CTROScheduleService.
+Warning: The source CTROScheduleService is not registered on the local machine.
+Service CTROScheduleService is being removed from the system...
+Service CTROScheduleService was successfully removed from the system.
+Attempt to stop service CTROScheduleService.
+Installing assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe
+Installing service CTROScheduleService...
+Creating EventLog source CTROScheduleService in log Application...
+Rolling back assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe
+Restoring event log to previous state for source CTROScheduleService.
+Uninstalling assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe
+Removing EventLog source CTROScheduleService.
+Warning: The source CTROScheduleService is not registered on the local machine.
+Service CTROScheduleService is being removed from the system...
+Service CTROScheduleService was successfully removed from the system.
+Attempt to stop service CTROScheduleService.
+Installing assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe
+Installing service CTROScheduleService...
+Service CTROScheduleService has been successfully installed.
+Creating EventLog source CTROScheduleService in log Application...
+Committing assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe

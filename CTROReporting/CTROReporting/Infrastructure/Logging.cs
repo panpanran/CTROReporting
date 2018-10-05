@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CTROReporting.CTRO;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace CTROReporting.Infrastructure
     {
         public static void WriteLog(string classname, string methodname, string ex)
         {
-            StringBuilder path = new StringBuilder(AppDomain.CurrentDomain.BaseDirectory + "/Logging/");
+            StringBuilder path = new StringBuilder(CTROConst.reportpath + "/Logging/");
 
             if (!Directory.Exists(path.ToString()))
             {

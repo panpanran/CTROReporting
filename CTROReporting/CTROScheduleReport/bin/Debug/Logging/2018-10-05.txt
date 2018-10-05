@@ -1,0 +1,106 @@
+
+Log Entry : 7:46:34 AM Friday, October 5, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 7:46:46 AM Friday, October 5, 2018
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------
+
+Log Entry : 7:54:39 AM Friday, October 5, 2018
+  :
+  :CTROScheduleService > OnStop > CTROScheduleService Stop
+-------------------------------
+
+Log Entry : 8:00:28 AM Friday, October 5, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 8:13:57 AM Friday, October 5, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 8:17:16 AM Friday, October 5, 2018
+  :
+  :ScheduleJob > Execute > Could not load file or assembly 'System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:18:33 AM Friday, October 5, 2018
+  :
+  :ScheduleJob > Execute > Could not load file or assembly 'System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:31:17 AM Friday, October 5, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 8:31:25 AM Friday, October 5, 2018
+  :
+  :CTROHangfire > ScheduleReports > CRON expression is invalid. Please see the inner exception for details.
+Parameter name: cronExpression
+-------------------------------
+
+Log Entry : 8:37:16 AM Friday, October 5, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 8:56:04 AM Friday, October 5, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 9:02:14 AM Friday, October 5, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 9:06:07 AM Friday, October 5, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 10:21:22 AM Friday, October 5, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 10:34:44 AM Friday, October 5, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 10:37:56 AM Friday, October 5, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 10:44:19 AM Friday, October 5, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 10:45:30 AM Friday, October 5, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 10:46:31 AM Friday, October 5, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 10:49:04 AM Friday, October 5, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 11:03:57 AM Friday, October 5, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------

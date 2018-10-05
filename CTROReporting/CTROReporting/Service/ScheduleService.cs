@@ -17,7 +17,7 @@ namespace CTROReporting.Service
         IEnumerable<Schedule> GetSchedulesByUser(string userid);
         IEnumerable<Schedule> GetSchedules();
         void UpdateSchedule(Schedule schedule);
-        void DeleteSchedule(int id);
+        void DeleteSchedule(Schedule schedule);
     }
 
     public class ScheduleServiceController : ApiController,IScheduleService
@@ -67,9 +67,8 @@ namespace CTROReporting.Service
             SaveSchedule();
         }
 
-        public void DeleteSchedule(int id)
+        public void DeleteSchedule(Schedule schedule)
         {
-            var schedule = scheduleRepository.GetById(id);
             scheduleRepository.Delete(schedule);
             SaveSchedule();
         }

@@ -13,6 +13,7 @@ using CTROReporting.Infrastructure;
 using CTROReporting.Repository;
 using CTROReporting.Models;
 using CTROReporting.EW;
+using Hangfire;
 
 namespace CTROReporting.CTRO
 {
@@ -32,11 +33,9 @@ namespace CTROReporting.CTRO
             Scheduler = (IScheduler)GetCache(key);
             if (Scheduler == null)
             {
-                if (StdSchedulerFactory.GetDefaultScheduler().Result.IsStarted)
-                {
-                    StdSchedulerFactory.GetDefaultScheduler().Result.Shutdown();
-                }
+                //initial scheduler
                 IScheduler schedulertemp = StdSchedulerFactory.GetDefaultScheduler().Result;
+
                 CacheItemPolicy cip = new CacheItemPolicy()
                 {
                     AbsoluteExpiration = new DateTimeOffset(DateTime.Now.AddDays(1))
@@ -221,27 +220,12 @@ namespace CTROReporting.CTRO
                 string startdate = starttime.AddDays(-intervaldays).ToString("yyyy-MM-dd");
                 string enddate = starttime.ToString("yyyy-MM-dd");
 
-                Record record = new Record
-                {
-                    ReportId = reportid,
-                    UserId = userid,
-                    StartDate = startdate,
-                    EndDate = enddate,
-                };
-
                 var report = CTROLibrary.CTROFunctions.GetDataFromJson<Report>("ReportService", "GetReportById", "reportid="+ reportid.ToString());
                 var user = CTROLibrary.CTROFunctions.GetDataFromJson<ApplicationUser>("UserService", "GetByUserID", "userid="+ userid);
 
                 CTROHome home = new CTROHome();
                 string savepath = "";
                 int result = home.CreateReport(startdate, enddate, user, report, out savepath);
-
-                if (result == 1)
-                {
-                    record.FilePath = "../Excel/" + user.UserName + "/" + Path.GetFileName(savepath);
-                    //Add Record
-                    var url = await CTROLibrary.CTROFunctions.CreateDataFromJson("RecordService", "CreateRecord", record);
-                }
             }
             catch (Exception ex)
             {

@@ -141,12 +141,6 @@ namespace CTROReporting.CTRO
             xlApp = new Excel.Application();
             try
             {
-                string pathtext = AppDomain.CurrentDomain.BaseDirectory + "/Excel/" + user.UserName;
-                if (!Directory.Exists(pathtext))
-                {
-                    Directory.CreateDirectory(pathtext);
-                }
-
                 if (!File.Exists(savepath))
                 {
                     System.IO.File.Copy(templatepath, savepath, true);

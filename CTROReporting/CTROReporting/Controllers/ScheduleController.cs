@@ -19,11 +19,13 @@ namespace CTROReporting.Controllers
     {
         private readonly IScheduleService scheduleService;
         private readonly IReportService reportService;
+        private readonly IUserService userService;
 
-        public ScheduleController(IReportService reportService, IScheduleService scheduleService)
+        public ScheduleController(IReportService reportService, IScheduleService scheduleService, IUserService userService)
         {
             this.reportService = reportService;
             this.scheduleService = scheduleService;
+            this.userService = userService;
         }
 
         public ActionResult Schedule()
@@ -41,11 +43,12 @@ namespace CTROReporting.Controllers
             schedule.IntervalDays = model.IntervalDays;
             schedule.ReportId = reportService.GetByReportName(model.ReportName).ReportId;
             schedule.UserId = User.Identity.GetUserId();
+            schedule.Report = reportService.GetByReportName(model.ReportName);
+            schedule.User = userService.GetByUserID(User.Identity.GetUserId());
+
             scheduleService.CreateSchedule(schedule);
 
-            CTROSchedule ctroSchedule = new CTROSchedule();
-            ctroSchedule.CreateJob(schedule);
-
+            CTROHangfire.AddorUpdateJob(schedule);
             return View();
         }
 
@@ -58,20 +61,15 @@ namespace CTROReporting.Controllers
             schedule.ReportId = reportService.GetByReportName(model.ReportName).ReportId;
             scheduleService.UpdateSchedule(schedule);
 
-            CTROSchedule ctroSchedule = new CTROSchedule();
-            ctroSchedule.UpdateJob(schedule);
-
+            CTROHangfire.AddorUpdateJob(schedule);
             return View();
         }
 
         public ActionResult DeleteSchedule(ScheduleListViewModel model)
         {
-            scheduleService.DeleteSchedule(model.ScheduleId);
-
-            Schedule schedule = scheduleService.GetByScheduleID(model.ScheduleId);
-            CTROSchedule ctroSchedule = new CTROSchedule();
-            ctroSchedule.DeleteJob(schedule);
-
+            var schedule = scheduleService.GetByScheduleID(model.ScheduleId);
+            CTROHangfire.DeleteJob(schedule);
+            scheduleService.DeleteSchedule(schedule);
             return View();
         }
 

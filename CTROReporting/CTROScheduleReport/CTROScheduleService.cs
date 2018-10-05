@@ -3,6 +3,8 @@ using CTROReporting.Infrastructure;
 using CTROReporting.Models;
 using CTROReporting.Repository;
 using CTROReporting.Service;
+using Hangfire;
+using Microsoft.Owin.Hosting;
 using Quartz;
 using Quartz.Impl;
 using System;
@@ -22,24 +24,22 @@ namespace CTROScheduleReport
 {
     public partial class CTROScheduleService : ServiceBase
     {
+        private BackgroundJobServer _server;
         public CTROScheduleService()
         {
             InitializeComponent();
+            GlobalConfiguration.Configuration.UseSqlServerStorage(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=CTROReporting;User Id=panpanr;Password=Prss_1234;");
         }
 
-        private Timer tickettimer = null;
         protected override void OnStart(string[] args)
         {
-            //tickettimer = new Timer();
-            //tickettimer.Interval = 120000; // every 3 minutes
-            //tickettimer.Elapsed += new System.Timers.ElapsedEventHandler(tickettimerTick);
-            //tickettimer.Enabled = true;
-
             try
             {
-                List<Schedule> schedulelist = CTROLibrary.CTROFunctions.GetDataFromJson<List<Schedule>>("ScheduleService", "GetSchedules");
-                CTROSchedule ctroschedule = new CTROSchedule();
-                ctroschedule.Start(schedulelist);
+                StartOptions options = new StartOptions();
+                options.Urls.Add("http://localhost:9095");
+                WebApp.Start<Startup>(options);
+                CTROHangfire.Start();
+                _server = new BackgroundJobServer();
             }
             catch (Exception ex)
             {
@@ -49,17 +49,9 @@ namespace CTROScheduleReport
             Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "CTROScheduleService Start");
         }
 
-        private void tickettimerTick(object sender, ElapsedEventArgs e)
-        {
-
-        }
-
         protected override void OnStop()
         {
-            if (StdSchedulerFactory.GetDefaultScheduler().Result.IsStarted)
-            {
-                StdSchedulerFactory.GetDefaultScheduler().Result.Shutdown();
-            }
+            _server.Dispose();
             Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "CTROScheduleService Stop");
         }
     }

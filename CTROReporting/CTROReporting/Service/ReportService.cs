@@ -57,13 +57,6 @@ namespace CTROReporting.Service
         public bool CreateReport(int selectedreport, string userid, string startdate, string enddate, ApplicationUser user)
         {
             bool result = false;
-            Record record = new Record
-            {
-                ReportId = selectedreport,
-                UserId = userid,
-                StartDate = startdate,
-                EndDate = enddate,
-            };
 
             Report report = GetReportById(selectedreport);
             string reportname = report.ReportName.Replace(" - ", "");
@@ -74,8 +67,6 @@ namespace CTROReporting.Service
 
             if (reportflag == 1)
             {
-                record.FilePath = "../Excel/" + user.UserName + "/" + Path.GetFileName(savepath);
-                recordService.CreateRecord(record);
                 result = true;
             }
 

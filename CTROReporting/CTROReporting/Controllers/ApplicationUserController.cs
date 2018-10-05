@@ -19,6 +19,7 @@ using System.Web;
 using System.Web.Mvc;
 using Quartz.Impl;
 using Quartz;
+using Hangfire;
 
 namespace CTROReporting.Controllers
 {
@@ -79,9 +80,7 @@ namespace CTROReporting.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            //List<Schedule> schedulelist = scheduleService.GetSchedules().ToList();
-            //CTROSchedule ctroschedule = new CTROSchedule();
-            //ctroschedule.Start(schedulelist);
+            //CTROHangfire.Start();
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }

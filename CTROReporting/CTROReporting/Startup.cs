@@ -1,5 +1,7 @@
-﻿using Microsoft.Owin;
+﻿using Hangfire;
+using Microsoft.Owin;
 using Owin;
+using System.Configuration;
 
 [assembly: OwinStartupAttribute("CTROReportingConfig", typeof(CTROReporting.Startup))]
 namespace CTROReporting
@@ -9,6 +11,7 @@ namespace CTROReporting
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            app.UseHangfireDashboard("/ctroreporting");
         }
     }
 }

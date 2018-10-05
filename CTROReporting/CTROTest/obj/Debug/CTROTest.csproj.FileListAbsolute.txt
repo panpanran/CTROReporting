@@ -199,3 +199,10 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\CTROReporting.dll.c
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\CTROLibrary.dll.config
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Net.Http.Extensions.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Net.Http.Primitives.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Hangfire.Core.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Hangfire.SqlServer.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Hangfire.Core.xml
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Hangfire.SqlServer.xml
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\es\Hangfire.Core.resources.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\zh\Hangfire.Core.resources.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\zh-TW\Hangfire.Core.resources.dll
