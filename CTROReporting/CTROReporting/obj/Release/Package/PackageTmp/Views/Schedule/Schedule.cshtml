@@ -6,6 +6,16 @@
     Layout = "../Shared/_HomeLayout.cshtml";
 }
 
+@if (TempData["ScheduleResult"] == "true")
+{
+    <div class="alertmessage-success"></div>
+}
+@if (TempData["ScheduleResult"] == "false")
+{
+    <div class="alertmessage-fail"></div>
+}
+
+
 <head>
     <title>Popup editing</title>
     <meta charset="utf-8">
@@ -31,11 +41,14 @@
 <script>
     var jsonObject = @Html.Raw(Json.Encode(Model));
 
-    $(document).ready(function () {
-        dataSource = new kendo.data.DataSource({
+    //$(document).ready(function () {
+        var  dataSource = new kendo.data.DataSource({
             //data: jsonObject,
+            //autoSync: true,
             transport: {
                 read: function (e) {
+                    //$('#grid').data('kendoGrid').dataSource.read();
+
                     e.success(jsonObject);
                 },
                 update: function (e) {
@@ -52,6 +65,7 @@
                             url: "/Schedule/UpdateSchedule",
                             data: schedule,
                             success: function (data) {
+                                window.location.href = "/Schedule/Schedule";
                                 alert(data);
                             }
                         });
@@ -73,7 +87,8 @@
                             success: function (data) {
                                 alert(data);
                             }
-                        });
+                    });
+
                     e.success();
                 },
                 create: function (e) {
@@ -90,11 +105,15 @@
                         url: "/Schedule/CreateSchedule",
                         data: schedule,
                         success: function (data) {
-                            alert(data);
+                            window.location.href = "/Schedule/Schedule";
+                            //alert(data);
                         }
                     });
+                    //$('#grid').data('kendoGrid').dataSource.read();
+
                     e.success();
                 },
+
                 parameterMap: function (options, operation) {
                     if (operation !== "read" && options.models) {
                         return { models: kendo.stringify(options.models) };
@@ -138,9 +157,10 @@
             editable: "inline"
             //selectable: "multiple, cell"
         });
+
         //var grid = $("#grid").data("kendoGrid");
         //grid.bind("saveChanges", grid_saveChanges);
-    });
+    //});
 
     function timeEditor(container, options) {
         $('<input data-text-field="' + options.field + '" data-value-field="' + options.field + '" data-bind="value:' + options.field + '" data-format="' + options.format + '"/>')
@@ -172,18 +192,62 @@
     }
 
     function categoryDropDownEditor(container, options) {
-        $('<input required name="' + options.field + '"/>')
-            .appendTo(container)
-            .kendoDropDownList({
-                dataTextField: "ReportName",
-                dataValueField: "ReportName",
-                dataSource: {
-                    transport: {
-                        dataType: "jsonp",
-                        read: "/Report/GetReportList"
+        if (options.model.isNew() == true) {
+            $('<input required name="' + options.field + '"/>')
+                .appendTo(container)
+                .kendoDropDownList({
+                    dataTextField: "ReportName",
+                    dataValueField: "ReportName",
+                    dataSource: {
+                        transport: {
+                            dataType: "jsonp",
+                            read: "/Report/GetReportList"
+                        }
                     }
-                }
-            });
+                });
+        }
+        else {
+            $('<input required name="' + options.field + '"/>')
+                .attr("readonly", true)
+                .appendTo(container)
+                .kendoDropDownList({
+                    dataTextField: "ReportName",
+                    dataValueField: "ReportName",
+                    dataSource: {
+                        transport: {
+                            dataType: "jsonp",
+                            read: "/Report/GetReportList"
+                        }
+                    }
+                });
+        }
     }
+
+    function GetMessage() {
+        return function () {
+            var successmessage = 'Success! A new schedule is created.'
+            var htmlAlert = '<div class="alert alert-success"><h5>' + successmessage + '</h5></div>';
+            $('.alertmessage-success').prepend(htmlAlert);
+            $(".alertmessage-success .alert").first().hide().fadeIn(200).delay(3000).fadeOut(1000, function () { $(this).remove(); });
+
+            var failmessage = 'Fail! Sorry, a same report has been scheduled with too close start time'
+            var htmlAlert = '<div class="alert alert-warning"><h5>' + failmessage + '</h5></div>';
+            $('.alertmessage-fail').prepend(htmlAlert);
+            $(".alertmessage-fail .alert").first().hide().fadeIn(200).delay(3000).fadeOut(1000, function () { $(this).remove(); });
+
+            var cancelmessage = 'Cancelled!'
+            var htmlAlert = '<div class="alert alert-info"><h5>' + cancelmessage + '</h5></div>';
+            $('.alertmessage-cancel').prepend(htmlAlert);
+            $(".alertmessage-cancel .alert").first().hide().fadeIn(200).delay(3000).fadeOut(1000, function () { $(this).remove(); });
+
+            var wrongmessage = 'Wrong'
+            var htmlAlert = '<div class="alert alert-danger"><h5>' + wrongmessage + '</h5></div>';
+            $('.alertmessage-wrong').prepend(htmlAlert);
+            $(".alertmessage-wrong .alert").first().hide().fadeIn(200).delay(3000).fadeOut(1000, function () { $(this).remove(); });
+
+        }
+    }
+
+    $(document).ready(GetMessage());
 
 </script>

@@ -1,0 +1,240 @@
+
+Log Entry : 9:42:02 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:42:02 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:42:04 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:42:04 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:42:06 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:42:06 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:42:08 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:42:08 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:42:10 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:42:10 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:42:12 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:42:12 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:42:14 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:42:14 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:42:17 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:42:17 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:42:19 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:42:19 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:42:21 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:42:21 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:42:31 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:42:31 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:42:33 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:42:33 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:42:46 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:42:46 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:43:01 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:43:01 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:43:03 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:43:03 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:43:05 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:43:05 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:43:16 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:43:16 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:43:46 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:43:46 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:44:16 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:44:16 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:44:18 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:44:18 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:45:15 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:45:15 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:46:00 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:46:00 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:46:32 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:46:32 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:46:34 AM Tuesday, October 23, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:46:34 AM Tuesday, October 23, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------

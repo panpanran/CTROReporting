@@ -1,4 +1,10 @@
 ﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<CTROReporting.ViewModels.UserManagementViewModel>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
 @if (Request.IsAuthenticated)
 {
@@ -23,12 +29,16 @@
                         Schedules
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("UserManagement", "ApplicationUser")">
-                        <span data-feather="users"></span>
-                        Users
-                    </a>
-                </li>
+
+                @if (Model. == true)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("UserManagement", "ApplicationUser")">
+                            <span data-feather="users"></span>
+                            Users
+                        </a>
+                    </li>
+                }
                 <li class="nav-item">
                     <a class="nav-link" href="@Url.Action("Chart", "Chart")">
                         <span data-feather="bar-chart-2"></span>

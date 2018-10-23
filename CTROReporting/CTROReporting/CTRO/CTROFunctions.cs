@@ -11,6 +11,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Net.Mime;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Web;
 using Excel = Microsoft.Office.Interop.Excel;
 
@@ -131,7 +132,7 @@ namespace CTROReporting.CTRO
             }
         }
 
-        public static void WriteExcelByDataTable(System.Data.DataTable datatable, ApplicationUser user, string savepath, string templatepath, int startrow, int startcolumn, bool ifchart)
+        public static async Task WriteExcelByDataTable(System.Data.DataTable datatable, ApplicationUser user, string savepath, string templatepath, int startrow, int startcolumn, bool ifchart)
         {
             Excel.Application xlApp;
             Excel.Workbook xlWorkBook;
@@ -148,45 +149,44 @@ namespace CTROReporting.CTRO
 
                 xlWorkBook = xlApp.Workbooks.Open(savepath, misValue);
 
-                xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets[datatable.TableName];
-                xlWorkSheet.Rows.WrapText = true;
-                Excel.Range EntireRow = xlWorkSheet.Cells.EntireRow;
+                    xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets[datatable.TableName];
+                    xlWorkSheet.Rows.WrapText = true;
+                    Excel.Range EntireRow = xlWorkSheet.Cells.EntireRow;
 
-                var startCell = (Range)xlWorkSheet.Cells[startrow, startcolumn];
-                var endCell = (Range)xlWorkSheet.Cells[datatable.Rows.Count + startrow - 1, datatable.Columns.Count + startcolumn - 1];
-                var writeRange = xlWorkSheet.Range[startCell, endCell];
-                var datas = new object[datatable.Rows.Count, datatable.Columns.Count];
-                for (var row = 0; row <= datatable.Rows.Count - 1; row++)
-                {
-                    for (var column = 0; column <= datatable.Columns.Count - 1; column++)
+                    var startCell = (Range)xlWorkSheet.Cells[startrow, startcolumn];
+                    var endCell = (Range)xlWorkSheet.Cells[datatable.Rows.Count + startrow - 1, datatable.Columns.Count + startcolumn - 1];
+                    var writeRange = xlWorkSheet.Range[startCell, endCell];
+                    var datas = new object[datatable.Rows.Count, datatable.Columns.Count];
+                    for (var row = 0; row <= datatable.Rows.Count - 1; row++)
                     {
-                        if (datatable.Columns[column].ColumnName == "additionalcomments" && !string.IsNullOrEmpty(datatable.Rows[row].ItemArray[column].ToString()))
+                        for (var column = 0; column <= datatable.Columns.Count - 1; column++)
                         {
-                            xlWorkSheet.Cells[row + startrow, column + startcolumn].RowHeight = 45;
+                            if (datatable.Columns[column].ColumnName == "additionalcomments" && !string.IsNullOrEmpty(datatable.Rows[row].ItemArray[column].ToString()))
+                            {
+                                xlWorkSheet.Cells[row + startrow, column + startcolumn].RowHeight = 45;
+                            }
+                            datas[row, column] = datatable.Rows[row].ItemArray[column].ToString();
                         }
-                        datas[row, column] = datatable.Rows[row].ItemArray[column].ToString();
                     }
+
+                    //Chart
+                    //if (ifchart == true)
+                    //{
+                    //    CreateExcelChart(xlWorkSheet, writeRange);
+                    //}
+
+                    writeRange.Value2 = datas;
+                    //writeRange.AutoFilter(1, Type.Missing, Excel.XlAutoFilterOperator.xlAnd, Type.Missing, true);
+                    ReleaseObject(xlWorkSheet);
+
+                    //xlWorkBook.Sheets["Sheet1"].Delete();
+                    xlWorkBook.Save();
+                    xlWorkBook.Close(true, misValue, misValue);
+                    xlApp.Quit();
+
+                    ReleaseObject(xlWorkBook);
+                    ReleaseObject(xlApp);
                 }
-
-                //Chart
-                if (ifchart == true)
-                {
-                    CreateExcelChart(xlWorkSheet, writeRange);
-                }
-
-                writeRange.Value2 = datas;
-                //writeRange.AutoFilter(1, Type.Missing, Excel.XlAutoFilterOperator.xlAnd, Type.Missing, true);
-                ReleaseObject(xlWorkSheet);
-
-                //xlWorkBook.Sheets["Sheet1"].Delete();
-                xlWorkBook.Save();
-                xlWorkBook.Close(true, misValue, misValue);
-                xlApp.Quit();
-
-                ReleaseObject(xlWorkBook);
-                ReleaseObject(xlApp);
-
-            }
             catch (Exception ex)
             {
                 xlApp.Quit();

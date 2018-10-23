@@ -76,7 +76,7 @@ namespace CTROReporting.Controllers
             if (ModelState.IsValid)
             {
                 model.ReportResult = reportService.CreateReport(Convert.ToInt32(model.SelectedReport), User.Identity.GetUserId(),
-                    model.StartDate, model.EndDate, user);
+                    model.StartDate, model.EndDate, user).Result;
             }
             var reports = reportService.GetReports();
             model.Reports = reportService.ToSelectListItems(reports, -1);

@@ -46,7 +46,13 @@ namespace CTROReporting.Controllers
             this.scheduleService = scheduleService;
         }
 
-        public ActionResult UserManagement()
+        public ActionResult Test()
+        {
+            return View();
+        }
+
+
+        public ActionResult UserManagement(UserManagementViewModel model)
         {
             var users = userService.GetUsers();
             var usersList = Mapper.Map<IEnumerable<ApplicationUser>, IEnumerable<UserManagementViewModel>>(users).ToList();

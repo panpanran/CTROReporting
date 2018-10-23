@@ -1,0 +1,10 @@
+
+Log Entry : 10:48:18 AM Wednesday, October 10, 2018
+  :
+  :EWTicketTrageService > OnStop > EW Ticket Triaging Service Stop
+-------------------------------
+
+Log Entry : 11:03:02 AM Wednesday, October 10, 2018
+  :
+  :EWTicketTrageService > OnStart > EW Ticket Triaging Service Start
+-------------------------------

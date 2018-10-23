@@ -1,0 +1,25 @@
+
+Log Entry : 3:38:32 PM Friday, October 12, 2018
+  :
+  :CTROHome > CreateReport > The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\/Excel/panpanr/TSR Sent Report _20181011-20181012_20181012153832_panpanr.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 3:38:32 PM Friday, October 12, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 4:12:01 PM Friday, October 12, 2018
+  :
+  :CTROHome > CreateReport > The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\Excel\panpanr\TSR Sent Report _20181011-20181012_20181012161201_panpanr.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 4:12:01 PM Friday, October 12, 2018
+  :
+  :CTROHome > CreateReport > The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\Excel\panpanr\TSR Sent Report _20181011-20181012_20181012161201_panpanr.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 4:12:01 PM Friday, October 12, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------

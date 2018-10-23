@@ -1,0 +1,260 @@
+
+Log Entry : 7:43:44 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 7:45:43 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 7:47:43 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 7:49:43 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 7:51:43 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 7:53:43 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 7:55:43 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 7:57:43 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 7:59:43 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 8:01:43 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 8:03:43 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 8:05:43 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 8:07:43 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 8:09:43 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 8:11:43 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 11:35:45 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 11:37:45 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 11:39:45 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 11:41:45 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 11:43:45 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 11:45:45 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 11:47:45 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 11:49:45 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 11:51:45 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 11:53:45 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 11:55:45 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 11:57:45 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 11:59:45 AM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:01:45 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:03:45 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:05:45 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:07:45 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:09:45 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:11:45 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:13:45 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:15:45 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:17:45 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:19:45 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:22:13 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:24:13 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:26:13 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:28:13 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:30:13 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:32:13 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:34:13 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:36:13 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:38:13 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:40:13 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:42:35 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:44:15 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:12:16 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 6:14:16 PM Friday, October 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------

@@ -31,11 +31,6 @@ namespace CTROReporting.Service
             this.unitOfWork = unitOfWork;
         }
 
-        public void SaveRecord()
-        {
-            unitOfWork.Commit();
-        }
-
         public Schedule GetByScheduleID(int scheduleid)
         {
             var schedule = scheduleRepository.GetById(scheduleid);
@@ -58,7 +53,7 @@ namespace CTROReporting.Service
         public void CreateSchedule(Schedule schedule)
         {
             scheduleRepository.Add(schedule);
-            SaveRecord();
+            SaveSchedule();
         }
 
         public void UpdateSchedule(Schedule schedule)

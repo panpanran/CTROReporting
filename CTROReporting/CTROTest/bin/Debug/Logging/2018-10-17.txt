@@ -1,0 +1,5 @@
+
+Log Entry : 11:45:27 AM Wednesday, October 17, 2018
+  :
+  :NormalTest > ProtocolAbstractionTest > The HTTP request to the remote WebDriver server for URL http://localhost:57041/session/68e2d4f41aea90049817f0c0b92338d7/element/0.23797243628027354-51/click timed out after 60 seconds.
+-------------------------------

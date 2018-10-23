@@ -1,11 +1,14 @@
 ﻿using CTROLibrary;
 using CTROReporting.Models;
 using Hangfire;
+using Hangfire.Common;
+using Hangfire.Server;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using System.Web;
 
 namespace CTROReporting.CTRO
@@ -47,6 +50,7 @@ namespace CTROReporting.CTRO
             RecurringJob.RemoveIfExists(GetJobName(schedule));
         }
 
+
         public static void ScheduleReports(List<Schedule> schedulelist)
         {
             try
@@ -61,8 +65,10 @@ namespace CTROReporting.CTRO
                 Logging.WriteLog("CTROHangfire", MethodBase.GetCurrentMethod().Name, ex.Message);
             }
         }
+        //[AutomaticRetry(Attempts = 0)]
+        private static readonly object balanceLock = new object();
 
-        public static void ScheduledJob(Schedule schedule)
+        public static async Task ScheduledJob(Schedule schedule)
         {
             int intervaldays = schedule.IntervalDays;
             int reportid = schedule.ReportId;
@@ -77,13 +83,72 @@ namespace CTROReporting.CTRO
                 var user = CTROLibrary.CTROFunctions.GetDataFromJson<ApplicationUser>("UserService", "GetByUserID", "userid=" + userid);
 
                 CTROHome home = new CTROHome();
-                string savepath = "";
-                int result = home.CreateReport(startdate, enddate, user, report, out savepath);
+
+                lock (balanceLock)
+                {
+                    string savepath = home.CreateReport(startdate, enddate, user, report).Result;
+
+                    if (string.IsNullOrEmpty(savepath))
+                    {
+                        throw new InvalidOperationException("Create Report Failed !! Please check network connection.");
+                    }
+                }
             }
             catch (Exception ex)
             {
                 Logging.WriteLog("ScheduleJob", "Execute", ex.Message);
+                throw;
             }
+        }
+    }
+
+
+    /// <summary>
+    /// Attribute to skip a job execution if the same job is already running.
+    /// Mostly taken from: http://discuss.hangfire.io/t/job-reentrancy-avoidance-proposal/607
+    /// </summary>
+    public class SkipConcurrentExecutionAttribute : JobFilterAttribute, IServerFilter
+    {
+        private readonly int _timeoutInSeconds;
+
+        public SkipConcurrentExecutionAttribute(int timeoutInSeconds)
+        {
+            if (timeoutInSeconds < 0) throw new ArgumentException("Timeout argument value should be greater that zero.");
+
+            _timeoutInSeconds = timeoutInSeconds;
+        }
+
+
+        public void OnPerforming(PerformingContext filterContext)
+        {
+            var resource = String.Format(
+                                 "{0}.{1}",
+                                filterContext.Job.Type.FullName,
+                                filterContext.Job.Method.Name);
+
+            var timeout = TimeSpan.FromSeconds(_timeoutInSeconds);
+
+            try
+            {
+                var distributedLock = filterContext.Connection.AcquireDistributedLock(resource, timeout);
+                filterContext.Items["DistributedLock"] = distributedLock;
+            }
+            catch (Exception)
+            {
+                filterContext.Canceled = true;
+                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "");
+            }
+        }
+
+        public void OnPerformed(PerformedContext filterContext)
+        {
+            if (!filterContext.Items.ContainsKey("DistributedLock"))
+            {
+                throw new InvalidOperationException("Can not release a distributed lock: it was not acquired.");
+            }
+
+            var distributedLock = (IDisposable)filterContext.Items["DistributedLock"];
+            distributedLock.Dispose();
         }
     }
 }

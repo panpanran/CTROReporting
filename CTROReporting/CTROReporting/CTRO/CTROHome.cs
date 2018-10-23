@@ -12,6 +12,8 @@ using System.Reflection;
 using System.Text;
 using System.Web;
 using System.Web.Caching;
+using System.Runtime.Caching;
+using System.Threading.Tasks;
 
 namespace CTROReporting.CTRO
 {
@@ -19,11 +21,12 @@ namespace CTROReporting.CTRO
     {
         private object GetCache(string key)
         {
-            return HttpRuntime.Cache.Get(key);
+            return MemoryCache.Default.Get(key);
+            //return HttpRuntime.Cache.Get(key);
         }
 
         //excel
-        public int CreateReport(string startDate, string endDate, ApplicationUser user, Report report, out string savepath)
+        public async Task<string> CreateReport(string startDate, string endDate, ApplicationUser user, Report report)
         {
             Type type = Type.GetType("CTROReporting.CTRO." + report.ReportName.Replace(" - ", "").Replace(" ", "") + "Report");
             MethodInfo methodInfo = type.GetMethod("CreateBook");
@@ -31,7 +34,8 @@ namespace CTROReporting.CTRO
             object bookObject = null;
 
             StringBuilder pathtext = new StringBuilder();
-            pathtext.Append(CTROConst.reportpath + "/Excel/" + user.UserName + "/");
+            pathtext.Append(AppDomain.CurrentDomain.BaseDirectory + "/Excel/" + String.Format("{0:yyyyMMdd}", DateTime.Now) + "/");
+            string savepath = string.Empty;
             if (!Directory.Exists(pathtext.ToString()))
             {
                 Directory.CreateDirectory(pathtext.ToString());
@@ -45,16 +49,16 @@ namespace CTROReporting.CTRO
             {
                 if (!string.IsNullOrEmpty(endDate))
                 {
-                    pathtext.Append(report.Savepath + "_" + startDate.Replace("-", "") + "-" + endDate.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + "_" + user.UserName + ".xlsx");
+                    pathtext.Append(report.Savepath + "_" + startDate.Replace("-", "") + "-" + endDate.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx");
                 }
                 else
                 {
-                    pathtext.Append(report.Savepath + " from " + startDate.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + "_" + user.UserName + ".xlsx");
+                    pathtext.Append(report.Savepath + " from " + startDate.Replace("-", "") + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx");
                 }
             }
             else
             {
-                pathtext.Append(report.Savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + "_" + user.UserName + ".xlsx");
+                pathtext.Append(report.Savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx");
             }
 
             savepath = pathtext.ToString();
@@ -65,7 +69,7 @@ namespace CTROReporting.CTRO
                 object pathCache = GetCache(key);
                 if (pathCache == null)
                 {
-                    using (var conn = new NpgsqlConnection(CTROConst.connString))
+                    using (var conn = new NpgsqlConnection(report.ReportName == "Sponsor" ? CTROConst.paconnString : CTROConst.connString))
                     {
                         conn.Open();
                         ReportSetting[] reportSettings = report.ReportSettings.ToArray();
@@ -82,22 +86,32 @@ namespace CTROReporting.CTRO
                             {
                                 ifchart = true;
                             }
-                            CTROFunctions.WriteExcelByDataTable(bookDS.Tables[n], user, savepath, report.Template, reportsetting.Startrow, reportsetting.Startcolumn, ifchart);
+                            await CTROFunctions.WriteExcelByDataTable(bookDS.Tables[n], user, savepath, report.Template, reportsetting.Startrow, reportsetting.Startcolumn, ifchart);
                             if (reportsetting.AdditionStartrow > 0 && reportsetting.AdditionStartcolumn > 0)
                             {
-                                CTROFunctions.WriteExcelByDataTable(conclusionDS.Tables[n], user, savepath, null, reportsetting.AdditionStartrow, reportsetting.AdditionStartcolumn, ifchart);
+                                await CTROFunctions.WriteExcelByDataTable(conclusionDS.Tables[n], user, savepath, null, reportsetting.AdditionStartrow, reportsetting.AdditionStartcolumn, ifchart);
                             }
                         }
 
                         CTROFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
-                        HttpRuntime.Cache.Add(key, savepath, null, Cache.NoAbsoluteExpiration, new TimeSpan(4, 0, 0), CacheItemPriority.Default, null);
+
+                        CacheItemPolicy cip = new CacheItemPolicy()
+                        {
+                            AbsoluteExpiration = new DateTimeOffset(DateTime.Now.AddHours(4))
+                        };
+                        MemoryCache.Default.Set(key, savepath, cip);
+                        //HttpRuntime.Cache.Add(key, savepath, null, Cache.NoAbsoluteExpiration, new TimeSpan(4, 0, 0), CacheItemPriority.Default, null);
                         pathCache = savepath;
+                        Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "Creaet report first time for " + user.UserName + " - " + report.ReportName + " at " + DateTime.Now.ToString());
                     }
                 }
                 else
                 {
-                    System.IO.File.Copy(pathCache.ToString(), savepath, true);
-                    CTROFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
+                    //System.IO.File.Copy(pathCache.ToString(), savepath, true);
+                    savepath = pathCache.ToString();
+                    CTROFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, pathCache.ToString());
+                    Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "Creaet report with cache for " + user.UserName + " - " + report.ReportName + " at " + DateTime.Now.ToString());
+
                 }
                 Record record = new Record
                 {
@@ -107,16 +121,16 @@ namespace CTROReporting.CTRO
                     EndDate = endDate,
                 };
 
-                record.FilePath = "../Excel/" + user.UserName + "/" + Path.GetFileName(savepath);
+                record.FilePath = "../Excel/" + String.Format("{0:yyyyMMdd}", DateTime.Now) + "/" + Path.GetFileName(savepath);
                 //Add Record
                 var url = CTROLibrary.CTROFunctions.CreateDataFromJson("RecordService", "CreateRecord", record);
 
-                return 1;
+                return savepath;
             }
             catch (Exception ex)
             {
                 Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
-                return 0;
+                return string.Empty;
             }
         }
 

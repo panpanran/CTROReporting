@@ -19,6 +19,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using WebSocketSharp;
 using System.Net.Mail;
+using Npgsql;
 
 namespace CTROTest
 {
@@ -33,7 +34,8 @@ namespace CTROTest
                 ws.OnMessage += (sender, e) =>
                   Console.WriteLine("Laputa says: " + e.Data);
                 ws.Connect();
-                ws.OnOpen += (sender, e) => {
+                ws.OnOpen += (sender, e) =>
+                {
                     ws.Send("BALUS");
                 };
 
@@ -43,6 +45,43 @@ namespace CTROTest
             }
         }
 
+        [Test]
+        public void NCTNReportTest()
+        {
+            //Read Data
+            string nciid = "NCI-2017-00086";
+            string organization = "Wake Forest NCORP Research Base";
+            string sql = "";
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\NCTN Network Trials 10-15-18.xlsx");
+            //Do Loop
+            using (var conn = new NpgsqlConnection(CTROConst.connString))
+            {
+                conn.Open();
+                using (StreamWriter sw = File.CreateText(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\NCTN Accrual.txt"))
+                {
+                    foreach (DataTable table in trialdata.Tables)
+                    {
+                        sw.WriteLine(table.TableName);
+
+                        foreach (DataRow row in table.Rows)
+                        {
+                            nciid = row.ItemArray[0].ToString();
+                            orgnization = row.ItemArray[6].ToString();
+                            sql = "select count(*) accrual from dw_study_site_accrual_details where nci_id = '" + nciid + "' and org_name = '" + organization + "'";
+
+                            NpgsqlCommand cmd = null;
+                            NpgsqlDataReader datareader = null;
+                            //NCI
+                            cmd = new NpgsqlCommand(sql, conn);
+                            datareader = cmd.ExecuteReader();
+                            DataTable nciDT = new DataTable();
+                            nciDT.Load(datareader);
+                            sw.WriteLine(nciDT.Rows[0].ItemArray[0].ToString());
+                        }
+                    }
+                }
+            }
+        }
 
         [Test]
         public void ProtocolAbstractionTest()

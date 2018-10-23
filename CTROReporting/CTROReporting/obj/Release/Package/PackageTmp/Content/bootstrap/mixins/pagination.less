@@ -3,20 +3,20 @@
 .pagination-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius) {
   > li {
     > a,
-    > col-md- {
+    > span {
       padding: @padding-vertical @padding-horizontal;
       font-size: @font-size;
       line-height: @line-height;
     }
     &:first-child {
       > a,
-      > col-md- {
+      > span {
         .border-left-radius(@border-radius);
       }
     }
     &:last-child {
       > a,
-      > col-md- {
+      > span {
         .border-right-radius(@border-radius);
       }
     }

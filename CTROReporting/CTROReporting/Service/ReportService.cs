@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -18,7 +19,7 @@ namespace CTROReporting.Service
         Report GetReportById(int reportid);
         IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<Report> reports, int selectedId);
         Report GetByReportName(string name);
-        bool CreateReport(int selectedreport, string userid, string startdate, string enddate, ApplicationUser user);
+        Task<bool> CreateReport(int selectedreport, string userid, string startdate, string enddate, ApplicationUser user);
     }
 
     public class ReportServiceController : ApiController,IReportService
@@ -54,7 +55,7 @@ namespace CTROReporting.Service
             return schedule;
         }
 
-        public bool CreateReport(int selectedreport, string userid, string startdate, string enddate, ApplicationUser user)
+        public async Task<bool> CreateReport(int selectedreport, string userid, string startdate, string enddate, ApplicationUser user)
         {
             bool result = false;
 
@@ -62,10 +63,9 @@ namespace CTROReporting.Service
             string reportname = report.ReportName.Replace(" - ", "");
 
             CTROHome home = new CTROHome();
-            string savepath = "";
-            int reportflag = home.CreateReport(startdate, enddate, user, report, out savepath);
+            string savepath = await home.CreateReport(startdate, enddate, user, report);
 
-            if (reportflag == 1)
+            if (!string.IsNullOrEmpty(savepath))
             {
                 result = true;
             }

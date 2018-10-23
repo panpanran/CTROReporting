@@ -46,10 +46,20 @@ namespace CTROReporting.Controllers
             schedule.Report = reportService.GetByReportName(model.ReportName);
             schedule.User = userService.GetByUserID(User.Identity.GetUserId());
 
-            scheduleService.CreateSchedule(schedule);
+            int toocloseschedules = scheduleService.GetSchedulesByUser(User.Identity.GetUserId()).Where(x => x.ReportId == schedule.ReportId && Math.Abs((x.StartTime.TimeOfDay-schedule.StartTime.TimeOfDay).TotalMinutes) < 5).Count();
 
-            CTROHangfire.AddorUpdateJob(schedule);
-            return View();
+            if (toocloseschedules > 0)
+            {
+                TempData["ScheduleResult"] = "false";
+            }
+            else
+            {
+                TempData["ScheduleResult"] = "true";
+                CTROHangfire.AddorUpdateJob(schedule);
+                scheduleService.CreateSchedule(schedule);
+            }
+
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
 
 
@@ -59,10 +69,21 @@ namespace CTROReporting.Controllers
             schedule.StartTime = Convert.ToDateTime(model.StartTime);
             schedule.IntervalDays = model.IntervalDays;
             schedule.ReportId = reportService.GetByReportName(model.ReportName).ReportId;
-            scheduleService.UpdateSchedule(schedule);
 
-            CTROHangfire.AddorUpdateJob(schedule);
-            return View();
+            int toocloseschedules = scheduleService.GetSchedulesByUser(User.Identity.GetUserId()).Where(x => x.ReportId == schedule.ReportId && x.ScheduleId != schedule.ScheduleId && Math.Abs((x.StartTime.TimeOfDay - schedule.StartTime.TimeOfDay).TotalMinutes) < 5).Count();
+
+            if (toocloseschedules > 0)
+            {
+                TempData["ScheduleResult"] = "false";
+            }
+            else
+            {
+                TempData["ScheduleResult"] = "true";
+                CTROHangfire.AddorUpdateJob(schedule);
+                scheduleService.UpdateSchedule(schedule);
+            }
+
+            return Json(model, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult DeleteSchedule(ScheduleListViewModel model)

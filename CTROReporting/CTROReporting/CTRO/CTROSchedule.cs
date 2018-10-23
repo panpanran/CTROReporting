@@ -224,8 +224,7 @@ namespace CTROReporting.CTRO
                 var user = CTROLibrary.CTROFunctions.GetDataFromJson<ApplicationUser>("UserService", "GetByUserID", "userid="+ userid);
 
                 CTROHome home = new CTROHome();
-                string savepath = "";
-                int result = home.CreateReport(startdate, enddate, user, report, out savepath);
+                string savepath = await home.CreateReport(startdate, enddate, user, report);
             }
             catch (Exception ex)
             {

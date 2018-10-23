@@ -1,11 +1,10 @@
 ﻿@model CTROReporting.ViewModels.LoginViewModel
 @{
-    ViewBag.Title = "CTRO Reporting";
     Layout = "../Shared/_Layout.cshtml";
 }
 
 <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href='@Url.Action("Login", "ApplicationUser")'>CTRO Reporting</a>
+    <a class="navbar text-light" href='@Url.Action("Login", "ApplicationUser")'>CTRO Reporting</a>
 </nav>
 
 <div class="container-fluid" style="margin-top:5px;">
@@ -37,6 +36,14 @@
                             @Html.ValidationMessageFor(m => m.Password)
                         </div>
                     </div>
+
+                    <div class="form-group row">
+                        @Html.LabelFor(m => m.Activated, new { @class = "col-md-2 form-control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Activated, new { @class = "form-control" })
+                        </div>
+                    </div>
+
                     <div>
                         <input type="submit" value="Log in" class="btn btn-primary" />
                     </div>

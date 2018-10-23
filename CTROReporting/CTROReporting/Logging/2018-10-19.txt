@@ -1,0 +1,15 @@
+
+Log Entry : 10:37:38 AM Friday, October 19, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - PDA - Abstractor at 10/19/2018 10:37:38 AM
+-------------------------------
+
+Log Entry : 10:47:07 AM Friday, October 19, 2018
+  :
+  :CTROFunctions > MoveNext > Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
+
+Log Entry : 10:47:07 AM Friday, October 19, 2018
+  :
+  :CTROHome > MoveNext > Invalid index. (Exception from HRESULT: 0x8002000B (DISP_E_BADINDEX))
+-------------------------------
