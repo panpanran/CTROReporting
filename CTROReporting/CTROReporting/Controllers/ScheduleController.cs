@@ -55,8 +55,8 @@ namespace CTROReporting.Controllers
             else
             {
                 TempData["ScheduleResult"] = "true";
-                CTROHangfire.AddorUpdateJob(schedule);
                 scheduleService.CreateSchedule(schedule);
+                CTROHangfire.AddorUpdateJob(schedule);
             }
 
             return Json(model, JsonRequestBehavior.AllowGet);

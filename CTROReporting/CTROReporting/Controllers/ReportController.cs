@@ -8,10 +8,11 @@ using System;
 using AutoMapper;
 using System.Linq;
 using System.Web.Caching;
+using CTROReporting.Infrastructure;
 
 namespace CTROReporting.Controllers
 {
-    [Authorize]
+    [IsActiveAuthorize]
     public class ReportController : Controller
     {
         private IUserProfileService userProfileService;

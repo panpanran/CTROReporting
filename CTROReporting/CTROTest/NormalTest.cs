@@ -20,6 +20,7 @@ using System.Xml.Linq;
 using WebSocketSharp;
 using System.Net.Mail;
 using Npgsql;
+using System.Text.RegularExpressions;
 
 namespace CTROTest
 {
@@ -46,7 +47,45 @@ namespace CTROTest
         }
 
         [Test]
-        public void NCTNReportTest()
+        public void PCD2100Test()
+        {
+            //Read Data
+            string nciid = "NCI-2017-00086";
+            string organization = "Wake Forest NCORP Research Base";
+            string sql = "";
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\PCD2100 Report\PCD2100 Report 20181012.xlsx");
+            //Do Loop
+            using (var conn = new NpgsqlConnection(CTROConst.connString))
+            {
+                conn.Open();
+                using (StreamWriter sw = File.CreateText(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\NCTN Accrual.txt"))
+                {
+                    foreach (DataTable table in trialdata.Tables)
+                    {
+                        sw.WriteLine(table.TableName);
+
+                        foreach (DataRow row in table.Rows)
+                        {
+                            nciid = row.ItemArray[0].ToString();
+                            organization = row.ItemArray[6].ToString();
+                            sql = "select count(*) accrual from dw_study_site_accrual_details where nci_id = '" + nciid + "' and org_name = '" + organization + "'";
+
+                            NpgsqlCommand cmd = null;
+                            NpgsqlDataReader datareader = null;
+                            //NCI
+                            cmd = new NpgsqlCommand(sql, conn);
+                            datareader = cmd.ExecuteReader();
+                            DataTable nciDT = new DataTable();
+                            nciDT.Load(datareader);
+                            sw.WriteLine(nciDT.Rows[0].ItemArray[0].ToString());
+                        }
+                    }
+                }
+            }
+        }
+
+        [Test]
+        public void NCTNReportTest1()
         {
             //Read Data
             string nciid = "NCI-2017-00086";
@@ -66,7 +105,7 @@ namespace CTROTest
                         foreach (DataRow row in table.Rows)
                         {
                             nciid = row.ItemArray[0].ToString();
-                            orgnization = row.ItemArray[6].ToString();
+                            organization = row.ItemArray[6].ToString();
                             sql = "select count(*) accrual from dw_study_site_accrual_details where nci_id = '" + nciid + "' and org_name = '" + organization + "'";
 
                             NpgsqlCommand cmd = null;
@@ -82,6 +121,114 @@ namespace CTROTest
                 }
             }
         }
+
+        [Test]
+        public void NCTNReportTest2()
+        {
+            IWebDriver driver = new ChromeDriver();
+            //Notice navigation is slightly different than the Java version
+            //This is because 'get' is a keyword in C#
+            driver.Navigate().GoToUrl("https://trials-stage.nci.nih.gov/pa/protected/studyProtocolexecute.action");
+            //Login
+            IWebElement username = driver.FindElement(By.Id("j_username"));
+            username.SendKeys("panr");
+            IWebElement password = driver.FindElement(By.Id("j_password"));
+            password.SendKeys("Prss_5678");
+            password.Submit();
+            IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
+            acceptclaim.Click();
+
+
+            //Read Data
+            string nciid = "NCI-2017-00086";
+            string organization = "Wake Forest NCORP Research Base";
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\Test.xlsx");
+            string comment = "test";
+
+            //Do Loop
+            foreach (DataTable table in trialdata.Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    try
+                    {
+                        nciid = row.ItemArray[0].ToString();
+                        organization = row.ItemArray[6].ToString();
+                        comment = "Removed participating site " + organization + ", as site is national/not accruing patients, per EW # 85298 CTRP data clean up";
+
+                        //Find Trial
+                        IWebElement trialSearchMenuOption = driver.FindElement(By.Id("trialSearchMenuOption"));
+                        trialSearchMenuOption.Click();
+                        IWebElement identifier = driver.FindElement(By.Id("identifier"));
+                        identifier.SendKeys(nciid);
+                        identifier.SendKeys(Keys.Enter);
+                        IWebElement triallink = driver.FindElements(By.TagName("a")).First(element => element.Text == nciid);
+                        triallink.Click();
+                        //Checkout
+                        IWebElement checkoutspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Admin Check Out");
+                        checkoutspan.Click();
+                        //Participating Site
+                        IWebElement participatingsitelink = driver.FindElements(By.TagName("a")).First(element => element.Text == "Participating Sites");
+                        participatingsitelink.Click();
+                        //Find participating site
+                        //string temp = driver.PageSource;
+                        //MatchCollection matches = Regex.Matches(temp, @"<!DOCTYPE html PUBLIC(.*?)IE=edge");
+                        //string matchrow = matches[0].Value;
+
+                        IWebElement deletecheckbox = RecursiveSites(nciid, organization, driver);
+                        deletecheckbox.Click();
+                        IWebElement deletebtn = driver.FindElements(By.TagName("span")).First(element => element.Text == "Delete");
+                        deletebtn.Click();
+                        string currentwindow = driver.CurrentWindowHandle;
+                        driver.SwitchTo().Frame("popupFrame");
+                        IWebElement okbtn = driver.FindElements(By.TagName("span")).First(element => element.Text == "OK");
+                        okbtn.Click();
+                        driver.SwitchTo().Window(currentwindow);
+                        //Checkin
+                        IWebElement trialidentification = driver.FindElements(By.TagName("a")).First(element => element.Text == "Trial Identification");
+                        trialidentification.Click();
+                        IWebElement btnadmincheckin = driver.FindElements(By.TagName("span")).First(element => element.Text == "Admin Check In");
+                        btnadmincheckin.Click();
+                        if (driver.FindElements(By.TagName("button")).Where(element => element.Text == "Proceed with Check-in").Count() != 0)
+                        {
+                            IWebElement btnproceedcheckin = driver.FindElements(By.TagName("button")).First(element => element.Text == "Proceed with Check-in");
+                            btnproceedcheckin.Click();
+                        }
+                        IWebElement txtcomments = driver.FindElement(By.Id("comments"));
+                        txtcomments.SendKeys(comment);
+                        IWebElement btnOk = driver.FindElements(By.TagName("button")).First(element => element.Text == "Ok");
+                        btnOk.Click();
+                    }
+                    catch (Exception ex)
+                    {
+                        Logging.WriteLog(nciid, organization, ex.Message);
+                        throw;
+                    }
+                }
+            }
+        }
+
+        public IWebElement RecursiveSites(string nciid, string organization, IWebDriver driver)
+        {
+            var rowmatch = driver.FindElements(By.TagName("td"));
+            var matchid = rowmatch.IndexOf(rowmatch.Where(x => x.Text == organization).SingleOrDefault());
+            if (matchid < 0)
+            {
+                IWebElement nextlink = driver.FindElements(By.TagName("a")).First(element => element.Text == "Next");
+                if (nextlink != null)
+                {
+                    nextlink.Click();
+                    return RecursiveSites(nciid, organization, driver);
+                }
+                else
+                {
+                    Logging.WriteLog(nciid, organization, "cannot find this participating site");
+                    throw new Exception();
+                }
+            }
+            return rowmatch[matchid + 6];
+        }
+
 
         [Test]
         public void ProtocolAbstractionTest()

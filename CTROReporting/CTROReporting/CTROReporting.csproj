@@ -330,6 +330,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\CTROAuthorizeAttribute.cs" />
     <Compile Include="Infrastructure\DatabaseFactory.cs" />
     <Compile Include="Infrastructure\Disposable.cs" />
     <Compile Include="Infrastructure\IRepository.cs" />

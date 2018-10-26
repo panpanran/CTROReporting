@@ -1,0 +1,10 @@
+
+Log Entry : 7:45:09 AM Thursday, October 25, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 7:45:21 AM Thursday, October 25, 2018
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------

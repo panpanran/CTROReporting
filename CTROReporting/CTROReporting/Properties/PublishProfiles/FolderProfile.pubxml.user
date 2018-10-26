@@ -61,19 +61,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/15/2015 08:08:46</publishTime>
     </File>
     <File Include="bin/CTROLibrary.dll">
-      <publishTime>10/22/2018 11:42:14</publishTime>
+      <publishTime>10/26/2018 11:50:27</publishTime>
     </File>
     <File Include="bin/CTROLibrary.dll.config">
       <publishTime>10/05/2018 09:04:57</publishTime>
     </File>
     <File Include="bin/CTROLibrary.pdb">
-      <publishTime>10/22/2018 11:42:14</publishTime>
+      <publishTime>10/26/2018 11:50:27</publishTime>
     </File>
     <File Include="bin/CTROReporting.dll">
-      <publishTime>10/22/2018 13:30:49</publishTime>
+      <publishTime>10/26/2018 15:36:54</publishTime>
     </File>
     <File Include="bin/CTROReporting.pdb">
-      <publishTime>10/22/2018 13:30:49</publishTime>
+      <publishTime>10/26/2018 15:36:54</publishTime>
     </File>
     <File Include="bin/CTRPReporting.dll">
       <publishTime>09/28/2018 13:51:47</publishTime>
@@ -1579,10 +1579,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/01/2018 09:27:08</publishTime>
     </File>
     <File Include="Views/ApplicationUser/Login.cshtml">
-      <publishTime>10/10/2018 15:33:43</publishTime>
+      <publishTime>10/25/2018 09:56:04</publishTime>
     </File>
     <File Include="Views/ApplicationUser/Register.cshtml">
-      <publishTime>10/01/2018 09:27:08</publishTime>
+      <publishTime>10/24/2018 14:35:19</publishTime>
     </File>
     <File Include="Views/ApplicationUser/Test.cshtml">
       <publishTime>10/09/2018 14:00:49</publishTime>
@@ -1633,7 +1633,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/01/2018 09:27:08</publishTime>
     </File>
     <File Include="Views/Schedule/Schedule.cshtml">
-      <publishTime>10/22/2018 13:30:09</publishTime>
+      <publishTime>10/23/2018 14:30:09</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>04/05/2018 10:08:45</publishTime>
@@ -1654,7 +1654,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/05/2018 10:08:45</publishTime>
     </File>
     <File Include="Views/Shared/_NavigationBar.cshtml">
-      <publishTime>10/10/2018 14:34:06</publishTime>
+      <publishTime>10/26/2018 14:36:28</publishTime>
     </File>
     <File Include="Views/Shared/_PageLayout.cshtml">
       <publishTime>10/10/2018 15:22:04</publishTime>

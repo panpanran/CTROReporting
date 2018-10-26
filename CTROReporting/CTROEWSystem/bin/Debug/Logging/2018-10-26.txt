@@ -1,0 +1,110 @@
+
+Log Entry : 3:02:09 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:04:09 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:06:09 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:08:09 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:10:09 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:12:08 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (403) Forbidden.
+-------------------------------
+
+Log Entry : 3:14:08 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (403) Forbidden.
+-------------------------------
+
+Log Entry : 3:16:09 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:18:09 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:20:09 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:22:09 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:24:09 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:26:08 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (403) Forbidden.
+-------------------------------
+
+Log Entry : 3:28:08 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (403) Forbidden.
+-------------------------------
+
+Log Entry : 3:30:09 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:32:09 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:34:09 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:36:10 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:38:09 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:40:08 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (403) Forbidden.
+-------------------------------
+
+Log Entry : 3:42:08 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (403) Forbidden.
+-------------------------------
+
+Log Entry : 3:44:10 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------

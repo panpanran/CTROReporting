@@ -22,7 +22,7 @@ namespace CTROReporting.Models
 
         public int RoleId { get; set; }
 
-        [JsonIgnore]
+        //[JsonIgnore]
         public virtual Department Department { get; set; }
 
         [JsonIgnore]

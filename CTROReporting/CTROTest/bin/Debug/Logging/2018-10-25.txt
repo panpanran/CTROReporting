@@ -1,0 +1,1421 @@
+
+Log Entry : 1:35:15 PM Thursday, October 25, 2018
+  :
+  : >  > <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Participating Sites</title>
+        
+
+<link href="/pa/styles/jquery-ui-1.12.1.custom/jquery-ui.min.css" rel="stylesheet" media="all" type="text/css" />
+
+<link href="/pa/styles/subModalstyle.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/pa/styles/subModal.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/pa/styles/style.css" media="all" rel="stylesheet" type="text/css" />
+<link href="/pa/styles/select2.min.css" media="all" rel="stylesheet" type="text/css" />
+<link href="/pa/styles/font-awesome/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css" />
+<link rel="address bar icon" href="/pa/images/favicon.ico" />
+<link rel="icon" href="/pa/images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/pa/images/favicon.ico" type="image/x-icon" />
+        
+    
+    <script type="text/javascript" src="/pa/scripts/js/jquery-2.2.4.min.js"></script>
+    
+	<script type="text/javascript" src="/pa/scripts/js/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/pa/scripts/js/jquery.ui.selectmenu.js"></script>
+	<script type="text/javascript" src="/pa/scripts/js/jquery.sizes.min.js"></script>
+	<script type="text/javascript" src="/pa/scripts/js/jquery.hotkeys.js"></script>
+	<script type="text/javascript" src="/pa/scripts/js/jquery.jstree.js"></script>
+	<script type="text/javascript" src="/pa/scripts/js/jquery.json-2.3.min.js"></script>
+	<script type="text/javascript" src="/pa/scripts/js/jquery.ui.potato.menu.js"></script>
+	<script type="text/javascript" src="/pa/scripts/js/select2.min.js"></script>
+    <script type="text/javascript">
+      jQuery.noConflict();
+    </script>
+
+ 
+ <script type="text/javascript">
+ var paApp = {
+   contextPath: "/pa",
+   imagePath: "/pa/images",
+   scriptPath: "/pa/scripts",
+   staticPath: "/pa",
+   stylePath: "/pa/styles"
+ };
+</script>
+
+<script type="text/javascript" src="/pa/scripts/js/Help.js"></script>
+<script type="text/javascript" src="/pa/scripts/js/prototype.js"></script>
+<script type="text/javascript" src="/pa/scripts/js/coppa.js"></script>
+<script type="text/javascript" src="/pa/scripts/js/subModalcommon.js"></script>
+<script type="text/javascript" src="/pa/scripts/js/subModal.js"></script>
+<script type="text/javascript" src="/pa/scripts/js/ajaxHelper.js"></script>
+<script type="text/javascript" src="/pa/scripts/js/cal2.js"></script>
+<script type="text/javascript" src="/pa/scripts/js/showhide.js"></script>
+        <script type="text/javascript">
+            Help.url = 'https://wiki.nci.nih.gov/x/5IdQAg#NCICTRPProtocolAbstractionHelpTopics-';
+            var contextPath = '/pa';
+            function mainOnLoadHandler() {
+                if (window.callOnloadFunctions) {
+                    callOnloadFunctions();
+                }
+            }
+            function submitXsrfForm(action){
+                document.xsrfForm.action=action;
+                document.xsrfForm.submit();
+            }
+        </script>
+        
+        <!-- Version: 4.4.3, revision: 2018 October 24 21:10:17 -->
+        <script src="/pa/struts/utils.js" type="text/javascript"></script>
+<script type="text/javascript" src="/pa/scripts/js/calendarpopup.js"></script>
+<script type="text/javascript" src="/pa/scripts/js/prototype.js"></script>
+<script type="text/javascript" language="javascript" src="/pa/scripts/js/coppa.js"></script>
+<script type="text/javascript">
+            var siteRecruitmentStatusDate = new CalendarPopup();
+</script>
+<link href="/pa/scripts/js/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet" media="all" type="text/css" />
+<link rel="stylesheet" type="text/css" href="/pa/scripts/js/DataTables-1.10.4/media/css/jquery.dataTables.min.css" />
+    <style type="text/css" id="vakata-stylesheet">#vakata-dragged { display:block; margin:0 0 0 0; padding:4px 4px 4px 24px; position:absolute; top:-2000px; line-height:16px; z-index:10000; } #vakata-contextmenu { display:block; visibility:hidden; left:0; top:-200px; position:absolute; margin:0; padding:0; min-width:180px; background:#ebebeb; border:1px solid silver; z-index:10000; *width:180px; } #vakata-contextmenu ul { min-width:180px; *width:180px; } #vakata-contextmenu ul, #vakata-contextmenu li { margin:0; padding:0; list-style-type:none; display:block; } #vakata-contextmenu li { line-height:20px; min-height:20px; position:relative; padding:0px; } #vakata-contextmenu li a { padding:1px 6px; line-height:17px; display:block; text-decoration:none; margin:1px 1px 0 1px; } #vakata-contextmenu li ins { float:left; width:16px; height:16px; text-decoration:none; margin-right:2px; } #vakata-contextmenu li a:hover, #vakata-contextmenu li.vakata-hover &gt; a { background:gray; color:white; } #vakata-contextmenu li ul { display:none; position:absolute; top:-2px; left:100%; background:#ebebeb; border:1px solid gray; } #vakata-contextmenu .right { right:100%; left:auto; } #vakata-contextmenu .bottom { bottom:-1px; top:auto; } #vakata-contextmenu li.vakata-separator { min-height:0; height:1px; line-height:1px; font-size:1px; overflow:hidden; margin:0 2px; background:silver; /* border-top:1px solid #fefefe; */ padding:0; } </style><style type="text/css" id="jstree-stylesheet">.jstree ul, .jstree li { display:block; margin:0 0 0 0; padding:0 0 0 0; list-style-type:none; } .jstree li { display:block; min-height:18px; line-height:18px; white-space:nowrap; margin-left:18px; min-width:18px; } .jstree-rtl li { margin-left:0; margin-right:18px; } .jstree &gt; ul &gt; li { margin-left:0px; } .jstree-rtl &gt; ul &gt; li { margin-right:0px; } .jstree ins { display:inline-block; text-decoration:none; width:18px; height:18px; margin:0 0 0 0; padding:0; } .jstree a { display:inline-block; line-height:16px; height:16px; color:black; white-space:nowrap; text-decoration:none; padding:1px 2px; margin:0; } .jstree a:focus { outline: none; } .jstree a &gt; ins { height:16px; width:16px; } .jstree a &gt; .jstree-icon { margin-right:3px; } .jstree-rtl a &gt; .jstree-icon { margin-left:3px; margin-right:0; } li.jstree-open &gt; ul { display:block; } li.jstree-closed &gt; ul { display:none; } #vakata-dragged ins { display:block; text-decoration:none; width:16px; height:16px; margin:0 0 0 0; padding:0; position:absolute; top:4px; left:4px;  -moz-border-radius:4px; border-radius:4px; -webkit-border-radius:4px; } #vakata-dragged .jstree-ok { background:green; } #vakata-dragged .jstree-invalid { background:red; } #jstree-marker { padding:0; margin:0; font-size:12px; overflow:hidden; height:12px; width:8px; position:absolute; top:-30px; z-index:10001; background-repeat:no-repeat; display:none; background-color:transparent; text-shadow:1px 1px 1px white; color:black; line-height:10px; } #jstree-marker-line { padding:0; margin:0; line-height:0%; font-size:1px; overflow:hidden; height:1px; width:100px; position:absolute; top:-30px; z-index:10000; background-repeat:no-repeat; display:none; background-color:#456c43;  cursor:pointer; border:1px solid #eeeeee; border-left:0; -moz-box-shadow: 0px 0px 2px #666; -webkit-box-shadow: 0px 0px 2px #666; box-shadow: 0px 0px 2px #666;  -moz-border-radius:1px; border-radius:1px; -webkit-border-radius:1px; }.jstree .jstree-real-checkbox { display:none; } .jstree-themeroller .ui-icon { overflow:visible; } .jstree-themeroller a { padding:0 2px; } .jstree-themeroller .jstree-no-icon { display:none; }.jstree .jstree-wholerow-real { position:relative; z-index:1; } .jstree .jstree-wholerow-real li { cursor:pointer; } .jstree .jstree-wholerow-real a { border-left-color:transparent !important; border-right-color:transparent !important; } .jstree .jstree-wholerow { position:relative; z-index:0; height:0; } .jstree .jstree-wholerow ul, .jstree .jstree-wholerow li { width:100%; } .jstree .jstree-wholerow, .jstree .jstree-wholerow ul, .jstree .jstree-wholerow li, .jstree .jstree-wholerow a { margin:0 !important; padding:0 !important; } .jstree .jstree-wholerow, .jstree .jstree-wholerow ul, .jstree .jstree-wholerow li { background:transparent !important; }.jstree .jstree-wholerow ins, .jstree .jstree-wholerow span, .jstree .jstree-wholerow input { display:none !important; }.jstree .jstree-wholerow a, .jstree .jstree-wholerow a:hover { text-indent:-9999px; !important; width:100%; padding:0 !important; border-right-width:0px !important; border-left-width:0px !important; } .jstree .jstree-wholerow-span { position:absolute; left:0; margin:0px; padding:0; height:18px; border-width:0; padding:0; z-index:0; }</style></head>
+    <body onload="mainOnLoadHandler();">
+        <div id="wrapper" class="curate">
+            	<div id="nciheader">		
+	    <div id="ncilogo"><a href="http://www.cancer.gov" target="_blank"><img src="/pa/images/logotype.gif" width="283" height="37" alt="Logo: National Cancer Institute" /></a></div>
+	    <div id="nihtag"><a href="http://www.cancer.gov" target="_blank"><img src="/pa/images/tagline.gif" width="295" height="37" alt="Logo: U.S. National Institutes of Health | www.cancer.gov" /></a></div>
+	</div>		
+            
+
+
+
+<div id="header">
+   <div id="logo"><a href="javascript:void(0)"><img src="/pa/images/logo_pa.gif" width="264" height="43" alt="PA | Protocol Abstraction" /></a></div>
+    <!--User Details-->
+  	
+        
+        <div id="userarea">Welcome Ran Pan panr  |  <a href="/pa/logout.action">Logout</a></div>
+        
+        
+    
+</div>
+
+            <div id="main">
+                <div id="contentwrapper">
+                    <div id="content">
+                       <a href="javascript:void(0)" id="pageHelpid" class="helpbutton" onclick="Help.popHelp('reviewparticipatingsites');">Help</a>
+                        <script language="JavaScript">
+// this function is called from body onload in main.jsp (decorator)
+function callOnloadFunctions(){
+    // there are no onload functions to call for this jsp
+    // leave this function to prevent 'error on page'
+}
+
+function handleEdit(studyResourcingId){
+
+    document.partOrgs.cbValue.value = studyResourcingId;
+    document.partOrgs.action="participatingOrganizationsedit.action";
+    document.partOrgs.submit();
+}
+
+function handleDelete() {
+    var deleteObj = document.getElementsByName("objectsToDelete");
+    var deleteObjFinal ='';
+    var atLeastOne = false;
+    for (var i=0; i &lt; deleteObj.length; i++) {
+        if (deleteObj[i].checked == true) { 
+        	atLeastOne = true;
+        	deleteObjFinal = (deleteObj[i].value) + ", " + deleteObjFinal;     
+        } 
+    }
+    
+    
+   if (atLeastOne == true) {
+    var url = '/pa/protected/popupParticipatingOrganizationsaccrualDeleteWarning.action?objectsToDelete=' +deleteObjFinal;
+    showPopWin(url, 453, 300, '', 'Participating Sites Accrual Data');
+   }
+   else {
+       document.partOrgs.action="participatingOrganizationsdelete.action";
+       document.partOrgs.submit();
+   }
+}
+
+function loadTopPage(objectsToDelete) {
+       document.partOrgs.action="participatingOrganizationsdelete.action";
+       document.partOrgs.submit();
+       return true;
+}
+
+function loadDiv() {
+    document.partOrgs.action="participatingOrganizations.action";
+    document.partOrgs.submit();
+    return true;
+}
+
+(function ($) {
+    $(function() {
+        $( document ).tooltip();
+        
+        var table = $('#row').DataTable({
+            "paging":   false,
+            bFilter: false,
+            "columnDefs" : [ {
+                "targets" : 5,
+                "orderable" : false
+            }]
+        });
+        
+    });
+})(jQuery);
+
+</script>
+
+
+<h1>Participating Sites</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" language="javascript" src="/pa/scripts/js/subModalcommon.js"></script>
+<script type="text/javascript" language="javascript" src="/pa/scripts/js/subModal.js"></script>
+<script type="text/javascript" language="javascript" src="/pa/scripts/js/prototype.js"></script>
+<script type="text/javascript" language="javascript" src="/pa/scripts/js/tooltip.js"></script>
+<script type="text/javascript" src="/pa/scripts/js/coppa.js"></script>
+
+<script type="text/javascript" language="javascript">
+	function displaySubmitter(){
+	    showPopWin('ajaxdisplaypersoninfoquery.action', 600, 300, '', 'Trial Submitter Information');
+	}
+</script>
+
+<div class="summarybox">
+	<div class="summarytitle">
+		<span class="value"><strong> NCI-2009-00676</strong>:
+		    Phase I/II Studies of BAY 43-9006 (Sorafenib) in Combination with OSI-774 (Erlotinib), R115777 (Tipifarnib) or CCI-779 (Temsirolimus) in Patients with Recurrent Glioblastoma Multiforme or Gliosarcoma
+		</span>
+	</div>
+	<div class="float33_first">
+		<div class="row">
+			<span class="label"> Lead Organization Trial ID:</span>
+			<span class="value">NABTC-05-02</span>
+		</div>
+		<div class="row">
+			<span class="label">Lead Organization:</span> <span class="value"><a href="javascript:void(0);" onclick="javascript:displayOrgDetails(3486749);">
+					Adult Brain Tumor Consortium
+			</a></span>
+		</div>
+		
+        
+            <div class="row">
+                <span class="label">Trial Category:</span>
+                <span class="value">Complete Trial</span>
+            </div>
+       
+            <div class="row">
+                <span class="label">Submission Source:</span>
+                <span class="value"></span>
+            </div>
+        
+        
+	</div>
+	<div class="float33">
+		
+    		<div class="row">
+    			<span class="label">Principal Investigator:</span>
+    			<span class="value"><a href="javascript:void(0);" onclick="javascript:displayPersonDetails(809918);"> 
+    			         Gilbert, Mark
+                </a></span>
+    		</div>
+		
+		<div class="row">
+			<span class="label">Last Submitter:</span>
+			<span class="value"><a href="javascript:displaySubmitter();" id="displaySubmitterLink">ctro_staff</a></span>
+		</div>
+		<div class="row">
+            <span class="label">Last Submitter Organization:</span>
+             <span class="value"><a href="javascript:void(0);" onclick="javascript:displayOrgDetails(154376);">
+                    National Cancer Institute</a></span>
+        </div>
+	    
+	</div>
+	<div class="float33">
+	    
+    		<div class="row">
+    			<span class="label"> Current Trial Status:</span>
+    			<span class="value">Complete</span>
+    		</div>
+		
+        
+            <div class="row">
+                <span class="label">Current Trial Status Date:</span>
+                <span class="value">09/01/2012</span>
+            </div>
+        
+		<div class="row">
+			<span class="label">Processing Status:</span>
+			<span class="value">Abstraction Verified No Response</span>
+		</div>
+	    
+            <div class="row">
+                <span class="label">Checked Out for Admin. Use by:</span>
+                <span class="value">panr</span>
+            </div>
+        
+        
+	</div>
+	<div class="clear"></div>
+
+</div>
+<div class="box">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+    
+    <form id="participatingOrganizations" name="partOrgs" action="/pa/protected/participatingOrganizations.action" method="post">
+        
+
+<input type="hidden" name="studyProtocolToken" value="1540488897628" id="studyProtocolToken" />
+        <h2>Participating Sites</h2> 
+               
+        <div class="actionstoprow">
+            <del class="btnwrapper">
+                <ul class="btnrow">
+                    
+
+
+
+
+    
+                        <li><a href="participatingOrganizationscreate.action" class="btn" onclick="this.blur();"><span class="btn_img"><span class="add">Add</span></span></a></li>
+                        
+                            <li><a href="javascript:void(0);" class="btn" onclick="handleDelete();" onkeypress="handleDelete();"><span class="btn_img"><span class="delete">Delete</span></span></a></li>
+                            <li>
+
+
+<a href="javascript:void(0);" class="btn" onclick="toggleDeleteCheckboxes()" onkeypress="toggleDeleteCheckboxes()"><span class="btn_img"><span class="delete" name="multiDeleteBtnText">Select All</span></span></a></li>
+                                        
+                    
+
+
+                </ul>
+            </del>
+        </div>
+        
+    <table class="form">
+        <tbody><tr>
+            <td colspan="2">
+                <input type="hidden" name="cbValue" value="" id="participatingOrganizations_cbValue" />
+                
+                <span class="pagebanner">8 items found, displaying all items.</span><span class="pagelinks"><strong>1</strong></span>
+<table id="row" class="data">
+<thead>
+<tr>
+<th class="sortable">
+<a href="participatingOrganizations.action?d-16544-s=0&amp;d-16544-o=2&amp;token=GLJSPJ9439R2RVYLQDXTNU8TOPB0KHM4&amp;d-16544-p=1&amp;struts.token.name=token">PO-ID</a></th>
+<th class="sortable">
+<a href="participatingOrganizations.action?d-16544-s=1&amp;d-16544-o=2&amp;token=GLJSPJ9439R2RVYLQDXTNU8TOPB0KHM4&amp;d-16544-p=1&amp;struts.token.name=token">Name</a></th>
+<th class="sortable">
+<a href="participatingOrganizations.action?d-16544-s=2&amp;d-16544-o=2&amp;token=GLJSPJ9439R2RVYLQDXTNU8TOPB0KHM4&amp;d-16544-p=1&amp;struts.token.name=token">Site Recruitment Status</a></th>
+<th>Site Recruitment Status Date</th>
+<th>Investigators</th>
+<th>Primary Contact</th>
+<th class="centered">Edit</th>
+<th class="centered">Delete</th></tr></thead>
+<tbody>
+<tr class="odd">
+<td>
+                        <a href="javascript:void(0);" onclick="displayOrgDetails(3486749)">3486749</a>
+                    </td>
+<td>Adult Brain Tumor Consortium</td>
+<td>Completed</td>
+<td>
+                    <span style="display: none;">Sat Sep 01 00:00:00 EDT 2012</span>
+                    09/01/2012
+                    </td>
+<td>
+                        
+                                <a href="javascript:void(0);" onclick="displayPersonDetails(809918)">[Gilbert,Mark - Principal Investigator, Pending]</a>
+                                <br />
+                        
+                    </td>
+<td>[Gilbert,Mark - Pending]</td>
+<td class="action">
+                            <a href="javascript:void(0)" onclick="handleEdit(442451)"><img src="/pa/images/ico_edit.gif" alt="Edit" width="16" height="16" /></a>
+                        </td>
+<td class="action">
+                            <input type="checkbox" name="objectsToDelete" value="442451" id="objectsToDelete_442451" /><input type="hidden" id="__checkbox_objectsToDelete_442451" name="__checkbox_objectsToDelete" value="442451" />
+                            <label style="display: none;" for="objectsToDelete_442451">Check this box to mark row for deletion.</label>
+                        </td></tr>
+<tr class="even">
+<td>
+                        <a href="javascript:void(0);" onclick="displayOrgDetails(120748)">120748</a>
+                    </td>
+<td>Dana-Farber Cancer Institute</td>
+<td>Completed</td>
+<td>
+                    <span style="display: none;">Sat Sep 01 00:00:00 EDT 2012</span>
+                    09/01/2012
+                    </td>
+<td>
+                        
+                                <a href="javascript:void(0);" onclick="displayPersonDetails(809918)">[Gilbert,Mark - Principal Investigator, Pending]</a>
+                                <br />
+                        
+                    </td>
+<td>[Gilbert,Mark - Pending]</td>
+<td class="action">
+                            <a href="javascript:void(0)" onclick="handleEdit(130721259)"><img src="/pa/images/ico_edit.gif" alt="Edit" width="16" height="16" /></a>
+                        </td>
+<td class="action">
+                            <input type="checkbox" name="objectsToDelete" value="130721259" id="objectsToDelete_130721259" /><input type="hidden" id="__checkbox_objectsToDelete_130721259" name="__checkbox_objectsToDelete" value="130721259" />
+                            <label style="display: none;" for="objectsToDelete_130721259">Check this box to mark row for deletion.</label>
+                        </td></tr>
+<tr class="odd">
+<td>
+                        <a href="javascript:void(0);" onclick="displayOrgDetails(227400)">227400</a>
+                    </td>
+<td>M D Anderson Cancer Center</td>
+<td>Completed</td>
+<td>
+                    <span style="display: none;">Sat Sep 01 00:00:00 EDT 2012</span>
+                    09/01/2012
+                    </td>
+<td>
+                        
+                                <a href="javascript:void(0);" onclick="displayPersonDetails(809918)">[Gilbert,Mark - Principal Investigator, Pending]</a>
+                                <br />
+                        
+                    </td>
+<td>[Gilbert,Mark - Pending]</td>
+<td class="action">
+                            <a href="javascript:void(0)" onclick="handleEdit(130721379)"><img src="/pa/images/ico_edit.gif" alt="Edit" width="16" height="16" /></a>
+                        </td>
+<td class="action">
+                            <input type="checkbox" name="objectsToDelete" value="130721379" id="objectsToDelete_130721379" /><input type="hidden" id="__checkbox_objectsToDelete_130721379" name="__checkbox_objectsToDelete" value="130721379" />
+                            <label style="display: none;" for="objectsToDelete_130721379">Check this box to mark row for deletion.</label>
+                        </td></tr>
+<tr class="even">
+<td>
+                        <a href="javascript:void(0);" onclick="displayOrgDetails(170680)">170680</a>
+                    </td>
+<td>Memorial Sloan-Kettering Cancer Center</td>
+<td>Completed</td>
+<td>
+                    <span style="display: none;">Sat Sep 01 00:00:00 EDT 2012</span>
+                    09/01/2012
+                    </td>
+<td>
+                        
+                                <a href="javascript:void(0);" onclick="displayPersonDetails(1544479)">[Abrey,Lauren - Principal Investigator, Pending]</a>
+                                <br />
+                        
+                    </td>
+<td>[Abrey,Lauren - Pending]</td>
+<td class="action">
+                            <a href="javascript:void(0)" onclick="handleEdit(135470653)"><img src="/pa/images/ico_edit.gif" alt="Edit" width="16" height="16" /></a>
+                        </td>
+<td class="action">
+                            <input type="checkbox" name="objectsToDelete" value="135470653" id="objectsToDelete_135470653" /><input type="hidden" id="__checkbox_objectsToDelete_135470653" name="__checkbox_objectsToDelete" value="135470653" />
+                            <label style="display: none;" for="objectsToDelete_135470653">Check this box to mark row for deletion.</label>
+                        </td></tr>
+<tr class="odd">
+<td>
+                        <a href="javascript:void(0);" onclick="displayOrgDetails(37404)">37404</a>
+                    </td>
+<td>UCLA / Jonsson Comprehensive Cancer Center</td>
+<td>Completed</td>
+<td>
+                    <span style="display: none;">Sat Sep 01 00:00:00 EDT 2012</span>
+                    09/01/2012
+                    </td>
+<td>
+                        
+                                <a href="javascript:void(0);" onclick="displayPersonDetails(809918)">[Gilbert,Mark - Principal Investigator, Pending]</a>
+                                <br />
+                        
+                    </td>
+<td>[Gilbert,Mark - Pending]</td>
+<td class="action">
+                            <a href="javascript:void(0)" onclick="handleEdit(130721107)"><img src="/pa/images/ico_edit.gif" alt="Edit" width="16" height="16" /></a>
+                        </td>
+<td class="action">
+                            <input type="checkbox" name="objectsToDelete" value="130721107" id="objectsToDelete_130721107" /><input type="hidden" id="__checkbox_objectsToDelete_130721107" name="__checkbox_objectsToDelete" value="130721107" />
+                            <label style="display: none;" for="objectsToDelete_130721107">Check this box to mark row for deletion.</label>
+                        </td></tr>
+<tr class="even">
+<td>
+                        <a href="javascript:void(0);" onclick="displayOrgDetails(40350)">40350</a>
+                    </td>
+<td>UCSF Medical Center-Mount Zion</td>
+<td>Completed</td>
+<td>
+                    <span style="display: none;">Sat Sep 01 00:00:00 EDT 2012</span>
+                    09/01/2012
+                    </td>
+<td>
+                        
+                                <a href="javascript:void(0);" onclick="displayPersonDetails(809918)">[Gilbert,Mark - Principal Investigator, Pending]</a>
+                                <br />
+                        
+                    </td>
+<td>[Gilbert,Mark - Pending]</td>
+<td class="action">
+                            <a href="javascript:void(0)" onclick="handleEdit(130721619)"><img src="/pa/images/ico_edit.gif" alt="Edit" width="16" height="16" /></a>
+                        </td>
+<td class="action">
+                            <input type="checkbox" name="objectsToDelete" value="130721619" id="objectsToDelete_130721619" /><input type="hidden" id="__checkbox_objectsToDelete_130721619" name="__checkbox_objectsToDelete" value="130721619" />
+                            <label style="display: none;" for="objectsToDelete_130721619">Check this box to mark row for deletion.</label>
+                        </td></tr>
+<tr class="odd">
+<td>
+                        <a href="javascript:void(0);" onclick="displayOrgDetails(197080)">197080</a>
+                    </td>
+<td>University of Pittsburgh Cancer Institute (UPCI)</td>
+<td>Completed</td>
+<td>
+                    <span style="display: none;">Sat Sep 01 00:00:00 EDT 2012</span>
+                    09/01/2012
+                    </td>
+<td>
+                        
+                                <a href="javascript:void(0);" onclick="displayPersonDetails(809918)">[Gilbert,Mark - Principal Investigator, Pending]</a>
+                                <br />
+                        
+                    </td>
+<td>[Gilbert,Mark - Pending]</td>
+<td class="action">
+                            <a href="javascript:void(0)" onclick="handleEdit(130721884)"><img src="/pa/images/ico_edit.gif" alt="Edit" width="16" height="16" /></a>
+                        </td>
+<td class="action">
+                            <input type="checkbox" name="objectsToDelete" value="130721884" id="objectsToDelete_130721884" /><input type="hidden" id="__checkbox_objectsToDelete_130721884" name="__checkbox_objectsToDelete" value="130721884" />
+                            <label style="display: none;" for="objectsToDelete_130721884">Check this box to mark row for deletion.</label>
+                        </td></tr>
+<tr class="even">
+<td>
+                        <a href="javascript:void(0);" onclick="displayOrgDetails(249492)">249492</a>
+                    </td>
+<td>University of Wisconsin Hospital and Clinics</td>
+<td>Completed</td>
+<td>
+                    <span style="display: none;">Sat Sep 01 00:00:00 EDT 2012</span>
+                    09/01/2012
+                    </td>
+<td>
+                        
+                                <a href="javascript:void(0);" onclick="displayPersonDetails(809918)">[Gilbert,Mark - Principal Investigator, Pending]</a>
+                                <br />
+                        
+                    </td>
+<td>[Gilbert,Mark - Pending]</td>
+<td class="action">
+                            <a href="javascript:void(0)" onclick="handleEdit(130721722)"><img src="/pa/images/ico_edit.gif" alt="Edit" width="16" height="16" /></a>
+                        </td>
+<td class="action">
+                            <input type="checkbox" name="objectsToDelete" value="130721722" id="objectsToDelete_130721722" /><input type="hidden" id="__checkbox_objectsToDelete_130721722" name="__checkbox_objectsToDelete" value="130721722" />
+                            <label style="display: none;" for="objectsToDelete_130721722">Check this box to mark row for deletion.</label>
+                        </td></tr></tbody></table>
+            </td>
+        </tr>
+    </tbody></table>
+<div class="actionsrow">
+    <del class="btnwrapper">
+        <ul class="btnrow">
+            
+
+
+
+
+    
+                <li><a href="participatingOrganizationscreate.action" class="btn" onclick="this.blur();"><span class="btn_img"><span class="add">Add</span></span></a></li>
+                
+                    <li><a href="javascript:void(0);" class="btn" onclick="handleDelete();" onkeypress="handleDelete();"><span class="btn_img"><span class="delete">Delete</span></span></a></li>
+                    <li>
+
+
+<a href="javascript:void(0);" class="btn" onclick="toggleDeleteCheckboxes()" onkeypress="toggleDeleteCheckboxes()"><span class="btn_img"><span class="delete" name="multiDeleteBtnText">Select All</span></span></a></li>
+                                
+            
+
+
+        </ul>
+    </del>
+</div>
+</form>
+
+
+
+</div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div id="leftnav">
+                    <ul class="menu">
+                        
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+<form id="participatingOrganizations" name="qForm" action="/pa/protected/participatingOrganizations.action" method="post">
+    <li class="stdnav">
+        <div>Protocol Abstraction</div>
+        <ul>
+            
+	            <li><a href="javascript:void(0);" class="fakelink">Dashboards</a></li>
+	            <li class="stdsub">
+	                <ul>
+	                
+	                    
+	                
+	                
+	                   
+	                
+	                
+	                   
+	                
+	                
+	                    
+	                
+	                
+	                   
+	                       
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="dashboardMenuOption" href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/dashboard.action');">Admin/Scientific Abstractor</a>
+	</li>
+            
+	                   
+	                   
+	                   
+	                       
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="resultsDashboardMenuOption" href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/resultsDashboard.action');">Results Reporting</a>
+	</li>
+
+	                   
+	                </ul>
+	            </li>
+            
+            
+            <li><a href="javascript:void(0);" class="fakelink">Search</a></li>
+            <li class="stdsub">
+                <ul>
+		            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="trialSearchMenuOption" href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/studyProtocolexecute.action');">Trials</a>
+	</li>
+
+                    
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="personSearchMenuOption" href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/personsSearchexecute.action');">Persons</a>
+	</li>
+
+                    
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="organizationSearchMenuOption" href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/organizationsSearchexecute.action');">Organizations</a>
+	</li>
+
+	            </ul>            
+            </li>
+            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="userAccountDetailsMenuOption" href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/userAccountDetailsexecute.action');">My Account</a>
+	</li>
+
+            
+            
+	            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="registeredUserDetailsMenuOption" href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/registeredUserDetailsexecute.action');">Registered User Details</a>
+	</li>
+            
+	            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="inboxProcessingMenuOption" href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/inboxProcessingexecute.action');">Inbox</a>
+	</li>
+
+	            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="manageSiteAdminsMenuOption" href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/manageSiteAdmins.action');">Manage Site Admins</a>
+	</li>
+
+	            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="newMarkerRequestMenuOption" href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/bioMarkersexecute.action');">New Marker Requests</a>
+	</li>
+
+	            <li><a href="javascript:void(0);" class="fakelink">ClinicalTrials.gov Trials</a></li>
+	            <li class="stdsub">
+	                <ul>
+	                    
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="importCtGovMenuOption" href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/importCtGovexecute.action');">Import</a>
+	</li>
+
+	                    
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="ctGovImportLogMenuOption" href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/ctGovImportLogexecute.action');">View Log</a>
+	</li>
+
+	                </ul>            
+	            </li>            
+	            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="pendingAccrualsMenuOption" href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/pendingAccrualsexecute.action');">Pending Accruals Queue</a>
+	</li>
+
+	            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="outOfScopeAccrualsMenuOption" href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/outOfScopeAccruals.action');">Accruals Out-Of-Scope Trials</a>
+	</li>
+            
+	            
+
+
+
+
+
+
+
+
+      <a id="submitProprietaryTrialMenuOption" href="/pa/../registry/protected/submitProprietaryTrial.action?sum4FundingCatCode=Industrial" target="_blank" style="text-transform:none;">Register Industrial/Other Trial</a> 
+
+
+	            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="manageTermsMenuOption" href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/manageTerms.action');">Manage NCIt Terms</a>
+	</li>
+
+	            
+                         
+            
+                
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="logoutMenuOption" href="javascript:void(0)" onclick="submitXsrfForm('/pa/logout.action');">Logout</a>
+	</li>
+
+            
+        </ul>
+    </li>
+
+    
+        
+        
+            
+            
+            
+                
+            
+        
+        <li class="sub">
+            <div>NCI-2009-00676</div>
+            <ul>
+                <li>
+                    <div>Trial Overview</div>
+                    <ul>
+                        
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/studyProtocolview.action?studyProtocolId=254587');">Trial Identification</a>
+	</li>
+
+                        
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/trialHistory.action');">Trial History</a>
+	</li>
+
+                        
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/milestoneview.action');">Trial Milestones</a>
+	</li>
+
+                        
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/onhold.action');">On-hold Information</a>
+	</li>
+
+                        
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/manageAccrualAccess.action');">Manage Accrual Access</a>
+	</li>
+
+                        
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/ajaxAbstractionCompletionviewTSR.action');">View TSR</a>
+	</li>
+
+                        
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/assignOwnershipview.action');">Assign Ownership</a>
+	</li>
+                        
+                        
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/checkOutHistory.action');">Check-Out History</a>
+	</li>
+
+                        
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/trialAssociationsquery.action');">Associated Trials</a>
+	</li>
+
+                    </ul>
+                </li>
+                
+                
+                    <li>
+                        <div>Administrative Data</div>
+                        <ul>
+                            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/generalTrialDesignquery.action');">General Trial Details</a>
+	</li>
+ 
+                            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/nciSpecificInformationquery.action');">NCI Specific Information</a>
+	</li>
+ 
+                            
+                           <li class="hassubmenu">
+                               Regulatory Information
+                               <ul id="part_sites">
+                                   
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/regulatoryInfoquery.action');">Regulatory Information</a>
+	</li>
+ 
+                                   
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/irb.action');">Human Subject Safety</a>
+	</li>
+
+                                   
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/trialIndidequery.action');">Trial IND/IDE</a>
+	</li>
+ 
+                              </ul>
+                           </li>
+                           
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a id="studyOverallStatusLink" href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/studyOverallStatus.action');">Trial Status</a>
+	</li>
+
+                           
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/trialFundingquery.action');">Trial Funding</a>
+	</li>
+ 
+                            
+                            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/participatingOrganizations.action');">Participating Sites</a>
+	</li>
+
+                            
+                            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/collaborators.action');">Collaborators</a>
+	</li>
+
+                            
+                            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/trialDocumentquery.action');">Trial Related Documents</a>
+	</li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <div>Scientific Data</div>
+                        <ul>
+                            
+                                
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/trialDescriptionquery.action');">Trial Description</a>
+	</li>
+
+                                
+                                    
+                                        <li class="hassubmenu">
+                                            Interventional Trial Design
+                                            <ul id="part_sites">
+                                                
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/interventionalStudyDesigndetailsQuery.action');">Design Details</a>
+	</li>
+
+                                                
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/interventionalStudyDesignoutcomeQuery.action');">Outcome Measures</a>
+	</li>
+
+                                                
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/eligibilityCriteriaquery.action');">Eligibility Criteria</a>
+	</li>
+
+                                            </ul>
+                                        </li>
+                                    
+                                    
+                                
+                            
+                            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/disease.action');">Disease/Condition</a>
+	</li>
+
+                            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/anatomicSite.action');">Data Table 4 Anatomic Site</a>
+	</li>
+
+                            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/plannedMarker.action');">Markers</a>
+	</li>
+
+                            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/trialInterventions.action');">Interventions</a>
+	</li>
+
+                            
+                                
+                                    
+                                        
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/trialArms.action');">Arms</a>
+	</li>
+
+                                    
+                                    
+                                
+                                
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/subGroupsquery.action');">Sub-groups</a>
+	</li>
+
+                            
+                        </ul>
+                    </li>
+                    <li>
+                        <div>Completion</div>
+                        <ul>
+                            
+
+
+
+
+
+
+
+
+
+	<li>
+	   <a href="javascript:void(0)" onclick="submitXsrfForm('/pa/protected/abstractionCompletionquery.action');">Abstraction Validation</a>
+	</li>
+
+                        </ul>
+                    </li>
+                
+            </ul>
+        </li>
+    
+</form>
+
+
+
+
+                        
+                        <li class="stdnav"><div>QUICK LINKS</div>
+	<ul class="quicklinks">
+		<li><a href="http://www.cancer.gov/" class="external" target="new1">National Cancer Institute (NCI)</a></li>
+		<li><a href="http://cbiit.nci.nih.gov/" class="external" target="new2">NCI Center for Biomedical Informatics and Information Technology (CBIIT)</a></li>
+        <li><a href="http://projectreporter.nih.gov/" class="external" target="new4">NIH Grants - RePORT</a></li>
+        <li><a href="https://wiki.nci.nih.gov/x/7ZF4B" class="external" target="new5">User's Guide</a></li>
+	</ul>
+</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"><br /></div>
+            <div id="footerwrapper">
+	<div id="footernav">
+		<div id="footer">						
+			<a href="/pa/contact.action">CONTACT US</a>
+			<a href="http://www.nih.gov/about/privacy.htm" target="_blank">PRIVACY NOTICE</a>
+			<a href="http://www.nih.gov/about/disclaim.htm" target="_blank">DISCLAIMER</a>
+			<a href="http://www3.cancer.gov/accessibility/nci508.htm" target="_blank">ACCESSIBILITY</a>
+			<a href="http://ncicb.nci.nih.gov/NCICB/support" class="last" target="_blank">SUPPORT</a>
+		</div>	
+	</div>
+	
+	<div id="partnerlogos">				
+		<a href="http://www.cancer.gov" target="_blank"><img src="/pa/images/footer_nci.gif" width="63" height="31" alt="Logo: National Cancer Institute" /></a>
+		<a href="http://www.dhhs.gov" target="_blank"><img src="/pa/images/footer_hhs.gif" width="39" height="31" alt="Logo: Department of Health and Human Services" /></a>
+		<a href="http://www.nih.gov" target="_blank"><img src="/pa/images/footer_nih.gif" width="46" height="31" alt="Logo: National Institutes of Health" /></a>
+		<a href="http://www.usa.gov" target="_blank"><img src="/pa/images/footer_usagov.gif" width="91" height="31" alt="Logo: USA.gov" /></a>
+	</div>
+</div>
+
+            <div id="progress_indicator_panel" style="display: none;">
+	<div style="cursor: auto;">Loading, please wait...</div>
+	<div>
+		<img src="/pa/images/loading.gif" alt="Loading..." />
+	</div>
+</div>
+        </div>
+        <form id="xsrfForm" name="xsrfForm" action="/pa/protected/participatingOrganizations.action" method="post"><input type="hidden" name="struts.token.name" value="token" />
+<input type="hidden" name="token" value="JD02HWYNT87BLSGCFFE7HL0IJ0G7WN0D" /></form>
+
+
+
+    
+
+<div id="jstree-marker" style="display: none;">»</div><div id="jstree-marker-line" style="display: none;"></div><div id="vakata-contextmenu"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div id="popupMask"></div><div id="popupContainer"><div id="popupInner"><div id="popupTitleBar"><div id="popupTitle"></div><div id="popupControls"><img alt="Close" src="/pa/images/close.gif" onclick="hidePopWin(false);" id="popCloseBox" /></div></div><iframe src="/pa/images/loading.gif" style="width:100%;height:100%;background-color:transparent;" scrolling="auto" frameborder="0" allowtransparency="true" id="popupFrame" name="popupFrame" width="100%" height="100%"></iframe></div></div><div id="popupMask"></div><div id="popupContainer"><div id="popupInner"><div id="popupTitleBar"><div id="popupTitle"></div><div id="popupControls"><img alt="Close" src="/pa/images/close.gif" onclick="hidePopWin(false);" id="popCloseBox" /></div></div><iframe src="/pa/images/loading.gif" style="width:100%;height:100%;background-color:transparent;" scrolling="auto" frameborder="0" allowtransparency="true" id="popupFrame" name="popupFrame" width="100%" height="100%"></iframe></div></div></body></html>
+-------------------------------
+
+Log Entry : 3:57:54 PM Thursday, October 25, 2018
+  :
+  :NCI-2009-00774 > SWOG > cannot find this participating site
+-------------------------------

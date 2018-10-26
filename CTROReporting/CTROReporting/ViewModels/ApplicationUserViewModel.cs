@@ -63,9 +63,15 @@ namespace CTROReporting.ViewModels
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
 
-        [Display(Name = "Is Active")]
-        [Range(typeof(bool), "true", "true", ErrorMessage = "This user has been inactive.")]
+        //[Display(Name = "Is Active")]
+        //[Range(typeof(bool), "true", "true", ErrorMessage = "This user has been inactive.")]
         public bool Activated { get; set; }
+
+        public LoginViewModel()
+        {
+            Activated = true;
+        }
+
     }
 
     public class RegisterViewModel

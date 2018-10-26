@@ -20,6 +20,7 @@ using System.Web.Mvc;
 using Quartz.Impl;
 using Quartz;
 using Hangfire;
+using CTROReporting.Infrastructure;
 
 namespace CTROReporting.Controllers
 {
@@ -51,7 +52,7 @@ namespace CTROReporting.Controllers
             return View();
         }
 
-
+        [DepartmentAuthorize]
         public ActionResult UserManagement(UserManagementViewModel model)
         {
             var users = userService.GetUsers();
@@ -97,20 +98,31 @@ namespace CTROReporting.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+
             if (ModelState.IsValid)
             {
                 var user = await userManager.FindAsync(model.UserName, model.Password);
+
                 if (user != null)
                 {
-                    await SignInAsync(user, model.RememberMe);
-                    return RedirectToLocal(returnUrl);
+                    model.Activated = user.Activated;
+                    if (user.Activated == true)
+                    {
+                        Response.Cookies["UserSettings"]["Department"] = user.Department.DepartmentName;
+                        Response.Cookies["UserSettings"].Expires = DateTime.Now.AddDays(1d);
+                        await SignInAsync(user, model.RememberMe);
+                        return RedirectToLocal(returnUrl);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "This user is inactive now. Please contact Ran Pan.");
+                    }
                 }
                 else
                 {
                     ModelState.AddModelError("", "Invalid username or password.");
                 }
             }
-
             // If we got this far, something failed, redisplay form
             return View(model);
         }
@@ -288,17 +300,21 @@ namespace CTROReporting.Controllers
             if (original != null)
             {
                 var img = CreateImage(original, model.X, model.Y, model.Width, model.Height);
-                var fileName = "~/Images/ProfilePics/" + Guid.NewGuid().ToString() + ".png";
+                var folderName = AppDomain.CurrentDomain.BaseDirectory + "/Images/ProfilePics/";
                 var oldFilepath = userProfileService.GetByUserID(User.Identity.GetUserId()).ProfilePicUrl;
                 var oldFile = Server.MapPath(oldFilepath);
                 //Demo purposes only - save image in the file system
-                var fn = Server.MapPath(fileName);
-                img.Save(fn, System.Drawing.Imaging.ImageFormat.Png);
+                var filepath = folderName + Guid.NewGuid().ToString() + ".png";
+                if (!Directory.Exists(folderName))
+                {
+                    Directory.CreateDirectory(folderName);
+                }
+                img.Save(filepath, System.Drawing.Imaging.ImageFormat.Png);
                 if (System.IO.File.Exists(oldFile))
                 {
                     System.IO.File.Delete(oldFile);
                 }
-                return fileName;
+                return filepath;
             }
             else //Otherwise we add an error and return to the (previous) view with the model data
             {

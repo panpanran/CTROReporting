@@ -154,3 +154,4 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.csproj.CopyComplete
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.pdb
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.csprojAssemblyReference.cache
