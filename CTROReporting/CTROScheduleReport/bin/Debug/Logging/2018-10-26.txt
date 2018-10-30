@@ -1,0 +1,15 @@
+
+Log Entry : 3:49:25 PM Friday, October 26, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 3:49:25 PM Friday, October 26, 2018
+  :
+  :CTROScheduleService > OnStart > The remote server returned an error: (503) Server Unavailable.
+-------------------------------
+
+Log Entry : 3:49:25 PM Friday, October 26, 2018
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------

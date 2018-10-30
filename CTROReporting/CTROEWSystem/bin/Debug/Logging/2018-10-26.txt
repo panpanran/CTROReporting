@@ -108,3 +108,88 @@ Log Entry : 3:44:10 PM Friday, October 26, 2018
   :
   :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
 -------------------------------
+
+Log Entry : 3:46:10 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:48:10 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:49:16 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > OnStart > EW Ticket Triaging Service Start
+-------------------------------
+
+Log Entry : 3:51:18 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:53:17 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 3:55:16 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (403) Forbidden.
+-------------------------------
+
+Log Entry : 3:57:17 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (403) Forbidden.
+-------------------------------
+
+Log Entry : 3:59:18 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (400) Bad Request.
+-------------------------------
+
+Log Entry : 4:00:30 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > OnStop > EW Ticket Triaging Service Stop
+-------------------------------
+
+Log Entry : 4:13:18 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > OnStart > EW Ticket Triaging Service Start
+-------------------------------
+
+Log Entry : 4:21:25 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > OnStop > EW Ticket Triaging Service Stop
+-------------------------------
+
+Log Entry : 4:21:42 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > OnStart > EW Ticket Triaging Service Start
+-------------------------------
+
+Log Entry : 4:54:32 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:56:12 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:19:49 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > OnStop > EW Ticket Triaging Service Stop
+-------------------------------
+
+Log Entry : 5:20:10 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > OnStart > EW Ticket Triaging Service Start
+-------------------------------
+
+Log Entry : 5:26:35 PM Friday, October 26, 2018
+  :
+  :EWTicketTrageService > OnStop > EW Ticket Triaging Service Stop
+-------------------------------

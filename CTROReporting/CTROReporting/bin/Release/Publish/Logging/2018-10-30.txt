@@ -1,0 +1,55 @@
+
+Log Entry : 8:10:33 AM Tuesday, October 30, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Offhold at 10/30/2018 8:10:33 AM
+-------------------------------
+
+Log Entry : 8:10:33 AM Tuesday, October 30, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for dena001 - Offhold at 10/30/2018 8:10:33 AM
+-------------------------------
+
+Log Entry : 8:10:33 AM Tuesday, October 30, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for vika001 - Offhold at 10/30/2018 8:10:33 AM
+-------------------------------
+
+Log Entry : 8:10:50 AM Tuesday, October 30, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for dena001 - Reactivated at 10/30/2018 8:10:50 AM
+-------------------------------
+
+Log Entry : 8:10:50 AM Tuesday, October 30, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for vika001 - Reactivated at 10/30/2018 8:10:50 AM
+-------------------------------
+
+Log Entry : 8:10:50 AM Tuesday, October 30, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Reactivated at 10/30/2018 8:10:50 AM
+-------------------------------
+
+Log Entry : 8:11:15 AM Tuesday, October 30, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for joshua - TSR Sent at 10/30/2018 8:11:15 AM
+-------------------------------
+
+Log Entry : 8:11:15 AM Tuesday, October 30, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for christina - TSR Sent at 10/30/2018 8:11:15 AM
+-------------------------------
+
+Log Entry : 8:11:15 AM Tuesday, October 30, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - TSR Sent at 10/30/2018 8:11:15 AM
+-------------------------------
+
+Log Entry : 8:11:32 AM Tuesday, October 30, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Sponsor NCI with Actual PCD at 10/30/2018 8:11:32 AM
+-------------------------------
+
+Log Entry : 8:29:51 AM Tuesday, October 30, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Turnaround at 10/30/2018 8:29:51 AM
+-------------------------------

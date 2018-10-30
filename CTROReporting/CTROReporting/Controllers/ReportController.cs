@@ -12,7 +12,7 @@ using CTROReporting.Infrastructure;
 
 namespace CTROReporting.Controllers
 {
-    [IsActiveAuthorize]
+    [Authorize]
     public class ReportController : Controller
     {
         private IUserProfileService userProfileService;

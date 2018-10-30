@@ -28,7 +28,7 @@ namespace CTROScheduleReport
         public CTROScheduleService()
         {
             InitializeComponent();
-            GlobalConfiguration.Configuration.UseSqlServerStorage(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=CTROReporting;User Id=panpanr;Password=Prss_1234;");
+            GlobalConfiguration.Configuration.UseSqlServerStorage(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=CTROReporting;User Id=panpanr;Password=Prss_2345;");
         }
 
         protected override void OnStart(string[] args)

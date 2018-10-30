@@ -16,7 +16,7 @@ namespace CTROReporting.Models
         [JsonIgnore]
         public virtual ICollection<Report> Reports { get; set; }
 
-        //[JsonIgnore]
+        [JsonIgnore]
         public virtual ICollection<ApplicationUser> ApplicationUsers { get; set; }
     }
 }

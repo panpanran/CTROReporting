@@ -18,7 +18,7 @@ namespace CTROReporting.Models
         public bool Activated { get; set; }
 
         // Foreign key
-        public int? DepartmentId { get; set; }
+        public int DepartmentId { get; set; }
 
         public int RoleId { get; set; }
 

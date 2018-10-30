@@ -87,6 +87,7 @@ namespace CTROTest
         [Test]
         public void NCTNReportTest1()
         {
+            //Find accrual number
             //Read Data
             string nciid = "NCI-2017-00086";
             string organization = "Wake Forest NCORP Research Base";
@@ -125,15 +126,60 @@ namespace CTROTest
         [Test]
         public void NCTNReportTest2()
         {
+            //Find accrual number
+            //Read Data
+            string nciid = "NCI-2017-00086";
+            string organization = "Wake Forest NCORP Research Base";
+            string sql = "";
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\Book1.xlsx");
+            //Do Loop
+            using (var conn = new NpgsqlConnection(CTROConst.connString))
+            {
+                conn.Open();
+                using (StreamWriter sw = File.CreateText(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\NCTN Sites.txt"))
+                {
+                    foreach (DataTable table in trialdata.Tables)
+                    {
+                        sw.WriteLine(table.TableName);
+
+                        foreach (DataRow row in table.Rows)
+                        {
+                            nciid = row.ItemArray[0].ToString();
+                            organization = row.ItemArray[6].ToString();
+                            sql = @"select
+dw_study_participating_site.org_number
+from(select * from dw_study
+where lead_org = '" + organization + "' and nci_id = '" + nciid + @"') dw_study
+join(select nci_id, count(org_name) org_number from dw_study_participating_site group by nci_id) dw_study_participating_site
+on dw_study.nci_id = dw_study_participating_site.nci_id
+order by dw_study.nci_id";
+
+                            NpgsqlCommand cmd = null;
+                            NpgsqlDataReader datareader = null;
+                            //NCI
+                            cmd = new NpgsqlCommand(sql, conn);
+                            datareader = cmd.ExecuteReader();
+                            DataTable nciDT = new DataTable();
+                            nciDT.Load(datareader);
+                            sw.WriteLine(nciDT.Rows[0].ItemArray[0].ToString());
+                        }
+                    }
+                }
+            }
+        }
+
+        [Test]
+        public void NCTNReportTest3()
+        {
             IWebDriver driver = new ChromeDriver();
             //Notice navigation is slightly different than the Java version
             //This is because 'get' is a keyword in C#
-            driver.Navigate().GoToUrl("https://trials-stage.nci.nih.gov/pa/protected/studyProtocolexecute.action");
+            driver.Navigate().GoToUrl("https://trials.nci.nih.gov/pa/protected/studyProtocolexecute.action");
             //Login
             IWebElement username = driver.FindElement(By.Id("j_username"));
             username.SendKeys("panr");
             IWebElement password = driver.FindElement(By.Id("j_password"));
-            password.SendKeys("Prss_5678");
+            password.SendKeys("Prss_6789");
             password.Submit();
             IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
             acceptclaim.Click();
@@ -142,7 +188,7 @@ namespace CTROTest
             //Read Data
             string nciid = "NCI-2017-00086";
             string organization = "Wake Forest NCORP Research Base";
-            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\Test.xlsx");
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\NCTN Datalist Ready 20181029.xlsx");
             string comment = "test";
 
             //Do Loop
@@ -153,8 +199,8 @@ namespace CTROTest
                     try
                     {
                         nciid = row.ItemArray[0].ToString();
-                        organization = row.ItemArray[6].ToString();
-                        comment = "Removed participating site " + organization + ", as site is national/not accruing patients, per EW # 85298 CTRP data clean up";
+                        organization = row.ItemArray[7].ToString();
+                        comment = "Per EW # 85298 CTRP data clean up, the participating site " + organization + " is removed, as the site is national and not accruing any patients.";
 
                         //Find Trial
                         IWebElement trialSearchMenuOption = driver.FindElement(By.Id("trialSearchMenuOption"));

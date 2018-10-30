@@ -204,3 +204,12 @@ Affected parameters are:
    logtoconsole = 
    logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.InstallLog
    assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe
+Uninstalling assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\CTROScheduleReport.exe
+Removing EventLog source CTROScheduleService.
+Service CTROScheduleService is being removed from the system...
+Service CTROScheduleService was successfully removed from the system.
+Attempt to stop service CTROScheduleService.

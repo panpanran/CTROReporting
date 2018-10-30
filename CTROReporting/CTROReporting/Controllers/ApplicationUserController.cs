@@ -154,15 +154,35 @@ namespace CTROReporting.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName, Email = model.Email, LastLoginTime = DateTime.Now, CreatedDate = DateTime.Now };
+                var user = new ApplicationUser()
+                {
+                    UserName = model.UserName,
+                    Email = model.Email,
+                    LastLoginTime = DateTime.Now,
+                    CreatedDate = DateTime.Now,
+                    DepartmentId = 4
+                };
+
                 var result = await userManager.CreateAsync(user, model.Password);
+
                 if (result.Succeeded)
                 {
                     var userId = user.Id;
                     var Email = user.Email;
                     userProfileService.CreateUserProfile(userId, Email);
-                    await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Report", "Report");
+
+                    if (user.Activated == true)
+                    {
+                        await SignInAsync(user, isPersistent: false);
+
+                        Response.Cookies["UserSettings"]["Department"] = departmentService.GetByDepartmentID(user.DepartmentId).DepartmentName;
+                        Response.Cookies["UserSettings"].Expires = DateTime.Now.AddDays(1d);
+                        return RedirectToAction("Report", "Report");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "This user is created but still inactive now. Please contact Ran Pan.");
+                    }
                 }
                 else
                 {
@@ -300,16 +320,16 @@ namespace CTROReporting.Controllers
             if (original != null)
             {
                 var img = CreateImage(original, model.X, model.Y, model.Width, model.Height);
-                var folderName = AppDomain.CurrentDomain.BaseDirectory + "/Images/ProfilePics/";
+                var folderName = Server.MapPath("~/Images/ProfilePics/");
                 var oldFilepath = userProfileService.GetByUserID(User.Identity.GetUserId()).ProfilePicUrl;
                 var oldFile = Server.MapPath(oldFilepath);
                 //Demo purposes only - save image in the file system
-                var filepath = folderName + Guid.NewGuid().ToString() + ".png";
+                var filepath = "~/Images/ProfilePics/" + Guid.NewGuid().ToString() + ".png";
                 if (!Directory.Exists(folderName))
                 {
                     Directory.CreateDirectory(folderName);
                 }
-                img.Save(filepath, System.Drawing.Imaging.ImageFormat.Png);
+                img.Save(Server.MapPath(filepath), System.Drawing.Imaging.ImageFormat.Png);
                 if (System.IO.File.Exists(oldFile))
                 {
                     System.IO.File.Delete(oldFile);

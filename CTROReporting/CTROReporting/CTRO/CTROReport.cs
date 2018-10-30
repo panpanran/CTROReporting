@@ -752,7 +752,15 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
             NpgsqlCommand cmd = null;
             NpgsqlDataReader datareader = null;
             //NCI
-            string codetext = reportSettings[0].Code;
+            string codetext = string.Empty;
+            if (DateTime.Now.Date.DayOfWeek == DayOfWeek.Monday)
+            {
+                codetext = reportSettings[0].Code.Replace("offholddate", "now()::date - 3");
+            }
+            else
+            {
+                codetext = reportSettings[0].Code.Replace("offholddate", "now()::date - 1");
+            }
             cmd = new NpgsqlCommand(codetext, conn);
             datareader = cmd.ExecuteReader();
             DataTable nciDT = new DataTable();
@@ -776,7 +784,15 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
             NpgsqlCommand cmd = null;
             NpgsqlDataReader datareader = null;
             //NCI
-            string codetext = reportSettings[0].Code;
+            string codetext = string.Empty;
+            if (DateTime.Now.Date.DayOfWeek == DayOfWeek.Monday)
+            {
+                codetext = reportSettings[0].Code.Replace("reactivateddate", "now()::date - 3");
+            }
+            else
+            {
+                codetext = reportSettings[0].Code.Replace("reactivateddate", "now()::date - 1");
+            }
             cmd = new NpgsqlCommand(codetext, conn);
             datareader = cmd.ExecuteReader();
             DataTable nciDT = new DataTable();

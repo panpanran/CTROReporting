@@ -4,6 +4,16 @@
         <name>Moq</name>
     </assembly>
     <members>
+        <member name="T:Moq.AutoImplementedPropertyGetterSetup">
+            <summary>
+              Setup used by <see cref="M:Moq.Mock.SetupAllProperties(Moq.Mock)"/> for property getters.
+            </summary>
+        </member>
+        <member name="T:Moq.AutoImplementedPropertySetterSetup">
+            <summary>
+              Setup used by <see cref="M:Moq.Mock.SetupAllProperties(Moq.Mock)"/> for property setters.
+            </summary>
+        </member>
         <member name="T:Moq.Capture">
             <summary>
             Allows to create parameter captures in setup expressions.
@@ -236,17 +246,40 @@
             be part of an evaluated sub-tree.
             </summary>
         </member>
-        <member name="M:Moq.ExpressionExtensions.ToLambda(System.Linq.Expressions.Expression)">
+        <member name="T:Moq.ExpressionCompiler">
             <summary>
-            Casts the expression to a lambda expression, removing 
-            a cast if there's any.
+              An <see cref="T:Moq.ExpressionCompiler"/> compiles LINQ expression trees (<see cref="T:System.Linq.Expressions.Expression"/>) to delegates.
+              Whenever Moq needs to compile an expression tree, it uses the instance set up by <see cref="P:Moq.ExpressionCompiler.Instance"/>.
             </summary>
         </member>
-        <member name="M:Moq.ExpressionExtensions.ToMethodCall(System.Linq.Expressions.LambdaExpression)">
+        <member name="P:Moq.ExpressionCompiler.Default">
             <summary>
-            Casts the body of the lambda expression to a <see cref="T:System.Linq.Expressions.MethodCallExpression"/>.
+              The default <see cref="T:Moq.ExpressionCompiler"/> instance, which simply delegates to the framework's <see cref="M:System.Linq.Expressions.LambdaExpression.Compile"/>.
             </summary>
-            <exception cref="T:System.ArgumentException">If the body is not a method call.</exception>
+        </member>
+        <member name="P:Moq.ExpressionCompiler.Instance">
+            <summary>
+              Gets or sets the <see cref="T:Moq.ExpressionCompiler"/> instance that Moq uses to compile <see cref="T:System.Linq.Expressions.Expression"/> (LINQ expression trees).
+              Defaults to <see cref="P:Moq.ExpressionCompiler.Default"/>.
+            </summary>
+        </member>
+        <member name="M:Moq.ExpressionCompiler.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Moq.ExpressionCompiler"/> class.
+            </summary>
+        </member>
+        <member name="M:Moq.ExpressionCompiler.Compile(System.Linq.Expressions.LambdaExpression)">
+            <summary>
+              Compiles the specified LINQ expression tree.
+            </summary>
+            <param name="expression">The LINQ expression tree that should be compiled.</param>
+        </member>
+        <member name="M:Moq.ExpressionCompiler.Compile``1(System.Linq.Expressions.Expression{``0})">
+            <summary>
+              Compiles the specified LINQ expression tree.
+            </summary>
+            <typeparam name="TDelegate">The type of delegate to which the expression will be compiled.</typeparam>
+            <param name="expression">The LINQ expression tree that should be compiled.</param>
         </member>
         <member name="M:Moq.ExpressionExtensions.ToPropertyInfo(System.Linq.Expressions.LambdaExpression)">
             <summary>
@@ -258,11 +291,6 @@
             Checks whether the body of the lambda expression is a property access.
             </summary>
         </member>
-        <member name="M:Moq.ExpressionExtensions.IsProperty(System.Linq.Expressions.Expression)">
-            <summary>
-            Checks whether the expression is a property access.
-            </summary>
-        </member>
         <member name="M:Moq.ExpressionExtensions.IsPropertyIndexer(System.Linq.Expressions.LambdaExpression)">
             <summary>
             Checks whether the body of the lambda expression is a property indexer, which is true 
@@ -271,15 +299,7 @@
             equal to <see langword="true"/>.
             </summary>
         </member>
-        <member name="M:Moq.ExpressionExtensions.IsPropertyIndexer(System.Linq.Expressions.Expression)">
-            <summary>
-            Checks whether the expression is a property indexer, which is true 
-            when the expression is an <see cref="T:System.Linq.Expressions.MethodCallExpression"/> whose 
-            <see cref="P:System.Linq.Expressions.MethodCallExpression.Method"/> has <see cref="P:System.Reflection.MethodBase.IsSpecialName"/> 
-            equal to <see langword="true"/>.
-            </summary>
-        </member>
-        <member name="M:Moq.ExpressionExtensions.ToStringFixed(System.Linq.Expressions.Expression,System.Boolean)">
+        <member name="M:Moq.ExpressionExtensions.ToStringFixed(System.Linq.Expressions.Expression)">
             <devdoc>
             TODO: remove this code when https://connect.microsoft.com/VisualStudio/feedback/ViewFeedback.aspx?FeedbackID=331583 
             is fixed.
@@ -296,6 +316,11 @@
             <summary>
             The intention of <see cref="T:Moq.ExpressionStringBuilder"/> is to create a more readable 
             string representation for the failure message.
+            </summary>
+        </member>
+        <member name="M:Moq.Extensions.GetDefaultValue(System.Type)">
+            <summary>
+              Gets the default value for the specified type. This is the Reflection counterpart of C#'s <see langword="default"/> operator.
             </summary>
         </member>
         <member name="M:Moq.Extensions.IsDelegate(System.Type)">
@@ -350,8 +375,8 @@
             <typeparam name="T">Type of the argument to check, it must be an <see cref="T:System.IComparable"/> type.
             </typeparam>
             <param name="value">The argument value to check.</param>
-            <param name="from">The minimun allowed value for the argument.</param>
-            <param name="to">The maximun allowed value for the argument.</param>
+            <param name="from">The minimum allowed value for the argument.</param>
+            <param name="to">The maximum allowed value for the argument.</param>
             <param name="paramName">The name of the parameter.</param>
         </member>
         <member name="M:Moq.Guard.NotOutOfRangeExclusive``1(``0,``0,``0,System.String)">
@@ -361,9 +386,34 @@
             <typeparam name="T">Type of the argument to check, it must be an <see cref="T:System.IComparable"/> type.
             </typeparam>
             <param name="value">The argument value to check.</param>
-            <param name="from">The minimun allowed value for the argument.</param>
-            <param name="to">The maximun allowed value for the argument.</param>
+            <param name="from">The minimum allowed value for the argument.</param>
+            <param name="to">The maximum allowed value for the argument.</param>
             <param name="paramName">The name of the parameter.</param>
+        </member>
+        <member name="T:Moq.IInvocation">
+            <summary>
+            Provides information about an invocation of a mock object.
+            </summary>
+        </member>
+        <member name="P:Moq.IInvocation.Method">
+            <summary>
+            Gets the method of the invocation.
+            </summary>
+        </member>
+        <member name="P:Moq.IInvocation.Arguments">
+            <summary>
+            Gets the arguments of the invocation.
+            </summary>
+        </member>
+        <member name="T:Moq.IInvocationList">
+            <summary>
+            A list of invocations which have been performed on a mock.
+            </summary>
+        </member>
+        <member name="M:Moq.IInvocationList.Clear">
+            <summary>
+            Resets all invocations recorded for this mock.
+            </summary>
         </member>
         <member name="T:Moq.IMock`1">
             <summary>
@@ -580,6 +630,11 @@
             Gets the interfaces directly inherited from the mocked type (<see cref="P:Moq.Mock.TargetType"/>).
             </summary>
         </member>
+        <member name="P:Moq.Mock.Invocations">
+            <summary>
+            Gets list of invocations which have been performed on this mock.
+            </summary>
+        </member>
         <member name="M:Moq.Mock.OnGetObject">
             <summary>
 			Returns the mocked object value.
@@ -713,6 +768,9 @@
             </summary>
             <typeparam name="TReturn">The return type for which to define a default value.</typeparam>
             <param name="value">The default return value.</param>
+            <remarks>
+            Default return value is respected only when there is no matching setup for a method call.
+            </remarks>
         </member>
         <member name="M:Moq.Mock.TryUnwrapResultFromCompletedTaskRecursively(System.Object)">
             <summary>
@@ -780,6 +838,11 @@
         </member>
         <member name="M:Moq.Invocation.ToString">
             <inheritdoc/>
+        </member>
+        <member name="T:Moq.InvocationShape">
+            <summary>
+              Describes the "shape" of an invocation against which concrete <see cref="T:Moq.Invocation"/>s can be matched.
+            </summary>
         </member>
         <member name="T:Moq.It">
             <summary>
@@ -941,6 +1004,11 @@
 		</example>
         </member>
         <member name="T:Moq.Language.Flow.ICallbackResult">
+            <summary>
+            Implements the fluent API.
+            </summary>
+        </member>
+        <member name="T:Moq.Language.Flow.ICallBaseResult">
             <summary>
             Implements the fluent API.
             </summary>
@@ -1250,7 +1318,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <param name="action">The callback method to invoke.</param>
             <returns>A reference to <see cref="T:Moq.Language.Flow.ICallbackResult"/> interface.</returns>
             <example>
@@ -1286,7 +1354,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <param name="action">The callback method to invoke.</param>
             <returns>A reference to <see cref="T:Moq.Language.Flow.ICallbackResult"/> interface.</returns>
@@ -1324,7 +1392,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <param name="action">The callback method to invoke.</param>
@@ -1364,7 +1432,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <typeparam name="T12">The type of the twelfth argument of the invoked method.</typeparam>
@@ -1406,7 +1474,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <typeparam name="T12">The type of the twelfth argument of the invoked method.</typeparam>
@@ -1450,7 +1518,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <typeparam name="T12">The type of the twelfth argument of the invoked method.</typeparam>
@@ -1496,7 +1564,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <typeparam name="T12">The type of the twelfth argument of the invoked method.</typeparam>
@@ -1544,7 +1612,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <typeparam name="T12">The type of the twelfth argument of the invoked method.</typeparam>
@@ -1861,7 +1929,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <param name="action">The callback method to invoke.</param>
             <returns>A reference to <see cref="T:Moq.Language.Flow.IReturnsThrows`2"/> interface.</returns>
             <example>
@@ -1898,7 +1966,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <param name="action">The callback method to invoke.</param>
             <returns>A reference to <see cref="T:Moq.Language.Flow.IReturnsThrows`2"/> interface.</returns>
@@ -1937,7 +2005,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <param name="action">The callback method to invoke.</param>
@@ -1978,7 +2046,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <typeparam name="T12">The type of the twelfth argument of the invoked method.</typeparam>
@@ -2021,7 +2089,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <typeparam name="T12">The type of the twelfth argument of the invoked method.</typeparam>
@@ -2066,7 +2134,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <typeparam name="T12">The type of the twelfth argument of the invoked method.</typeparam>
@@ -2113,7 +2181,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <typeparam name="T12">The type of the twelfth argument of the invoked method.</typeparam>
@@ -2162,7 +2230,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <typeparam name="T12">The type of the twelfth argument of the invoked method.</typeparam>
@@ -2241,6 +2309,16 @@
                 .Callback((bool state) => Console.WriteLine(state));
             </code>
             </example>
+        </member>
+        <member name="T:Moq.Language.ICallBase">
+            <summary>
+            Defines the <c>CallBase</c> verb.
+            </summary>
+        </member>
+        <member name="M:Moq.Language.ICallBase.CallBase">
+            <summary>
+            Calls the real method of the object.
+            </summary>
         </member>
         <member name="T:Moq.Language.IRaise`1">
             <summary>
@@ -2406,7 +2484,7 @@
             <typeparam name="T6">The type of the sixth argument received by the expected invocation.</typeparam>
             <typeparam name="T7">The type of the seventh argument received by the expected invocation.</typeparam>
             <typeparam name="T8">The type of the eighth argument received by the expected invocation.</typeparam>
-            <typeparam name="T9">The type of the nineth argument received by the expected invocation.</typeparam>
+            <typeparam name="T9">The type of the ninth argument received by the expected invocation.</typeparam>
             <seealso cref="M:Moq.Language.IRaise`1.Raises(System.Action{`0},System.EventArgs)"/>
         </member>
         <member name="M:Moq.Language.IRaise`1.Raises``10(System.Action{`0},System.Func{``0,``1,``2,``3,``4,``5,``6,``7,``8,``9,System.EventArgs})">
@@ -2424,7 +2502,7 @@
             <typeparam name="T6">The type of the sixth argument received by the expected invocation.</typeparam>
             <typeparam name="T7">The type of the seventh argument received by the expected invocation.</typeparam>
             <typeparam name="T8">The type of the eighth argument received by the expected invocation.</typeparam>
-            <typeparam name="T9">The type of the nineth argument received by the expected invocation.</typeparam>
+            <typeparam name="T9">The type of the ninth argument received by the expected invocation.</typeparam>
             <typeparam name="T10">The type of the tenth argument received by the expected invocation.</typeparam>
             <seealso cref="M:Moq.Language.IRaise`1.Raises(System.Action{`0},System.EventArgs)"/>
         </member>
@@ -2443,7 +2521,7 @@
             <typeparam name="T6">The type of the sixth argument received by the expected invocation.</typeparam>
             <typeparam name="T7">The type of the seventh argument received by the expected invocation.</typeparam>
             <typeparam name="T8">The type of the eighth argument received by the expected invocation.</typeparam>
-            <typeparam name="T9">The type of the nineth argument received by the expected invocation.</typeparam>
+            <typeparam name="T9">The type of the ninth argument received by the expected invocation.</typeparam>
             <typeparam name="T10">The type of the tenth argument received by the expected invocation.</typeparam>
             <typeparam name="T11">The type of the eleventh argument received by the expected invocation.</typeparam>
             <seealso cref="M:Moq.Language.IRaise`1.Raises(System.Action{`0},System.EventArgs)"/>
@@ -2463,7 +2541,7 @@
             <typeparam name="T6">The type of the sixth argument received by the expected invocation.</typeparam>
             <typeparam name="T7">The type of the seventh argument received by the expected invocation.</typeparam>
             <typeparam name="T8">The type of the eighth argument received by the expected invocation.</typeparam>
-            <typeparam name="T9">The type of the nineth argument received by the expected invocation.</typeparam>
+            <typeparam name="T9">The type of the ninth argument received by the expected invocation.</typeparam>
             <typeparam name="T10">The type of the tenth argument received by the expected invocation.</typeparam>
             <typeparam name="T11">The type of the eleventh argument received by the expected invocation.</typeparam>
             <typeparam name="T12">The type of the twelfth argument received by the expected invocation.</typeparam>
@@ -2484,7 +2562,7 @@
             <typeparam name="T6">The type of the sixth argument received by the expected invocation.</typeparam>
             <typeparam name="T7">The type of the seventh argument received by the expected invocation.</typeparam>
             <typeparam name="T8">The type of the eighth argument received by the expected invocation.</typeparam>
-            <typeparam name="T9">The type of the nineth argument received by the expected invocation.</typeparam>
+            <typeparam name="T9">The type of the ninth argument received by the expected invocation.</typeparam>
             <typeparam name="T10">The type of the tenth argument received by the expected invocation.</typeparam>
             <typeparam name="T11">The type of the eleventh argument received by the expected invocation.</typeparam>
             <typeparam name="T12">The type of the twelfth argument received by the expected invocation.</typeparam>
@@ -2506,7 +2584,7 @@
             <typeparam name="T6">The type of the sixth argument received by the expected invocation.</typeparam>
             <typeparam name="T7">The type of the seventh argument received by the expected invocation.</typeparam>
             <typeparam name="T8">The type of the eighth argument received by the expected invocation.</typeparam>
-            <typeparam name="T9">The type of the nineth argument received by the expected invocation.</typeparam>
+            <typeparam name="T9">The type of the ninth argument received by the expected invocation.</typeparam>
             <typeparam name="T10">The type of the tenth argument received by the expected invocation.</typeparam>
             <typeparam name="T11">The type of the eleventh argument received by the expected invocation.</typeparam>
             <typeparam name="T12">The type of the twelfth argument received by the expected invocation.</typeparam>
@@ -2529,7 +2607,7 @@
             <typeparam name="T6">The type of the sixth argument received by the expected invocation.</typeparam>
             <typeparam name="T7">The type of the seventh argument received by the expected invocation.</typeparam>
             <typeparam name="T8">The type of the eighth argument received by the expected invocation.</typeparam>
-            <typeparam name="T9">The type of the nineth argument received by the expected invocation.</typeparam>
+            <typeparam name="T9">The type of the ninth argument received by the expected invocation.</typeparam>
             <typeparam name="T10">The type of the tenth argument received by the expected invocation.</typeparam>
             <typeparam name="T11">The type of the eleventh argument received by the expected invocation.</typeparam>
             <typeparam name="T12">The type of the twelfth argument received by the expected invocation.</typeparam>
@@ -2553,7 +2631,7 @@
             <typeparam name="T6">The type of the sixth argument received by the expected invocation.</typeparam>
             <typeparam name="T7">The type of the seventh argument received by the expected invocation.</typeparam>
             <typeparam name="T8">The type of the eighth argument received by the expected invocation.</typeparam>
-            <typeparam name="T9">The type of the nineth argument received by the expected invocation.</typeparam>
+            <typeparam name="T9">The type of the ninth argument received by the expected invocation.</typeparam>
             <typeparam name="T10">The type of the tenth argument received by the expected invocation.</typeparam>
             <typeparam name="T11">The type of the eleventh argument received by the expected invocation.</typeparam>
             <typeparam name="T12">The type of the twelfth argument received by the expected invocation.</typeparam>
@@ -2862,7 +2940,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <param name="valueFunction">The function that will calculate the return value.</param>
             <return>Returns a calculated value which is evaluated lazily at the time of the invocation.</return>
             <example>
@@ -2899,7 +2977,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <param name="valueFunction">The function that will calculate the return value.</param>
             <return>Returns a calculated value which is evaluated lazily at the time of the invocation.</return>
@@ -2938,7 +3016,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <param name="valueFunction">The function that will calculate the return value.</param>
@@ -2979,7 +3057,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <typeparam name="T12">The type of the twelfth argument of the invoked method.</typeparam>
@@ -3022,7 +3100,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <typeparam name="T12">The type of the twelfth argument of the invoked method.</typeparam>
@@ -3067,7 +3145,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <typeparam name="T12">The type of the twelfth argument of the invoked method.</typeparam>
@@ -3114,7 +3192,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <typeparam name="T12">The type of the twelfth argument of the invoked method.</typeparam>
@@ -3163,7 +3241,7 @@
             <typeparam name="T6">The type of the sixth argument of the invoked method.</typeparam>
             <typeparam name="T7">The type of the seventh argument of the invoked method.</typeparam>
             <typeparam name="T8">The type of the eighth argument of the invoked method.</typeparam>
-            <typeparam name="T9">The type of the nineth argument of the invoked method.</typeparam>
+            <typeparam name="T9">The type of the ninth argument of the invoked method.</typeparam>
             <typeparam name="T10">The type of the tenth argument of the invoked method.</typeparam>
             <typeparam name="T11">The type of the eleventh argument of the invoked method.</typeparam>
             <typeparam name="T12">The type of the twelfth argument of the invoked method.</typeparam>
@@ -3344,6 +3422,12 @@
             <summary>
             Returns value
             </summary>
+        </member>
+        <member name="M:Moq.Language.ISetupSequentialResult`1.Returns(System.Func{`0})">
+            <summary>
+            Uses delegate to get return value
+            </summary>
+            <param name="valueFunction">The function that will calculate the return value.</param> 
         </member>
         <member name="M:Moq.Language.ISetupSequentialResult`1.Throws(System.Exception)">
             <summary>
@@ -3598,7 +3682,7 @@
         </member>
         <member name="M:Moq.MockRepository.CreateMockQuery``1">
             <summary>
-            Creates the mock query with the underlying queriable implementation.
+            Creates the mock query with the underlying queryable implementation.
             </summary>
         </member>
         <member name="M:Moq.MockRepository.CreateQueryable``1">
@@ -3631,7 +3715,7 @@
             This entry-point into Linq to Mocks is the only one in the root Moq 
             namespace to ease discovery. But to get all the mocking extension 
             methods on Object, a using of Moq.Linq must be done, so that the 
-            polluting of the intellisense for all objects is an explicit opt-in.
+            polluting of the IntelliSense for all objects is an explicit opt-in.
             </devdoc>
         </member>
         <member name="M:Moq.Mocks.Of``1">
@@ -3666,7 +3750,7 @@
         </member>
         <member name="M:Moq.Mocks.CreateMockQuery``1">
             <summary>
-            Creates the mock query with the underlying queriable implementation.
+            Creates the mock query with the underlying queryable implementation.
             </summary>
         </member>
         <member name="M:Moq.Mocks.CreateQueryable``1">
@@ -3684,7 +3768,7 @@
         <member name="M:Moq.Mocks.SetProperty``2(Moq.Mock{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},``1)">
             <summary>
             Extension method used to support Linq-like setup properties that are not virtual but do have 
-            a getter and a setter, thereby allowing the use of Linq to Mocks to quickly initialize Dtos too :)
+            a getter and a setter, thereby allowing the use of Linq to Mocks to quickly initialize DTOs too :)
             </summary>
         </member>
         <member name="T:Moq.QueryableMockExtensions">
@@ -3740,7 +3824,7 @@
               </para>
               <para>
                 All array types are represented by <c><see langword="typeof"/>(<see cref="T:System.Array"/>)</c>.
-                Generic types are represented by their open generic type definiton, e. g. <c><see langword="typeof"/>(<see cref="T:System.Collections.IEnumerable"/>&lt;&gt;)</c>.
+                Generic types are represented by their open generic type definition, e. g. <c><see langword="typeof"/>(<see cref="T:System.Collections.IEnumerable"/>&lt;&gt;)</c>.
               </para>
             </param>
             <param name="factory">The factory function responsible for producing values for the given type.</param>
@@ -3877,12 +3961,6 @@
             Will succeed if: mock.Object.StringMethod("magic");
             and fail with any other call.
             </summary>
-        </member>
-        <member name="M:Moq.MethodCall.#ctor(Moq.Mock,Moq.Condition,System.Linq.Expressions.Expression,System.Reflection.MethodInfo,Moq.IMatcher[])">
-            <remarks>
-              Only use this constructor when you know that the specified <paramref name="method"/> has no `out` parameters,
-              and when you want to avoid the <see cref="T:Moq.MatcherFactory"/>-related overhead of the other constructor overload.
-            </remarks>
         </member>
         <member name="T:Moq.Mock`1">
             <summary>
@@ -4574,7 +4652,7 @@
         <member name="T:Moq.MockDefaultValueProvider">
             <summary>
             A <see cref="T:Moq.DefaultValueProvider"/> that returns an empty default value 
-            for non-mockeable types, and mocks for all other types (interfaces and 
+            for non-mockable types, and mocks for all other types (interfaces and
             non-sealed classes) that can be mocked.
             </summary>
         </member>
@@ -4596,6 +4674,53 @@
             allow the test to pass.
             </para>
             </remarks>
+        </member>
+        <member name="M:Moq.MockException.MoreThanOneCall(Moq.MethodCall,System.Int32)">
+            <summary>
+              Returns the exception to be thrown when a setup limited by <see cref="M:Moq.Language.IOccurrence.AtMostOnce"/> is invoked more often than once.
+            </summary>
+        </member>
+        <member name="M:Moq.MockException.MoreThanNCalls(Moq.MethodCall,System.Int32,System.Int32)">
+            <summary>
+              Returns the exception to be thrown when a setup limited by <see cref="M:Moq.Language.IOccurrence.AtMost(System.Int32)"/> is invoked more often than the specified maximum number of times.
+            </summary>
+        </member>
+        <member name="M:Moq.MockException.NoMatchingCalls(System.String,System.Collections.Generic.IEnumerable{Moq.Setup},System.Collections.Generic.IEnumerable{Moq.Invocation},System.Linq.Expressions.LambdaExpression,Moq.Times,System.Int32)">
+            <summary>
+              Returns the exception to be thrown when <see cref="M:Moq.Mock.Verify(Moq.Mock[])"/> finds no invocations (or the wrong number of invocations) that match the specified expectation.
+            </summary>
+        </member>
+        <member name="M:Moq.MockException.NoSetup(Moq.Invocation)">
+            <summary>
+              Returns the exception to be thrown when a strict mock has no setup corresponding to the specified invocation.
+            </summary>
+        </member>
+        <member name="M:Moq.MockException.ReturnValueRequired(Moq.Invocation)">
+            <summary>
+              Returns the exception to be thrown when a strict mock has no setup that provides a return value for the specified invocation.
+            </summary>
+        </member>
+        <member name="M:Moq.MockException.UnmatchedSetups(Moq.Mock,System.Collections.Generic.IEnumerable{Moq.Setup})">
+            <summary>
+              Returns the exception to be thrown when <see cref="M:Moq.Mock.Verify(Moq.Mock[])"/> or <see cref="M:Moq.MockFactory.Verify"/> find a setup that has not been invoked.
+            </summary>
+        </member>
+        <member name="M:Moq.MockException.Combined(System.Collections.Generic.IEnumerable{Moq.MockException})">
+            <summary>
+              Returns an exception whose message is the concatenation of the given <paramref name="errors"/>' messages
+              and whose reason(s) is the combination of the given <paramref name="errors"/>' reason(s).
+              Used by <see cref="M:Moq.MockFactory.VerifyMocks(System.Action{Moq.Mock})"/> when it finds one or more mocks with verification errors.
+            </summary>
+        </member>
+        <member name="M:Moq.MockException.UnverifiedInvocations(Moq.Mock,System.Collections.Generic.IEnumerable{Moq.Invocation})">
+            <summary>
+              Returns the exception to be thrown when <see cref="M:Moq.Mock.VerifyNoOtherCalls(Moq.Mock)"/> finds invocations that have not been verified.
+            </summary>
+        </member>
+        <member name="M:Moq.MockException.UnverifiedInvocations(System.Collections.Generic.List{Moq.MockException})">
+            <summary>
+              Returns the exception to be thrown when <see cref="M:Moq.MockFactory.VerifyNoOtherCalls"/> finds invocations that have not been verified.
+            </summary>
         </member>
         <member name="P:Moq.MockException.IsVerificationError">
             <summary>
@@ -4621,17 +4746,17 @@
             Provides additional methods on mocks.
             </summary>
         </member>
-        <member name="M:Moq.MockExtensions.ResetCalls(Moq.Mock)">
-            <summary>
-            Resets all invocations recorded for this mock.
-            </summary>
-            <param name="mock">The mock whose recorded invocations should be reset.</param>
-        </member>
         <member name="M:Moq.MockExtensions.Reset(Moq.Mock)">
             <summary>
             Resets this mock's state. This includes its setups, configured default return values, registered event handlers, and all recorded invocations.
             </summary>
             <param name="mock">The mock whose state should be reset.</param>
+        </member>
+        <member name="M:Moq.MockExtensions.ResetCalls(Moq.Mock)">
+            <summary>
+            Resets all invocations recorded for this mock.
+            </summary>
+            <param name="mock">The mock whose recorded invocations should be reset.</param>
         </member>
         <member name="T:Moq.MockSequence">
             <summary>
@@ -5003,7 +5128,7 @@
         <member name="M:Moq.MockFactory.Create``1(Moq.MockBehavior,System.Object[])">
             <summary>
             Creates a new mock with the given <paramref name="behavior"/> 
-            and with the the given constructor arguments for the class.
+            and with the given constructor arguments for the class.
             </summary>
             <remarks>
             The mock will try to find the best match constructor given the 
@@ -5048,10 +5173,17 @@
             <seealso cref="M:Moq.Mock.Verify"/>
             <exception cref="T:Moq.MockException">One or more mocks had setups that were not satisfied.</exception>
         </member>
+        <member name="M:Moq.MockFactory.VerifyNoOtherCalls">
+            <summary>
+            Calls <see cref="M:Moq.Mock`1.VerifyNoOtherCalls"/> on all mocks created by this factory.
+            </summary>
+            <seealso cref="M:Moq.Mock`1.VerifyNoOtherCalls"/>
+            <exception cref="T:Moq.MockException">One or more mocks had invocations that were not verified.</exception>
+        </member>
         <member name="M:Moq.MockFactory.VerifyMocks(System.Action{Moq.Mock})">
             <summary>
-            Invokes <paramref name="verifyAction"/> for each mock 
-            in <see cref="P:Moq.MockFactory.Mocks"/>, and accumulates the resulting 
+            Invokes <paramref name="verifyAction"/> for each mock
+            in <see cref="P:Moq.MockFactory.Mocks"/>, and accumulates the resulting
             verification exceptions that might be
             thrown from the action.
             </summary>
@@ -5092,7 +5224,7 @@
         </member>
         <member name="M:Moq.ObsoleteMockExtensions.VerifySet``2(Moq.Mock{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}})">
             <summary>
-            Verifies that a property has been set on the mock, regarless of its value.
+            Verifies that a property has been set on the mock, regardless of its value.
             </summary>
             <example group="verification">
             This example assumes that the mock has been used, 
@@ -5214,9 +5346,24 @@
             Return a sequence of tasks, once per call.
             </summary>
         </member>
+        <member name="M:Moq.SequenceExtensions.ReturnsAsync``1(Moq.Language.ISetupSequentialResult{System.Threading.Tasks.ValueTask{``0}},``0)">
+            <summary>
+            Return a sequence of tasks, once per call.
+            </summary>
+        </member>
         <member name="M:Moq.SequenceExtensions.ThrowsAsync``1(Moq.Language.ISetupSequentialResult{System.Threading.Tasks.Task{``0}},System.Exception)">
             <summary>
             Throws a sequence of exceptions, once per call.
+            </summary>
+        </member>
+        <member name="M:Moq.SequenceExtensions.ThrowsAsync``1(Moq.Language.ISetupSequentialResult{System.Threading.Tasks.ValueTask{``0}},System.Exception)">
+            <summary>
+            Throws a sequence of exceptions, once per call.
+            </summary>
+        </member>
+        <member name="T:Moq.ParameterTypes">
+            <summary>
+              Allocation-free adapter type for treating a `ParameterInfo[]` array like a `Type[]` array.
             </summary>
         </member>
         <member name="T:Moq.Properties.Resources">
@@ -5280,7 +5427,7 @@
               Looks up a localized string similar to Delays have to be greater than zero to ensure an async callback is used..
             </summary>
         </member>
-        <member name="P:Moq.Properties.Resources.EventNofFound">
+        <member name="P:Moq.Properties.Resources.EventNotFound">
             <summary>
               Looks up a localized string similar to Could not locate event for attach or detach method {0}..
             </summary>
@@ -5367,7 +5514,7 @@
         </member>
         <member name="P:Moq.Properties.Resources.MinDelayMustBeLessThanMaxDelay">
             <summary>
-              Looks up a localized string similar to Mininum delay has to be lower than maximum delay..
+              Looks up a localized string similar to Minimum delay has to be lower than maximum delay..
             </summary>
         </member>
         <member name="P:Moq.Properties.Resources.MockExceptionMessage">
@@ -5475,21 +5622,6 @@
               Looks up a localized string similar to Property {0}.{1} does not have a getter..
             </summary>
         </member>
-        <member name="P:Moq.Properties.Resources.PropertyMissing">
-            <summary>
-              Looks up a localized string similar to Property {0}.{1} does not exist..
-            </summary>
-        </member>
-        <member name="P:Moq.Properties.Resources.PropertyNotReadable">
-            <summary>
-              Looks up a localized string similar to Property {0}.{1} is write-only..
-            </summary>
-        </member>
-        <member name="P:Moq.Properties.Resources.PropertyNotWritable">
-            <summary>
-              Looks up a localized string similar to Property {0}.{1} is read-only..
-            </summary>
-        </member>
         <member name="P:Moq.Properties.Resources.PropertySetNotFound">
             <summary>
               Looks up a localized string similar to Property {0}.{1} does not have a setter..
@@ -5513,16 +5645,6 @@
         <member name="P:Moq.Properties.Resources.ReturnValueRequired">
             <summary>
               Looks up a localized string similar to Invocation needs to return a value and therefore must have a corresponding setup that provides it..
-            </summary>
-        </member>
-        <member name="P:Moq.Properties.Resources.SetupLambda">
-            <summary>
-              Looks up a localized string similar to A lambda expression is expected as the argument to It.Is&lt;T&gt;..
-            </summary>
-        </member>
-        <member name="P:Moq.Properties.Resources.SetupNever">
-            <summary>
-              Looks up a localized string similar to Invocation {0} should not have been made..
             </summary>
         </member>
         <member name="P:Moq.Properties.Resources.SetupNotMethod">
@@ -5589,34 +5711,20 @@
               Looks up a localized string similar to Unhandled expression type: {0}.
             </summary>
         </member>
+        <member name="P:Moq.Properties.Resources.UnmatchedSetups">
+             <summary>
+               Looks up a localized string similar to The following setups on mock &apos;{0}&apos; were not matched:
+            {1}.
+             </summary>
+        </member>
         <member name="P:Moq.Properties.Resources.UnsupportedExpression">
             <summary>
               Looks up a localized string similar to Unsupported expression: {0}.
             </summary>
         </member>
-        <member name="P:Moq.Properties.Resources.UnsupportedIntermediateExpression">
-            <summary>
-              Looks up a localized string similar to Only property accesses are supported in intermediate invocations on a setup. Unsupported expression {0}..
-            </summary>
-        </member>
-        <member name="P:Moq.Properties.Resources.UnsupportedIntermediateType">
-            <summary>
-              Looks up a localized string similar to Expression contains intermediate property access {0}.{1} which is of type {2} and cannot be mocked. Unsupported expression {3}..
-            </summary>
-        </member>
-        <member name="P:Moq.Properties.Resources.UnsupportedMatcherParamsForSetter">
-            <summary>
-              Looks up a localized string similar to Setter expression cannot use argument matchers that receive parameters..
-            </summary>
-        </member>
         <member name="P:Moq.Properties.Resources.UnsupportedMember">
             <summary>
               Looks up a localized string similar to Member {0} is not supported for protected mocking..
-            </summary>
-        </member>
-        <member name="P:Moq.Properties.Resources.UnsupportedNonStaticMatcherForSetter">
-            <summary>
-              Looks up a localized string similar to Setter expression can only use static custom matchers..
             </summary>
         </member>
         <member name="P:Moq.Properties.Resources.UnverifiedInvocations">
@@ -5629,12 +5737,6 @@
             <summary>
               Looks up a localized string similar to Use ItExpr.IsNull&lt;TValue&gt; rather than a null argument value, as it prevents proper method lookup..
             </summary>
-        </member>
-        <member name="P:Moq.Properties.Resources.VerficationFailed">
-             <summary>
-               Looks up a localized string similar to The following setups were not matched:
-            {0}.
-             </summary>
         </member>
         <member name="P:Moq.Properties.Resources.VerifyOnExtensionMethod">
             <summary>
@@ -6474,6 +6576,11 @@
             <param name="mock">Returns verb which represents the mocked type and the task of return type</param>
             <param name="valueFunction">The function that will calculate the return value.</param>
         </member>
+        <member name="T:Moq.SequenceSetup">
+            <summary>
+              Programmable setup used by <see cref="M:Moq.Mock.SetupSequence(Moq.Mock,System.Linq.Expressions.LambdaExpression)"/> and <see cref="M:Moq.Mock.SetupSequence``1(Moq.Mock,System.Linq.Expressions.LambdaExpression)"/>.
+            </summary>
+        </member>
         <member name="T:Moq.Switches">
             <summary>
             Represents a switch, or a combination of switches, that can be either enabled or disabled.
@@ -6611,69 +6718,6 @@
             <summary>
             Redeclaration that hides the <see cref="M:System.Object.Equals(System.Object)"/> method from IntelliSense.
             </summary>
-        </member>
-        <member name="T:ThisAssembly">
-            <group name="overview" title="Overview" order="0" />
-            <group name="setups" title="Specifying setups" order="1" />
-            <group name="returns" title="Returning values from members" order="2" />
-            <group name="verification" title="Verifying setups" order="3" />
-            <group name="advanced" title="Advanced scenarios" order="99" />
-            <group name="factory" title="Using MockFactory for consistency across mocks" order="4" />
-            <summary>Provides access to the current assembly information.</summary>
-        </member>
-        <member name="T:ThisAssembly.Git">
-            <summary>Provides access to the git information for the current assembly.</summary>
-        </member>
-        <member name="F:ThisAssembly.Git.Branch">
-            <summary>Branch: tags/v4.8.0</summary>
-        </member>
-        <member name="F:ThisAssembly.Git.Commit">
-            <summary>Commit: f6a8be6</summary>
-        </member>
-        <member name="F:ThisAssembly.Git.Sha">
-            <summary>Sha: f6a8be6f7fd0baf6f57eba714e591d6274ae0f67</summary>
-        </member>
-        <member name="F:ThisAssembly.Git.Commits">
-            <summary>Commits on top of base version: 0</summary>
-        </member>
-        <member name="F:ThisAssembly.Git.Tag">
-            <summary>Tag: </summary>
-        </member>
-        <member name="F:ThisAssembly.Git.BaseTag">
-            <summary>Base tag: </summary>
-        </member>
-        <member name="T:ThisAssembly.Git.BaseVersion">
-            <summary>Provides access to the base version information used to determine the <see cref="T:ThisAssembly.Git.SemVer" />.</summary>      
-        </member>
-        <member name="F:ThisAssembly.Git.BaseVersion.Major">
-            <summary>Major: 4</summary>
-        </member>
-        <member name="F:ThisAssembly.Git.BaseVersion.Minor">
-            <summary>Minor: 8</summary>
-        </member>
-        <member name="F:ThisAssembly.Git.BaseVersion.Patch">
-            <summary>Patch: 0</summary>
-        </member>
-        <member name="T:ThisAssembly.Git.SemVer">
-            <summary>Provides access to SemVer information for the current assembly.</summary>
-        </member>
-        <member name="F:ThisAssembly.Git.SemVer.Major">
-            <summary>Major: 4</summary>
-        </member>
-        <member name="F:ThisAssembly.Git.SemVer.Minor">
-            <summary>Minor: 8</summary>
-        </member>
-        <member name="F:ThisAssembly.Git.SemVer.Patch">
-            <summary>Patch: 0</summary>
-        </member>
-        <member name="F:ThisAssembly.Git.SemVer.Label">
-            <summary>Label: </summary>
-        </member>
-        <member name="F:ThisAssembly.Git.SemVer.DashLabel">
-            <summary>Label with dash prefix: </summary>
-        </member>
-        <member name="F:ThisAssembly.Git.SemVer.Source">
-            <summary>Source: File</summary>
         </member>
     </members>
 </doc>

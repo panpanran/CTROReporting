@@ -29,20 +29,28 @@ namespace CTROReporting.CTRO
 
         public static void AddorUpdateJob(Schedule schedule)
         {
-            string crontime = "";
-            if (schedule.IntervalDays == 7)
+            try
             {
-                crontime = schedule.StartTime.Minute.ToString() + " " + schedule.StartTime.Hour.ToString() + " * * " + schedule.StartTime.DayOfWeek.ToString();
+                string crontime = "";
+                if (schedule.IntervalDays == 7)
+                {
+                    crontime = schedule.StartTime.Minute.ToString() + " " + schedule.StartTime.Hour.ToString() + " * * " + schedule.StartTime.DayOfWeek.ToString();
+                }
+                else if (schedule.IntervalDays == 1)
+                {
+                    crontime = schedule.StartTime.Minute.ToString() + " " + schedule.StartTime.Hour.ToString() + " * * 1-5";
+                }
+                else
+                {
+                    crontime = schedule.StartTime.Minute.ToString() + " " + schedule.StartTime.Hour.ToString() + " */" + schedule.IntervalDays + " * *";
+                }
+                RecurringJob.AddOrUpdate(GetJobName(schedule), () => ScheduledJob(schedule), crontime, TimeZoneInfo.Local);
             }
-            else if (schedule.IntervalDays == 1)
+            catch (Exception ex)
             {
-                crontime = schedule.StartTime.Minute.ToString() + " " + schedule.StartTime.Hour.ToString() + " * * 1-5";
+                Logging.WriteLog("CTROHangfire", "AddorUpdateJob", ex.Message);
+                throw;
             }
-            else
-            {
-                crontime = schedule.StartTime.Minute.ToString() + " " + schedule.StartTime.Hour.ToString() + " */" + schedule.IntervalDays + " * *";
-            }
-            RecurringJob.AddOrUpdate(GetJobName(schedule), () => ScheduledJob(schedule), crontime, TimeZoneInfo.Local);
         }
 
         public static void DeleteJob(Schedule schedule)
@@ -107,48 +115,48 @@ namespace CTROReporting.CTRO
     /// Attribute to skip a job execution if the same job is already running.
     /// Mostly taken from: http://discuss.hangfire.io/t/job-reentrancy-avoidance-proposal/607
     /// </summary>
-    public class SkipConcurrentExecutionAttribute : JobFilterAttribute, IServerFilter
-    {
-        private readonly int _timeoutInSeconds;
+    //public class SkipConcurrentExecutionAttribute : JobFilterAttribute, IServerFilter
+    //{
+    //    private readonly int _timeoutInSeconds;
 
-        public SkipConcurrentExecutionAttribute(int timeoutInSeconds)
-        {
-            if (timeoutInSeconds < 0) throw new ArgumentException("Timeout argument value should be greater that zero.");
+    //    public SkipConcurrentExecutionAttribute(int timeoutInSeconds)
+    //    {
+    //        if (timeoutInSeconds < 0) throw new ArgumentException("Timeout argument value should be greater that zero.");
 
-            _timeoutInSeconds = timeoutInSeconds;
-        }
+    //        _timeoutInSeconds = timeoutInSeconds;
+    //    }
 
 
-        public void OnPerforming(PerformingContext filterContext)
-        {
-            var resource = String.Format(
-                                 "{0}.{1}",
-                                filterContext.Job.Type.FullName,
-                                filterContext.Job.Method.Name);
+    //    public void OnPerforming(PerformingContext filterContext)
+    //    {
+    //        var resource = String.Format(
+    //                             "{0}.{1}",
+    //                            filterContext.Job.Type.FullName,
+    //                            filterContext.Job.Method.Name);
 
-            var timeout = TimeSpan.FromSeconds(_timeoutInSeconds);
+    //        var timeout = TimeSpan.FromSeconds(_timeoutInSeconds);
 
-            try
-            {
-                var distributedLock = filterContext.Connection.AcquireDistributedLock(resource, timeout);
-                filterContext.Items["DistributedLock"] = distributedLock;
-            }
-            catch (Exception)
-            {
-                filterContext.Canceled = true;
-                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "");
-            }
-        }
+    //        try
+    //        {
+    //            var distributedLock = filterContext.Connection.AcquireDistributedLock(resource, timeout);
+    //            filterContext.Items["DistributedLock"] = distributedLock;
+    //        }
+    //        catch (Exception)
+    //        {
+    //            filterContext.Canceled = true;
+    //            Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "");
+    //        }
+    //    }
 
-        public void OnPerformed(PerformedContext filterContext)
-        {
-            if (!filterContext.Items.ContainsKey("DistributedLock"))
-            {
-                throw new InvalidOperationException("Can not release a distributed lock: it was not acquired.");
-            }
+    //    public void OnPerformed(PerformedContext filterContext)
+    //    {
+    //        if (!filterContext.Items.ContainsKey("DistributedLock"))
+    //        {
+    //            throw new InvalidOperationException("Can not release a distributed lock: it was not acquired.");
+    //        }
 
-            var distributedLock = (IDisposable)filterContext.Items["DistributedLock"];
-            distributedLock.Dispose();
-        }
-    }
+    //        var distributedLock = (IDisposable)filterContext.Items["DistributedLock"];
+    //        distributedLock.Dispose();
+    //    }
+    //}
 }
