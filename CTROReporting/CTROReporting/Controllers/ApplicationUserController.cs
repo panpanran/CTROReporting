@@ -74,6 +74,9 @@ namespace CTROReporting.Controllers
             user.UserName = model.UserName;
             user.DepartmentId = departmentService.GetByDepartmentName(model.DepartmentName).DepartmentId;
             userService.UpdateUser(user);
+            UserProfile userprofile = userProfileService.GetByUserID(model.Id);
+            userprofile.Email = model.Email;
+            userProfileService.UpdateUserProfile(userprofile);
             return View();
         }
 
@@ -293,6 +296,10 @@ namespace CTROReporting.Controllers
 
             userprofile.ProfilePicUrl = SaveImage(updateProfile);
             userProfileService.UpdateUserProfile(userprofile);
+
+            ApplicationUser applicationUser = userService.GetByUserID(User.Identity.GetUserId());
+            applicationUser.Email = updateProfile.Email;
+            userService.UpdateUser(applicationUser);
             return RedirectToAction("UserProfile", new { id = updateProfile.UserId });
         }
 

@@ -33,7 +33,7 @@
                     @Html.LabelFor(x => x.StartDate, new { @class = "col-md-4 form-control-label" })
                 </div>
                 <div class=" col-md-6">
-                    @Html.TextBoxFor(x => x.StartDate, new { @class = "ui-datepicker",@id = "startdate", @style = "display:block;float:left;" })
+                    @Html.TextBoxFor(x => x.StartDate, new { @class = "ui-datepicker", @id = "startdate", @style = "display:block;float:left;" })
                 </div>
             </div>
             <div class="row">
@@ -59,6 +59,12 @@
     </div>
     @Html.HiddenFor(m => m.SelectedReport)
 }
+
+@*<button class="nav-link" data-toggle="modal" href="#progressModal" onclick="CreateProgressBar();">
+    <span data-feather="layers"></span>
+    Tickets
+</button>*@
+
 
 <div class="modal fade" id="progressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
@@ -145,12 +151,15 @@
     }
 
     function CreateProgressBar() {
-        var url = "/Report/ProgressBar";
+        var url = "@Url.Action("ProgressBar", "Report")";
+
         $.get(url, function (result) {
-            if (!@Model.ReportResult) {
-                $("#createprogressbar").html(result);
-            }
-            else
+            var notifications = $("#createprogressbar"); // cache it to avoid repeatedly searching the DOM
+           setInterval(function () {
+                notifications.load(url);
+            }, 1000);
+
+            if (@Model.ReportResult)
             {
                 $('#progressModal').modal('hide');
             }

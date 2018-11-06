@@ -49,16 +49,99 @@ namespace CTROTest
         [Test]
         public void PCD2100Test()
         {
+            IWebDriver driver = new ChromeDriver();
+            //Notice navigation is slightly different than the Java version
+            //This is because 'get' is a keyword in C#
+            driver.Navigate().GoToUrl("https://trials.nci.nih.gov/pa/protected/studyProtocolexecute.action");
+            //Login
+            IWebElement username = driver.FindElement(By.Id("j_username"));
+            username.SendKeys("panr");
+            IWebElement password = driver.FindElement(By.Id("j_password"));
+            password.SendKeys("Prss_6789");
+            password.Submit();
+            IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
+            acceptclaim.Click();
+
+
             //Read Data
             string nciid = "NCI-2017-00086";
             string organization = "Wake Forest NCORP Research Base";
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\PCD2100 Report\PCD2100 Report 20181106.xlsx");
+            string comment = "test";
+
+            //Do Loop
+            foreach (DataTable table in trialdata.Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    try
+                    {
+                        nciid = row.ItemArray[0].ToString();
+                        //organization = row.ItemArray[16].ToString();
+                        comment = "Per EW 85484 Anticipated Primary Completion Date 01/01/2100 was removed and N/A was selected";
+
+                        //Find Trial
+                        IWebElement trialSearchMenuOption = driver.FindElement(By.Id("trialSearchMenuOption"));
+                        trialSearchMenuOption.Click();
+                        IWebElement identifier = driver.FindElement(By.Id("identifier"));
+                        identifier.SendKeys(nciid);
+                        identifier.SendKeys(Keys.Enter);
+                        IWebElement triallink = driver.FindElements(By.TagName("a")).First(element => element.Text == nciid);
+                        triallink.Click();
+                        //Checkout
+                        IWebElement checkoutspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Admin Check Out");
+                        checkoutspan.Click();
+                        //Trial Status
+                        IWebElement participatingsitelink = driver.FindElements(By.TagName("a")).First(element => element.Text == "Trial Status");
+                        participatingsitelink.Click();
+                        //Set value
+                        IJavaScriptExecutor txtPCD = (IJavaScriptExecutor)driver;
+                        txtPCD.ExecuteScript("document.getElementById('primaryCompletionDate').setAttribute('value', '" + "" + "')");
+                        //IJavaScriptExecutor radioPCD = (IJavaScriptExecutor)driver;
+                        //radioPCD.ExecuteScript("document.getElementById('primaryCompletionDateTypeN/A').setAttribute('value', '" + "N/A" + "')");
+                        IWebElement radioPCD = driver.FindElement(By.Id("primaryCompletionDateTypeN/A")); 
+                        radioPCD.Click();
+
+                        IWebElement savespan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Save");
+                        savespan.Click();
+
+                        //Checkin
+                        IWebElement trialidentification = driver.FindElements(By.TagName("a")).First(element => element.Text == "Trial Identification");
+                        trialidentification.Click();
+                        IWebElement btnadmincheckin = driver.FindElements(By.TagName("span")).First(element => element.Text == "Admin Check In");
+                        btnadmincheckin.Click();
+                        if (driver.FindElements(By.TagName("button")).Where(element => element.Text == "Proceed with Check-in").Count() != 0)
+                        {
+                            IWebElement btnproceedcheckin = driver.FindElements(By.TagName("button")).First(element => element.Text == "Proceed with Check-in");
+                            btnproceedcheckin.Click();
+                        }
+                        IWebElement txtcomments = driver.FindElement(By.Id("comments"));
+                        txtcomments.SendKeys(comment);
+                        IWebElement btnOk = driver.FindElements(By.TagName("button")).First(element => element.Text == "Ok");
+                        btnOk.Click();
+                    }
+                    catch (Exception ex)
+                    {
+                        Logging.WriteLog(nciid, organization, ex.Message);
+                        throw;
+                    }
+                }
+            }
+        }
+
+        [Test]
+        public void GetOrganizationPOID()
+        {
+            //Find accrual number
+            //Read Data
+            string ctepid = "TX000";
             string sql = "";
-            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\PCD2100 Report\PCD2100 Report 20181012.xlsx");
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\Temporary Report\POID Report 20181102.xlsx");
             //Do Loop
             using (var conn = new NpgsqlConnection(CTROConst.connString))
             {
                 conn.Open();
-                using (StreamWriter sw = File.CreateText(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\NCTN Accrual.txt"))
+                using (StreamWriter sw = File.CreateText(@"C:\Users\panr2\Downloads\DataWarehouse\Temporary Report\Poid List.txt"))
                 {
                     foreach (DataTable table in trialdata.Tables)
                     {
@@ -66,9 +149,12 @@ namespace CTROTest
 
                         foreach (DataRow row in table.Rows)
                         {
-                            nciid = row.ItemArray[0].ToString();
-                            organization = row.ItemArray[6].ToString();
-                            sql = "select count(*) accrual from dw_study_site_accrual_details where nci_id = '" + nciid + "' and org_name = '" + organization + "'";
+                            ctepid = row.ItemArray[0].ToString();
+                            if (ctepid.Length == 4)
+                            {
+                                ctepid = "0" + ctepid;
+                            }
+                            sql = "select po_id from dw_organization where ctep_id = '" + ctepid + "'";
 
                             NpgsqlCommand cmd = null;
                             NpgsqlDataReader datareader = null;
@@ -77,12 +163,20 @@ namespace CTROTest
                             datareader = cmd.ExecuteReader();
                             DataTable nciDT = new DataTable();
                             nciDT.Load(datareader);
-                            sw.WriteLine(nciDT.Rows[0].ItemArray[0].ToString());
+                            if (nciDT.Rows.Count == 0)
+                            {
+                                sw.WriteLine("NULL");
+                            }
+                            else
+                            {
+                                sw.WriteLine(nciDT.Rows[0].ItemArray[0].ToString());
+                            }
                         }
                     }
                 }
             }
         }
+
 
         [Test]
         public void NCTNReportTest1()
@@ -92,7 +186,7 @@ namespace CTROTest
             string nciid = "NCI-2017-00086";
             string organization = "Wake Forest NCORP Research Base";
             string sql = "";
-            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\NCTN Network Trials 10-15-18.xlsx");
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\NCTN Non-Intervention 20181031.xlsx");
             //Do Loop
             using (var conn = new NpgsqlConnection(CTROConst.connString))
             {
@@ -131,7 +225,7 @@ namespace CTROTest
             string nciid = "NCI-2017-00086";
             string organization = "Wake Forest NCORP Research Base";
             string sql = "";
-            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\Book1.xlsx");
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\NCTN COG 20181030.xlsx");
             //Do Loop
             using (var conn = new NpgsqlConnection(CTROConst.connString))
             {
@@ -161,7 +255,14 @@ order by dw_study.nci_id";
                             datareader = cmd.ExecuteReader();
                             DataTable nciDT = new DataTable();
                             nciDT.Load(datareader);
-                            sw.WriteLine(nciDT.Rows[0].ItemArray[0].ToString());
+                            if (nciDT.Rows.Count == 0)
+                            {
+                                sw.WriteLine("0");
+                            }
+                            else
+                            {
+                                sw.WriteLine(nciDT.Rows[0].ItemArray[0].ToString());
+                            }
                         }
                     }
                 }
@@ -188,7 +289,7 @@ order by dw_study.nci_id";
             //Read Data
             string nciid = "NCI-2017-00086";
             string organization = "Wake Forest NCORP Research Base";
-            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\NCTN Datalist Ready 20181029.xlsx");
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\NCTN COG 20181101.xlsx");
             string comment = "test";
 
             //Do Loop
@@ -199,7 +300,7 @@ order by dw_study.nci_id";
                     try
                     {
                         nciid = row.ItemArray[0].ToString();
-                        organization = row.ItemArray[7].ToString();
+                        organization = row.ItemArray[16].ToString();
                         comment = "Per EW # 85298 CTRP data clean up, the participating site " + organization + " is removed, as the site is national and not accruing any patients.";
 
                         //Find Trial

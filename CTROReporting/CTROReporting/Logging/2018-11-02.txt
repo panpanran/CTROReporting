@@ -1,0 +1,105 @@
+
+Log Entry : 2:56:24 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 2:58:24 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Turnaround at 11/2/2018 2:58:24 PM
+-------------------------------
+
+Log Entry : 2:59:50 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Sponsor at 11/2/2018 2:59:50 PM
+-------------------------------
+
+Log Entry : 3:01:04 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Trial Processing at 11/2/2018 3:01:04 PM
+-------------------------------
+
+Log Entry : 3:01:55 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Trial Processing at 11/2/2018 3:01:55 PM
+-------------------------------
+
+Log Entry : 3:04:10 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Sponsor at 11/2/2018 3:04:10 PM
+-------------------------------
+
+Log Entry : 3:04:24 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Offhold at 11/2/2018 3:04:24 PM
+-------------------------------
+
+Log Entry : 3:04:44 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Sponsor NCI with Actual PCD at 11/2/2018 3:04:44 PM
+-------------------------------
+
+Log Entry : 3:06:36 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Trial Processing at 11/2/2018 3:06:36 PM
+-------------------------------
+
+Log Entry : 3:08:31 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - TSR Sent at 11/2/2018 3:08:31 PM
+-------------------------------
+
+Log Entry : 3:09:24 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - PDA - Abstractor at 11/2/2018 3:09:24 PM
+-------------------------------
+
+Log Entry : 3:13:44 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Trial Processing at 11/2/2018 3:13:41 PM
+-------------------------------
+
+Log Entry : 3:23:41 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Turnaround at 11/2/2018 3:23:31 PM
+-------------------------------
+
+Log Entry : 4:15:12 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - PDA - Abstractor at 11/2/2018 4:15:12 PM
+-------------------------------
+
+Log Entry : 4:16:09 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Turnaround at 11/2/2018 4:16:09 PM
+-------------------------------
+
+Log Entry : 4:17:30 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for testuser - Sponsor NCI with Actual PCD at 11/2/2018 4:17:30 PM
+-------------------------------
+
+Log Entry : 4:18:46 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for testuser - PDA - Abstractor at 11/2/2018 4:18:46 PM
+-------------------------------
+
+Log Entry : 4:21:47 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for testuser - Trial Processing at 11/2/2018 4:21:47 PM
+-------------------------------
+
+Log Entry : 10:41:16 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 10:45:51 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20181102\Workload Report_20180814-20180918_20181102224541.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 10:49:21 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20181102\Workload Report_20180904-20181010_20181102224910.xlsx' because it is being used by another process.
+-------------------------------

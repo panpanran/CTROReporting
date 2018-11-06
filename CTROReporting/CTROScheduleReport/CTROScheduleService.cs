@@ -5,8 +5,6 @@ using CTROReporting.Repository;
 using CTROReporting.Service;
 using Hangfire;
 using Microsoft.Owin.Hosting;
-using Quartz;
-using Quartz.Impl;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +26,7 @@ namespace CTROScheduleReport
         public CTROScheduleService()
         {
             InitializeComponent();
-            GlobalConfiguration.Configuration.UseSqlServerStorage(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=CTROReporting;User Id=panpanr;Password=Prss_2345;");
+            GlobalConfiguration.Configuration.UseSqlServerStorage(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=CTROReporting;User Id=panran;Password=Prss_1234;");
         }
 
         protected override void OnStart(string[] args)

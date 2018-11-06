@@ -25,7 +25,6 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\Microsoft
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\Newtonsoft.Json.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\Owin.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\Quartz.dll
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\System.Net.Http.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\System.Net.Http.Extensions.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\System.Net.Http.Primitives.dll

@@ -1,0 +1,50 @@
+
+Log Entry : 7:46:39 AM Thursday, November 1, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 7:46:51 AM Thursday, November 1, 2018
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------
+
+Log Entry : 7:49:15 AM Thursday, November 1, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 7:49:26 AM Thursday, November 1, 2018
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------
+
+Log Entry : 1:57:15 PM Thursday, November 1, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for testuser - Offhold at 11/1/2018 1:57:15 PM
+-------------------------------
+
+Log Entry : 1:57:15 PM Thursday, November 1, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 1:57:15 PM Thursday, November 1, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 1:57:54 PM Thursday, November 1, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for testuser - Offhold at 11/1/2018 1:57:54 PM
+-------------------------------
+
+Log Entry : 1:57:54 PM Thursday, November 1, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 1:57:54 PM Thursday, November 1, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------

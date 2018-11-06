@@ -100,6 +100,9 @@ namespace CTROReporting.ViewModels
 
     public class ReportProgressViewModel
     {
+        public string ReportName { get; set; }
+        public string StartDate { get; set; }
+        public string EndDate { get; set; }
         public string ProgressPercentage { get; set; }
     }
 }

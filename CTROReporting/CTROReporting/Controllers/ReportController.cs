@@ -9,6 +9,8 @@ using AutoMapper;
 using System.Linq;
 using System.Web.Caching;
 using CTROReporting.Infrastructure;
+using System.Threading.Tasks;
+using CTROReporting.CTRO;
 
 namespace CTROReporting.Controllers
 {
@@ -32,20 +34,13 @@ namespace CTROReporting.Controllers
 
         public ActionResult GetReportList()
         {
-            var reportlist = reportService.GetReports().Select(x => new { ReportName = x.ReportName }).OrderBy(x=>x.ReportName).ToList();
+            var reportlist = reportService.GetReports().Select(x => new { ReportName = x.ReportName }).OrderBy(x => x.ReportName).ToList();
             return Json(reportlist, JsonRequestBehavior.AllowGet);
         }
 
         public PartialViewResult ProgressBar(ReportProgressViewModel model)
         {
-            //var createProgress = new ReportProgressViewModel();
-            model.ProgressPercentage = "99";
-            //for (double i = 1; i < 100; i++)
-            //{
-            //    string aa = ((i / 100) * 100).ToString();
-            //    model.ProgressPercentage = aa;
-            //}
-
+            model.ProgressPercentage = string.Format("{0:P2}", CTROFunctions.processpercentage[User.Identity.GetUserName()]); //Need a function to get percentage
             return PartialView(model);
         }
 
@@ -53,6 +48,12 @@ namespace CTROReporting.Controllers
         [OutputCache(Duration = 10, VaryByParam = "none")]
         public ActionResult Report()
         {
+            double temppercent = 0;
+            if (!CTROFunctions.processpercentage.TryGetValue(User.Identity.GetUserName(), out temppercent))
+            {
+                CTROFunctions.processpercentage.Add(User.Identity.GetUserName(), 0);
+            }
+
             ApplicationUser user = userService.GetByUserID(User.Identity.GetUserId());
             if (user != null)
             {
@@ -73,7 +74,6 @@ namespace CTROReporting.Controllers
             ApplicationUser user = userService.GetByUserID(User.Identity.GetUserId());
 
             model.ReportResult = false;
-
             if (ModelState.IsValid)
             {
                 model.ReportResult = reportService.CreateReport(Convert.ToInt32(model.SelectedReport), User.Identity.GetUserId(),

@@ -1,0 +1,305 @@
+
+Log Entry : 12:49:17 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 12:49:17 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 12:49:19 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 12:49:19 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 12:49:21 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 12:49:21 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 12:49:23 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 12:49:23 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 12:49:25 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 12:49:25 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 12:49:27 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 12:49:27 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 12:49:29 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 12:49:29 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 12:49:31 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 12:49:31 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 12:49:33 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 12:49:33 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 12:49:35 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 12:49:35 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 12:49:37 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 12:49:37 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 12:50:10 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 12:50:10 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 12:50:55 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 12:50:55 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 12:51:10 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 12:51:10 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 1:00:39 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for vika001 - PDA - Abstractor at 11/2/2018 1:00:39 PM
+-------------------------------
+
+Log Entry : 1:00:39 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 1:00:39 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 1:01:58 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for joshua - TSR Sent at 11/2/2018 1:01:58 PM
+-------------------------------
+
+Log Entry : 1:01:58 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 1:01:58 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 1:02:11 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Offhold at 11/2/2018 1:02:11 PM
+-------------------------------
+
+Log Entry : 1:02:11 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 1:02:11 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 1:03:24 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - TSR Sent at 11/2/2018 1:03:24 PM
+-------------------------------
+
+Log Entry : 1:03:24 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 1:03:24 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 1:11:39 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for dena001 - Offhold at 11/2/2018 1:11:39 PM
+-------------------------------
+
+Log Entry : 1:11:39 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 1:11:39 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 1:13:54 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for vika001 - PDA - Abstractor at 11/2/2018 1:13:54 PM
+-------------------------------
+
+Log Entry : 1:13:54 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 1:13:54 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 1:14:09 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Offhold at 11/2/2018 1:14:09 PM
+-------------------------------
+
+Log Entry : 1:14:09 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 1:14:09 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 1:16:56 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - TSR Sent at 11/2/2018 1:16:56 PM
+-------------------------------
+
+Log Entry : 1:16:56 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 1:16:56 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 1:36:26 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for dena001 - Offhold at 11/2/2018 1:36:26 PM
+-------------------------------
+
+Log Entry : 1:36:26 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 1:36:26 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 1:39:13 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Offhold at 11/2/2018 1:39:13 PM
+-------------------------------
+
+Log Entry : 1:39:13 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 1:39:13 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 2:17:42 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for dena001 - Offhold at 11/2/2018 2:17:42 PM
+-------------------------------
+
+Log Entry : 2:17:42 PM Friday, November 2, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 2:17:42 PM Friday, November 2, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------

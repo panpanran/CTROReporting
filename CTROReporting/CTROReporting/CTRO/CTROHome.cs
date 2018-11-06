@@ -69,6 +69,7 @@ namespace CTROReporting.CTRO
                 object pathCache = GetCache(key);
                 if (pathCache == null)
                 {
+                    CTROFunctions.processpercentage[user.UserName] = 0;
                     using (var conn = new NpgsqlConnection(report.ReportName == "Sponsor" ? CTROConst.paconnString : CTROConst.connString))
                     {
                         conn.Open();
@@ -79,6 +80,12 @@ namespace CTROReporting.CTRO
                         conclusionDS = (DataSet)parametersArray[4];
                         DataSet bookDS = (DataSet)bookObject;
                         bool ifchart = false;
+                        int totalrows = 0;
+                        for (int n = 0; n < bookDS.Tables.Count; n++)
+                        {
+                            totalrows += bookDS.Tables[n].Rows.Count;
+                        }
+
                         for (int n = 0; n < bookDS.Tables.Count; n++)
                         {
                             ReportSetting reportsetting = reportSettings.Where(x => x.Category == bookDS.Tables[n].TableName).FirstOrDefault();
@@ -86,7 +93,7 @@ namespace CTROReporting.CTRO
                             {
                                 ifchart = true;
                             }
-                            await CTROFunctions.WriteExcelByDataTable(bookDS.Tables[n], user, savepath, report.Template, reportsetting.Startrow, reportsetting.Startcolumn, ifchart);
+                            await CTROFunctions.WriteExcelByDataTable(bookDS.Tables[n], user, savepath, report.Template, reportsetting.Startrow, reportsetting.Startcolumn, ifchart, totalrows);
                             if (reportsetting.AdditionStartrow > 0 && reportsetting.AdditionStartcolumn > 0)
                             {
                                 await CTROFunctions.WriteExcelByDataTable(conclusionDS.Tables[n], user, savepath, null, reportsetting.AdditionStartrow, reportsetting.AdditionStartcolumn, ifchart);
@@ -94,11 +101,12 @@ namespace CTROReporting.CTRO
                         }
 
                         CTROFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
-
                         CacheItemPolicy cip = new CacheItemPolicy()
                         {
                             AbsoluteExpiration = new DateTimeOffset(DateTime.Now.AddHours(4))
                         };
+
+
                         MemoryCache.Default.Set(key, savepath, cip);
                         //HttpRuntime.Cache.Add(key, savepath, null, Cache.NoAbsoluteExpiration, new TimeSpan(4, 0, 0), CacheItemPriority.Default, null);
                         pathCache = savepath;

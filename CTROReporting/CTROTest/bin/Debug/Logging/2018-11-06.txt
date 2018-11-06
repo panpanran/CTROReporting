@@ -1,0 +1,15 @@
+
+Log Entry : 9:08:19 AM Tuesday, November 6, 2018
+  :
+  :NCI-2009-00310 > Wake Forest NCORP Research Base > Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 10:44:35 AM Tuesday, November 6, 2018
+  :
+  :NCI-2009-00331 > Wake Forest NCORP Research Base > Sequence contains no matching element
+-------------------------------
+
+Log Entry : 12:09:16 PM Tuesday, November 6, 2018
+  :
+  :NCI-2013-02025 > Wake Forest NCORP Research Base > Sequence contains no matching element
+-------------------------------

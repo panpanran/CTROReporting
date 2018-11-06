@@ -1,0 +1,65 @@
+
+Log Entry : 1:58:35 PM Wednesday, October 31, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for testuser - Offhold at 10/31/2018 1:58:35 PM
+-------------------------------
+
+Log Entry : 2:29:55 PM Wednesday, October 31, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Offhold at 10/31/2018 2:29:55 PM
+-------------------------------
+
+Log Entry : 2:30:55 PM Wednesday, October 31, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Reactivated at 10/31/2018 2:30:55 PM
+-------------------------------
+
+Log Entry : 2:34:26 PM Wednesday, October 31, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Reactivated at 10/31/2018 2:34:26 PM
+-------------------------------
+
+Log Entry : 2:36:49 PM Wednesday, October 31, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Reactivated at 10/31/2018 2:36:49 PM
+-------------------------------
+
+Log Entry : 2:37:23 PM Wednesday, October 31, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Reactivated at 10/31/2018 2:37:23 PM
+-------------------------------
+
+Log Entry : 2:37:43 PM Wednesday, October 31, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - TSR Sent at 10/31/2018 2:37:43 PM
+-------------------------------
+
+Log Entry : 2:52:38 PM Wednesday, October 31, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Sponsor at 10/31/2018 2:52:38 PM
+-------------------------------
+
+Log Entry : 4:05:33 PM Wednesday, October 31, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Sponsor NCI with Actual PCD at 10/31/2018 4:05:33 PM
+-------------------------------
+
+Log Entry : 4:06:23 PM Wednesday, October 31, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Turnaround at 10/31/2018 4:06:23 PM
+-------------------------------
+
+Log Entry : 4:12:59 PM Wednesday, October 31, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Turnaround at 10/31/2018 4:12:59 PM
+-------------------------------
+
+Log Entry : 4:29:23 PM Wednesday, October 31, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Turnaround at 10/31/2018 4:29:23 PM
+-------------------------------
+
+Log Entry : 4:31:24 PM Wednesday, October 31, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Turnaround at 10/31/2018 4:31:24 PM
+-------------------------------

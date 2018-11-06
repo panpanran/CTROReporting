@@ -1,0 +1,235 @@
+
+Log Entry : 7:51:40 AM Tuesday, November 6, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 7:51:53 AM Tuesday, November 6, 2018
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------
+
+Log Entry : 8:10:40 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for dena001 - Offhold at 11/6/2018 8:10:40 AM
+-------------------------------
+
+Log Entry : 8:10:40 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:40 AM Tuesday, November 6, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:40 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Offhold at 11/6/2018 8:10:40 AM
+-------------------------------
+
+Log Entry : 8:10:40 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:40 AM Tuesday, November 6, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:40 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for vika001 - Offhold at 11/6/2018 8:10:40 AM
+-------------------------------
+
+Log Entry : 8:10:40 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:40 AM Tuesday, November 6, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:11:10 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for dena001 - Reactivated at 11/6/2018 8:11:10 AM
+-------------------------------
+
+Log Entry : 8:11:10 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:11:10 AM Tuesday, November 6, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:11:10 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for vika001 - Reactivated at 11/6/2018 8:11:10 AM
+-------------------------------
+
+Log Entry : 8:11:10 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:11:10 AM Tuesday, November 6, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:11:10 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Reactivated at 11/6/2018 8:11:10 AM
+-------------------------------
+
+Log Entry : 8:11:10 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:11:10 AM Tuesday, November 6, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:11:40 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 8:11:40 AM Tuesday, November 6, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:16 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for christina - TSR Sent at 11/6/2018 8:12:16 AM
+-------------------------------
+
+Log Entry : 8:12:16 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:12:16 AM Tuesday, November 6, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:16 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - TSR Sent at 11/6/2018 8:12:16 AM
+-------------------------------
+
+Log Entry : 8:12:16 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:12:16 AM Tuesday, November 6, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:36 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Sponsor NCI with Actual PCD at 11/6/2018 8:12:36 AM
+-------------------------------
+
+Log Entry : 8:12:36 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:12:36 AM Tuesday, November 6, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:36 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Offhold at 11/6/2018 8:12:36 AM
+-------------------------------
+
+Log Entry : 8:12:36 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:12:36 AM Tuesday, November 6, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:36 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for joshua - TSR Sent at 11/6/2018 8:12:36 AM
+-------------------------------
+
+Log Entry : 8:12:36 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:12:36 AM Tuesday, November 6, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:13:05 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Sponsor NCI with Actual PCD at 11/6/2018 8:13:05 AM
+-------------------------------
+
+Log Entry : 8:13:05 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:13:05 AM Tuesday, November 6, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:14:17 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Sponsor NCI with Actual PCD at 11/6/2018 8:14:17 AM
+-------------------------------
+
+Log Entry : 8:14:17 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:14:17 AM Tuesday, November 6, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:15:23 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Sponsor NCI with Actual PCD at 11/6/2018 8:15:23 AM
+-------------------------------
+
+Log Entry : 8:15:23 AM Tuesday, November 6, 2018
+  :
+  :CTROHome > MoveNext > Could not load file or assembly 'System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:15:23 AM Tuesday, November 6, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:53:28 AM Tuesday, November 6, 2018
+  :
+  :CTROScheduleService > OnStop > CTROScheduleService Stop
+-------------------------------
