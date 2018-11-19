@@ -106,3 +106,5 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\obj\Debug\CTROSched
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\obj\Debug\CTROScheduleReport.csproj.CopyComplete
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\obj\Debug\CTROScheduleReport.exe
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\obj\Debug\CTROScheduleReport.pdb
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\WebDriver.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROScheduleReport\bin\Debug\WebDriver.xml

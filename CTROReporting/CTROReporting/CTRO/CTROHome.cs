@@ -45,6 +45,11 @@ namespace CTROReporting.CTRO
             {
                 pathtext.Append(report.Savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx");
             }
+            else if (report.ReportName == "Turnaround" && Convert.ToDateTime(startDate).Day == 1)
+            {
+                pathtext.Append(report.Savepath + "_" + Convert.ToDateTime(startDate).ToString("MMMM") + " " + Convert.ToDateTime(startDate).Year.ToString() + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx");
+            }
+
             else if (!string.IsNullOrEmpty(startDate))
             {
                 if (!string.IsNullOrEmpty(endDate))

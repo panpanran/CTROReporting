@@ -40,6 +40,10 @@ namespace CTROReporting.CTRO
                 {
                     crontime = schedule.StartTime.Minute.ToString() + " " + schedule.StartTime.Hour.ToString() + " * * 1-5";
                 }
+                else if (schedule.IntervalDays == 30 && schedule.StartTime.Day == 1)
+                {
+                    crontime = schedule.StartTime.Minute.ToString() + " " + schedule.StartTime.Hour.ToString() + " 1 * *";
+                }
                 else
                 {
                     crontime = schedule.StartTime.Minute.ToString() + " " + schedule.StartTime.Hour.ToString() + " */" + schedule.IntervalDays + " * *";

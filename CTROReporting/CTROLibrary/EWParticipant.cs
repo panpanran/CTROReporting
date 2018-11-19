@@ -12,7 +12,7 @@ namespace CTROLibrary
     {
         public IEnumerable<string> GetIDList(string where)
         {
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWSelect?$KB=CBIIT&$login=panr2&$password=Prss_2345&$table=participant&$lang=en&where=" + where;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWSelect?$KB=CBIIT&$login=panr2&$password=Prss_3456&$table=participant&$lang=en&where=" + where;
             string html = CTROFunctions.GetHTMLByUrl(url);
             string[] stringSeparators = new string[] { "\r\n" };
             string[] lines = html.Split(stringSeparators, StringSplitOptions.None);
@@ -21,7 +21,7 @@ namespace CTROLibrary
 
         public Participant GetById(string id)
         {
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWRead?$KB=CBIIT&$table=participant&$login=panr2&$password=Prss_2345&$lang=en&id=" + id;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWRead?$KB=CBIIT&$table=participant&$login=panr2&$password=Prss_3456&$lang=en&id=" + id;
             string html = CTROFunctions.GetHTMLByUrl(url);
             string fullname = GetValueByFieldName("EWREST_full_name", html);
             string email = GetValueByFieldName("EWREST_email", html);

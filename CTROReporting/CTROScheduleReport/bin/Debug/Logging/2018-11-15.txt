@@ -1,0 +1,65 @@
+
+Log Entry : 8:10:25 AM Thursday, November 15, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for dena001 - Reactivated at 11/15/2018 8:10:25 AM
+-------------------------------
+
+Log Entry : 8:10:25 AM Thursday, November 15, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Reactivated at 11/15/2018 8:10:25 AM
+-------------------------------
+
+Log Entry : 8:10:30 AM Thursday, November 15, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Offhold at 11/15/2018 8:10:30 AM
+-------------------------------
+
+Log Entry : 8:10:30 AM Thursday, November 15, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for vika001 - Offhold at 11/15/2018 8:10:30 AM
+-------------------------------
+
+Log Entry : 8:10:30 AM Thursday, November 15, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for vika001 - Reactivated at 11/15/2018 8:10:30 AM
+-------------------------------
+
+Log Entry : 8:10:35 AM Thursday, November 15, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for kirsten - Sponsor NCI with Actual PCD at 11/15/2018 8:10:35 AM
+-------------------------------
+
+Log Entry : 8:10:35 AM Thursday, November 15, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for dena001 - Offhold at 11/15/2018 8:10:35 AM
+-------------------------------
+
+Log Entry : 8:10:39 AM Thursday, November 15, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Sponsor NCI with Actual PCD at 11/15/2018 8:10:39 AM
+-------------------------------
+
+Log Entry : 8:11:27 AM Thursday, November 15, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for christina - SDA - Biomarker at 11/15/2018 8:11:27 AM
+-------------------------------
+
+Log Entry : 8:11:57 AM Thursday, November 15, 2018
+  :
+  :CTROHome > MoveNext > Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 8:11:57 AM Thursday, November 15, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:19 AM Thursday, November 15, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for joshua - TSR Sent at 11/15/2018 8:12:19 AM
+-------------------------------
+
+Log Entry : 8:12:19 AM Thursday, November 15, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - TSR Sent at 11/15/2018 8:12:19 AM
+-------------------------------

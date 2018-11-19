@@ -131,6 +131,7 @@
     <Compile Include="CTROTest.cs" />
     <Compile Include="EWTest.cs" />
     <Compile Include="NormalTest.cs" />
+    <Compile Include="PATest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestUserStore.cs" />
   </ItemGroup>

@@ -12,7 +12,7 @@ namespace CTROReporting.EW
     {
         public IEnumerable<string> GetIDList(string where)
         {
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWSelect?$KB=CBIIT&$login=panr2&$password=Prss_2345&$table=ctro_tickets&$lang=en&where=" + where;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWSelect?$KB=CBIIT&$login=panr2&$password=Prss_3456&$table=ctro_tickets&$lang=en&where=" + where;
             string html = CTROFunctions.GetHTMLByUrl(url);
             string[] stringSeparators = new string[] { "\r\n" };
             string[] lines = html.Split(stringSeparators, StringSplitOptions.None);
@@ -21,7 +21,7 @@ namespace CTROReporting.EW
 
         public Ticket GetById(string id)
         {
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWRead?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_2345&$lang=en&id=" + id;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWRead?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_3456&$lang=en&id=" + id;
             string html = CTROFunctions.GetHTMLByUrl(url);
             string fullname = GetValueByFieldName("EWREST_full_name", html);
             string email = GetValueByFieldName("EWREST_email", html);
@@ -79,7 +79,7 @@ namespace CTROReporting.EW
             content = content.Replace("emailRep", ticket.Email)
                 .Replace("summaryRep", ticket.Summary)
                 .Replace("nameRep", ticket.FullName);
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_2345&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_3456&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
             string html = CTROFunctions.GetHTMLByUrl(url);
         }
 
@@ -111,7 +111,7 @@ namespace CTROReporting.EW
             //string content = @"Trial is out of scope for CTRP. No action required.";
             string content = @"No action required, trial present in PA as NCI-2014-01029 is a CCR/CTEP trial and all updates should be submitted via CTEP services. ";
 
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_2345&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_3456&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
             string html = CTROFunctions.GetHTMLByUrl(url);
         }
 
@@ -159,13 +159,13 @@ namespace CTROReporting.EW
             content = content.Replace("emailRep", ticket.Email)
                 .Replace("summaryRep", ticket.Summary)
                 .Replace("nameRep", ticket.FullName);
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_2345&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_3456&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
             string html = CTROFunctions.GetHTMLByUrl(url);
         }
 
         public void AssignedTo(Ticket ticket)
         {
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_2345&$lang=en&id=" + ticket.TicketId + "&description=" + ticket.Summary;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_3456&$lang=en&id=" + ticket.TicketId + "&description=" + ticket.Summary;
             string html = CTROFunctions.GetHTMLByUrl(url);
         }
 

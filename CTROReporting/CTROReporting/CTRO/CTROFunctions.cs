@@ -32,7 +32,7 @@ namespace CTROReporting.CTRO
             SmtpClient client = new SmtpClient();
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("ran.pan@nih.gov", "Prss_2345");
+            client.Credentials = new System.Net.NetworkCredential("ran.pan@nih.gov", "Prss_3456");
             client.Port = 25; // You can use Port 25 if 587 is blocked (mine is!)
             client.Host = "mailfwd.nih.gov";
             client.EnableSsl = false;

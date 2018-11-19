@@ -1,0 +1,27 @@
+
+Log Entry : 5:27:43 PM Friday, November 9, 2018
+  :
+  :NCI-2015-00163 > TSRFeedback > Sequence contains no matching element
+-------------------------------
+
+Log Entry : 5:58:16 PM Friday, November 9, 2018
+  :
+  :NCI-2015-00163 > TSRFeedback > Sequence contains no matching element
+-------------------------------
+
+Log Entry : 9:19:46 PM Friday, November 9, 2018
+  :
+  :NCI-2015-00163 > TSRFeedback > no such element: Unable to locate element: {"method":"id","selector":"trialSearchMenuOption"}
+  (Session info: chrome=70.0.3538.77)
+  (Driver info: chromedriver=2.41.578737 (49da6702b16031c40d63e5618de03a32ff6c197e),platform=Windows NT 10.0.16299 x86_64)
+-------------------------------
+
+Log Entry : 9:37:15 PM Friday, November 9, 2018
+  :
+  :nciid: NCI-2015-00163 > ticket: 86368 > validation error
+-------------------------------
+
+Log Entry : 9:44:44 PM Friday, November 9, 2018
+  :
+  :NCI-2015-00163 > TSRFeedback > Sequence contains no matching element
+-------------------------------

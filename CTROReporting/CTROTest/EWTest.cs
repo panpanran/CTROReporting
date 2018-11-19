@@ -2,9 +2,11 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CTROTest
@@ -41,11 +43,11 @@ namespace CTROTest
         [Test]
         public void TSRFeedback()
         {
-            //EWContinueReview ewcr = new EWContinueReview();
-            //ewcr.BulkUpdate("");
+            //string nciid = Regex.Match("RE: NCI CTRP: Trial AMENDMENT TSR for REVIEW for NCI-2017-00101, 201701084", "NCI-.*?,").Value.Replace(",","");
+            //TSRFeedbackTest("86330", "NCI-2018-02345");
             EWTSRFeedback eWHome = new EWTSRFeedback();
             //eWHome.UpdateByID("81080");
-            eWHome.BulkUpdate("assigned_to_=%27Ran%20Pan%27%20and category like '%2519%25' and%20assigned>%27" + "2018-10-30" + "%27");
+            eWHome.BulkUpdate("assigned_to_=%27Ran%20Pan%27%20and category like '%2519%25' and%20modified_by%20not%20like%20%27%25panr2%25%27");
         }
 
         [Test]

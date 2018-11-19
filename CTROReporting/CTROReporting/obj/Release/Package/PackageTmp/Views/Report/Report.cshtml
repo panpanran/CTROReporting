@@ -155,6 +155,7 @@
 
         $.get(url, function (result) {
             var notifications = $("#createprogressbar"); // cache it to avoid repeatedly searching the DOM
+            notifications.load(url);
            setInterval(function () {
                 notifications.load(url);
             }, 1000);
