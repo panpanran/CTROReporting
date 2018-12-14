@@ -1,0 +1,70 @@
+
+Log Entry : 8:10:41 AM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for dena001 - Offhold at 11/29/2018 8:10:41 AM
+-------------------------------
+
+Log Entry : 8:10:41 AM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Offhold at 11/29/2018 8:10:41 AM
+-------------------------------
+
+Log Entry : 8:10:41 AM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for vika001 - Offhold at 11/29/2018 8:10:41 AM
+-------------------------------
+
+Log Entry : 8:12:52 AM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for christina - SDA - Biomarker at 11/29/2018 8:12:52 AM
+-------------------------------
+
+Log Entry : 8:13:09 AM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for dena001 - Reactivated at 11/29/2018 8:13:09 AM
+-------------------------------
+
+Log Entry : 8:13:09 AM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for vika001 - Reactivated at 11/29/2018 8:13:09 AM
+-------------------------------
+
+Log Entry : 8:13:09 AM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Reactivated at 11/29/2018 8:13:09 AM
+-------------------------------
+
+Log Entry : 8:13:39 AM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 8:13:39 AM Thursday, November 29, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:14:00 AM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for christina - TSR Sent at 11/29/2018 8:14:00 AM
+-------------------------------
+
+Log Entry : 8:14:00 AM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - TSR Sent at 11/29/2018 8:14:00 AM
+-------------------------------
+
+Log Entry : 8:14:09 AM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for kirsten - Sponsor NCI with Actual PCD at 11/29/2018 8:14:09 AM
+-------------------------------
+
+Log Entry : 8:14:22 AM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Sponsor NCI with Actual PCD at 11/29/2018 8:14:22 AM
+-------------------------------
+
+Log Entry : 11:57:43 AM Thursday, November 29, 2018
+  :
+  :CTROScheduleService > OnStop > CTROScheduleService Stop
+-------------------------------

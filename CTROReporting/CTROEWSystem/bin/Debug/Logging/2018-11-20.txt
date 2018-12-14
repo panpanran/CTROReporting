@@ -1,0 +1,5 @@
+
+Log Entry : 7:45:51 AM Tuesday, November 20, 2018
+  :
+  :EWTicketTrageService > OnStart > EW Ticket Triaging Service Start
+-------------------------------

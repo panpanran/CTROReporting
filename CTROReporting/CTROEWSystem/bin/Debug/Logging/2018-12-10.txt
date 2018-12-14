@@ -1,0 +1,25 @@
+
+Log Entry : 7:51:21 AM Monday, December 10, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:00:13 AM Monday, December 10, 2018
+  :
+  :EWTicketTrageService > OnStop > EW Ticket Triaging Service Stop
+-------------------------------
+
+Log Entry : 9:17:19 AM Monday, December 10, 2018
+  :
+  :EWTicketTrageService > OnStart > EW Ticket Triaging Service Start
+-------------------------------
+
+Log Entry : 9:21:48 AM Monday, December 10, 2018
+  :
+  :EWTicketTrageService > OnStop > EW Ticket Triaging Service Stop
+-------------------------------
+
+Log Entry : 9:21:57 AM Monday, December 10, 2018
+  :
+  :EWTicketTrageService > OnStart > EW Ticket Triaging Service Start
+-------------------------------

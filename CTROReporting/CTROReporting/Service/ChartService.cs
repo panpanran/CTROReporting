@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using CTROReporting.Models;
-using System.Web;
 using System.Web.Mvc;
-using CTROReporting.Repository;
-using CTROReporting.Infrastructure;
+using CTROLibrary.Repository;
 using System.Web.Http;
+using CTROLibrary.Infrastructure;
 
 namespace CTROReporting.Service
 {
     public interface IChartService
     {
-        IEnumerable<CTROReporting.Models.Chart> GetCharts();
-        CTROReporting.Models.Chart GetChartById(int Chartid);
-        IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<CTROReporting.Models.Chart> Charts, int selectedId);
-        CTROReporting.Models.Chart GetByChartName(string name);
+        IEnumerable<CTROLibrary.Model.Chart> GetCharts();
+        CTROLibrary.Model.Chart GetChartById(int Chartid);
+        IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<CTROLibrary.Model.Chart> Charts, int selectedId);
+        CTROLibrary.Model.Chart GetByChartName(string name);
     }
 
     public class ChartServiceController : ApiController,IChartService
@@ -33,26 +30,26 @@ namespace CTROReporting.Service
             this.unitOfWork = unitOfWork;
         }
 
-        public IEnumerable<CTROReporting.Models.Chart> GetCharts()
+        public IEnumerable<CTROLibrary.Model.Chart> GetCharts()
         {
-            var Chart = ChartRepository.GetAll();
-            return Chart;
+            var chart = ChartRepository.GetAll();
+            return chart;
         }
 
-        public CTROReporting.Models.Chart GetChartById(int Chartid)
+        public CTROLibrary.Model.Chart GetChartById(int Chartid)
         {
             var Chart = ChartRepository.Get(x => x.ChartId == Chartid);
             return Chart;
         }
 
-        public CTROReporting.Models.Chart GetByChartName(string name)
+        public CTROLibrary.Model.Chart GetByChartName(string name)
         {
             var schedule = ChartRepository.Get(x => x.ChartName == name);
             return schedule;
         }
 
 
-        public IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<CTROReporting.Models.Chart> Charts, int selectedId)
+        public IEnumerable<SelectListItem> ToSelectListItems(IEnumerable<CTROLibrary.Model.Chart> Charts, int selectedId)
         {
             return
                 Charts.OrderBy(Chart => Chart.ChartName)

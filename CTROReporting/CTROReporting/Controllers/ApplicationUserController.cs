@@ -1,7 +1,6 @@
-﻿using CTROReporting.App_Start;
-using CTROReporting.Models;
+﻿using CTROLibrary.DBbase;
+using CTROLibrary.Model;
 using CTROReporting.Service;
-using CTROReporting.CTRO;
 using CTROReporting.ViewModels;
 using AutoMapper;
 using CTROReporting.Properties;
@@ -17,10 +16,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Quartz.Impl;
-using Quartz;
-using Hangfire;
-using CTROReporting.Infrastructure;
+using CTROLibrary.Infrastructure;
 
 namespace CTROReporting.Controllers
 {

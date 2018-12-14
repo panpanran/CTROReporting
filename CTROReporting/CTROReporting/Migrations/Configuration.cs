@@ -1,3 +1,5 @@
+using CTROLibrary.DBbase;
+
 namespace CTROReporting.Migrations
 {
     using System;
@@ -5,14 +7,14 @@ namespace CTROReporting.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CTROReporting.App_Start.EntitiesInitial>
+    internal sealed class Configuration : DbMigrationsConfiguration<EntitiesInitial>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(CTROReporting.App_Start.EntitiesInitial context)
+        protected override void Seed(EntitiesInitial context)
         {
             //  This method will be called after migrating to the latest version.
 

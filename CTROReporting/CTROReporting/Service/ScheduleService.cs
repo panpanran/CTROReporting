@@ -1,6 +1,6 @@
-﻿using CTROReporting.Infrastructure;
-using CTROReporting.Models;
-using CTROReporting.Repository;
+﻿using CTROLibrary.Infrastructure;
+using CTROLibrary.Model;
+using CTROLibrary.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;

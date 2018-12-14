@@ -1,7 +1,7 @@
-﻿using CTROReporting.CTRO;
-using CTROReporting.Infrastructure;
-using CTROReporting.Models;
-using CTROReporting.Repository;
+﻿using CTROLibrary.CTRO;
+using CTROLibrary.Infrastructure;
+using CTROLibrary.Model;
+using CTROLibrary.Repository;
 using CTROReporting.Service;
 using Moq;
 using Npgsql;
@@ -50,9 +50,9 @@ namespace CTROTest
         {
             try
             {
-                var schedules = CTROLibrary.CTROFunctions.GetDataFromJson<List<Schedule>>("ScheduleService", "GetSchedules");
-                var report = CTROLibrary.CTROFunctions.GetDataFromJson<Report>("ReportService", "GetReportById", "reportid=3");
-                var user = CTROLibrary.CTROFunctions.GetDataFromJson<ApplicationUser>("UserService", "GetByUserID", "userid=1551f213-a46f-4673-a6b9-64d683b5048b");
+                var schedules = CTROFunctions.GetDataFromJson<List<Schedule>>("ScheduleService", "GetSchedules");
+                var report = CTROFunctions.GetDataFromJson<Report>("ReportService", "GetReportById", "reportid=3");
+                var user = CTROFunctions.GetDataFromJson<ApplicationUser>("UserService", "GetByUserID", "userid=1551f213-a46f-4673-a6b9-64d683b5048b");
                 string startdate = schedules[0].StartTime.AddDays(-7).ToString("yyyy-MM-dd");
                 string enddate = schedules[0].StartTime.ToString("yyyy-MM-dd");
 
@@ -64,7 +64,7 @@ namespace CTROTest
                     EndDate = enddate
                 };
 
-                var url = await CTROLibrary.CTROFunctions.CreateDataFromJson<Record>("RecordService", "CreateRecord", record);
+                var url = await CTROFunctions.CreateDataFromJson<Record>("RecordService", "CreateRecord", record);
             }
             catch (Exception ex)
             {
@@ -82,7 +82,7 @@ namespace CTROTest
                 {
                     StdSchedulerFactory.GetDefaultScheduler().Result.Shutdown();
                 }
-                string json = new WebClient().DownloadString("http://local.ctroreporting.com/api/ScheduleService/GetSchedules");
+                string json = new WebClient().DownloadString("http://local.CTROLibrary.com/api/ScheduleService/GetSchedules");
                 List<Schedule> schedulelist = new JavaScriptSerializer().Deserialize<List<Schedule>>(json);
                 CTROSchedule ctroschedule = new CTROSchedule();
                 ctroschedule.Start(schedulelist);
@@ -107,7 +107,7 @@ namespace CTROTest
         [Test()]
         public void CreateAnalysisChart()
         {
-            Type type = Type.GetType("CTROReporting.CTRO." + "PDAAbstraction" + "Report");
+            Type type = Type.GetType("CTROLibrary.CTRO." + "PDAAbstraction" + "Report");
             Object obj = Activator.CreateInstance(type);
             MethodInfo methodInfo = type.GetMethod("CreateBook");
             object classInstance = Activator.CreateInstance(type, null);
@@ -187,7 +187,7 @@ namespace CTROTest
         [Test()]
         public void CreateReportAsync()
         {
-            Type type = Type.GetType("CTROReporting.CTRO.SponsorReport");
+            Type type = Type.GetType("CTROLibrary.CTRO.SponsorReport");
             Object obj = Activator.CreateInstance(type);
             MethodInfo methodInfo = type.GetMethod("CreateBook");
             object classInstance = Activator.CreateInstance(type, null);

@@ -1,0 +1,30 @@
+
+Log Entry : 3:36:46 PM Thursday, December 6, 2018
+  :
+  :PATest > OffholdDashboardTest > nciid: NCI-2018-02511, expecteddate on dashboard: 12/14/2018 12:00:00 AM, real expected date: 12/18/2018 9:01:53 AM
+-------------------------------
+
+Log Entry : 3:36:46 PM Thursday, December 6, 2018
+  :
+  :PATest > OffholdDashboardTest > nciid: NCI-2018-02000, expecteddate on dashboard: 12/7/2018 12:00:00 AM, real expected date: 12/11/2018 4:07:32 PM
+-------------------------------
+
+Log Entry : 3:36:46 PM Thursday, December 6, 2018
+  :
+  :PATest > OffholdDashboardTest > nciid: NCI-2018-03285, expecteddate on dashboard: 12/14/2018 12:00:00 AM, real expected date: 12/18/2018 2:46:03 PM
+-------------------------------
+
+Log Entry : 3:36:46 PM Thursday, December 6, 2018
+  :
+  :PATest > OffholdDashboardTest > nciid: NCI-2014-02521, expecteddate on dashboard: 12/17/2018 12:00:00 AM, real expected date: 12/18/2018 4:21:45 PM
+-------------------------------
+
+Log Entry : 3:36:46 PM Thursday, December 6, 2018
+  :
+  :PATest > OffholdDashboardTest > nciid: NCI-2018-02900, expecteddate on dashboard: 12/17/2018 12:00:00 AM, real expected date: 12/18/2018 3:37:58 PM
+-------------------------------
+
+Log Entry : 3:36:46 PM Thursday, December 6, 2018
+  :
+  :PATest > OffholdDashboardTest > There are some errors. nciid: NCI-2018-02608, onhold date: 11/27/2018 4:22:58 PM, offhold date: 12/5/2018 5:04:56 PM, expecteddate on dashboard: 12/7/2018 12:00:00 AM
+-------------------------------

@@ -1,0 +1,195 @@
+
+Log Entry : 7:26:18 AM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > OnStart > EW Ticket Triaging Service Start
+-------------------------------
+
+Log Entry : 7:28:39 AM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:30:39 AM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:32:39 AM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:34:40 AM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:14:24 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The underlying connection was closed: An unexpected error occurred on a receive.
+-------------------------------
+
+Log Entry : 9:16:24 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The underlying connection was closed: An unexpected error occurred on a receive.
+-------------------------------
+
+Log Entry : 9:18:24 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The underlying connection was closed: An unexpected error occurred on a receive.
+-------------------------------
+
+Log Entry : 9:20:24 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The underlying connection was closed: An unexpected error occurred on a receive.
+-------------------------------
+
+Log Entry : 9:22:24 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The underlying connection was closed: An unexpected error occurred on a receive.
+-------------------------------
+
+Log Entry : 9:24:24 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The underlying connection was closed: An unexpected error occurred on a receive.
+-------------------------------
+
+Log Entry : 9:26:24 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The underlying connection was closed: An unexpected error occurred on a receive.
+-------------------------------
+
+Log Entry : 9:28:24 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The underlying connection was closed: An unexpected error occurred on a receive.
+-------------------------------
+
+Log Entry : 9:30:24 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The underlying connection was closed: An unexpected error occurred on a receive.
+-------------------------------
+
+Log Entry : 9:32:24 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The underlying connection was closed: An unexpected error occurred on a receive.
+-------------------------------
+
+Log Entry : 9:34:24 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The underlying connection was closed: An unexpected error occurred on a receive.
+-------------------------------
+
+Log Entry : 9:36:24 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The underlying connection was closed: An unexpected error occurred on a receive.
+-------------------------------
+
+Log Entry : 9:38:24 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The underlying connection was closed: An unexpected error occurred on a receive.
+-------------------------------
+
+Log Entry : 9:40:24 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The underlying connection was closed: An unexpected error occurred on a receive.
+-------------------------------
+
+Log Entry : 9:42:24 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The underlying connection was closed: An unexpected error occurred on a receive.
+-------------------------------
+
+Log Entry : 9:45:06 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:46:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:48:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:50:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:52:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:54:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:56:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:58:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:00:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:02:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:04:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:06:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:08:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:10:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:12:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:14:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:16:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:18:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:20:45 PM Friday, December 7, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------

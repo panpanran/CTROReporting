@@ -1,0 +1,2085 @@
+
+Log Entry : 12:00:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:02:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:04:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:06:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:08:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:10:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:12:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:14:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:16:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:18:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:20:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:22:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:24:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:26:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:28:48 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:30:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:32:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:34:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:36:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:38:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:40:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:42:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:44:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:46:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:48:51 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:50:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:52:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:54:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:56:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:58:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:00:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:02:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:04:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:06:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:08:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:10:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:12:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:14:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:16:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:18:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:20:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:22:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:24:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:26:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:28:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:30:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:32:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:34:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:36:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:38:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:40:54 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:42:29 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 7:37:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:39:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:41:00 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:43:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:45:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:47:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:49:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:51:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:53:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:55:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:57:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:59:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:01:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:03:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:05:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:07:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:09:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:11:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:13:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:15:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:17:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:19:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:21:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:23:03 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:25:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:27:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:29:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:31:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:33:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:35:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:37:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:39:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:41:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:43:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:45:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:47:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:49:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:51:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:53:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:55:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:57:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:59:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:01:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:03:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:05:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:07:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:09:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:11:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:13:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:15:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:17:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:19:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:21:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:23:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:25:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:27:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:29:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:31:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:33:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:35:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:37:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:39:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:41:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:43:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:45:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:47:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:49:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:51:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:53:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:55:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:57:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:59:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:01:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:03:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:05:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:07:04 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:09:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:11:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:13:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:15:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:17:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:19:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:21:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:23:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:25:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:27:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:29:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:31:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:33:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:35:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:37:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:39:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:41:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:43:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:45:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:47:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:49:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:51:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:53:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:55:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:57:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 10:59:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:01:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:03:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:05:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:07:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:09:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:11:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:13:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:15:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:17:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:19:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:21:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:23:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:25:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:27:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:29:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:31:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:33:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:35:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:37:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:39:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:41:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:43:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:45:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:47:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:49:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:51:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:53:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:55:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:57:06 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 11:59:07 AM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:01:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:03:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:05:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:07:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:09:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:11:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:13:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:15:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:16:45 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 12:18:54 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:21:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:23:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:25:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:27:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:29:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:31:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:33:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:35:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:37:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:39:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:41:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:43:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:45:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:47:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:49:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:51:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:53:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:55:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:57:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:59:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:01:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:03:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:05:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:07:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:09:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:11:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:13:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:15:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:17:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:19:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:21:06 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:23:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:25:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:27:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:29:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:31:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:33:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:35:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:37:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:39:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:41:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:43:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:45:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:47:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:49:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:51:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:53:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:55:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:57:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:59:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:01:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:03:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:05:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:07:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:09:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:11:01 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:13:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:15:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:17:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:19:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:21:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:23:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:25:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:27:01 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:29:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:31:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:33:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:35:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:37:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:39:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:41:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:43:10 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:45:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:47:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:49:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:51:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:53:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:55:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:57:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 2:59:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:01:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:03:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:05:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:07:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:09:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:11:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:13:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:15:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:17:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:19:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:21:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:23:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:25:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:27:04 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:29:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:31:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:33:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:35:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:37:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:39:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:41:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:43:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:45:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:47:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:49:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:51:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:53:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:55:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:57:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 3:59:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:01:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:03:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:05:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:07:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:09:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:11:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:13:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:15:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:17:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:19:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:21:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:23:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:25:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:27:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:29:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:31:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:33:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:35:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:37:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:39:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:41:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:43:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:45:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:47:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:49:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:51:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:53:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:55:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:57:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 4:59:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:01:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:03:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:05:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:07:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:09:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:11:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:13:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:15:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:17:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:19:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:21:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:23:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:25:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:27:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:29:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:31:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:33:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:35:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:37:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:39:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:41:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:43:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:45:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:47:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:49:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:51:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:53:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:55:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:57:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:59:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:01:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:03:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:05:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:07:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:09:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:11:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:13:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:15:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:17:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:19:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:21:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:23:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:25:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:27:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:29:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:31:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:33:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:35:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:37:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:39:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:41:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:43:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:45:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:47:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:49:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:51:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:53:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:55:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:57:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:59:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:01:05 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:03:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:05:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:07:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:09:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:11:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:13:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:15:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:17:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:19:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:21:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:23:08 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:25:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:27:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:29:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:31:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:33:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:35:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:37:05 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:39:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:41:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:43:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:45:07 PM Sunday, December 2, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------

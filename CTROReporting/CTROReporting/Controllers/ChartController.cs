@@ -1,5 +1,5 @@
-﻿using CTROReporting.CTRO;
-using CTROReporting.Models;
+﻿using CTROLibrary.CTRO;
+using CTROLibrary.Model;
 using CTROReporting.Service;
 using CTROReporting.ViewModels;
 using System;
@@ -38,7 +38,7 @@ namespace CTROReporting.Controllers
 
             List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
             string[] loginname = { };
-            CTROReporting.Models.Chart chart = chartService.GetChartById(1);
+            CTROLibrary.Model.Chart chart = chartService.GetChartById(1);
 
             home.CreateChart("2018-04-02", "2018-04-02", chart, out XLabel, out YLabel, out Xaxis, out ChartName, out ChartType, out Yaxis, out loginname);
             model.Loginname = loginname;
@@ -67,7 +67,7 @@ namespace CTROReporting.Controllers
             List<Dictionary<string, string>> Yaxis = new List<Dictionary<string, string>>();
             string[] loginname = { };
 
-            CTROReporting.Models.Chart chart = chartService.GetChartById(Convert.ToInt32(model.SelectedChart));
+            CTROLibrary.Model.Chart chart = chartService.GetChartById(Convert.ToInt32(model.SelectedChart));
 
             if (ModelState.IsValid)
             {

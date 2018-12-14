@@ -1,4 +1,4 @@
-﻿using CTROReporting.Models;
+﻿using CTROLibrary.Model;
 using CTROReporting.Service;
 using CTROReporting.ViewModels;
 using System.Collections.Generic;
@@ -8,9 +8,9 @@ using System;
 using AutoMapper;
 using System.Linq;
 using System.Web.Caching;
-using CTROReporting.Infrastructure;
+using CTROLibrary.Infrastructure;
 using System.Threading.Tasks;
-using CTROReporting.CTRO;
+using CTROLibrary.CTRO;
 
 namespace CTROReporting.Controllers
 {
@@ -37,6 +37,13 @@ namespace CTROReporting.Controllers
             var reportlist = reportService.GetReports().Select(x => new { ReportName = x.ReportName }).OrderBy(x => x.ReportName).ToList();
             return Json(reportlist, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult GetReportByID(int reportid)
+        {
+            Report report = reportService.GetReportById(reportid);
+            return Json(report.Description, JsonRequestBehavior.AllowGet);
+        }
+
 
         public PartialViewResult ProgressBar(ReportProgressViewModel model)
         {

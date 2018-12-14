@@ -64,19 +64,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/15/2015 08:08:46</publishTime>
     </File>
     <File Include="bin/CTROLibrary.dll">
-      <publishTime>11/14/2018 09:10:14</publishTime>
+      <publishTime>12/10/2018 14:04:38</publishTime>
     </File>
     <File Include="bin/CTROLibrary.dll.config">
-      <publishTime>11/14/2018 09:09:09</publishTime>
+      <publishTime>12/03/2018 14:17:47</publishTime>
     </File>
     <File Include="bin/CTROLibrary.pdb">
-      <publishTime>11/14/2018 09:10:14</publishTime>
+      <publishTime>12/10/2018 14:04:38</publishTime>
     </File>
     <File Include="bin/CTROReporting.dll">
-      <publishTime>11/14/2018 13:00:14</publishTime>
+      <publishTime>12/10/2018 14:05:40</publishTime>
     </File>
     <File Include="bin/CTROReporting.pdb">
-      <publishTime>11/14/2018 13:00:14</publishTime>
+      <publishTime>12/10/2018 14:05:40</publishTime>
     </File>
     <File Include="bin/CTRPReporting.dll">
       <publishTime>09/28/2018 13:51:47</publishTime>
@@ -1450,7 +1450,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/07/2018 18:32:26</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>11/08/2018 15:43:27</publishTime>
+      <publishTime>11/29/2018 14:42:42</publishTime>
     </File>
     <File Include="Scripts/bootstrap.bundle.js">
       <publishTime>10/26/2018 20:25:44</publishTime>
@@ -2059,10 +2059,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/01/2018 09:27:08</publishTime>
     </File>
     <File Include="Views/Report/ProgressBar.cshtml">
-      <publishTime>11/05/2018 10:31:06</publishTime>
+      <publishTime>11/29/2018 13:04:30</publishTime>
     </File>
     <File Include="Views/Report/Report.cshtml">
-      <publishTime>11/14/2018 12:55:31</publishTime>
+      <publishTime>11/20/2018 16:09:43</publishTime>
     </File>
     <File Include="Views/Schedule/Schedule.cshtml">
       <publishTime>10/23/2018 14:30:09</publishTime>
@@ -2086,10 +2086,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/05/2018 10:08:45</publishTime>
     </File>
     <File Include="Views/Shared/_NavigationBar.cshtml">
-      <publishTime>10/31/2018 13:42:19</publishTime>
+      <publishTime>11/26/2018 12:12:35</publishTime>
     </File>
     <File Include="Views/Shared/_PageLayout.cshtml">
       <publishTime>10/10/2018 15:22:04</publishTime>
+    </File>
+    <File Include="Views/Ticket/Ticket.cshtml">
+      <publishTime>11/30/2018 17:17:15</publishTime>
+    </File>
+    <File Include="Views/Ticket/TicketLogging.cshtml">
+      <publishTime>11/30/2018 17:30:32</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>10/01/2018 09:27:08</publishTime>
@@ -2098,7 +2104,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/05/2018 10:08:45</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/09/2018 10:17:45</publishTime>
+      <publishTime>11/29/2018 15:03:12</publishTime>
     </File>
   </ItemGroup>
 </Project>

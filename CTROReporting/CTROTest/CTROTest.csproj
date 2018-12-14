@@ -38,6 +38,9 @@
     <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Core.4.3.1\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
+    <Reference Include="CTROLibrary">
+      <HintPath>..\CTROLibrary\bin\Debug\CTROLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -112,9 +115,6 @@
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web.Http">
-      <HintPath>..\CTROReporting\bin\System.Web.Http.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -140,12 +140,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CTROLibrary\CTROLibrary.csproj">
-      <Project>{5c16b84a-9f19-4260-89c0-f12d1ee89e17}</Project>
-      <Name>CTROLibrary</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CTROReporting\CTROReporting.csproj">
-      <Project>{9E1B0F5E-695A-438A-B3AF-BBBB86EAF26E}</Project>
+      <Project>{9e1b0f5e-695a-438a-b3af-bbbb86eaf26e}</Project>
       <Name>CTROReporting</Name>
     </ProjectReference>
   </ItemGroup>

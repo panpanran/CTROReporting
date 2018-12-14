@@ -1,0 +1,65 @@
+
+Log Entry : 7:46:02 AM Tuesday, November 20, 2018
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 7:46:14 AM Tuesday, November 20, 2018
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------
+
+Log Entry : 8:11:15 AM Tuesday, November 20, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for vika001 - Reactivated at 11/20/2018 8:11:15 AM
+-------------------------------
+
+Log Entry : 8:11:29 AM Tuesday, November 20, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Offhold at 11/20/2018 8:11:29 AM
+-------------------------------
+
+Log Entry : 8:11:29 AM Tuesday, November 20, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for dena001 - Reactivated at 11/20/2018 8:11:29 AM
+-------------------------------
+
+Log Entry : 8:11:48 AM Tuesday, November 20, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Sponsor NCI with Actual PCD at 11/20/2018 8:11:48 AM
+-------------------------------
+
+Log Entry : 8:11:48 AM Tuesday, November 20, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Reactivated at 11/20/2018 8:11:48 AM
+-------------------------------
+
+Log Entry : 8:12:18 AM Tuesday, November 20, 2018
+  :
+  :CTROHome > MoveNext > Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 8:12:18 AM Tuesday, November 20, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:18 AM Tuesday, November 20, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for vika001 - Offhold at 11/20/2018 8:12:18 AM
+-------------------------------
+
+Log Entry : 8:12:18 AM Tuesday, November 20, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for dena001 - Offhold at 11/20/2018 8:12:18 AM
+-------------------------------
+
+Log Entry : 8:13:07 AM Tuesday, November 20, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - TSR Sent at 11/20/2018 8:13:07 AM
+-------------------------------
+
+Log Entry : 8:13:07 AM Tuesday, November 20, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for joshua - TSR Sent at 11/20/2018 8:13:07 AM
+-------------------------------

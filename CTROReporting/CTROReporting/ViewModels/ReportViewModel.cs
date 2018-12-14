@@ -1,4 +1,4 @@
-﻿using CTROReporting.CTRO;
+﻿using CTROLibrary.CTRO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -45,6 +45,8 @@ namespace CTROReporting.ViewModels
         [Display(Name = "End Date")]
         public string EndDate { get; set; }
 
+        public string Description { get; set; }
+
         public bool ReportResult { get; set; }
 
         [Required]
@@ -59,7 +61,6 @@ namespace CTROReporting.ViewModels
         {
             ReportResult = false;
         }
-
     }
 
     public class ReportAnalysisViewModel

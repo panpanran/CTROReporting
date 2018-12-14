@@ -31,9 +31,9 @@
     });*@
 
     @*$(function () {
-        var current_progress = @CTROReporting.CTRO.CTROFunctions.processpercentage;
+        var current_progress = @CTROLibrary.CTRO.CTROFunctions.processpercentage;
         var interval = setInterval(function () {
-            current_progress = @CTROReporting.CTRO.CTROFunctions.processpercentage;
+            current_progress = @CTROLibrary.CTRO.CTROFunctions.processpercentage;
             $("#reportprogress")
                 .css("width", current_progress + "%")
                 .attr("aria-valuenow", current_progress)

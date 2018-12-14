@@ -1,5 +1,5 @@
-﻿using CTROReporting.Infrastructure;
-using CTROReporting.CTRO;
+﻿using CTROLibrary.Infrastructure;
+using CTROLibrary.CTRO;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;

@@ -1,0 +1,75 @@
+
+Log Entry : 8:11:54 AM Wednesday, November 21, 2018
+  :
+  :CTROHome > MoveNext > Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 8:11:54 AM Wednesday, November 21, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:16 AM Wednesday, November 21, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for vika001 - Offhold at 11/21/2018 8:12:16 AM
+-------------------------------
+
+Log Entry : 8:12:31 AM Wednesday, November 21, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for vika001 - Reactivated at 11/21/2018 8:12:31 AM
+-------------------------------
+
+Log Entry : 8:12:31 AM Wednesday, November 21, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for dena001 - Reactivated at 11/21/2018 8:12:31 AM
+-------------------------------
+
+Log Entry : 8:12:31 AM Wednesday, November 21, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Reactivated at 11/21/2018 8:12:31 AM
+-------------------------------
+
+Log Entry : 8:13:01 AM Wednesday, November 21, 2018
+  :
+  :CTROHome > MoveNext > Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 8:13:01 AM Wednesday, November 21, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:13:01 AM Wednesday, November 21, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for dena001 - Offhold at 11/21/2018 8:13:01 AM
+-------------------------------
+
+Log Entry : 8:13:01 AM Wednesday, November 21, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Offhold at 11/21/2018 8:13:01 AM
+-------------------------------
+
+Log Entry : 8:13:12 AM Wednesday, November 21, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Sponsor NCI with Actual PCD at 11/21/2018 8:13:12 AM
+-------------------------------
+
+Log Entry : 8:13:42 AM Wednesday, November 21, 2018
+  :
+  :CTROHome > MoveNext > Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 8:13:42 AM Wednesday, November 21, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:14:25 AM Wednesday, November 21, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for christina - TSR Sent at 11/21/2018 8:14:25 AM
+-------------------------------
+
+Log Entry : 8:14:25 AM Wednesday, November 21, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - TSR Sent at 11/21/2018 8:14:25 AM
+-------------------------------

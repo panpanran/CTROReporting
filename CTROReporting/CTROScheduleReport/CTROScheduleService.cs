@@ -1,22 +1,10 @@
-﻿using CTROReporting.CTRO;
-using CTROReporting.Infrastructure;
-using CTROReporting.Models;
-using CTROReporting.Repository;
-using CTROReporting.Service;
+﻿using CTROLibrary.CTRO;
+using CTROLibrary.Infrastructure;
 using Hangfire;
 using Microsoft.Owin.Hosting;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Linq;
-using System.Net;
 using System.Reflection;
 using System.ServiceProcess;
-using System.Text;
-using System.Timers;
-using System.Web.Script.Serialization;
 
 namespace CTROScheduleReport
 {

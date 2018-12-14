@@ -1,6 +1,6 @@
-﻿using CTROReporting.Models;
+﻿using CTROLibrary.Model;
 using CTROReporting.Service;
-using CTROReporting.CTRO;
+using CTROLibrary.CTRO;
 using CTROReporting.ViewModels;
 using AutoMapper;
 using Microsoft.AspNet.Identity;

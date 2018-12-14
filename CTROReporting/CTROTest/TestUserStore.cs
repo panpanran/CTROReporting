@@ -1,4 +1,4 @@
-﻿using CTROReporting.Models;
+﻿using CTROLibrary.Model;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;

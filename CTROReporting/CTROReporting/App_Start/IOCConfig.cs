@@ -1,8 +1,8 @@
-﻿using CTROReporting.Infrastructure;
-using CTROReporting.Models;
-using CTROReporting.Repository;
+﻿using CTROLibrary.Infrastructure;
+using CTROLibrary.Model;
+using CTROLibrary.Repository;
 using CTROReporting.Service;
-using CTROReporting.CTRO;
+using CTROLibrary.CTRO;
 using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
@@ -15,8 +15,9 @@ using System.Reflection;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
+using CTROLibrary.DBbase;
 
-namespace CTROReporting.App_Start
+namespace CTROLibrary.DBbase
 {
     public class IOCConfig
     {

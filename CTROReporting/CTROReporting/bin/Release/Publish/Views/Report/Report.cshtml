@@ -48,6 +48,8 @@
         <br>
     </div>
     <br>
+    <div id="reportdescriptioncard" class="card col-md-12" style="display: none">
+    </div>
     <div class="row">
         <div class=" col-md-4">
         </div>
@@ -61,9 +63,9 @@
 }
 
 @*<button class="nav-link" data-toggle="modal" href="#progressModal" onclick="CreateProgressBar();">
-    <span data-feather="layers"></span>
-    Tickets
-</button>*@
+        <span data-feather="layers"></span>
+        Tickets
+    </button>*@
 
 
 <div class="modal fade" id="progressModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -96,6 +98,24 @@
             },
 
             change: function (event, data) {
+                var url = "@Url.Action("GetReportByID", "Report")?reportid=" + data.item.value;
+                $.ajax({
+                    url: url,
+                    success: function (data) {
+                        $("#reportdescriptioncard").html(data);
+                        $("#reportdescriptioncard").show("slow");
+                    },
+                    statusCode: {
+                        404: function (content) { alert('cannot find resource'); },
+                        500: function (content) { alert('internal server error'); }
+                    },
+                    error: function (req, status, errorObj) {
+                        $("#reportdescriptioncard").hide();
+                        // handle status === "timeout"
+                        // handle other errors
+                    }
+                });
+
                 $("#SelectedReport").val(data.item.value);
                 $("#StartDate").val("");
                 $("#EndDate").val("");

@@ -1,3 +1,12 @@
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Migrations.recordupdate.resources
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Migrations.ApplicationUserDepartment.resources
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Migrations.reportdescription.resources
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Migrations.Logger.resources
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Migrations.loggerModify1.resources
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Migrations.loggerModify2.resources
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Properties.Resources.resources
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.csproj.GenerateResource.cache
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.csproj.CoreCompileInputs.cache
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\NUnit3.TestAdapter.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\NUnit3.TestAdapter.pdb
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\nunit.engine.dll
@@ -200,9 +209,7 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\nunit.framework.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\Owin.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\Quartz.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\System.Diagnostics.DiagnosticSource.dll
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\System.Net.Http.Extensions.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\System.Net.Http.Formatting.dll
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\System.Net.Http.Primitives.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\System.Threading.Tasks.Extensions.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\System.ValueTuple.dll
@@ -288,12 +295,7 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\WebDriver.xml
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\es\Hangfire.Core.resources.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\zh\Hangfire.Core.resources.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\zh-TW\Hangfire.Core.resources.dll
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.csprojAssemblyReference.cache
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Migrations.recordupdate.resources
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Migrations.ApplicationUserDepartment.resources
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Properties.Resources.resources
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.csproj.GenerateResource.cache
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.csproj.CoreCompileInputs.cache
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.csproj.CopyComplete
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.pdb
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.csprojAssemblyReference.cache

@@ -1,8 +1,8 @@
-﻿using CTROReporting.Models;
+﻿using CTROLibrary.Model;
 using CTROReporting.ViewModels;
 using AutoMapper;
 
-namespace CTROReporting.App_Start
+namespace CTROLibrary.DBbase
 {
     public class AutoMapperConfig
     {

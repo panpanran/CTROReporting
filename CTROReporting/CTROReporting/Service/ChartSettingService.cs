@@ -1,10 +1,7 @@
-﻿using CTROReporting.Infrastructure;
-using CTROReporting.Models;
-using CTROReporting.Repository;
-using System;
+﻿using CTROLibrary.Infrastructure;
+using CTROLibrary.Model;
+using CTROLibrary.Repository;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace CTROReporting.Service

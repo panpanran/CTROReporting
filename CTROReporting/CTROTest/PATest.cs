@@ -1,5 +1,6 @@
-﻿using CTROReporting.CTRO;
-using CTROReporting.Infrastructure;
+﻿using CTROLibrary.CTRO;
+using CTROLibrary.Infrastructure;
+using CTROLibrary.Model;
 using Npgsql;
 using NUnit.Framework;
 using OpenQA.Selenium;
@@ -20,6 +21,120 @@ namespace CTROTest
     public class PATest
     {
         [Test]
+        public void CCRActiveTest()
+        {
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\CCR Active Report\List of NCI studies close to accrual 20181210.xlsx");
+            //string status = "";
+            string codetext = @"select
+dw_study.nci_id,
+dw_close_to_accrual.status_date,
+dw_active.status_date
+from(select * from dw_study where REPLACE(ccr_id, '-', '') = '11C0061') dw_study
+join(select * from dw_study_overall_status where status = 'CLOSED_TO_ACCRUAL') dw_close_to_accrual
+on dw_close_to_accrual.nci_id = dw_study.nci_id
+join(select * from dw_study_overall_status where status = 'ACTIVE') dw_active
+on dw_active.nci_id = dw_study.nci_id; ";
+            using (var conn = new NpgsqlConnection(CTROConst.connString))
+            {
+                NpgsqlCommand cmd = null;
+                NpgsqlDataReader datareader = null;
+
+                conn.Open();
+                using (StreamWriter sw = File.CreateText(@"C:\Users\panr2\Downloads\DataWarehouse\CCR Active Report\CCR Active Close to Accrual.txt"))
+                {
+                    foreach (DataRow row in trialdata.Tables[0].Rows)
+                    {
+                        try
+                        {
+                            DataTable ccrDT = new DataTable();
+                            //if (row[5].ToString() == "Open - No Longer Recruiting - Follow-up Only")
+                            //{
+                            //    status = "CLOSED_TO_ACCRUAL";
+                            //}
+                            //else
+                            //{
+                            //    status = "CLOSED_TO_ACCRUAL_AND_INTERVENTION";
+                            //}
+
+                            codetext = @"select
+dw_study.nci_id,
+dw_close_to_accrual.status_date,
+dw_active.status_date
+from(select * from dw_study where REPLACE(ccr_id, '-', '') = '" + row[0].ToString() + @"') dw_study
+join(select * from dw_study_overall_status where status in ('CLOSED_TO_ACCRUAL','CLOSED_TO_ACCRUAL_AND_INTERVENTION')) dw_close_to_accrual
+on dw_close_to_accrual.nci_id = dw_study.nci_id
+join(select * from dw_study_overall_status where status = 'ACTIVE') dw_active
+on dw_active.nci_id = dw_study.nci_id order by dw_active.status_date; ";
+                            cmd = new NpgsqlCommand(codetext, conn);
+                            datareader = cmd.ExecuteReader();
+                            ccrDT.Load(datareader);
+                            sw.WriteLine(ccrDT.Rows[0].ItemArray[0].ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            sw.WriteLine("No records.");
+                        }
+                    }
+                }
+            }
+        }
+
+
+        [Test]
+        public void OffholdDashboardTest()
+        {
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\Offhold Report\workload.xlsx");
+            using (var conn = new NpgsqlConnection(CTROConst.connString))
+            {
+                conn.Open();
+                Report report = CTROFunctions.GetDataFromJson<Report>("ReportService", "GetReportById", "reportid=9");
+                string startDate = DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd");
+                string endDate = DateTime.Now.ToString("yyyy-MM-dd");
+                OffholdReport offholdReport = new OffholdReport();
+                ReportSetting[] reportSettings = report.ReportSettings.ToArray();
+                DataSet conclusionDS = new DataSet();
+                DataSet ds = offholdReport.CreateBook(conn, startDate, endDate, reportSettings, out conclusionDS);
+                DateTime lastdate = new DateTime();
+
+                using (StreamWriter sw = File.CreateText(@"C:\Users\panr2\Downloads\DataWarehouse\Offhold Report\offhold wrong expectation report.txt"))
+                {
+                    foreach (DataRow offholdrow in ds.Tables[0].Rows)
+                    {
+                        string nciid = offholdrow.ItemArray[0].ToString();
+                        DateTime accepteddate = (DateTime)offholdrow.ItemArray[2];
+                        DateTime onholddate = (DateTime)offholdrow.ItemArray[3];
+                        DateTime offholddate = (DateTime)offholdrow.ItemArray[4];
+                        foreach (DataRow workloadrow in trialdata.Tables[0].Rows)
+                        {
+                            DateTime expecteddate = (DateTime)workloadrow.ItemArray[3];
+                            if (workloadrow.ItemArray[0].ToString() == nciid.Replace("NCI-", ""))
+                            {
+                                lastdate = offholddate;
+                                int n = 10;
+                                if (accepteddate < onholddate)
+                                {
+                                    n = 10 - CTROFunctions.CountBusinessDays(accepteddate, onholddate, CTROConst.Holidays) + 1;
+                                }
+                                if (n < 0)
+                                {
+                                    sw.WriteLine("There are some errors. nciid: " + nciid + ", onhold date: " + onholddate + ", offhold date: " + offholddate + ", expecteddate on dashboard: " + expecteddate);
+                                }
+                                else
+                                {
+                                    while (CTROFunctions.CountBusinessDays(offholddate, lastdate, CTROConst.Holidays) != n)
+                                    {
+                                        lastdate = lastdate.AddDays(1);
+                                    }
+                                    sw.WriteLine("nciid: " + nciid + ", expecteddate on dashboard: " + expecteddate + ", real expected date: " + lastdate);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        [Test]
         public void PCD2100Test()
         {
             IWebDriver driver = new ChromeDriver();
@@ -30,7 +145,7 @@ namespace CTROTest
             IWebElement username = driver.FindElement(By.Id("j_username"));
             username.SendKeys("panr");
             IWebElement password = driver.FindElement(By.Id("j_password"));
-            password.SendKeys("Prss_6789");
+            password.SendKeys("Prss_7890");
             password.Submit();
             IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
             acceptclaim.Click();
@@ -192,12 +307,12 @@ namespace CTROTest
         [Test]
         public void NCTNReportTest2()
         {
-            //Find participating site
+            //Find participating site number
             //Read Data
             string nciid = "NCI-2017-00086";
             string organization = "Wake Forest NCORP Research Base";
             string sql = "";
-            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\NCTN COG 20181030.xlsx");
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\NCTN Report\NCTN Network Trials 20181022.xlsx");
             //Do Loop
             using (var conn = new NpgsqlConnection(CTROConst.connString))
             {
@@ -253,7 +368,7 @@ order by dw_study.nci_id";
             IWebElement username = driver.FindElement(By.Id("j_username"));
             username.SendKeys("panr");
             IWebElement password = driver.FindElement(By.Id("j_password"));
-            password.SendKeys("Prss_6789");
+            password.SendKeys("Prss_7890");
             password.Submit();
             IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
             acceptclaim.Click();
@@ -476,7 +591,7 @@ order by study_protocol.nci_id;";
 study_protocol.nci_id,
 study_overall_status.status_code,
 study_overall_status.status_date
-from (select * from study_protocol where nci_id = '"+ nciid + @"') study_protocol
+from (select * from study_protocol where nci_id = '" + nciid + @"') study_protocol
 join (select * from study_overall_status where status_code in ('CLOSED_TO_ACCRUAL','CLOSED_TO_ACCRUAL_AND_INTERVENTION') and deleted = 'false') study_overall_status
 on study_overall_status.study_protocol_identifier = study_protocol.identifier;";
 

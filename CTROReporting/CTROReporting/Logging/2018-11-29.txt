@@ -1,0 +1,115 @@
+
+Log Entry : 1:34:55 PM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Offhold at 11/29/2018 1:34:55 PM
+-------------------------------
+
+Log Entry : 1:34:55 PM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 11/29/2018 1:34:55 PM and the error message is: Method not found: 'System.Threading.Tasks.Task`1<System.Net.Http.HttpResponseMessage> System.Net.Http.HttpClientExtensions.PostAsJsonAsync(System.Net.Http.HttpClient, System.String, !!0)'.
+-------------------------------
+
+Log Entry : 1:51:47 PM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Reactivated at 11/29/2018 1:51:47 PM
+-------------------------------
+
+Log Entry : 1:54:22 PM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Offhold at 11/29/2018 1:54:22 PM
+-------------------------------
+
+Log Entry : 2:04:46 PM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Offhold at 11/29/2018 2:04:46 PM
+-------------------------------
+
+Log Entry : 2:04:46 PM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 11/29/2018 2:04:46 PM and the error message is: Method not found: 'System.Threading.Tasks.Task`1<System.Net.Http.HttpResponseMessage> System.Net.Http.HttpClientExtensions.PostAsJsonAsync(System.Net.Http.HttpClient, System.String, !!0)'.
+-------------------------------
+
+Log Entry : 2:05:28 PM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report with cache for panpanr - Offhold at 11/29/2018 2:05:28 PM
+-------------------------------
+
+Log Entry : 2:05:28 PM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 11/29/2018 2:05:28 PM and the error message is: Method not found: 'System.Threading.Tasks.Task`1<System.Net.Http.HttpResponseMessage> System.Net.Http.HttpClientExtensions.PostAsJsonAsync(System.Net.Http.HttpClient, System.String, !!0)'.
+-------------------------------
+
+Log Entry : 2:18:39 PM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - TSR Sent at 11/29/2018 2:18:39 PM
+-------------------------------
+
+Log Entry : 2:18:39 PM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - TSR Sent at 11/29/2018 2:18:39 PM and the error message is: Method not found: 'System.Threading.Tasks.Task`1<System.Net.Http.HttpResponseMessage> System.Net.Http.HttpClientExtensions.PostAsJsonAsync(System.Net.Http.HttpClient, System.String, !!0)'.
+-------------------------------
+
+Log Entry : 2:44:16 PM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Offhold at 11/29/2018 2:44:16 PM
+-------------------------------
+
+Log Entry : 2:44:57 PM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - TSR Sent at 11/29/2018 2:44:57 PM
+-------------------------------
+
+Log Entry : 3:41:28 PM Thursday, November 29, 2018
+  :
+  :EWSolutionTSRFeedback > BulkUpdate > Start!
+-------------------------------
+
+Log Entry : 3:53:18 PM Thursday, November 29, 2018
+  :
+  :EWSolutionTSRFeedback > BulkUpdate > Start!
+-------------------------------
+
+Log Entry : 3:55:17 PM Thursday, November 29, 2018
+  :
+  :EWSolutionTSRFeedback > BulkUpdate > Start!
+-------------------------------
+
+Log Entry : 3:56:18 PM Thursday, November 29, 2018
+  :
+  :NCI-2018-02792 > 87012 > TSR Feedback Done!
+-------------------------------
+
+Log Entry : 4:10:47 PM Thursday, November 29, 2018
+  :
+  :EWSolutionTSRFeedback > BulkUpdate > Start!
+-------------------------------
+
+Log Entry : 8:24:41 PM Thursday, November 29, 2018
+  :
+  :EWSolutionTSRFeedback > BulkUpdate > Start!
+-------------------------------
+
+Log Entry : 8:35:26 PM Thursday, November 29, 2018
+  :
+  :EWSolutionTSRFeedback > BulkUpdate > Start!
+-------------------------------
+
+Log Entry : 8:51:35 PM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 11/29/2018 8:51:35 PM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:51:53 PM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Reactivated at 11/29/2018 8:51:53 PM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:52:57 PM Thursday, November 29, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Offhold at 11/29/2018 8:52:57 PM
+-------------------------------
+
+Log Entry : 8:56:40 PM Thursday, November 29, 2018
+  :
+  :EWSolutionTSRFeedback > BulkUpdate > Start!
+-------------------------------
