@@ -107,7 +107,10 @@
                     },
                     statusCode: {
                         404: function (content) { alert('cannot find resource'); },
-                        500: function (content) { alert('internal server error'); }
+                        500: function (content) {
+                            //alert('internal server error'
+                            //);
+                        }
                     },
                     error: function (req, status, errorObj) {
                         $("#reportdescriptioncard").hide();

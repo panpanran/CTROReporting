@@ -21,12 +21,67 @@ namespace CTROTest
     public class PATest
     {
         [Test]
+        public void AddCTEPANDDCPIDTest()
+        {
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\Add DCP and CTEP ID 20181217\dob-zip-cleanup-list(sanitized) 20181217.xlsx");
+            //string status = "";
+            string codetext = @"select
+dw_study.nci_id,
+dw_study.ctep_id,
+dw_study.dcp_id
+from dw_study; ";
+            using (var conn = new NpgsqlConnection(CTROConst.connString))
+            {
+                NpgsqlCommand cmd = null;
+                NpgsqlDataReader datareader = null;
+
+                conn.Open();
+                using (StreamWriter sw = File.CreateText(@"C:\Users\panr2\Downloads\DataWarehouse\Add DCP and CTEP ID 20181217\CTEP ADDED.txt"))
+                {
+                    foreach (DataRow row in trialdata.Tables[0].Rows)
+                    {
+                        try
+                        {
+                            DataTable ccrDT = new DataTable();
+                            //if (row[5].ToString() == "Open - No Longer Recruiting - Follow-up Only")
+                            //{
+                            //    status = "CLOSED_TO_ACCRUAL";
+                            //}
+                            //else
+                            //{
+                            //    status = "CLOSED_TO_ACCRUAL_AND_INTERVENTION";
+                            //}
+
+                            codetext = @"select
+dw_study.nci_id,
+dw_study.ctep_id,
+dw_study.dcp_id,
+dw_study.lead_org
+from dw_study where nct_id = '" + row[0].ToString() + @"'";
+                            cmd = new NpgsqlCommand(codetext, conn);
+                            datareader = cmd.ExecuteReader();
+                            ccrDT.Load(datareader);
+                            sw.WriteLine(ccrDT.Rows[0].ItemArray[3].ToString());
+                        }
+                        catch (Exception ex)
+                        {
+                            sw.WriteLine("No records.");
+                        }
+                    }
+                }
+            }
+        }
+
+
+        [Test]
         public void CCRActiveTest()
         {
             DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\CCR Active Report\List of NCI studies close to accrual 20181210.xlsx");
             //string status = "";
             string codetext = @"select
 dw_study.nci_id,
+dw_study.ctep_id,
+dw_study.dcp_id,
 dw_close_to_accrual.status_date,
 dw_active.status_date
 from(select * from dw_study where REPLACE(ccr_id, '-', '') = '11C0061') dw_study
@@ -58,6 +113,8 @@ on dw_active.nci_id = dw_study.nci_id; ";
 
                             codetext = @"select
 dw_study.nci_id,
+dw_study.ctep_id,
+dw_study.dcp_id,
 dw_close_to_accrual.status_date,
 dw_active.status_date
 from(select * from dw_study where REPLACE(ccr_id, '-', '') = '" + row[0].ToString() + @"') dw_study
@@ -68,7 +125,7 @@ on dw_active.nci_id = dw_study.nci_id order by dw_active.status_date; ";
                             cmd = new NpgsqlCommand(codetext, conn);
                             datareader = cmd.ExecuteReader();
                             ccrDT.Load(datareader);
-                            sw.WriteLine(ccrDT.Rows[0].ItemArray[0].ToString());
+                            sw.WriteLine(ccrDT.Rows[0].ItemArray[2].ToString());
                         }
                         catch (Exception ex)
                         {
@@ -154,7 +211,7 @@ on dw_active.nci_id = dw_study.nci_id order by dw_active.status_date; ";
             //Read Data
             string nciid = "NCI-2017-00086";
             string organization = "Wake Forest NCORP Research Base";
-            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\PCD2100 Report\PCD2100 Report 20181106.xlsx");
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\PCD2100 Report\PCD2100 Report 20181214.xlsx");
             string comment = "test";
 
             //Do Loop
@@ -166,7 +223,9 @@ on dw_active.nci_id = dw_study.nci_id order by dw_active.status_date; ";
                     {
                         nciid = row.ItemArray[0].ToString();
                         //organization = row.ItemArray[16].ToString();
-                        comment = "Per EW 85484 Anticipated Primary Completion Date 01/01/2100 was removed and N/A was selected";
+                        //comment = "Per EW 85484 Anticipated Primary Completion Date 01/01/2100 was removed and N/A was selected";
+                        comment = "Per EW#85484, Primary Completion Date 1/1/2100 is removed";
+
 
                         //Find Trial
                         IWebElement trialSearchMenuOption = driver.FindElement(By.Id("trialSearchMenuOption"));
@@ -184,6 +243,7 @@ on dw_active.nci_id = dw_study.nci_id order by dw_active.status_date; ";
                         participatingsitelink.Click();
                         //Set value
                         IJavaScriptExecutor txtPCD = (IJavaScriptExecutor)driver;
+                        txtPCD.ExecuteScript("document.getElementById('startDate').setAttribute('value', '" + "12/1/2019" + "')");
                         txtPCD.ExecuteScript("document.getElementById('primaryCompletionDate').setAttribute('value', '" + "" + "')");
                         //IJavaScriptExecutor radioPCD = (IJavaScriptExecutor)driver;
                         //radioPCD.ExecuteScript("document.getElementById('primaryCompletionDateTypeN/A').setAttribute('value', '" + "N/A" + "')");

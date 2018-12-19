@@ -36,7 +36,7 @@ namespace CTROLibrary.Infrastructure
 
     }
 
-    public class DepartmentAuthorizeAttribute : CTROAuthorizeAttribute
+    public class AllDepartmentAuthorizeAttribute: CTROAuthorizeAttribute
     {
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {

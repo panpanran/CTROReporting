@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using CTROLibrary.CTRO;
+using CTROLibrary.Infrastructure;
 
 namespace CTROReporting.Controllers
 {
@@ -26,6 +27,7 @@ namespace CTROReporting.Controllers
         }
 
         [HttpGet]
+        [AllDepartmentAuthorize]
         public ActionResult Ticket()
         {
             var model = new TicketGenerateViewModel();

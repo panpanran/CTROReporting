@@ -1,0 +1,10 @@
+
+Log Entry : 7:50:09 AM Tuesday, December 18, 2018
+  :
+  :EWTicketTrageService > OnStart > EW Ticket Triaging Service Start
+-------------------------------
+
+Log Entry : 12:32:13 PM Tuesday, December 18, 2018
+  :
+  :EWFormatOriginalIncomingEmail > Update > The remote server returned an error: (409) Conflict.
+-------------------------------

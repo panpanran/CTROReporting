@@ -1,0 +1,55 @@
+
+Log Entry : 7:47:01 AM Monday, December 17, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 12:14:47 PM Monday, December 17, 2018
+  :
+  :EWTicketTrageService > OnStop > EW Ticket Triaging Service Stop
+-------------------------------
+
+Log Entry : 12:15:24 PM Monday, December 17, 2018
+  :
+  :EWTicketTrageService > OnStart > EW Ticket Triaging Service Start
+-------------------------------
+
+Log Entry : 12:23:25 PM Monday, December 17, 2018
+  :
+  :EWFormatOriginalIncomingEmail > Update > Could not load file or assembly 'System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 12:23:26 PM Monday, December 17, 2018
+  :
+  :EWFormatOriginalIncomingEmail > Update > Could not load file or assembly 'System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 12:37:25 PM Monday, December 17, 2018
+  :
+  :EWFormatOriginalIncomingEmail > Update > Could not load file or assembly 'System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 12:43:25 PM Monday, December 17, 2018
+  :
+  :EWFormatOriginalIncomingEmail > Update > Could not load file or assembly 'System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 12:49:25 PM Monday, December 17, 2018
+  :
+  :EWFormatOriginalIncomingEmail > Update > Could not load file or assembly 'System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 1:01:25 PM Monday, December 17, 2018
+  :
+  :EWFormatOriginalIncomingEmail > Update > Could not load file or assembly 'System.Net.Http, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 1:30:42 PM Monday, December 17, 2018
+  :
+  :EWTicketTrageService > OnStop > EW Ticket Triaging Service Stop
+-------------------------------
+
+Log Entry : 1:31:03 PM Monday, December 17, 2018
+  :
+  :EWTicketTrageService > OnStart > EW Ticket Triaging Service Start
+-------------------------------

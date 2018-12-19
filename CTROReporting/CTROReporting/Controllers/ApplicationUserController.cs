@@ -48,7 +48,7 @@ namespace CTROReporting.Controllers
             return View();
         }
 
-        [DepartmentAuthorize]
+        [AllDepartmentAuthorize]
         public ActionResult UserManagement(UserManagementViewModel model)
         {
             var users = userService.GetUsers();

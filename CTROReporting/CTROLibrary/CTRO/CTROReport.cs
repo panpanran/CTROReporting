@@ -177,6 +177,30 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
     }
     #endregion
 
+    #region phase NA report
+    public class PhaseNAReport : CTROReport
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            conclusionDS = new DataSet();
+
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+            //NCI
+            string codetext = reportSettings[0].Code.Replace("startDate", startDate).Replace("endDate", endDate);
+            cmd = new NpgsqlCommand(codetext, conn);
+            datareader = cmd.ExecuteReader();
+            DataTable nciDT = new DataTable();
+            nciDT.Load(datareader);
+            nciDT.TableName = "NCI";
+            outputDS.Tables.Add(nciDT);
+            return outputDS;
+        }
+    }
+    #endregion
+
     #region trial processing
 
     public class TrialProcessingReport : CTROReport
