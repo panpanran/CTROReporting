@@ -345,6 +345,10 @@
     <Compile Include="Migrations\201811300217445_loggerModify2.Designer.cs">
       <DependentUpon>201811300217445_loggerModify2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901031342462_connect-userprofile1.cs" />
+    <Compile Include="Migrations\201901031342462_connect-userprofile1.Designer.cs">
+      <DependentUpon>201901031342462_connect-userprofile1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NuGet.Modules\JsonHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -853,6 +857,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811300217445_loggerModify2.resx">
       <DependentUpon>201811300217445_loggerModify2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901031342462_connect-userprofile1.resx">
+      <DependentUpon>201901031342462_connect-userprofile1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

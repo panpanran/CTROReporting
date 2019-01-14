@@ -1,0 +1,5 @@
+
+Log Entry : 4:06:50 PM Wednesday, December 19, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------

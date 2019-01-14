@@ -1,0 +1,80 @@
+
+Log Entry : 7:37:11 AM Monday, December 31, 2018
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 12/31/2018 7:37:11 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 7:37:11 AM Monday, December 31, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:37:13 AM Monday, December 31, 2018
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Sponsor at 12/31/2018 7:37:13 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 7:37:13 AM Monday, December 31, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:37:45 AM Monday, December 31, 2018
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 12/31/2018 7:37:45 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 7:37:45 AM Monday, December 31, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:37:59 AM Monday, December 31, 2018
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Sponsor at 12/31/2018 7:37:59 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 7:37:59 AM Monday, December 31, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:38:44 AM Monday, December 31, 2018
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 12/31/2018 7:38:44 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 7:38:44 AM Monday, December 31, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:40:44 AM Monday, December 31, 2018
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 12/31/2018 7:40:44 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 7:40:44 AM Monday, December 31, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:44:15 AM Monday, December 31, 2018
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 12/31/2018 7:44:15 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 7:44:15 AM Monday, December 31, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:50:27 AM Monday, December 31, 2018
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Sponsor at 12/31/2018 7:50:27 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 7:50:27 AM Monday, December 31, 2018
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------

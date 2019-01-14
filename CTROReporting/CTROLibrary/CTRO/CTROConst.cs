@@ -20,7 +20,17 @@ namespace CTROLibrary.CTRO
                     new DateTime(2018,10,8),
                     new DateTime(2018,11,12),
                     new DateTime(2018,11,22),
-                    new DateTime(2018,12,25)
+                    new DateTime(2018,12,25),
+                    new DateTime(2019,1,1),
+                    new DateTime(2019,1,21),
+                    new DateTime(2019,2,18),
+                    new DateTime(2019,5,27),
+                    new DateTime(2019,7,4),
+                    new DateTime(2019,9,2),
+                    new DateTime(2019,10,14),
+                    new DateTime(2019,11,11),
+                    new DateTime(2019,11,28),
+                    new DateTime(2019,12,25)
                 };
 
         //database connection

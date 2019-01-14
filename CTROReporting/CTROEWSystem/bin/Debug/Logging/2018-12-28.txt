@@ -1,0 +1,15 @@
+
+Log Entry : 7:27:28 AM Friday, December 28, 2018
+  :
+  :EWTicketTrageService > OnStart > EW Ticket Triaging Service Start
+-------------------------------
+
+Log Entry : 7:29:49 AM Friday, December 28, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 9:25:30 AM Friday, December 28, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------

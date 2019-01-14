@@ -298,4 +298,5 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\zh-TW\Hangfire.Core.
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.csproj.CopyComplete
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.pdb
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Migrations.connectuserprofile1.resources
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.csprojAssemblyReference.cache

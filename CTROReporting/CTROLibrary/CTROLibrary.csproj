@@ -155,6 +155,7 @@
     <Compile Include="Model\Department.cs" />
     <Compile Include="Model\Logger.cs" />
     <Compile Include="Model\Participant.cs" />
+    <Compile Include="Model\PASolution.cs" />
     <Compile Include="Model\Record.cs" />
     <Compile Include="Model\Report.cs" />
     <Compile Include="Model\ReportSetting.cs" />

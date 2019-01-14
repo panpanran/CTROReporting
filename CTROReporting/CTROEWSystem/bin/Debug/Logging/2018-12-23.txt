@@ -1,0 +1,10 @@
+
+Log Entry : 6:01:28 PM Sunday, December 23, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 6:03:28 PM Sunday, December 23, 2018
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------

@@ -306,7 +306,6 @@ namespace CTROLibrary.CTRO
                 }
                 catch (Exception ex)
                 {
-
                     throw;
                 }
             }

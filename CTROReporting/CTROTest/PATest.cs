@@ -1,4 +1,5 @@
 ﻿using CTROLibrary.CTRO;
+using CTROLibrary.EW;
 using CTROLibrary.Infrastructure;
 using CTROLibrary.Model;
 using Npgsql;
@@ -20,6 +21,89 @@ namespace CTROTest
     [TestFixture()]
     public class PATest
     {
+        [Test]
+        public void PilotUpdateTest()
+        {
+            ChromeOptions options = new ChromeOptions();
+            IWebDriver driver = new ChromeDriver(AppDomain.CurrentDomain.BaseDirectory, options, TimeSpan.FromSeconds(120));
+            //Notice navigation is slightly different than the Java version
+            //This is because 'get' is a keyword in C#
+            driver.Navigate().GoToUrl("https://trials.nci.nih.gov/pa/protected/studyProtocolexecute.action");
+            //Login
+            IWebElement username = driver.FindElement(By.Id("j_username"));
+            username.SendKeys("panr");
+            IWebElement password = driver.FindElement(By.Id("j_password"));
+            password.SendKeys("Prss_7890");
+            password.Submit();
+            IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
+            acceptclaim.Click();
+
+
+            //Read Data
+            string nciid = "NCI-2017-00086";
+            string pilot = "No";
+            string organization = "Wake Forest NCORP Research Base";
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\Pilot field Update\Pilot worksheet Doing.xlsx");
+            string comment = "test";
+
+            //Do Loop
+            foreach (DataTable table in trialdata.Tables)
+            {
+                foreach (DataRow row in table.Rows)
+                {
+                    try
+                    {
+                        nciid = row.ItemArray[0].ToString();
+                        pilot = row.ItemArray[1].ToString();
+
+                        //organization = row.ItemArray[16].ToString();
+                        //comment = "Per EW 85484 Anticipated Primary Completion Date 01/01/2100 was removed and N/A was selected";
+                        comment = "Added Pilot status per UCSF request in EW# 87796.";
+
+
+                        //Find Trial
+                        IWebElement trialSearchMenuOption = driver.FindElement(By.Id("trialSearchMenuOption"));
+                        trialSearchMenuOption.Click();
+                        IWebElement identifier = driver.FindElement(By.Id("identifier"));
+                        identifier.SendKeys(nciid);
+                        identifier.SendKeys(Keys.Enter);
+                        IWebElement triallink = driver.FindElements(By.TagName("a")).First(element => element.Text == nciid);
+                        triallink.Click();
+                        //Checkout
+                        IWebElement checkoutspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Scientific Check Out");
+                        checkoutspan.Click();
+                        //Design Details
+                        IWebElement designstatussitelink = driver.FindElements(By.TagName("a")).First(element => element.Text == "Design Details");
+                        designstatussitelink.Click();
+                        IWebElement ddlrecStatus = driver.FindElement(By.Id("comment"));
+                        ddlrecStatus.SendKeys(pilot);
+                        IWebElement savespan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Save");
+                        savespan.Click();
+                        //Checkin
+                        IWebElement trialidentification = driver.FindElements(By.TagName("a")).First(element => element.Text == "Trial Identification");
+                        trialidentification.Click();
+                        IWebElement btnadmincheckin = driver.FindElements(By.TagName("span")).First(element => element.Text == "Scientific Check In");
+                        btnadmincheckin.Click();
+                        if (driver.FindElements(By.TagName("button")).Where(element => element.Text == "Proceed with Check-in").Count() != 0)
+                        {
+                            IWebElement btnproceedcheckin = driver.FindElements(By.TagName("button")).First(element => element.Text == "Proceed with Check-in");
+                            btnproceedcheckin.Click();
+                        }
+                        IWebElement txtcomments = driver.FindElement(By.Id("comments"));
+                        txtcomments.SendKeys(comment);
+                        IWebElement btnOk = driver.FindElements(By.TagName("button")).First(element => element.Text == "Ok");
+                        btnOk.Click();
+                    }
+                    catch (Exception ex)
+                    {
+                        Logging.WriteLog(nciid, organization, ex.Message);
+                        throw;
+                    }
+                }
+            }
+        }
+
+
         [Test]
         public void AddCTEPANDDCPIDTest()
         {
@@ -140,55 +224,10 @@ on dw_active.nci_id = dw_study.nci_id order by dw_active.status_date; ";
         [Test]
         public void OffholdDashboardTest()
         {
-            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\Offhold Report\workload.xlsx");
-            using (var conn = new NpgsqlConnection(CTROConst.connString))
-            {
-                conn.Open();
-                Report report = CTROFunctions.GetDataFromJson<Report>("ReportService", "GetReportById", "reportid=9");
-                string startDate = DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd");
-                string endDate = DateTime.Now.ToString("yyyy-MM-dd");
-                OffholdReport offholdReport = new OffholdReport();
-                ReportSetting[] reportSettings = report.ReportSettings.ToArray();
-                DataSet conclusionDS = new DataSet();
-                DataSet ds = offholdReport.CreateBook(conn, startDate, endDate, reportSettings, out conclusionDS);
-                DateTime lastdate = new DateTime();
+            EWSolutionDashboardCheck ew = new EWSolutionDashboardCheck();
+            ApplicationUser user = new ApplicationUser();
 
-                using (StreamWriter sw = File.CreateText(@"C:\Users\panr2\Downloads\DataWarehouse\Offhold Report\offhold wrong expectation report.txt"))
-                {
-                    foreach (DataRow offholdrow in ds.Tables[0].Rows)
-                    {
-                        string nciid = offholdrow.ItemArray[0].ToString();
-                        DateTime accepteddate = (DateTime)offholdrow.ItemArray[2];
-                        DateTime onholddate = (DateTime)offholdrow.ItemArray[3];
-                        DateTime offholddate = (DateTime)offholdrow.ItemArray[4];
-                        foreach (DataRow workloadrow in trialdata.Tables[0].Rows)
-                        {
-                            DateTime expecteddate = (DateTime)workloadrow.ItemArray[3];
-                            if (workloadrow.ItemArray[0].ToString() == nciid.Replace("NCI-", ""))
-                            {
-                                lastdate = offholddate;
-                                int n = 10;
-                                if (accepteddate < onholddate)
-                                {
-                                    n = 10 - CTROFunctions.CountBusinessDays(accepteddate, onholddate, CTROConst.Holidays) + 1;
-                                }
-                                if (n < 0)
-                                {
-                                    sw.WriteLine("There are some errors. nciid: " + nciid + ", onhold date: " + onholddate + ", offhold date: " + offholddate + ", expecteddate on dashboard: " + expecteddate);
-                                }
-                                else
-                                {
-                                    while (CTROFunctions.CountBusinessDays(offholddate, lastdate, CTROConst.Holidays) != n)
-                                    {
-                                        lastdate = lastdate.AddDays(1);
-                                    }
-                                    sw.WriteLine("nciid: " + nciid + ", expecteddate on dashboard: " + expecteddate + ", real expected date: " + lastdate);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            ew.DashboardCheck(user);
         }
 
         [Test]
