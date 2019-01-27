@@ -1,0 +1,10 @@
+
+Log Entry : 8:46:50 AM Wednesday, October 3, 2018
+  :
+  :CTROHome > CreateReport > Access to the path 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\panpanr\Reactivated Report_20181003084613_panpanr.xlsx' is denied.
+-------------------------------
+
+Log Entry : 11:00:31 AM Wednesday, October 3, 2018
+  :
+  :CTROSchedule > DeleteJob > One or more errors occurred.
+-------------------------------

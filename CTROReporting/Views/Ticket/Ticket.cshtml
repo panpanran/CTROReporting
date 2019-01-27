@@ -1,0 +1,108 @@
+﻿@model CTROReporting.ViewModels.TicketGenerateViewModel
+@{
+    ViewBag.Title = "CTRP Reporting";
+    Layout = "../Shared/_HomeLayout.cshtml";
+}
+<h1>Ticket</h1><br><br>
+
+@if (Model.TicketResult == true)
+{
+    <div class="alertmessage-success"></div>
+}
+@if (Model.TicketResult == false && !string.IsNullOrEmpty(Model.SelectedTicket))
+{
+    <div class="alertmessage-fail"></div>
+}
+
+<div> The current time is: @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</div>
+<br />
+@Html.ValidationSummary()
+@Html.DropDownListFor(model => model.TicketName, Model.Tickets, "--Select a Ticket Problem--", new { @id = "ticketlist", @class = "col-md-12", @style = "display:block;width:270px;;float:left" })
+
+@using (Html.BeginForm("Ticket", "Ticket", FormMethod.Post))
+{
+    <div id="ticketlogger" class="card col-md-12" style="display: none">
+    </div>
+    <div class="row">
+        <div class=" col-md-4">
+        </div>
+        <div class=" col-md-4">
+            <input type="submit" class="col-md-4 form-control-label" value="Submit" onclick="GetTicketLogger();"/>
+        </div>
+        <div class=" col-md-4">
+        </div>
+    </div>
+    @Html.HiddenFor(m => m.SelectedTicket)
+}
+
+
+<script type="text/javascript">
+    $(function () {
+        $("#ticketlist").selectmenu({
+            create: function (event, data) {
+                $("#SelectedTicket").val(null);
+            },
+
+            change: function (event, data) {
+                @*var url = "@Url.Action("GetReportByID", "Report")?reportid=" + data.item.value;
+                $.ajax({
+                    url: url,
+                    success: function (data) {
+                        $("#reportdescriptioncard").html(data);
+                        $("#reportdescriptioncard").show("slow");
+                    },
+                    statusCode: {
+                        404: function (content) { alert('cannot find resource'); },
+                        500: function (content) { alert('internal server error'); }
+                    },
+                    error: function (req, status, errorObj) {
+                        $("#reportdescriptioncard").hide();
+                        // handle status === "timeout"
+                        // handle other errors
+                    }
+                });*@
+
+                $("#SelectedTicket").val(data.item.value);
+            }
+        });
+    });
+
+        function GetTicketLogger() {
+            var url = "@Url.Action("TicketLogging", "Ticket")";
+
+            $.get(url, function (result) {
+                var notifications = $("#ticketlogger"); // cache it to avoid repeatedly searching the DOM
+                notifications.show("slow");
+                notifications.load(url);
+                setInterval(function () {
+                    notifications.load(url);
+                }, 30000);
+            })
+    }
+
+    function GetMessage() {
+        return function () {
+            var successmessage = 'Success! A new report is created.'
+            var htmlAlert = '<div class="alert alert-success"><h5>' + successmessage + '</h5></div>';
+            $('.alertmessage-success').prepend(htmlAlert);
+            $(".alertmessage-success .alert").first().hide().fadeIn(200).delay(3000).fadeOut(1000, function () { $(this).remove(); });
+
+            var failmessage = 'Fail!'
+            var htmlAlert = '<div class="alert alert-warning"><h5>' + failmessage + '</h5></div>';
+            $('.alertmessage-fail').prepend(htmlAlert);
+            $(".alertmessage-fail .alert").first().hide().fadeIn(200).delay(3000).fadeOut(1000, function () { $(this).remove(); });
+
+            var cancelmessage = 'Cancelled!'
+            var htmlAlert = '<div class="alert alert-info"><h5>' + cancelmessage + '</h5></div>';
+            $('.alertmessage-cancel').prepend(htmlAlert);
+            $(".alertmessage-cancel .alert").first().hide().fadeIn(200).delay(3000).fadeOut(1000, function () { $(this).remove(); });
+
+            var wrongmessage = 'Wrong'
+            var htmlAlert = '<div class="alert alert-danger"><h5>' + wrongmessage + '</h5></div>';
+            $('.alertmessage-wrong').prepend(htmlAlert);
+            $(".alertmessage-wrong .alert").first().hide().fadeIn(200).delay(3000).fadeOut(1000, function () { $(this).remove(); });
+        }
+    }
+
+    $(document).ready(GetMessage());
+</script>

@@ -1,0 +1,15 @@
+
+Log Entry : 2:38:50 PM Friday, October 26, 2018
+  :
+  :CTROHome > MoveNext > Creaet report first time for panpanr - Offhold at 10/26/2018 2:38:50 PM
+-------------------------------
+
+Log Entry : 9:34:22 PM Friday, October 26, 2018
+  :
+  :CTROHangfire > AddorUpdateJob > Self referencing loop detected with type 'System.Data.Entity.DynamicProxies.ApplicationUser_502ECBBEEB7FF27B439C26C7D268C3F2B7ED4B110A52B4BF074CAAA49BE4F88F'. Path 'User.Department.ApplicationUsers'.
+-------------------------------
+
+Log Entry : 9:59:25 PM Friday, October 26, 2018
+  :
+  :CTROHangfire > AddorUpdateJob > Self referencing loop detected with type 'System.Data.Entity.DynamicProxies.ApplicationUser_502ECBBEEB7FF27B439C26C7D268C3F2B7ED4B110A52B4BF074CAAA49BE4F88F'. Path 'User.Department.ApplicationUsers'.
+-------------------------------

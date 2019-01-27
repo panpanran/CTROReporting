@@ -1,0 +1,15 @@
+
+Log Entry : 1:32:41 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > DeleteJob > Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 1:39:22 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > DeleteJob > Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 4:15:47 PM Friday, September 28, 2018
+  :
+  :CTROSchedule > MoveNext > C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\/Excel/panpanr/TSR Sent Report _20180927-20180928_20180928161540_panpanr.xlsx
+-------------------------------
