@@ -300,3 +300,6 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Release\CTROReportin
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Release\CTROReporting.Migrations.loggerModify1.resources
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Release\CTROReporting.Migrations.loggerModify2.resources
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Release\CTROReporting.Migrations.connectuserprofile1.resources
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\Microsoft.Owin.Cors.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\System.Web.Cors.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\Microsoft.Owin.Cors.xml

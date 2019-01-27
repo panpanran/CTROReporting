@@ -1,5 +1,0 @@
-
-Log Entry : 11:22:06 AM Tuesday, September 18, 2018
-  :
-  :NormalTest > ProtocolAbstractionTest > Sequence contains no matching element
--------------------------------

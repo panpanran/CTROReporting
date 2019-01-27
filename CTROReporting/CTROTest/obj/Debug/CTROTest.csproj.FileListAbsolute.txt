@@ -195,3 +195,5 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\zh-TW\Hangfire.Core
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\obj\Debug\CTROTest.csproj.CopyComplete
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\obj\Debug\CTROTest.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\obj\Debug\CTROTest.pdb
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Microsoft.Owin.Security.OAuth.xml

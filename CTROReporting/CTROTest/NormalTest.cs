@@ -21,12 +21,41 @@ using WebSocketSharp;
 using System.Net.Mail;
 using Npgsql;
 using System.Text.RegularExpressions;
+using System.Security.Cryptography;
 
 namespace CTROTest
 {
     [TestFixture()]
     public class NormalTest
     {
+        public static Stream GenerateStreamFromString(string s)
+        {
+            var stream = new MemoryStream();
+            var writer = new StreamWriter(stream);
+            writer.Write(s);
+            writer.Flush();
+            stream.Position = 0;
+            return stream;
+        }
+
+        [Test]
+        public void EncryptTest()
+        {
+            using (var stream = GenerateStreamFromString("Prsssss002"))
+            {
+                // create the hash code of the text to sign
+                SHA1 sha = SHA1.Create();
+                byte[] hashcode = sha.ComputeHash(stream);
+                // use the CreateSignature method to sign the data
+                DSA dsa = DSA.Create();
+                byte[] signature = dsa.CreateSignature(hashcode);
+
+                // use the VerifySignature method to verify the DSA signature
+                bool isSignatureValid = dsa.VerifySignature(hashcode, signature);
+            }
+        }
+
+
         [Test]
         public void WebSocketTest()
         {

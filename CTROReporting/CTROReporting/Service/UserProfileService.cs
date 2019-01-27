@@ -18,6 +18,8 @@ namespace CTROReporting.Service
         void UpdateUserProfile(UserProfile user);
     }
 
+
+    [Authorize]
     public class UserProfileServiceController : ApiController, IUserProfileService
     {
         private readonly IUserProfileRepository userProfileRepository;

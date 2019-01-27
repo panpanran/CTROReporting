@@ -12,6 +12,7 @@ namespace CTROReporting.Service
         ChartSetting GetChartSettingById(int Chartsettingid);
     }
 
+    [Authorize]
     public class ChartSettingServiceController : ApiController,IChartSettingService
     {
         private readonly IChartSettingRepository ChartsettingRepository;

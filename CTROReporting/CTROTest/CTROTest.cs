@@ -46,6 +46,12 @@ namespace CTROTest
         }
 
         [Test()]
+        public void WebApiTest()
+        {
+            var schedules = CTROFunctions.GetDataFromJson<List<Report>>("ReportService", "GetReports");
+        }
+
+        [Test()]
         public async Task ScheduleTest()
         {
             try

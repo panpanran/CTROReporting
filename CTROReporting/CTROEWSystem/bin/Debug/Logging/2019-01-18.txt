@@ -1,0 +1,55 @@
+
+Log Entry : 7:32:46 AM Friday, January 18, 2019
+  :
+  :EWTicketTrageService > OnStart > EW Ticket Triaging Service Start
+-------------------------------
+
+Log Entry : 7:34:21 AM Friday, January 18, 2019
+  :
+  :EWTicketTrageService > OnStart > EW Ticket Triaging Service Start
+-------------------------------
+
+Log Entry : 7:36:42 AM Friday, January 18, 2019
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:38:42 AM Friday, January 18, 2019
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:40:42 AM Friday, January 18, 2019
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:42:42 AM Friday, January 18, 2019
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:44:42 AM Friday, January 18, 2019
+  :
+  :EWTicketTrageService > tickettimerTick > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:46:21 AM Friday, January 18, 2019
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 7:48:21 AM Friday, January 18, 2019
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 7:50:21 AM Friday, January 18, 2019
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------
+
+Log Entry : 7:52:21 AM Friday, January 18, 2019
+  :
+  :EWTicketTrageService > tickettimerTick > The remote server returned an error: (404) Not Found.
+-------------------------------

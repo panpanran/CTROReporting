@@ -18,6 +18,7 @@ namespace CTROReporting.Service
         IEnumerable<Record> GetRecordsByUser(string userid);
     }
 
+    [Authorize]
     public class RecordServiceController : ApiController, IRecordService
     {
         private readonly IRecordRepository recordRepository;

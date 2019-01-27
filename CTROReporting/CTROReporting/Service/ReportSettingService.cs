@@ -15,6 +15,7 @@ namespace CTROReporting.Service
         ReportSetting GetReportSettingById(int reportsettingid);
     }
 
+    [Authorize]
     public class ReportSettingServiceController : ApiController,IReportSettingService
     {
         private readonly IReportSettingRepository reportsettingRepository;

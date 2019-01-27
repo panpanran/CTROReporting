@@ -19,11 +19,13 @@ namespace CTROReporting.Controllers
     {
         private readonly ILoggerService loggerService;
         private readonly IUserService userService;
+        private readonly IReportSettingService reportsettingService;
 
-        public TicketController(ILoggerService loggerService, IUserService userService)
+        public TicketController(ILoggerService loggerService, IUserService userService, IReportSettingService reportsettingService)
         {
             this.loggerService = loggerService;
             this.userService = userService;
+            this.reportsettingService = reportsettingService;
         }
 
         [HttpGet]
@@ -59,11 +61,11 @@ namespace CTROReporting.Controllers
                         object[] parametersArray = new object[] { where, user };
                         model.TicketResult = (bool)methodInfo.Invoke(classInstance, parametersArray);
                         break;
-                    case "EWSolutionDashboardCheck":
-                        EWSolutionDashboardCheck ew = new EWSolutionDashboardCheck();
-                        model.TicketResult = ew.DashboardCheck(user);
-                        break;
-
+                    //case "EWSolutionDashboardCheck":
+                    //    EWSolutionDashboardCheck ew = new EWSolutionDashboardCheck();
+                    //    ReportSetting reportsetting = reportsettingService.GetReportSettingsByReportId(18).ToArray()[0];
+                    //    model.TicketResult = ew.DashboardCheck(reportsetting.Code);
+                    //    break;
                 }
             }
             var subclassTypes = Assembly.GetAssembly(typeof(EWTicket)).GetTypes().Where(t => t.IsSubclassOf(typeof(EWTicket)) && t.Name.Contains("EWSolution"));

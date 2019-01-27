@@ -1,0 +1,15 @@
+
+Log Entry : 7:22:21 AM Friday, January 25, 2019
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 7:22:27 AM Friday, January 25, 2019
+  :
+  :CTROScheduleService > OnStart > Invalid JSON primitive: .
+-------------------------------
+
+Log Entry : 7:22:27 AM Friday, January 25, 2019
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------

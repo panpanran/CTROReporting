@@ -1,5 +1,0 @@
-
-Log Entry : 2:31:01 PM Thursday, January 10, 2019
-  :
-  :nciid: NCI-2018-02864 > ticket: 87771 > validation error
--------------------------------

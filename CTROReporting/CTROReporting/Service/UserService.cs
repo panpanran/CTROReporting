@@ -21,6 +21,7 @@ namespace CTROReporting.Service
         void DisposeUser();
     }
 
+    [Authorize]
     public class UserServiceController : ApiController,IUserService
     {
         private readonly IUserRepository userRepository;
@@ -41,6 +42,7 @@ namespace CTROReporting.Service
             return users;
         }
 
+        [AllowAnonymous]
         public ApplicationUser GetByUserID(string userid)
         {
             var user = userRepository.Get(u => u.Id == userid);

@@ -1,4 +1,5 @@
-﻿using CTROLibrary.Model;
+﻿using CTROLibrary.EW;
+using CTROLibrary.Model;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -860,7 +861,6 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
     }
     #endregion
 
-
     #region PDA Abstraction and QC
     public class PDAAbstractorReport : CTROReport
     {
@@ -982,5 +982,103 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
     }
 
     #endregion
+
+    #region National Trials wihtout CTEPID
+    public class NationalTrialswihtoutCTEPIDReport : CTROReport
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            conclusionDS = new DataSet();
+
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+
+            foreach (ReportSetting reportSetting in reportSettings)
+            {
+                //abbreviated
+                string codetext = reportSetting.Code;
+                cmd = new NpgsqlCommand(codetext, conn);
+                datareader = cmd.ExecuteReader();
+                DataTable tempDT = new DataTable();
+                DataTable tempconclusionDT = new DataTable();
+                tempDT.TableName = reportSetting.Category;
+                tempDT.Load(datareader);
+                outputDS.Tables.Add(tempDT);
+                conclusionDS.Tables.Add(tempconclusionDT);
+            }
+
+            return outputDS;
+        }
+
+    }
+
+    #endregion
+
+    #region NCTID Problem Report
+    public class NCTIDProblemReport : CTROReport
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            conclusionDS = new DataSet();
+
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+
+            foreach (ReportSetting reportSetting in reportSettings)
+            {
+                //abbreviated
+                string codetext = reportSetting.Code;
+                cmd = new NpgsqlCommand(codetext, conn);
+                datareader = cmd.ExecuteReader();
+                DataTable tempDT = new DataTable();
+                DataTable tempconclusionDT = new DataTable();
+                tempDT.TableName = reportSetting.Category;
+                tempDT.Load(datareader);
+                outputDS.Tables.Add(tempDT);
+                conclusionDS.Tables.Add(tempconclusionDT);
+            }
+
+            return outputDS;
+        }
+
+    }
+
+    #endregion
+
+    #region Dashboard Expectation Date Check Report
+    public class DashboardExpectationDateCheckReport : CTROReport
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            conclusionDS = new DataSet();
+
+            foreach (ReportSetting reportSetting in reportSettings)
+            {
+                //abbreviated
+                string codetext = reportSetting.Code;
+ 
+                DataTable tempDT = new DataTable();
+                DataTable tempconclusionDT = new DataTable();
+
+                EWDashboardCheck ew = new EWDashboardCheck();
+                tempDT = ew.DashboardCheck(codetext);
+                tempDT.TableName = reportSetting.Category;
+                outputDS.Tables.Add(tempDT);
+                conclusionDS.Tables.Add(tempconclusionDT);
+            }
+
+            return outputDS;
+        }
+
+    }
+
+    #endregion
+
 
 }

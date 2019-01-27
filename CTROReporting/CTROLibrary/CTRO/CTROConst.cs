@@ -39,6 +39,6 @@ namespace CTROLibrary.CTRO
         public const string connString = "Server=localhost;Port=5434;User Id=panran;Password=Prss_1234;Database=dw_ctrpn";
         public const string paconnString = "Server=localhost;Port=5434;User Id=panran;Password=Prss_1234;Database=pa_ctrpn";
         //public const string connString = "Server=localhost;Port=5434;User Id=copparead;Password=rftev@LIENSuj#43wU;Database=dw_ctrpn";
-        public const string reportpath = @"C:\Users\panr2\Downloads\DataWarehouse\CTRO Report";
+        //public const string reportpath = @"C:\Users\panr2\Downloads\DataWarehouse\CTRO Report";
     }
 }

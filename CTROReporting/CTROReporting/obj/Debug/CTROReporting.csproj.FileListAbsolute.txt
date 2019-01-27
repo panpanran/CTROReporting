@@ -299,4 +299,7 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.pdb
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Migrations.connectuserprofile1.resources
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\Microsoft.Owin.Cors.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\System.Web.Cors.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\bin\Microsoft.Owin.Cors.xml
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\obj\Debug\CTROReporting.csprojAssemblyReference.cache

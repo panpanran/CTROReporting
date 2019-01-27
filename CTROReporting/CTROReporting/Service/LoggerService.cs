@@ -16,6 +16,7 @@ namespace CTROReporting.Service
         IEnumerable<Logger> GetLoggersByUser(string userid);
     }
 
+    //[Authorize]
     public class LoggerServiceController : ApiController, ILoggerService
     {
         private readonly ILoggerRepository loggerRepository;

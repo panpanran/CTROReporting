@@ -2,6 +2,7 @@
 using Microsoft.Office.Interop.Excel;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Data;
 using System.Data.OleDb;
 using System.Globalization;
@@ -20,6 +21,22 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace CTROLibrary.CTRO
 {
+    public class CookieAwareWebClient : WebClient
+    {
+        public CookieAwareWebClient()
+        {
+            CookieContainer = new CookieContainer();
+        }
+        public CookieContainer CookieContainer { get; private set; }
+
+        protected override WebRequest GetWebRequest(Uri address)
+        {
+            var request = (HttpWebRequest)base.GetWebRequest(address);
+            request.CookieContainer = CookieContainer;
+            return request;
+        }
+    }
+
     public static class CTROFunctions
     {
         public static string GetHTMLByUrl(string url)
@@ -40,8 +57,29 @@ namespace CTROLibrary.CTRO
             {
                 url.Append("?" + para);
             }
+            WebClient webClient = new WebClient();
+            webClient.UseDefaultCredentials = true;
+            //string credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes("panpanr" + ":" + "panpanran"));
+            //webClient.Headers[HttpRequestHeader.Authorization] = "Basic " + credentials;
+            webClient.Credentials = new NetworkCredential("panpanr", "panpanran");
 
-            string json = new WebClient().DownloadString(url.ToString());
+            string urlstr = url.ToString();
+
+            using (var client = new CookieAwareWebClient())
+            {
+                var values = new NameValueCollection
+    {
+        { "UserName", "panpanr" },
+        { "Password", "panpanran" },
+    };
+                client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
+                client.UploadValues("http://local.ctroreporting.com/ApplicationUser/Login","POST", values);
+
+                // If the previous call succeeded we now have a valid authentication cookie
+                // so we could download the protected page
+                string result = client.DownloadString(urlstr);
+            }
+            string json = webClient.DownloadString(urlstr);
             var sdata = new JavaScriptSerializer().Deserialize<T>(json);
             return sdata;
         }
@@ -54,16 +92,24 @@ namespace CTROLibrary.CTRO
             string fileName = Path.GetFileName(path);
 
             string sql = @"SELECT * FROM [" + fileName + "]";
+            System.Data.DataTable dataTable = new System.Data.DataTable();
 
-            using (OleDbConnection connection = new OleDbConnection(
-                      @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + pathOnly +
-                      ";Extended Properties=\"Text;HDR=" + header + "\""))
-            using (OleDbCommand command = new OleDbCommand(sql, connection))
-            using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
+            try
             {
-                System.Data.DataTable dataTable = new System.Data.DataTable();
-                dataTable.Locale = CultureInfo.CurrentCulture;
-                adapter.Fill(dataTable);
+                using (OleDbConnection connection = new OleDbConnection(
+                          @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + pathOnly +
+                          ";Extended Properties=\"Text;HDR=" + header + "\""))
+                using (OleDbCommand command = new OleDbCommand(sql, connection))
+                using (OleDbDataAdapter adapter = new OleDbDataAdapter(command))
+                {
+                    dataTable.Locale = CultureInfo.CurrentCulture;
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog("CTROFunctions", "GetDataTableFromCsv", ex.Message);
                 return dataTable;
             }
         }

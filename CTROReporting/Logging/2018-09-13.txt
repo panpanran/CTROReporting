@@ -1,5 +1,0 @@
-
-Log Entry : 4:28:17 PM Thursday, September 13, 2018
-  :
-  :No connection could be made because the target machine actively refused it
--------------------------------

@@ -16,6 +16,7 @@ namespace CTROReporting.Service
         IEnumerable<Department> GetDepartments();
     }
 
+    [Authorize]
     public class DepartmentServiceController : ApiController, IDepartmentService
     {
         private readonly IDepartmentRepository departmentRepository;

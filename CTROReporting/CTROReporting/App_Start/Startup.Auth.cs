@@ -6,26 +6,24 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using CTROLibrary.Model;
+using Microsoft.Owin.Security.OAuth;
+using System.Threading.Tasks;
+using CTROLibrary.Repository;
+using Microsoft.AspNet.Identity.EntityFramework;
+using CTROLibrary.DBbase;
+using System.Security.Claims;
 
 namespace CTROReporting
 {
     public partial class Startup
     {
-        // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
-        public void ConfigureAuth(IAppBuilder app)
+        public void ConfigureOAuth(IAppBuilder app)
         {
-            //// Configure the db context, user manager and signin manager to use a single instance per request
-            //app.CreatePerOwinContext(ApplicationDbContext.Create);
-            //app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-            //app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
-
-            // Enable the application to use a cookie to store information for the signed in user
-            // and to use a cookie to temporarily store information about a user logging in with a third party login provider
-            // Configure the sign in cookie
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/ApplicationUser/Login"),
+                LoginPath = new PathString("/ApplicationUser/Login")
+                //ExpireTimeSpan = TimeSpan.FromMinutes(30)
                 //Provider = new CookieAuthenticationProvider
                 //{
                 //    // Enables the application to validate the security stamp when the user logs in.
@@ -34,36 +32,89 @@ namespace CTROReporting
                 //        validateInterval: TimeSpan.FromMinutes(30),
                 //        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 //}
-            });            
+            });
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
-            // Enables the application to temporarily store user information when they are verifying the second factor in the two-factor authentication process.
-            //app.UseTwoFactorSignInCookie(DefaultAuthenticationTypes.TwoFactorCookie, TimeSpan.FromMinutes(5));
 
-            // Enables the application to remember the second login verification factor such as phone or email.
-            // Once you check this option, your second step of verification during the login process will be remembered on the device where you logged in from.
-            // This is similar to the RememberMe option when you log in.
-            //app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
-            //app.UseGoogleAuthentication();
-
-            // Uncomment the following lines to enable logging in with third party login providers
-            //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
-
-            //app.UseTwitterAuthentication(
-            //   consumerKey: "",
-            //   consumerSecret: "");
-
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
-
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            //OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
             //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            //    AllowInsecureHttp = true,
+            //    TokenEndpointPath = new PathString("/token"),
+            //    AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+            //    Provider = new SimpleAuthorizationServerProvider()
+            //};
+
+            //// Token Generation
+            //app.UseOAuthAuthorizationServer(OAuthServerOptions);
+            //app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+        }
+    }
+
+    public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
+    {
+        public override async Task ValidateClientAuthentication(OAuthValidateClientAuthenticationContext context)
+        {
+            context.Validated();
+        }
+
+        public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
+        {
+
+            context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
+            UserManager<IdentityUser> _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>()) ;
+            IdentityUser user = await _userManager.FindAsync(context.UserName, context.Password);
+
+            if (user == null)
+            {
+                context.SetError("invalid_grant", "The user name or password is incorrect.");
+                return;
+            }
+
+            var identity = new ClaimsIdentity(context.Options.AuthenticationType);
+            identity.AddClaim(new Claim("sub", context.UserName));
+            identity.AddClaim(new Claim("role", "user"));
+
+            context.Validated(identity);
+
+        }
+    }
+
+    public class AuthRepository : IDisposable
+    {
+        private EntitiesInitial _ctx;
+
+        private UserManager<IdentityUser> _userManager;
+
+        public AuthRepository()
+        {
+            _ctx = new EntitiesInitial();
+            _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(_ctx));
+        }
+
+        public async Task<IdentityResult> RegisterUser(ApplicationUser userModel)
+        {
+            IdentityUser user = new IdentityUser
+            {
+                UserName = userModel.UserName
+            };
+
+            var result = await _userManager.CreateAsync(user, userModel.PasswordHash);
+
+            return result;
+        }
+
+        public async Task<IdentityUser> FindUser(string userName, string password)
+        {
+            IdentityUser user = await _userManager.FindAsync(userName, password);
+
+            return user;
+        }
+
+        public void Dispose()
+        {
+            _ctx.Dispose();
+            _userManager.Dispose();
+
         }
     }
 }

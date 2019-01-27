@@ -15,6 +15,7 @@ namespace CTROReporting.Service
         CTROLibrary.Model.Chart GetByChartName(string name);
     }
 
+    [System.Web.Http.Authorize]
     public class ChartServiceController : ApiController,IChartService
     {
         private readonly IChartRepository ChartRepository;

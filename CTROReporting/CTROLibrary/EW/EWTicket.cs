@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Data;
 using Npgsql;
 using System.IO;
+using System.Threading;
+using System.Configuration;
 
 namespace CTROLibrary.EW
 {
@@ -219,200 +221,231 @@ namespace CTROLibrary.EW
         }
     }
 
-    public class EWSolutionDashboardCheck : EWTicket
+    public class EWDashboardCheck : EWTicket
     {
-        public bool DashboardCheck(ApplicationUser user)
+        public DataTable DashboardCheck(string code)
         {
-            Logger logger = new Logger
-            {
-                ClassName = this.GetType().Name,
-                MethodName = "DashboardCheck",
-                Level = 1,
-                Message = "Dashboard check finished.",
-                UserId = user.Id
-            };
+            DataTable table = new DataTable();
+            //Logger logger = new Logger
+            //{
+            //    ClassName = this.GetType().Name,
+            //    MethodName = "DashboardCheck",
+            //    Level = 1,
+            //    Message = "Dashboard check finished.",
+            //    UserId = user.Id
+            //};
 
             try
             {
-                string input = @"C:\Users\panr2\Downloads\workload.csv";
-                string output = @"C:\Users\panr2\Downloads\DataWarehouse\Offhold Report\Dashboard Expectation Date Check " + String.Format("{0:yyyyMMdd}", DateTime.Now) + ".txt";
-                DownloadCSV();
-                GenerateReport(input, output);
+                string input = AppDomain.CurrentDomain.BaseDirectory + "/workload.csv";
+                string output = @"C:\Users\panr2\Downloads\result.txt";
+                if (DownloadCSV())
+                {
+                    Thread.Sleep(1000);
+                    table = GenerateReport(input, code);
+                }
+                //CTROFunctions.SendEmail("Dashboard Expectation Date Check " + String.Format("{0:yyyyMMdd}", DateTime.Now), "Hi Dena, <br /><br /> Attached please find. Dashboard Expectation Date Check Report has been done. <br /><br /> Thank you", "dena.sumaida@nih.gov", output);
+                //CTROFunctions.SendEmail("Dashboard Expectation Date Check " + String.Format("{0:yyyyMMdd}", DateTime.Now), "Hi Vika, <br /><br /> Attached please find. Dashboard Expectation Date Check Report has been done. <br /><br /> Thank you", "grinbergv@mail.nih.gov", output);
+                //CTROFunctions.SendEmail("Dashboard Expectation Date Check " + String.Format("{0:yyyyMMdd}", DateTime.Now), "Hi Ran, <br /><br /> Attached please find. Dashboard Expectation Date Check Report has been done. <br /><br /> Thank you", "ran.pan@nih.gov", output);
+                //var url = CTROFunctions.CreateDataFromJson("LoggerService", "CreateLogger", logger);
+                return table;
+            }
+            catch (Exception ex)
+            {
+                //logger.Level = 2;
+                //logger.Message = "Dashboard check failed.";
+                //var url = CTROFunctions.CreateDataFromJson("LoggerService", "CreateLogger", logger);
+                return table;
+            }
+        }
+
+        public bool DownloadCSV()
+        {
+            try
+            {
+                ChromeOptions options = new ChromeOptions();
+                options.AddUserProfilePreference("download.default_directory", AppDomain.CurrentDomain.BaseDirectory);
+                //options.AddUserProfilePreference("intl.accept_languages", "nl");
+                //options.AddUserProfilePreference("disable-popup-blocking", "true");
+                IWebDriver driver = new ChromeDriver(AppDomain.CurrentDomain.BaseDirectory, options, TimeSpan.FromSeconds(120));
+
+                //Notice navigation is slightly different than the Java version
+                //This is because 'get' is a keyword in C#
+                driver.Navigate().GoToUrl("https://trials.nci.nih.gov/pa/protected/studyProtocolexecute.action");
+                //Login
+                IWebElement username = driver.FindElement(By.Id("j_username"));
+                username.SendKeys("panr");
+                IWebElement password = driver.FindElement(By.Id("j_password"));
+                password.SendKeys("Prss_7890");
+                password.Submit();
+                IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
+                acceptclaim.Click();
+
+                //CSV
+                IWebElement csvspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "CSV");
+                csvspan.Click();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                //Logging.WriteLog("EWDashboardCheck", "DownloadCSV", ex.Message);
+                return false;
+            }
+        }
+
+        public DataTable GenerateReport(string input, string code)
+        {
+            DataTable outputTable = new DataTable();
+            outputTable.Columns.Add("nciid", typeof(String));
+            outputTable.Columns.Add("accepted", typeof(DateTime));
+            outputTable.Columns.Add("dashboardexpected", typeof(DateTime));
+            outputTable.Columns.Add("realexpected", typeof(DateTime));
+
+            DataTable trialdata = CTROFunctions.GetDataTableFromCsv(input, true);
+
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PADWConnectionString"].ConnectionString))
+            {
+                conn.Open();
+                //                    string code = @"select 
+                //dw_study.nci_id,
+                //accepted.submission_number, 
+                //accepted.date,
+                //dw_study_on_hold_status.on_hold_date,
+                //dw_study_on_hold_status.off_hold_date,
+                //reactivated.date, 
+                //dw_study_on_hold_status.reason,
+                //dw_study_on_hold_status.reason_description
+                //from(select * from dw_study where nci_id = 'nciidpara') dw_study
+                //left join(select * from dw_study_milestone where name = 'Submission Acceptance Date') accepted
+                //on accepted.nci_id = dw_study.nci_id
+                //and accepted.submission_number = dw_study.submission_number
+                //left join(select* from dw_study_milestone where name = 'Submission Reactivated Date') reactivated
+                //on reactivated.nci_id = dw_study.nci_id
+                //and reactivated.submission_number = dw_study.submission_number
+                //left join(select* from dw_study_on_hold_status) dw_study_on_hold_status
+                //on dw_study_on_hold_status.nci_id = dw_study.nci_id
+                //order by dw_study.nci_id, dw_study_on_hold_status.off_hold_date; ";
+                NpgsqlCommand cmd = null;
+                NpgsqlDataReader datareader = null;
+                DateTime expecteddate;
+                DateTime startdate = new DateTime();
+                DateTime enddate;
+                DateTime reactivateddate;
+                DateTime onholddate;
+                DateTime offholddate;
+                DateTime accepteddate = new DateTime();
+
+                string nciid;
+                int onholdflag = 0;
+
+                //using (StreamWriter sw = File.CreateText(@"C:\Users\panr2\Downloads\result.txt"))
+                //{
+                foreach (DataRow workloadrow in trialdata.Rows)
+                {
+                    nciid = "NCI-" + workloadrow[0].ToString();
+
+                    string codetext = code.Replace("nciidpara", nciid);
+                    cmd = new NpgsqlCommand(codetext, conn);
+                    datareader = cmd.ExecuteReader();
+                    DataTable nciDT = new DataTable();
+                    nciDT.Load(datareader);
+                    int totaldays = 0;
+                    expecteddate = (DateTime)workloadrow.ItemArray[3];
+
+
+                    for (int i = 0; i < nciDT.Rows.Count; i++)
+                    {
+                        onholdflag = 0;
+                        if (i == 0)
+                        {
+                            accepteddate = string.IsNullOrEmpty(workloadrow.ItemArray[5].ToString()) ? new DateTime() : (DateTime)workloadrow.ItemArray[5];
+                            reactivateddate = string.IsNullOrEmpty(nciDT.Rows[i].ItemArray[5].ToString()) ? new DateTime() : (DateTime)(nciDT.Rows[i].ItemArray[5]);
+                            startdate = reactivateddate > accepteddate ? reactivateddate : accepteddate;
+                            totaldays = CTROFunctions.CountBusinessDays(startdate, DateTime.Now.Date, CTROConst.Holidays);
+                        }
+                        onholddate = string.IsNullOrEmpty(nciDT.Rows[i].ItemArray[3].ToString()) ? new DateTime() : (DateTime)(nciDT.Rows[i].ItemArray[3]);
+                        offholddate = string.IsNullOrEmpty(nciDT.Rows[i].ItemArray[4].ToString()) ? new DateTime() : (DateTime)(nciDT.Rows[i].ItemArray[4]);
+                        if (onholddate > Convert.ToDateTime("1/1/0001"))
+                        {
+                            if (offholddate > Convert.ToDateTime("1/1/0001"))
+                            {
+                                if (offholddate > startdate)
+                                {
+                                    totaldays = totaldays - CTROFunctions.CountBusinessDays(onholddate > startdate ? onholddate : startdate, offholddate, CTROConst.Holidays);
+                                }
+                            }
+                            else
+                            {
+                                onholdflag = 2;
+                            }
+                        }
+                    }
+
+                    if (nciDT.Rows.Count == 0)
+                    {
+                        reactivateddate = new DateTime();
+                        onholddate = new DateTime();
+                        offholddate = new DateTime();
+                    }
+
+                    if (accepteddate.Date == Convert.ToDateTime("1/1/0001"))
+                    {
+                        //No record
+                        onholdflag = 1;
+                    }
+
+
+                    switch (onholdflag)
+                    {
+                        case 1:
+                            //sw.WriteLine("nciid: " + nciid + ", this trial has not been accepted.");
+                            break;
+                        case 2:
+                            //sw.WriteLine("nciid: " + nciid + ", this trial is still on-hold.");
+                            break;
+                        case 0:
+                            if (totaldays < 0)
+                            {
+                                //sw.WriteLine("There are some errors. nciid: " + nciid + ", expecteddate on dashboard: " + expecteddate);
+                            }
+                            else
+                            {
+                                enddate = DateTime.Now.Date;
+                                while (CTROFunctions.CountBusinessDays(DateTime.Now.Date, enddate, CTROConst.Holidays) <= 10 - totaldays)
+                                {
+                                    enddate = enddate.AddDays(1);
+                                }
+                                if (CTROFunctions.CountBusinessDays(DateTime.Now.Date, enddate, CTROConst.Holidays) < 6)
+                                {
+                                    if (expecteddate.Date != enddate.Date)
+                                    {
+                                        try
+                                        {
+                                            outputTable.Rows.Add(nciid, accepteddate, expecteddate, enddate);
+                                            //Logging.WriteLog("EWDashboardCheck", "GenerateReport", "nciid: " + nciid + " need to be changed");
+                                            //sw.WriteLine("nciid: " + nciid + ", expecteddate on dashboard: " + expecteddate + ", real expected date: " + enddate);
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            //Logging.WriteLog("EWDashboardCheck", "GenerateReport", "nciiid:" + nciid + ", error message: " + ex.Message);
+                                        }
+                                    }
+                                }
+                                //else
+                                //{
+                                //    sw.WriteLine("nciid: " + nciid + ", expecteddate on dashboard is even more than real expected date. So just leave it there.");
+                                //}
+                            }
+                            break;
+                    }
+                }
+                //}
+
                 if (File.Exists(input))
                 {
                     File.Delete(input);
                 }
-                //CTROFunctions.SendEmail("Dashboard Expectation Date Check " + String.Format("{0:yyyyMMdd}", DateTime.Now), "Hi Dena, <br /><br /> Attached please find. Dashboard Expectation Date Check Report has been done. <br /><br /> Thank you", "dena.sumaida@nih.gov", output);
-                //CTROFunctions.SendEmail("Dashboard Expectation Date Check " + String.Format("{0:yyyyMMdd}", DateTime.Now), "Hi Vika, <br /><br /> Attached please find. Dashboard Expectation Date Check Report has been done. <br /><br /> Thank you", "grinbergv@mail.nih.gov", output);
-                CTROFunctions.SendEmail("Dashboard Expectation Date Check " + String.Format("{0:yyyyMMdd}", DateTime.Now), "Hi Ran, <br /><br /> Attached please find. Dashboard Expectation Date Check Report has been done. <br /><br /> Thank you", "ran.pan@nih.gov", output);
-                var url = CTROFunctions.CreateDataFromJson("LoggerService", "CreateLogger", logger);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                logger.Level = 2;
-                logger.Message = "Dashboard check failed.";
-                var url = CTROFunctions.CreateDataFromJson("LoggerService", "CreateLogger", logger);
-                return false;
-            }
-        }
-
-        public void DownloadCSV()
-        {
-            ChromeOptions options = new ChromeOptions();
-            IWebDriver driver = new ChromeDriver(AppDomain.CurrentDomain.BaseDirectory, options, TimeSpan.FromSeconds(120));
-            //Notice navigation is slightly different than the Java version
-            //This is because 'get' is a keyword in C#
-            driver.Navigate().GoToUrl("https://trials.nci.nih.gov/pa/protected/studyProtocolexecute.action");
-            //Login
-            IWebElement username = driver.FindElement(By.Id("j_username"));
-            username.SendKeys("panr");
-            IWebElement password = driver.FindElement(By.Id("j_password"));
-            password.SendKeys("Prss_7890");
-            password.Submit();
-            IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
-            acceptclaim.Click();
-
-            //CSV
-            IWebElement csvspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "CSV");
-            csvspan.Click();
-        }
-
-        public bool GenerateReport(string input, string output)
-        {
-            try
-            {
-                DataTable trialdata = CTROFunctions.GetDataTableFromCsv(input, true);
-                using (var conn = new NpgsqlConnection(CTROConst.connString))
-                {
-                    conn.Open();
-                    string code = @"select 
-dw_study.nci_id,
-accepted.submission_number, 
-accepted.date,
-dw_study_on_hold_status.on_hold_date,
-dw_study_on_hold_status.off_hold_date,
-reactivated.date, 
-dw_study_on_hold_status.reason,
-dw_study_on_hold_status.reason_description
-from(select * from dw_study where nci_id = 'nciidpara') dw_study
-left join(select * from dw_study_milestone where name = 'Submission Acceptance Date') accepted
-on accepted.nci_id = dw_study.nci_id
-and accepted.submission_number = dw_study.submission_number
-left join(select* from dw_study_milestone where name = 'Submission Reactivated Date') reactivated
-on reactivated.nci_id = dw_study.nci_id
-and reactivated.submission_number = dw_study.submission_number
-left join(select* from dw_study_on_hold_status) dw_study_on_hold_status
-on dw_study_on_hold_status.nci_id = dw_study.nci_id
-order by dw_study.nci_id, dw_study_on_hold_status.off_hold_date; ";
-                    NpgsqlCommand cmd = null;
-                    NpgsqlDataReader datareader = null;
-                    DateTime expecteddate;
-                    DateTime startdate = new DateTime();
-                    DateTime enddate;
-                    DateTime reactivateddate;
-                    DateTime onholddate;
-                    DateTime offholddate;
-                    DateTime accepteddate = new DateTime();
-                    string nciid;
-                    int onholdflag = 0;
-                    using (StreamWriter sw = File.CreateText(output))
-                    {
-                        foreach (DataRow workloadrow in trialdata.Rows)
-                        {
-                            nciid = "NCI-" + workloadrow[0].ToString();
-                            string codetext = code.Replace("nciidpara", nciid);
-                            cmd = new NpgsqlCommand(codetext, conn);
-                            datareader = cmd.ExecuteReader();
-                            DataTable nciDT = new DataTable();
-                            nciDT.Load(datareader);
-                            int totaldays = 0;
-                            expecteddate = (DateTime)workloadrow.ItemArray[3];
-
-
-                            for (int i = 0; i < nciDT.Rows.Count; i++)
-                            {
-                                onholdflag = 0;
-                                if (i == 0)
-                                {
-                                    accepteddate = string.IsNullOrEmpty(workloadrow.ItemArray[5].ToString()) ? new DateTime() : (DateTime)workloadrow.ItemArray[5];
-                                    reactivateddate = string.IsNullOrEmpty(nciDT.Rows[i].ItemArray[5].ToString()) ? new DateTime() : (DateTime)(nciDT.Rows[i].ItemArray[5]);
-                                    startdate = reactivateddate > accepteddate ? reactivateddate : accepteddate;
-                                    totaldays = CTROFunctions.CountBusinessDays(startdate, DateTime.Now.Date, CTROConst.Holidays);
-                                }
-                                onholddate = string.IsNullOrEmpty(nciDT.Rows[i].ItemArray[3].ToString()) ? new DateTime() : (DateTime)(nciDT.Rows[i].ItemArray[3]);
-                                offholddate = string.IsNullOrEmpty(nciDT.Rows[i].ItemArray[4].ToString()) ? new DateTime() : (DateTime)(nciDT.Rows[i].ItemArray[4]);
-                                if (onholddate > Convert.ToDateTime("1/1/0001"))
-                                {
-                                    if (offholddate > Convert.ToDateTime("1/1/0001"))
-                                    {
-                                        if (offholddate > startdate)
-                                        {
-                                            totaldays = totaldays - CTROFunctions.CountBusinessDays(onholddate > startdate ? onholddate : startdate, offholddate, CTROConst.Holidays);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        onholdflag = 2;
-                                    }
-                                }
-                            }
-
-                            if (nciDT.Rows.Count == 0)
-                            {
-                                reactivateddate = new DateTime();
-                                onholddate = new DateTime();
-                                offholddate = new DateTime();
-                            }
-
-                            if (accepteddate.Date == Convert.ToDateTime("1/1/0001"))
-                            {
-                                //No record
-                                onholdflag = 1;
-                            }
-
-                            switch (onholdflag)
-                            {
-                                case 1:
-                                    sw.WriteLine("nciid: " + nciid + ", this trial has not been accepted.");
-                                    break;
-                                case 2:
-                                    sw.WriteLine("nciid: " + nciid + ", this trial is still on-hold.");
-                                    break;
-                                case 0:
-                                    if (totaldays < 0)
-                                    {
-                                        //sw.WriteLine("There are some errors. nciid: " + nciid + ", expecteddate on dashboard: " + expecteddate);
-                                    }
-                                    else
-                                    {
-                                        enddate = DateTime.Now.Date;
-                                        while (CTROFunctions.CountBusinessDays(DateTime.Now.Date, enddate, CTROConst.Holidays) <= 10 - totaldays)
-                                        {
-                                            enddate = enddate.AddDays(1);
-                                        }
-                                        if (CTROFunctions.CountBusinessDays(DateTime.Now.Date, enddate, CTROConst.Holidays) < 6)
-                                        {
-                                            if (expecteddate.Date != enddate.Date)
-                                            {
-                                                sw.WriteLine("nciid: " + nciid + ", expecteddate on dashboard: " + expecteddate + ", real expected date: " + enddate);
-                                            }
-                                        }
-                                        //else
-                                        //{
-                                        //    sw.WriteLine("nciid: " + nciid + ", expecteddate on dashboard is even more than real expected date. So just leave it there.");
-                                        //}
-                                    }
-                                    break;
-                            }
-                        }
-                    }
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
+                return outputTable;
             }
         }
     }

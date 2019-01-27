@@ -224,10 +224,10 @@ on dw_active.nci_id = dw_study.nci_id order by dw_active.status_date; ";
         [Test]
         public void OffholdDashboardTest()
         {
-            EWSolutionDashboardCheck ew = new EWSolutionDashboardCheck();
+            EWDashboardCheck ew = new EWDashboardCheck();
             ApplicationUser user = new ApplicationUser();
 
-            ew.DashboardCheck(user);
+            //ew.DashboardCheck(user);
         }
 
         [Test]

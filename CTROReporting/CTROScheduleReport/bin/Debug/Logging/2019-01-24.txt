@@ -1,0 +1,225 @@
+
+Log Entry : 7:46:58 AM Thursday, January 24, 2019
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 7:47:08 AM Thursday, January 24, 2019
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 1/24/2019 8:10:00 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Offhold at 1/24/2019 8:10:00 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for kirsten - Sponsor at 1/24/2019 8:10:00 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 1/24/2019 8:10:00 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for joshua - TSR Sent at 1/24/2019 8:10:00 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - TSR Sent at 1/24/2019 8:10:00 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - TSR Sent at 1/24/2019 8:10:00 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------
+
+Log Entry : 8:10:29 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------
+
+Log Entry : 8:10:44 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - TSR Sent at 1/24/2019 8:10:44 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:44 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:44 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 1/24/2019 8:10:44 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:44 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:44 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - TSR Sent at 1/24/2019 8:10:44 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:44 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:44 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for joshua - TSR Sent at 1/24/2019 8:10:44 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:44 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:11:44 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for joshua - TSR Sent at 1/24/2019 8:11:44 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:11:44 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:11:59 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 1/24/2019 8:11:59 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:11:59 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:11:59 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - TSR Sent at 1/24/2019 8:11:59 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:11:59 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:14 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for kirsten - Sponsor at 1/24/2019 8:12:14 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:12:14 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:59 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for kirsten - Sponsor at 1/24/2019 8:12:59 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:12:59 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:13:44 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for joshua - TSR Sent at 1/24/2019 8:13:44 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:13:44 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:13:59 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - TSR Sent at 1/24/2019 8:13:59 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:13:59 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:14:59 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for kirsten - Sponsor at 1/24/2019 8:14:59 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:14:59 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:21:59 AM Thursday, January 24, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for kirsten - Sponsor at 1/24/2019 8:21:59 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:21:59 AM Thursday, January 24, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------

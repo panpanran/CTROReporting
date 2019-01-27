@@ -15,6 +15,7 @@ using System.Web.Caching;
 using System.Runtime.Caching;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Configuration;
 
 namespace CTROLibrary.CTRO
 {
@@ -34,6 +35,7 @@ namespace CTROLibrary.CTRO
             object classInstance = Activator.CreateInstance(type, null);
             object bookObject = null;
 
+            string templatepath = AppDomain.CurrentDomain.BaseDirectory + "/Templates/";
             StringBuilder pathtext = new StringBuilder();
             pathtext.Append(AppDomain.CurrentDomain.BaseDirectory + "/Excel/" + String.Format("{0:yyyyMMdd}", DateTime.Now) + "/");
             string savepath = string.Empty;
@@ -85,7 +87,7 @@ namespace CTROLibrary.CTRO
                 if (pathCache == null)
                 {
                     CTROFunctions.processpercentage[user.UserName] = 0;
-                    using (var conn = new NpgsqlConnection(report.ReportName == "Sponsor" ? CTROConst.paconnString : CTROConst.connString))
+                    using (var conn = new NpgsqlConnection(report.ReportName == "Sponsor" ? ConfigurationManager.ConnectionStrings["PADBConnectionString"].ConnectionString : ConfigurationManager.ConnectionStrings["PADWConnectionString"].ConnectionString))
                     {
                         conn.Open();
                         ReportSetting[] reportSettings = report.ReportSettings.ToArray();
@@ -108,7 +110,7 @@ namespace CTROLibrary.CTRO
                             {
                                 ifchart = true;
                             }
-                            await CTROFunctions.WriteExcelByDataTable(bookDS.Tables[n], user, savepath, report.Template, reportsetting.Startrow, reportsetting.Startcolumn, ifchart, totalrows);
+                            await CTROFunctions.WriteExcelByDataTable(bookDS.Tables[n], user, savepath, templatepath + report.Template, reportsetting.Startrow, reportsetting.Startcolumn, ifchart, totalrows);
                             if (reportsetting.AdditionStartrow > 0 && reportsetting.AdditionStartcolumn > 0)
                             {
                                 await CTROFunctions.WriteExcelByDataTable(conclusionDS.Tables[n], user, savepath, null, reportsetting.AdditionStartrow, reportsetting.AdditionStartcolumn, ifchart);
@@ -173,7 +175,7 @@ namespace CTROLibrary.CTRO
             Yaxis = new List<Dictionary<string, string>>();
             Dictionary<string, string> tempYaxis = new Dictionary<string, string>();
             Dictionary<string, string> temprankYaxis = new Dictionary<string, string>();
-            using (var conn = new NpgsqlConnection(CTROConst.connString))
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PADWConnectionString"].ConnectionString))
             {
                 conn.Open();
                 try
@@ -249,7 +251,7 @@ namespace CTROLibrary.CTRO
             Yaxis = new List<Dictionary<string, string>>();
             Dictionary<string, string> tempYaxis = new Dictionary<string, string>();
             Dictionary<string, string> temprankYaxis = new Dictionary<string, string>();
-            using (var conn = new NpgsqlConnection(CTROConst.connString))
+            using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PADWConnectionString"].ConnectionString))
             {
                 conn.Open();
                 try

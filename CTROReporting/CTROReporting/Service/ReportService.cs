@@ -22,6 +22,7 @@ namespace CTROReporting.Service
         Task<bool> CreateReport(int selectedreport, string userid, string startdate, string enddate, ApplicationUser user);
     }
 
+    [System.Web.Http.Authorize]
     public class ReportServiceController : ApiController,IReportService
     {
         private readonly IReportRepository reportRepository;
@@ -43,6 +44,7 @@ namespace CTROReporting.Service
             return report;
         }
 
+        [System.Web.Http.AllowAnonymous]
         public Report GetReportById(int reportid)
         {
             var report = reportRepository.Get(x => x.ReportId == reportid);

@@ -1,0 +1,170 @@
+
+Log Entry : 7:47:32 AM Wednesday, January 23, 2019
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 7:47:45 AM Wednesday, January 23, 2019
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------
+
+Log Entry : 7:49:25 AM Wednesday, January 23, 2019
+  :
+  :Startup > Configuration > CTROScheduleService Configuring
+-------------------------------
+
+Log Entry : 7:49:38 AM Wednesday, January 23, 2019
+  :
+  :CTROScheduleService > OnStart > CTROScheduleService Start
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 1/23/2019 8:10:00 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 1/23/2019 8:10:00 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Offhold at 1/23/2019 8:10:00 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 1/23/2019 8:10:00 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for joshua - TSR Sent at 1/23/2019 8:10:00 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - TSR Sent at 1/23/2019 8:10:00 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - TSR Sent at 1/23/2019 8:10:00 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------
+
+Log Entry : 8:10:00 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------
+
+Log Entry : 8:10:25 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------
+
+Log Entry : 8:10:25 AM Wednesday, January 23, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 1/23/2019 8:10:25 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:25 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:41 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------
+
+Log Entry : 8:10:41 AM Wednesday, January 23, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 1/23/2019 8:10:41 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:41 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:41 AM Wednesday, January 23, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Offhold at 1/23/2019 8:10:41 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:10:41 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:11:11 AM Wednesday, January 23, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 1/23/2019 8:11:11 AM and the error message is: Could not load file or assembly 'System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+-------------------------------
+
+Log Entry : 8:11:11 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:11:26 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------
+
+Log Entry : 8:12:58 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------
+
+Log Entry : 8:15:12 AM Wednesday, January 23, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------

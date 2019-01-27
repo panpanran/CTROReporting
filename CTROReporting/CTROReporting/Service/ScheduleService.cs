@@ -20,6 +20,7 @@ namespace CTROReporting.Service
         void DeleteSchedule(Schedule schedule);
     }
 
+    [Authorize]
     public class ScheduleServiceController : ApiController,IScheduleService
     {
         private readonly IScheduleRepository scheduleRepository;
@@ -44,6 +45,7 @@ namespace CTROReporting.Service
             return topic;
         }
 
+        [AllowAnonymous]
         public IEnumerable<Schedule> GetSchedules()
         {
             var schedule = scheduleRepository.GetAll();
