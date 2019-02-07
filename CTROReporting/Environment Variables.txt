@@ -1,0 +1,23 @@
+  <connectionStrings>
+    <!--<add name="CTROReportingEntities" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=AttitudeLoose;Integrated Security=True;AttachDBFilename=|DataDirectory|\AttitudeLoose.mdf" providerName="System.Data.SqlClient" />-->
+    <add name="CTROReportingEntities" connectionString="Data Source=localhost\SQLEXPRESS;Initial Catalog=CTROReporting;User Id=panran;Password=Prss_1234;" providerName="System.Data.SqlClient" />
+    <add name="PADWConnectionString" connectionString="Server=localhost;Port=5434;User Id=panran;Password=Prss_1234;Database=dw_ctrpn" />
+    <add name="PADBConnectionString" connectionString="Server=localhost;Port=5434;User Id=panran;Password=Prss_1234;Database=pa_ctrpn" />
+  </connectionStrings>
+  <appSettings>
+    <add key="webpages:Version" value="3.0.0.0" />
+    <add key="webpages:Enabled" value="true" />
+    <add key="ClientValidationEnabled" value="true" />
+    <add key="UnobtrusiveJavaScriptEnabled" value="true" />
+    <add key="owin:appStartup" value="CTROReportingConfig" />
+    <add key="V_CTROTemplate" value="C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Templates\" />
+    <add key="V_CTROExcel" value="C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\" />
+    <add key="V_CTROChromeDriver" value="C:\Users\panr2\Downloads\C#\CTROReporting\" />
+    <add key="V_CTROLogging" value="C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Logging\" />
+    <add key="V_CTROProfileImage" value="~/Images/" />
+    <add key="V_RANPAN_EW_PASSWORD" value="Prss_3456" />
+    <add key="V_RANPAN_PA_PASSWORD" value="Prss_0123" />
+    <add key="V_RANPAN_EW_ACCOUNT" value="panr2" />
+    <add key="V_RANPAN_PA_ACCOUNT" value="panr" />
+
+  </appSettings>

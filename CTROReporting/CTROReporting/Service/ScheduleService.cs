@@ -45,7 +45,7 @@ namespace CTROReporting.Service
             return topic;
         }
 
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public IEnumerable<Schedule> GetSchedules()
         {
             var schedule = scheduleRepository.GetAll();

@@ -1,0 +1,10 @@
+
+Log Entry : 5:15:20 PM Sunday, January 27, 2019
+  :
+  :ScheduleJob > Execute > The remote server returned an error: (500) Internal Server Error.
+-------------------------------
+
+Log Entry : 5:26:21 PM Sunday, January 27, 2019
+  :
+  :ScheduleJob > Execute > The remote server returned an error: (500) Internal Server Error.
+-------------------------------

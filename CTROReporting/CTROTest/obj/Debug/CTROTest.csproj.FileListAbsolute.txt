@@ -105,7 +105,6 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Xml.XmlSeria
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Xml.XPath.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Xml.XPath.XDocument.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Castle.Core.dll
-C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\CTROLibrary.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\CTROReporting.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\EntityFramework.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\EntityFramework.SqlServer.dll
@@ -197,3 +196,7 @@ C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\obj\Debug\CTROTest.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\obj\Debug\CTROTest.pdb
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Microsoft.Owin.Security.OAuth.dll
 C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Microsoft.Owin.Cors.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\System.Web.Cors.dll
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\Microsoft.Owin.Cors.xml
+C:\Users\panr2\Downloads\C#\CTROReporting\CTROTest\bin\Debug\CTROLibrary.dll

@@ -15,6 +15,7 @@ namespace CTROLibrary.DBbase
             : base("CTROReportingEntities")
         {
         }
+
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Report> Reports { get; set; }
         public DbSet<Record> Records { get; set; }

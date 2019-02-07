@@ -17,7 +17,7 @@ namespace CTROScheduleReport
         public void Configuration(IAppBuilder app)
         {
             Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "CTROScheduleService Configuring");
-            GlobalConfiguration.Configuration.UseSqlServerStorage(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=CTROReporting;User Id=panran;Password=Prss_1234;");
+            GlobalConfiguration.Configuration.UseSqlServerStorage(@"Data Source=localhost\SQLEXPRESS;Initial Catalog=CTROReporting;User Id=panr2an;Password=Prss_1234;");
             //app.UseHangfireDashboard("/ctroreporting", new DashboardOptions
             //{
             //    Authorization = new[] { new MyAuthorizationFilter() }

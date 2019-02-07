@@ -61,11 +61,10 @@ namespace CTROReporting.Controllers
                         object[] parametersArray = new object[] { where, user };
                         model.TicketResult = (bool)methodInfo.Invoke(classInstance, parametersArray);
                         break;
-                    //case "EWSolutionDashboardCheck":
-                    //    EWSolutionDashboardCheck ew = new EWSolutionDashboardCheck();
-                    //    ReportSetting reportsetting = reportsettingService.GetReportSettingsByReportId(18).ToArray()[0];
-                    //    model.TicketResult = ew.DashboardCheck(reportsetting.Code);
-                    //    break;
+                    case "EWSolutionTicketTriagingSchedule":
+                        EWSolutionTicketTriagingSchedule ew = new EWSolutionTicketTriagingSchedule();
+                        model.TicketResult = ew.ScheduleTicketsTriaging();
+                        break;
                 }
             }
             var subclassTypes = Assembly.GetAssembly(typeof(EWTicket)).GetTypes().Where(t => t.IsSubclassOf(typeof(EWTicket)) && t.Name.Contains("EWSolution"));

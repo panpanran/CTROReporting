@@ -6,6 +6,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Configuration;
 using Hangfire;
+using CTROLibrary.CTRO;
 
 namespace CTROReporting
 {
@@ -15,6 +16,7 @@ namespace CTROReporting
         protected void Application_Start()
         {
             Hangfire.GlobalConfiguration.Configuration.UseSqlServerStorage(ConfigurationManager.ConnectionStrings["CTROReportingEntities"].ConnectionString);
+
             _backgroundJobServer = new BackgroundJobServer();
 
 

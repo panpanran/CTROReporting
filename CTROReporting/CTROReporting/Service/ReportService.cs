@@ -44,7 +44,7 @@ namespace CTROReporting.Service
             return report;
         }
 
-        [System.Web.Http.AllowAnonymous]
+        //[System.Web.Http.AllowAnonymous]
         public Report GetReportById(int reportid)
         {
             var report = reportRepository.Get(x => x.ReportId == reportid);

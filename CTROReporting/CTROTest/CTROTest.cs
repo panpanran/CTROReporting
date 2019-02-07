@@ -1,4 +1,5 @@
-﻿using CTROLibrary.CTRO;
+﻿using CTROLibrary;
+using CTROLibrary.CTRO;
 using CTROLibrary.Infrastructure;
 using CTROLibrary.Model;
 using CTROLibrary.Repository;
@@ -45,9 +46,14 @@ namespace CTROTest
             reportService = new Mock<IReportService>(); 
         }
 
+
         [Test()]
         public void WebApiTest()
         {
+            string url = "http://local.ctroreporting.com";
+            string username = "panpanr2";
+            string password = "panpanr2an";
+            string result = CTROFunctions.GetToken(url, username, password);
             var schedules = CTROFunctions.GetDataFromJson<List<Report>>("ReportService", "GetReports");
         }
 
@@ -238,7 +244,12 @@ namespace CTROTest
         {
             try
             {
-                List<DateTime> dd = CTROFunctions.GetBusinessDays(Convert.ToDateTime("2018-01-01").Date, Convert.ToDateTime("2018-01-31").Date, CTROConst.Holidays);
+                DateTime lastworkdate = Convert.ToDateTime("2019-01-22");
+                while (CTROFunctions.CountBusinessDays(lastworkdate, Convert.ToDateTime("2019-01-22"), CTROConst.Holidays) <= 1)
+                {
+                    lastworkdate = lastworkdate.AddDays(-1);
+                }
+                List<DateTime> dd = CTROFunctions.GetBusinessDays(Convert.ToDateTime("2018-12-01").Date, Convert.ToDateTime("2019-01-28").Date, CTROConst.Holidays);
 
             }
             catch (Exception ex)
@@ -314,11 +325,11 @@ namespace CTROTest
         //    controller.AuthenticationManager = mockAuthenticationManager.Object;
         //    ApplicationUser applicationUser = getApplicationUser();
         //    userManager.CreateAsync(applicationUser, "123456");
-        //    var result = controller.Login(new LoginViewModel { UserName = "panpanr", Password = "123456", RememberMe = false }, "abcd").Result;
+        //    var result = controller.Login(new LoginViewModel { UserName = "panpanr2", Password = "123456", RememberMe = false }, "abcd").Result;
         //    Assert.IsNotNull(result);
-        //    var addedUser = userManager.FindByName("panpanr");
+        //    var addedUser = userManager.FindByName("panpanr2");
         //    Assert.IsNotNull(addedUser);
-        //    Assert.AreEqual("panpanr", addedUser.UserName);
+        //    Assert.AreEqual("panpanr2", addedUser.UserName);
         //}
 
         //[Test()]
@@ -349,10 +360,10 @@ namespace CTROTest
             ApplicationUser applicationUser = new ApplicationUser()
             {
                 Activated = true,
-                Email = "panpanr@gmail.com",
+                Email = "panpanr2@gmail.com",
                 //FirstName = "ran",
                 //LastName = "pan",
-                UserName = "panpanr",
+                UserName = "panpanr2",
                 RoleId = 0,
                 Id = "402bd590-fdc7-49ad-9728-40efbfe512ec",
                 CreatedDate = DateTime.Now,

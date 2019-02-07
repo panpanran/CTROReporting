@@ -1,4 +1,5 @@
 ﻿using CTROLibrary;
+using CTROLibrary.EW;
 using CTROLibrary.Model;
 using Hangfire;
 using Hangfire.Common;
@@ -67,6 +68,8 @@ namespace CTROLibrary.CTRO
         {
             try
             {
+                RecurringJob.AddOrUpdate("00 - panpanr - Ticket Triage", () => ScheduledTicket(), "*/2 * * * *", TimeZoneInfo.Local);
+
                 foreach (Schedule schedule in schedulelist)
                 {
                     AddorUpdateJob(schedule);
@@ -110,6 +113,31 @@ namespace CTROLibrary.CTRO
             {
                 Logging.WriteLog("ScheduleJob", "Execute", ex.Message);
                 throw;
+            }
+        }
+
+        public static async Task ScheduledTicket()
+        {
+
+            try
+            {
+                EWFormatOriginalIncomingEmail ewFormat = new EWFormatOriginalIncomingEmail();
+                string[] tickets = ewFormat.GetIDList("full_name is null and assigned_to_ is null").ToArray();
+                ewFormat.BulkUpdate(tickets);
+                EWTriageAccrual ewTriageAccrual = new EWTriageAccrual();
+                ewTriageAccrual.BulkUpdate(tickets);
+                EWTriageClinicalTrialsDotGov ewTriageClinicalTrialsDotGov = new EWTriageClinicalTrialsDotGov();
+                ewTriageClinicalTrialsDotGov.BulkUpdate(tickets);
+                EWTriageScientific ewEWTriageScientific = new EWTriageScientific();
+                ewEWTriageScientific.BulkUpdate(tickets);
+                EWTriageTSRFeedback ewTriageTSRFeedback = new EWTriageTSRFeedback();
+                ewTriageTSRFeedback.BulkUpdate(tickets);
+                EWTriageOnHoldTrials ewTriageOnHoldTrials = new EWTriageOnHoldTrials();
+                ewTriageOnHoldTrials.BulkUpdate(tickets);
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog("CTROHangfire", MethodBase.GetCurrentMethod().Name, ex.Message);
             }
         }
     }

@@ -1,5 +1,5 @@
-﻿using CTROLibrary.CTRO;
-using CTROLibrary.Infrastructure;
+﻿using CTROLibrary;
+using CTROLibrary.CTRO;
 using Hangfire;
 using Microsoft.Owin.Hosting;
 using System;

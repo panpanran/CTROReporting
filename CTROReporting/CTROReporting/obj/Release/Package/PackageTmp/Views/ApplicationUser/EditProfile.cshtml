@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
+@using System.Configuration
 @model CTROReporting.ViewModels.UserProfileFormModel
 @{
 
@@ -77,11 +78,11 @@
                         <td>
                             @if (String.IsNullOrEmpty(Model.ProfilePicUrl))
                             {
-                                <img alt="Field for image cutting" id="preview" src="@Url.Content("~/Images/facebook-avatar.png")" class="img-fluid" />
+                                <img alt="Field for image cutting" id="preview" src="@Url.Content(ConfigurationManager.AppSettings["V_CTROProfileImage"] + "facebook-avatar.png")" class="img-fluid" />
                             }
                             else
                             {
-                                <img alt="Field for image cutting" id="preview" src="@Url.Content(Model.ProfilePicUrl)" class="img-fluid" />
+                                <img alt="Field for image cutting" id="preview" src="@Url.Content(ConfigurationManager.AppSettings["V_CTROProfileImage"] + "/ProfilePics/" + Model.ProfilePicUrl)" class="img-fluid" />
                             }
                         </td>
                         <td>

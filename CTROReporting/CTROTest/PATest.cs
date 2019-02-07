@@ -1,6 +1,6 @@
-﻿using CTROLibrary.CTRO;
+﻿using CTROLibrary;
+using CTROLibrary.CTRO;
 using CTROLibrary.EW;
-using CTROLibrary.Infrastructure;
 using CTROLibrary.Model;
 using Npgsql;
 using NUnit.Framework;
@@ -8,6 +8,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -25,15 +26,15 @@ namespace CTROTest
         public void PilotUpdateTest()
         {
             ChromeOptions options = new ChromeOptions();
-            IWebDriver driver = new ChromeDriver(AppDomain.CurrentDomain.BaseDirectory, options, TimeSpan.FromSeconds(120));
+            IWebDriver driver = new ChromeDriver(ConfigurationManager.AppSettings["V_CTROChromeDriver"], options, TimeSpan.FromSeconds(120));
             //Notice navigation is slightly different than the Java version
             //This is because 'get' is a keyword in C#
             driver.Navigate().GoToUrl("https://trials.nci.nih.gov/pa/protected/studyProtocolexecute.action");
             //Login
             IWebElement username = driver.FindElement(By.Id("j_username"));
-            username.SendKeys("panr");
+            username.SendKeys("panr2");
             IWebElement password = driver.FindElement(By.Id("j_password"));
-            password.SendKeys("Prss_7890");
+            password.SendKeys("Prss_0123");
             password.Submit();
             IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
             acceptclaim.Click();
@@ -239,9 +240,9 @@ on dw_active.nci_id = dw_study.nci_id order by dw_active.status_date; ";
             driver.Navigate().GoToUrl("https://trials.nci.nih.gov/pa/protected/studyProtocolexecute.action");
             //Login
             IWebElement username = driver.FindElement(By.Id("j_username"));
-            username.SendKeys("panr");
+            username.SendKeys("panr2");
             IWebElement password = driver.FindElement(By.Id("j_password"));
-            password.SendKeys("Prss_7890");
+            password.SendKeys("Prss_0123");
             password.Submit();
             IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
             acceptclaim.Click();
@@ -465,9 +466,9 @@ order by dw_study.nci_id";
             driver.Navigate().GoToUrl("https://trials.nci.nih.gov/pa/protected/studyProtocolexecute.action");
             //Login
             IWebElement username = driver.FindElement(By.Id("j_username"));
-            username.SendKeys("panr");
+            username.SendKeys("panr2");
             IWebElement password = driver.FindElement(By.Id("j_password"));
-            password.SendKeys("Prss_7890");
+            password.SendKeys("Prss_0123");
             password.Submit();
             IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
             acceptclaim.Click();
@@ -748,9 +749,9 @@ on study_overall_status.study_protocol_identifier = study_protocol.identifier;";
                 driver.Navigate().GoToUrl("https://trials.nci.nih.gov/pa/protected/studyProtocolexecute.action");
                 //Login
                 IWebElement username = driver.FindElement(By.Id("j_username"));
-                username.SendKeys("panr");
+                username.SendKeys("panr2");
                 IWebElement password = driver.FindElement(By.Id("j_password"));
-                password.SendKeys("Prss_5678");
+                password.SendKeys("Prss_0123");
                 password.Submit();
                 IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
                 acceptclaim.Click();

@@ -30,7 +30,7 @@ namespace CTROTest
 
 
         [Test]
-        public void LoggingTest()
+        public void CategoryTest()
         {
             Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "Test Start");
         }

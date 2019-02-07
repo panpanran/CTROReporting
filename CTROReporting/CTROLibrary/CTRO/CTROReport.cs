@@ -788,10 +788,149 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
             }
             cmd = new NpgsqlCommand(codetext, conn);
             datareader = cmd.ExecuteReader();
-            DataTable nciDT = new DataTable();
-            nciDT.Load(datareader);
-            nciDT.TableName = reportSettings[0].Category;
-            outputDS.Tables.Add(nciDT);
+            DataTable trialdata = new DataTable();
+            trialdata.Load(datareader);
+
+            outputDS.Tables.Add();
+            outputDS.Tables[0].TableName = reportSettings[0].Category;
+
+            outputDS.Tables[0].Columns.Add("nciid", typeof(string));
+            outputDS.Tables[0].Columns.Add("submissionnumber", typeof(string));
+            outputDS.Tables[0].Columns.Add("accepted", typeof(DateTime));
+            outputDS.Tables[0].Columns.Add("onholddate", typeof(string));
+            outputDS.Tables[0].Columns.Add("offholddate", typeof(string));
+            outputDS.Tables[0].Columns.Add("onholdreasontype", typeof(string));
+            outputDS.Tables[0].Columns.Add("onholdreason", typeof(string));
+            outputDS.Tables[0].Columns.Add("realexpected", typeof(DateTime));
+
+            DateTime startdate = new DateTime();
+            DateTime enddate;
+            DateTime reactivateddate;
+            DateTime onholddate = new DateTime();
+            DateTime offholddate = new DateTime();
+            DateTime accepteddate = new DateTime();
+
+            string nciid;
+            string submissionnumber;
+            string onholdreasontype;
+            string onholdreason;
+
+            int onholdflag = 0;
+
+            //using (StreamWriter sw = File.CreateText(@"C:\Users\panr2\Downloads\result.txt"))
+            //{
+            foreach (DataRow workloadrow in trialdata.Rows)
+            {
+                nciid = workloadrow[0].ToString();
+
+                string code = @"select 
+dw_study.nci_id,
+accepted.submission_number, 
+accepted.date,
+dw_study_on_hold_status.on_hold_date,
+dw_study_on_hold_status.off_hold_date,
+reactivated.date, 
+dw_study_on_hold_status.reason,
+dw_study_on_hold_status.reason_description
+from(select * from dw_study where nci_id = 'nciidpara') dw_study
+left join(select * from dw_study_milestone where name = 'Submission Acceptance Date') accepted
+on accepted.nci_id = dw_study.nci_id
+and accepted.submission_number = dw_study.submission_number
+left join(select* from dw_study_milestone where name = 'Submission Reactivated Date') reactivated
+on reactivated.nci_id = dw_study.nci_id
+and reactivated.submission_number = dw_study.submission_number
+left join(select* from dw_study_on_hold_status) dw_study_on_hold_status
+on dw_study_on_hold_status.nci_id = dw_study.nci_id
+order by dw_study.nci_id, dw_study_on_hold_status.off_hold_date;";
+                cmd = new NpgsqlCommand(code.Replace("nciidpara", nciid), conn);
+                datareader = cmd.ExecuteReader();
+                DataTable nciDT = new DataTable();
+                nciDT.Load(datareader);
+                int totaldays = 0;
+
+
+                for (int i = 0; i < nciDT.Rows.Count; i++)
+                {
+                    onholdflag = 0;
+                    if (i == 0)
+                    {
+                        accepteddate = string.IsNullOrEmpty(nciDT.Rows[i].ItemArray[2].ToString()) ? new DateTime() : (DateTime)nciDT.Rows[i].ItemArray[2];
+                        reactivateddate = string.IsNullOrEmpty(nciDT.Rows[i].ItemArray[5].ToString()) ? new DateTime() : (DateTime)(nciDT.Rows[i].ItemArray[5]);
+                        startdate = reactivateddate > accepteddate ? reactivateddate : accepteddate;
+                        totaldays = CTROFunctions.CountBusinessDays(startdate, DateTime.Now.Date, CTROConst.Holidays);
+                    }
+                    onholddate = string.IsNullOrEmpty(nciDT.Rows[i].ItemArray[3].ToString()) ? new DateTime() : (DateTime)(nciDT.Rows[i].ItemArray[3]);
+                    offholddate = string.IsNullOrEmpty(nciDT.Rows[i].ItemArray[4].ToString()) ? new DateTime() : (DateTime)(nciDT.Rows[i].ItemArray[4]);
+                    if (onholddate > Convert.ToDateTime("1/1/0001"))
+                    {
+                        if (offholddate > Convert.ToDateTime("1/1/0001"))
+                        {
+                            if (offholddate > startdate)
+                            {
+                                totaldays = totaldays - CTROFunctions.CountBusinessDays(onholddate > startdate ? onholddate : startdate, offholddate, CTROConst.Holidays);
+                            }
+                        }
+                        else
+                        {
+                            onholdflag = 2;
+                        }
+                    }
+                }
+
+                if (nciDT.Rows.Count == 0)
+                {
+                    reactivateddate = new DateTime();
+                    onholddate = new DateTime();
+                    offholddate = new DateTime();
+                }
+
+                if (accepteddate.Date == Convert.ToDateTime("1/1/0001"))
+                {
+                    //No record
+                    onholdflag = 1;
+                }
+
+
+                switch (onholdflag)
+                {
+                    case 1:
+                        //sw.WriteLine("nciid: " + nciid + ", this trial has not been accepted.");
+                        break;
+                    case 2:
+                        //sw.WriteLine("nciid: " + nciid + ", this trial is still on-hold.");
+                        break;
+                    case 0:
+                        if (totaldays < 0)
+                        {
+                            //sw.WriteLine("There are some errors. nciid: " + nciid + ", expecteddate on dashboard: " + expecteddate);
+                        }
+                        else
+                        {
+                            enddate = DateTime.Now.Date;
+                            while (CTROFunctions.CountBusinessDays(DateTime.Now.Date, enddate, CTROConst.Holidays) <= 10 - totaldays)
+                            {
+                                enddate = enddate.AddDays(1);
+                            }
+                            try
+                            {
+                                submissionnumber = nciDT.Rows[0].ItemArray[1].ToString();
+                                onholdreasontype = nciDT.Rows[0].ItemArray[6].ToString();
+                                onholdreason = nciDT.Rows[0].ItemArray[7].ToString();
+                                outputDS.Tables[0].Rows.Add(nciid, submissionnumber, accepteddate,
+                                    onholddate.Date == Convert.ToDateTime("1/1/0001") ? null : onholddate.ToShortDateString(),
+                                    offholddate.Date == Convert.ToDateTime("1/1/0001") ? null : offholddate.ToShortDateString(),
+                                    onholdreasontype, onholdreason, enddate);
+
+                            }
+                            catch (Exception ex)
+                            {
+                                //Logging.WriteLog("EWDashboardCheck", "GenerateReport", "nciiid:" + nciid + ", error message: " + ex.Message);
+                            }
+                        }
+                        break;
+                }
+            }
+
             return outputDS;
         }
     }
@@ -1062,7 +1201,7 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
             {
                 //abbreviated
                 string codetext = reportSetting.Code;
- 
+
                 DataTable tempDT = new DataTable();
                 DataTable tempconclusionDT = new DataTable();
 

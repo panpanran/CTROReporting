@@ -22,7 +22,7 @@ namespace CTROEWSystem
             tickettimer.Interval = 120000; // every 3 minutes
             tickettimer.Elapsed += new System.Timers.ElapsedEventHandler(tickettimerTick);
             tickettimer.Enabled = true;
-            Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "EW Ticket Triaging Service Start");
+            //Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "EW Ticket Triaging Service Start");
         }
 
         private void tickettimerTick(object sender, ElapsedEventArgs e)
@@ -45,14 +45,14 @@ namespace CTROEWSystem
             }
             catch (Exception ex)
             {
-                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
+                //Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
             }
         }
 
         protected override void OnStop()
         {
-                tickettimer.Enabled = false;
-                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "EW Ticket Triaging Service Stop");
+            tickettimer.Enabled = false;
+            //Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "EW Ticket Triaging Service Stop");
         }
     }
 }

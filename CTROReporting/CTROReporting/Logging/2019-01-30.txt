@@ -1,0 +1,75 @@
+
+Log Entry : 1:09:11 PM Wednesday, January 30, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Dashboard Expectation Date Check at 1/30/2019 1:09:11 PM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190130\Dashboard Expectation Date Check Report_20190130130847.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 1:11:23 PM Wednesday, January 30, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Dashboard Expectation Date Check at 1/30/2019 1:11:23 PM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190130\Dashboard Expectation Date Check Report_20190130131106.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 1:14:22 PM Wednesday, January 30, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Dashboard Expectation Date Check at 1/30/2019 1:14:22 PM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190130\Dashboard Expectation Date Check Report_20190130131401.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 1:17:12 PM Wednesday, January 30, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Dashboard Expectation Date Check at 1/30/2019 1:17:12 PM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190130\Dashboard Expectation Date Check Report_20190130131654.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 1:32:12 PM Wednesday, January 30, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Dashboard Expectation Date Check at 1/30/2019 1:32:12 PM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190130\Dashboard Expectation Date Check Report_20190130133141.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 2:06:33 PM Wednesday, January 30, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Dashboard Expectation Date Check at 1/30/2019 2:06:33 PM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190130\Dashboard Expectation Date Check Report_20190130140604.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 2:09:25 PM Wednesday, January 30, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Dashboard Expectation Date Check at 1/30/2019 2:09:25 PM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190130\Dashboard Expectation Date Check Report_20190130140853.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 2:10:18 PM Wednesday, January 30, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Dashboard Expectation Date Check at 1/30/2019 2:10:18 PM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190130\Dashboard Expectation Date Check Report_20190130140956.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 2:14:31 PM Wednesday, January 30, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Dashboard Expectation Date Check at 1/30/2019 2:14:31 PM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190130\Dashboard Expectation Date Check Report_20190130141159.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 2:15:24 PM Wednesday, January 30, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Dashboard Expectation Date Check at 1/30/2019 2:15:24 PM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190130\Dashboard Expectation Date Check Report_20190130141447.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 2:21:16 PM Wednesday, January 30, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Dashboard Expectation Date Check at 1/30/2019 2:21:16 PM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190130\Dashboard Expectation Date Check Report_20190130142047.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 2:22:09 PM Wednesday, January 30, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Dashboard Expectation Date Check at 1/30/2019 2:22:09 PM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190130\Dashboard Expectation Date Check Report_20190130142138.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 2:29:16 PM Wednesday, January 30, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Dashboard Expectation Date Check at 1/30/2019 2:29:16 PM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190130\Dashboard Expectation Date Check Report_20190130142836.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 2:30:32 PM Wednesday, January 30, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Dashboard Expectation Date Check at 1/30/2019 2:30:32 PM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190130\Dashboard Expectation Date Check Report_20190130142935.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 3:14:05 PM Wednesday, January 30, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 1/30/2019 3:14:05 PM and the error message is: Exception has been thrown by the target of an invocation.
+-------------------------------

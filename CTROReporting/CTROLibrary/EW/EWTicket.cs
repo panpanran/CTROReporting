@@ -13,6 +13,7 @@ using Npgsql;
 using System.IO;
 using System.Threading;
 using System.Configuration;
+using System.Reflection;
 
 namespace CTROLibrary.EW
 {
@@ -20,7 +21,7 @@ namespace CTROLibrary.EW
     {
         public IEnumerable<string> GetIDList(string where)
         {
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWSelect?$KB=CBIIT&$login=panr2&$password=Prss_3456&$table=ctro_tickets&$lang=en&where=" + where;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWSelect?$KB=CBIIT&$login=" + ConfigurationManager.AppSettings["V_RANPAN_EW_ACCOUNT"] + "&$password=" + ConfigurationManager.AppSettings["V_RANPAN_EW_PASSWORD"] + "&$table=ctro_tickets&$lang=en&where=" + where;
             string html = CTROFunctions.GetHTMLByUrl(url);
             string[] stringSeparators = new string[] { "\r\n" };
             string[] lines = html.Split(stringSeparators, StringSplitOptions.None);
@@ -29,7 +30,7 @@ namespace CTROLibrary.EW
 
         public Ticket GetById(string id)
         {
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWRead?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_3456&$lang=en&id=" + id;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWRead?$KB=CBIIT&$table=ctro_tickets&$login=" + ConfigurationManager.AppSettings["V_RANPAN_EW_ACCOUNT"] + "&$password=" + ConfigurationManager.AppSettings["V_RANPAN_EW_PASSWORD"] + "&$lang=en&id=" + id;
             string html = CTROFunctions.GetHTMLByUrl(url);
             string fullname = GetValueByFieldName("EWREST_full_name", html);
             string email = GetValueByFieldName("EWREST_email", html);
@@ -85,7 +86,7 @@ namespace CTROLibrary.EW
             content = content.Replace("emailRep", ticket.Email)
                 .Replace("summaryRep", ticket.Summary)
                 .Replace("nameRep", ticket.FullName);
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_3456&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=" + ConfigurationManager.AppSettings["V_RANPAN_EW_ACCOUNT"] + "&$password=" + ConfigurationManager.AppSettings["V_RANPAN_EW_PASSWORD"] + "&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
             string html = CTROFunctions.GetHTMLByUrl(url);
         }
 
@@ -99,15 +100,15 @@ namespace CTROLibrary.EW
             string[] ticketlist = GetIDList(where).ToArray();
 
             ChromeOptions options = new ChromeOptions();
-            IWebDriver driver = new ChromeDriver(AppDomain.CurrentDomain.BaseDirectory, options, TimeSpan.FromSeconds(120));
+            IWebDriver driver = new ChromeDriver(ConfigurationManager.AppSettings["V_CTROChromeDriver"], options, TimeSpan.FromSeconds(120));
             //Notice navigation is slightly different than the Java version
             //This is because 'get' is a keyword in C#
             driver.Navigate().GoToUrl("https://trials.nci.nih.gov/pa/protected/studyProtocolexecute.action");
             //Login
             IWebElement username = driver.FindElement(By.Id("j_username"));
-            username.SendKeys("panr");
+            username.SendKeys(ConfigurationManager.AppSettings["V_RANPAN_PA_ACCOUNT"]);
             IWebElement password = driver.FindElement(By.Id("j_password"));
-            password.SendKeys("Prss_7890");
+            password.SendKeys(ConfigurationManager.AppSettings["V_RANPAN_PA_PASSWORD"]);
             password.Submit();
             IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
             acceptclaim.Click();
@@ -221,6 +222,24 @@ namespace CTROLibrary.EW
         }
     }
 
+    public class EWSolutionTicketTriagingSchedule : EWTicket
+    {
+        public bool ScheduleTicketsTriaging()
+        {
+            try
+            {
+                CTROHangfire.Start();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Logging.WriteLog("EWSolutionTicketTriagingSchedule", "ScheduleTicketsTriaging", ex.Message);
+                return false;
+            }
+        }
+    }
+
+
     public class EWDashboardCheck : EWTicket
     {
         public DataTable DashboardCheck(string code)
@@ -237,8 +256,8 @@ namespace CTROLibrary.EW
 
             try
             {
-                string input = AppDomain.CurrentDomain.BaseDirectory + "/workload.csv";
-                string output = @"C:\Users\panr2\Downloads\result.txt";
+                string input = ConfigurationManager.AppSettings["V_CTROChromeDriver"] + "/workload.csv";
+                //string output = @"C:\Users\panr2\Downloads\result.txt";
                 if (DownloadCSV())
                 {
                     Thread.Sleep(1000);
@@ -264,19 +283,19 @@ namespace CTROLibrary.EW
             try
             {
                 ChromeOptions options = new ChromeOptions();
-                options.AddUserProfilePreference("download.default_directory", AppDomain.CurrentDomain.BaseDirectory);
+                options.AddUserProfilePreference("download.default_directory", ConfigurationManager.AppSettings["V_CTROChromeDriver"]);
                 //options.AddUserProfilePreference("intl.accept_languages", "nl");
                 //options.AddUserProfilePreference("disable-popup-blocking", "true");
-                IWebDriver driver = new ChromeDriver(AppDomain.CurrentDomain.BaseDirectory, options, TimeSpan.FromSeconds(120));
+                IWebDriver driver = new ChromeDriver(ConfigurationManager.AppSettings["V_CTROChromeDriver"], options, TimeSpan.FromSeconds(120));
 
                 //Notice navigation is slightly different than the Java version
                 //This is because 'get' is a keyword in C#
                 driver.Navigate().GoToUrl("https://trials.nci.nih.gov/pa/protected/studyProtocolexecute.action");
                 //Login
                 IWebElement username = driver.FindElement(By.Id("j_username"));
-                username.SendKeys("panr");
+                username.SendKeys(ConfigurationManager.AppSettings["V_RANPAN_PA_ACCOUNT"]);
                 IWebElement password = driver.FindElement(By.Id("j_password"));
-                password.SendKeys("Prss_7890");
+                password.SendKeys(ConfigurationManager.AppSettings["V_RANPAN_PA_PASSWORD"]);
                 password.Submit();
                 IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
                 acceptclaim.Click();
@@ -296,8 +315,14 @@ namespace CTROLibrary.EW
         public DataTable GenerateReport(string input, string code)
         {
             DataTable outputTable = new DataTable();
-            outputTable.Columns.Add("nciid", typeof(String));
+            outputTable.Columns.Add("nciid", typeof(string));
+            outputTable.Columns.Add("submissionnumber", typeof(string));
             outputTable.Columns.Add("accepted", typeof(DateTime));
+            //outputTable.Columns.Add("reactivateddate", typeof(string));
+            //outputTable.Columns.Add("onholddate", typeof(string));
+            //outputTable.Columns.Add("offholddate", typeof(string));
+            //outputTable.Columns.Add("onholdreasontype", typeof(string));
+            //outputTable.Columns.Add("onholdreason", typeof(string));
             outputTable.Columns.Add("dashboardexpected", typeof(DateTime));
             outputTable.Columns.Add("realexpected", typeof(DateTime));
 
@@ -306,36 +331,21 @@ namespace CTROLibrary.EW
             using (var conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PADWConnectionString"].ConnectionString))
             {
                 conn.Open();
-                //                    string code = @"select 
-                //dw_study.nci_id,
-                //accepted.submission_number, 
-                //accepted.date,
-                //dw_study_on_hold_status.on_hold_date,
-                //dw_study_on_hold_status.off_hold_date,
-                //reactivated.date, 
-                //dw_study_on_hold_status.reason,
-                //dw_study_on_hold_status.reason_description
-                //from(select * from dw_study where nci_id = 'nciidpara') dw_study
-                //left join(select * from dw_study_milestone where name = 'Submission Acceptance Date') accepted
-                //on accepted.nci_id = dw_study.nci_id
-                //and accepted.submission_number = dw_study.submission_number
-                //left join(select* from dw_study_milestone where name = 'Submission Reactivated Date') reactivated
-                //on reactivated.nci_id = dw_study.nci_id
-                //and reactivated.submission_number = dw_study.submission_number
-                //left join(select* from dw_study_on_hold_status) dw_study_on_hold_status
-                //on dw_study_on_hold_status.nci_id = dw_study.nci_id
-                //order by dw_study.nci_id, dw_study_on_hold_status.off_hold_date; ";
                 NpgsqlCommand cmd = null;
                 NpgsqlDataReader datareader = null;
                 DateTime expecteddate;
                 DateTime startdate = new DateTime();
                 DateTime enddate;
-                DateTime reactivateddate;
-                DateTime onholddate;
-                DateTime offholddate;
+                DateTime reactivateddate = new DateTime();
+                DateTime onholddate = new DateTime();
+                DateTime offholddate = new DateTime();
                 DateTime accepteddate = new DateTime();
 
                 string nciid;
+                string submissionnumber;
+                string onholdreasontype;
+                string onholdreason;
+
                 int onholdflag = 0;
 
                 //using (StreamWriter sw = File.CreateText(@"C:\Users\panr2\Downloads\result.txt"))
@@ -343,15 +353,20 @@ namespace CTROLibrary.EW
                 foreach (DataRow workloadrow in trialdata.Rows)
                 {
                     nciid = "NCI-" + workloadrow[0].ToString();
-
                     string codetext = code.Replace("nciidpara", nciid);
+                    DateTime lastworkdate = DateTime.Now.Date;
+                    while (CTROFunctions.CountBusinessDays(lastworkdate, DateTime.Now.Date, CTROConst.Holidays) <= 1)
+                    {
+                        lastworkdate = lastworkdate.AddDays(-1);
+                    }
+                    codetext = codetext.Replace("offholddate", "'" + lastworkdate.ToShortDateString() + "'");
+
                     cmd = new NpgsqlCommand(codetext, conn);
                     datareader = cmd.ExecuteReader();
                     DataTable nciDT = new DataTable();
                     nciDT.Load(datareader);
                     int totaldays = 0;
                     expecteddate = (DateTime)workloadrow.ItemArray[3];
-
 
                     for (int i = 0; i < nciDT.Rows.Count; i++)
                     {
@@ -369,7 +384,7 @@ namespace CTROLibrary.EW
                         {
                             if (offholddate > Convert.ToDateTime("1/1/0001"))
                             {
-                                if (offholddate > startdate)
+                                if (offholddate.Date > startdate.Date)
                                 {
                                     totaldays = totaldays - CTROFunctions.CountBusinessDays(onholddate > startdate ? onholddate : startdate, offholddate, CTROConst.Holidays);
                                 }
@@ -415,13 +430,22 @@ namespace CTROLibrary.EW
                                 {
                                     enddate = enddate.AddDays(1);
                                 }
-                                if (CTROFunctions.CountBusinessDays(DateTime.Now.Date, enddate, CTROConst.Holidays) < 6)
+                                if (CTROFunctions.CountBusinessDays(DateTime.Now.Date, enddate, CTROConst.Holidays) < 106)
                                 {
                                     if (expecteddate.Date != enddate.Date)
                                     {
                                         try
                                         {
-                                            outputTable.Rows.Add(nciid, accepteddate, expecteddate, enddate);
+                                            submissionnumber = nciDT.Rows[0].ItemArray[1].ToString();
+                                            onholdreasontype = nciDT.Rows[0].ItemArray[6].ToString();
+                                            onholdreason = nciDT.Rows[0].ItemArray[7].ToString();
+                                            outputTable.Rows.Add(nciid, submissionnumber, accepteddate,
+                                                //reactivateddate.Date == Convert.ToDateTime("1/1/0001")? null: reactivateddate.ToShortDateString(), 
+                                                //onholddate.Date == Convert.ToDateTime("1/1/0001") ? null : onholddate.ToShortDateString(),
+                                                //offholddate.Date == Convert.ToDateTime("1/1/0001") ? null : offholddate.ToShortDateString(), 
+                                                //onholdreasontype, 
+                                                //onholdreason, 
+                                                expecteddate, enddate);
                                             //Logging.WriteLog("EWDashboardCheck", "GenerateReport", "nciid: " + nciid + " need to be changed");
                                             //sw.WriteLine("nciid: " + nciid + ", expecteddate on dashboard: " + expecteddate + ", real expected date: " + enddate);
                                         }
@@ -459,7 +483,7 @@ namespace CTROLibrary.EW
             //string content = @"Trial is out of scope for CTRP. No action required.";
             string content = @"No action required, trial present in PA as NCI-2014-01029 is a CCR/CTEP trial and all updates should be submitted via CTEP services. ";
 
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_3456&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=" + ConfigurationManager.AppSettings["V_RANPAN_EW_ACCOUNT"] + "&$password=" + ConfigurationManager.AppSettings["V_RANPAN_EW_PASSWORD"] + "&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
             string html = CTROFunctions.GetHTMLByUrl(url);
         }
 
@@ -508,13 +532,13 @@ namespace CTROLibrary.EW
             content = content.Replace("emailRep", ticket.Email)
                 .Replace("summaryRep", ticket.Summary)
                 .Replace("nameRep", ticket.FullName);
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_3456&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=" + ConfigurationManager.AppSettings["V_RANPAN_EW_ACCOUNT"] + "&$password=" + ConfigurationManager.AppSettings["V_RANPAN_EW_PASSWORD"] + "&$lang=en&id=" + ticket.TicketId + "&internal_analysis=" + content;
             string html = CTROFunctions.GetHTMLByUrl(url);
         }
 
         public void AssignedTo(Ticket ticket)
         {
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_3456&$lang=en&id=" + ticket.TicketId + "&description=" + ticket.Summary;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=" + ConfigurationManager.AppSettings["V_RANPAN_EW_ACCOUNT"] + "&$password=" + ConfigurationManager.AppSettings["V_RANPAN_EW_PASSWORD"] + "&$lang=en&id=" + ticket.TicketId + "&description=" + ticket.Summary;
             string html = CTROFunctions.GetHTMLByUrl(url);
         }
 

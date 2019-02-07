@@ -1,8 +1,10 @@
 ﻿using CTROLibrary.Model;
 using Microsoft.Office.Interop.Excel;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
 using System.Globalization;
@@ -21,20 +23,16 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 namespace CTROLibrary.CTRO
 {
-    public class CookieAwareWebClient : WebClient
+    public class Token
     {
-        public CookieAwareWebClient()
-        {
-            CookieContainer = new CookieContainer();
-        }
-        public CookieContainer CookieContainer { get; private set; }
-
-        protected override WebRequest GetWebRequest(Uri address)
-        {
-            var request = (HttpWebRequest)base.GetWebRequest(address);
-            request.CookieContainer = CookieContainer;
-            return request;
-        }
+        public string access_token { get; set; }
+        public string token_type { get; set; }
+        public int expires_in { get; set; }
+        public string userName { get; set; }
+        [JsonProperty(".issued")]
+        public string issued { get; set; }
+        [JsonProperty(".expires")]
+        public string expires { get; set; }
     }
 
     public static class CTROFunctions
@@ -50,38 +48,58 @@ namespace CTROLibrary.CTRO
         }
 
 
-        public static T GetDataFromJson<T>(string servicename, string methodname, string para = "default")
+        public static string GetToken(string url, string username, string password)
+        {
+            var pairs = new List<KeyValuePair<string, string>>
+                    {
+                        new KeyValuePair<string, string>( "grant_type", "password" ),
+                        new KeyValuePair<string, string>( "username", username ),
+                        new KeyValuePair<string, string> ( "Password", password )
+                    };
+            var content = new FormUrlEncodedContent(pairs);
+            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+            using (var client = new HttpClient())
+            {
+                var response = client.PostAsync(url + "/token", content).Result;
+                return response.Content.ReadAsStringAsync().Result;
+            }
+        }
+
+        public static T GetDataFromJson<T>(string servicename, string methodname, string para = "default") where T : new()
         {
             StringBuilder url = new StringBuilder("http://local.ctroreporting.com/api/" + servicename + "/" + methodname);
             if (para != "default")
             {
                 url.Append("?" + para);
             }
-            WebClient webClient = new WebClient();
-            webClient.UseDefaultCredentials = true;
-            //string credentials = Convert.ToBase64String(Encoding.ASCII.GetBytes("panpanr" + ":" + "panpanran"));
-            //webClient.Headers[HttpRequestHeader.Authorization] = "Basic " + credentials;
-            webClient.Credentials = new NetworkCredential("panpanr", "panpanran");
 
-            string urlstr = url.ToString();
+            string token = GetToken("http://local.ctroreporting.com", "panpanr", "panpanran");
 
-            using (var client = new CookieAwareWebClient())
+            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+            using (var client = new HttpClient())
             {
-                var values = new NameValueCollection
-    {
-        { "UserName", "panpanr" },
-        { "Password", "panpanran" },
-    };
-                client.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
-                client.UploadValues("http://local.ctroreporting.com/ApplicationUser/Login","POST", values);
-
-                // If the previous call succeeded we now have a valid authentication cookie
-                // so we could download the protected page
-                string result = client.DownloadString(urlstr);
+                var t = JsonConvert.DeserializeObject<Token>(token);
+                if (!string.IsNullOrWhiteSpace(t.access_token))
+                {
+                    client.DefaultRequestHeaders.Clear();
+                    client.DefaultRequestHeaders.Add("Authorization", "Bearer " + t.access_token);
+                }
+                var response = client.GetAsync(url.ToString()).Result;
+                var json = response.Content.ReadAsStringAsync().Result;
+                try
+                {
+                    var sdata = new JavaScriptSerializer().Deserialize<T>(json);
+                    return sdata;
+                }
+                catch (Exception ex)
+                {
+                    return new T();
+                }
             }
-            string json = webClient.DownloadString(urlstr);
-            var sdata = new JavaScriptSerializer().Deserialize<T>(json);
-            return sdata;
+            //WebClient webClient = new WebClient();
+            //string json = webClient.DownloadString(url.ToString());
+            //var sdata = new JavaScriptSerializer().Deserialize<T>(json);
+            //return sdata;
         }
 
         public static System.Data.DataTable GetDataTableFromCsv(string path, bool isFirstRowHeader)
@@ -116,19 +134,31 @@ namespace CTROLibrary.CTRO
 
         public static async Task<Uri> CreateDataFromJson<T>(string servicename, string methodname, T data)
         {
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://local.ctroreporting.com/");
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
+            string token = GetToken("http://local.ctroreporting.com", "panpanr", "panpanran");
 
-            HttpResponseMessage response = await client.PostAsJsonAsync(
-                "api/" + servicename + "/" + methodname, data);
+            ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("http://local.ctroreporting.com/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
 
-            response.EnsureSuccessStatusCode();
 
-            // return URI of the created resource.
-            return response.Headers.Location;
+                var t = JsonConvert.DeserializeObject<Token>(token);
+                if (!string.IsNullOrWhiteSpace(t.access_token))
+                {
+                    client.DefaultRequestHeaders.Clear();
+                    client.DefaultRequestHeaders.Add("Authorization", "Bearer " + t.access_token);
+                }
+
+                HttpResponseMessage response = await client.PostAsJsonAsync("api/" + servicename + "/" + methodname, data);
+
+                response.EnsureSuccessStatusCode();
+                // return URI of the created resource.
+                return response.Headers.Location;
+
+            }
         }
 
         public static DataSet ReadExcelToDataSet(string pathname)
@@ -191,7 +221,7 @@ namespace CTROLibrary.CTRO
             SmtpClient client = new SmtpClient();
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("ran.pan@nih.gov", "Prss_3456");
+            client.Credentials = new System.Net.NetworkCredential("ran.pan@nih.gov", ConfigurationManager.AppSettings["V_RANPAN_EW_PASSWORD"]);
             client.Port = 25; // You can use Port 25 if 587 is blocked (mine is!)
             client.Host = "mailfwd.nih.gov";
             client.EnableSsl = false;

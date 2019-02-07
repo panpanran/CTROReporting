@@ -2,7 +2,6 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\NUnit.3.11.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.11.0\build\NUnit.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.2.9.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.9.0\build\Microsoft.Net.Compilers.props')" />
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -135,9 +134,6 @@
     </Reference>
     <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.4\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Exchange.WebServices, Version=15.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -448,7 +444,6 @@
     <Content Include="Content\bootstrap\pager.less" />
     <Content Include="Content\bootstrap\mixins\pagination.less" />
     <Content Include="Content\bootstrap\glyphicons.less" />
-    <Content Include="Excel\Turnround Report_20180501-20180502_20180521154724.xlsx" />
     <Content Include="libman.json" />
     <Content Include="Content\bootstrap\_variables.scss" />
     <Content Include="Content\bootstrap\_utilities.scss" />
@@ -610,7 +605,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <None Include="Properties\PublishProfiles\CTROReporting - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\AttitudeLoose - Web Deploy.pubxml" />
     <Content Include="Images\ClinicalBackground.jpg" />
     <Content Include="Images\CTRPBrand.png" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
@@ -769,29 +764,7 @@
     <Content Include="Scripts\underscore.js" />
     <Content Include="Scripts\underscore.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="SQL\Biomarker\Code.txt" />
-    <Content Include="SQL\Offhold\Code.txt" />
-    <Content Include="SQL\Onhold\Code.txt" />
-    <Content Include="SQL\PDAAbstractor\Code.txt" />
-    <Content Include="SQL\Sponsor\Code.txt" />
-    <Content Include="SQL\Turnround\Abbreviate.txt" />
-    <Content Include="SQL\Turnround\Amendment.txt" />
-    <Content Include="SQL\Turnround\Original.txt" />
-    <Content Include="SQL\Workload\Admin Abstraction.txt" />
-    <Content Include="SQL\Workload\Admin QC.txt" />
-    <Content Include="SQL\Workload\Scientific Abstraction.txt" />
-    <Content Include="SQL\Zeroaccrual\Complete Zeroaccrual.txt" />
-    <Content Include="Templates\Turnaround Template.xlsx" />
-    <Content Include="Templates\Sponsor Not Match Report Template.xlsx" />
-    <Content Include="Templates\Onhold Report Template.xlsx" />
-    <Content Include="Templates\PDA Abstractor and QC Template.xlsx" />
-    <Content Include="Templates\Biomarker Template.xlsx" />
-    <Content Include="Templates\Workload Template.xlsx" />
-    <Content Include="Templates\Zero Accrual Report Template.xlsx" />
-    <Content Include="Templates\Offhold Report Template.xlsx" />
     <Content Include="Views\Chart\Chart.cshtml" />
-    <Content Include="Templates\Reactivated Report Template.xlsx" />
-    <Content Include="Templates\TSR Sent Template.xlsx" />
     <Content Include="Views\ApplicationUser\UserManagement.cshtml" />
     <Content Include="Views\ApplicationUser\Test.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -835,6 +808,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Excel\" />
     <Folder Include="Images\ProfilePics\" />
     <Folder Include="Logging\" />
     <Folder Include="UploadedFiles\" />
@@ -913,7 +887,6 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.9.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.9.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\NUnit.3.11.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.11.0\build\NUnit.props'))" />
   </Target>

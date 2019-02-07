@@ -1,0 +1,84 @@
+﻿@model IEnumerable<CTROReporting.ViewModels.RecordListViewModel>
+@{
+    ViewBag.Title = "HistoryList";
+}
+
+<head>
+    <title>Popup editing</title>
+    <meta charset="utf-8">
+    <!--<link href="../../Content/kendo/examples-offline.css" rel="stylesheet">-->
+    <link href="../../Content/kendo/kendo.common.min.css" rel="stylesheet">
+    <link href="../../Content/kendo/kendo.default.min.css" rel="stylesheet">
+    <link href="../../Content/kendo/kendo.rtl.min.css" rel="stylesheet">
+    <link href="../../Content/kendo/kendo.default.mobile.min.css" rel="stylesheet">
+    <script src="../../Scripts/jquery-3.1.0.js"></script>
+    <script src="../../Scripts/kendo/jszip.min.js"></script>
+    <script src="../../Scripts/kendo/kendo.all.min.js"></script>
+    <script src="../../Scripts/kendo/console.js"></script>
+    <script>
+
+    </script>
+
+
+</head>
+<body>
+    <h1>History</h1><br><br>
+
+    <div id="example">
+        <div class="demo-section k-content wide">
+            <div id="grid"></div>
+        </div>
+
+        <script>
+            var jsonObject = @Html.Raw(Json.Encode(Model));
+
+            $(document).ready(function () {
+                dataSource = new kendo.data.DataSource({
+                    data: jsonObject,
+                    batch: true,
+                    pageSize: 20,
+                    schema: {
+                        model: {
+                            id: "RecordId",
+                            fields: {
+                                RecordId: { editable: false, nullable: true },
+                                ReportName: { validation: { required: true } },
+                                StartDate: { type: "string" },
+                                EndDate: { type: "string" },
+                                //UserName: { validation: { required: true } },
+                                CreatedDate: { type: "string" }
+                            }
+                        }
+                    }
+                });
+
+                $("#grid").kendoGrid({
+                    dataSource: dataSource,
+                    filterable: true,
+                    pageable: true,
+                    height: 550,
+                    //toolbar: ["create"],
+                    columns: [
+                        { field: "RecordId", title: "ID", filterable: { multi: true, search: true } },
+                        { field: "ReportName", title: "Report", filterable: { multi: true, search: true } },
+                        { field: "StartDate", title: "Start Date", filterable: { multi: true, search: true } },
+                        { field: "EndDate", title: "End Date", filterable: { multi: true, search: true } },
+                        //{ field: "UserName", title: "User", filterable: { multi: true, search: true } },
+                        { field: "CreatedDate", title: "Created", filterable: { multi: true, search: true } },
+                        { command: { text: "Download", click: download}, title: "&nbsp;" }]
+                    //editable: "popup"
+                });
+            });
+
+            function download(e) {
+                e.preventDefault();
+                var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+                window.location.href = dataItem.FilePath;
+            }
+
+        </script>
+    </div>
+
+
+
+</body>

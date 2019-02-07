@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace CTROLibrary
     {
         public static void WriteLog(string classname, string methodname, string ex)
         {
-            StringBuilder path = new StringBuilder(AppDomain.CurrentDomain.BaseDirectory + "/Logging/");
+            StringBuilder path = new StringBuilder(ConfigurationManager.AppSettings["V_CTROLogging"]);
 
             if (!Directory.Exists(path.ToString()))
             {

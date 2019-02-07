@@ -78,3 +78,24 @@ Affected parameters are:
    logtoconsole = 
    logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
    assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+Uninstalling assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+Removing EventLog source EWTicketTriageService.
+Service EWTicketTriageService is being removed from the system...
+Service EWTicketTriageService was successfully removed from the system.
+Installing assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+Installing service EWTicketTriageService...
+Service EWTicketTriageService has been successfully installed.
+Creating EventLog source EWTicketTriageService in log Application...
+Committing assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe

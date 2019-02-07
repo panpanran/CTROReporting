@@ -35,9 +35,9 @@ namespace CTROLibrary.CTRO
             object classInstance = Activator.CreateInstance(type, null);
             object bookObject = null;
 
-            string templatepath = AppDomain.CurrentDomain.BaseDirectory + "/Templates/";
+            string templatepath = ConfigurationManager.AppSettings["V_CTROTemplate"];
             StringBuilder pathtext = new StringBuilder();
-            pathtext.Append(AppDomain.CurrentDomain.BaseDirectory + "/Excel/" + String.Format("{0:yyyyMMdd}", DateTime.Now) + "/");
+            pathtext.Append(ConfigurationManager.AppSettings["V_CTROExcel"] + String.Format("{0:yyyyMMdd}", DateTime.Now) + "/");
             string savepath = string.Empty;
             if (!Directory.Exists(pathtext.ToString()))
             {
@@ -117,7 +117,7 @@ namespace CTROLibrary.CTRO
                             }
                         }
 
-                        CTROFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
+                        CTROFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your <b>" + report.ReportName + "</b> report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
                         CacheItemPolicy cip = new CacheItemPolicy()
                         {
                             AbsoluteExpiration = new DateTimeOffset(DateTime.Now.AddHours(4))
@@ -138,7 +138,7 @@ namespace CTROLibrary.CTRO
                 {
                     //System.IO.File.Copy(pathCache.ToString(), savepath, true);
                     savepath = pathCache.ToString();
-                    CTROFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your " + report.ReportName.ToLower() + " report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, pathCache.ToString());
+                    CTROFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your <b>" + report.ReportName + "</b> report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, pathCache.ToString());
                     logger.Message = "Creaet report with cache for " + user.UserName + " - " + report.ReportName + " at " + DateTime.Now.ToString();
                     var urltext = CTROFunctions.CreateDataFromJson("LoggerService", "CreateLogger", logger);
                 }

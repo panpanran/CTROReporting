@@ -42,7 +42,7 @@ namespace CTROReporting.Service
             return users;
         }
 
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public ApplicationUser GetByUserID(string userid)
         {
             var user = userRepository.Get(u => u.Id == userid);

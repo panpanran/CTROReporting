@@ -17,6 +17,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using CTROLibrary.Infrastructure;
+using System.Configuration;
 
 namespace CTROReporting.Controllers
 {
@@ -323,19 +324,19 @@ namespace CTROReporting.Controllers
             if (original != null)
             {
                 var img = CreateImage(original, model.X, model.Y, model.Width, model.Height);
-                var folderName = Server.MapPath("~/Images/ProfilePics/");
-                var oldFilepath = userProfileService.GetByUserID(User.Identity.GetUserId()).ProfilePicUrl;
-                var oldFile = Server.MapPath(oldFilepath);
+                var folderName = Server.MapPath(ConfigurationManager.AppSettings["V_CTROProfileImage"] + "/ProfilePics/");
+                var oldFilepath = folderName + userProfileService.GetByUserID(User.Identity.GetUserId()).ProfilePicUrl;
+
                 //Demo purposes only - save image in the file system
-                var filepath = "~/Images/ProfilePics/" + Guid.NewGuid().ToString() + ".png";
+                var filepath = Guid.NewGuid().ToString() + ".png";
                 if (!Directory.Exists(folderName))
                 {
                     Directory.CreateDirectory(folderName);
                 }
-                img.Save(Server.MapPath(filepath), System.Drawing.Imaging.ImageFormat.Png);
-                if (System.IO.File.Exists(oldFile))
+                img.Save(folderName + filepath, System.Drawing.Imaging.ImageFormat.Png);
+                if (System.IO.File.Exists(oldFilepath))
                 {
-                    System.IO.File.Delete(oldFile);
+                    System.IO.File.Delete(oldFilepath);
                 }
                 return filepath;
             }

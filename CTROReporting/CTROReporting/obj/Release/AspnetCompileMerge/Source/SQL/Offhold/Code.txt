@@ -1,0 +1,13 @@
+select
+study_protocol.nci_id,
+study_protocol.submission_number,
+accepted.milestone_date "accepteddate",
+study_onhold.onhold_date,
+study_onhold.offhold_date,
+study_onhold.onhold_reason_code,
+study_onhold.onhold_reason_text
+from study_protocol
+join (select * from study_onhold where offhold_date::date = now()::date) study_onhold
+on study_onhold.study_protocol_identifier = study_protocol.identifier
+join (select * from study_milestone where milestone_code = 'SUBMISSION_ACCEPTED') accepted
+on accepted.study_protocol_identifier = study_protocol.identifier;

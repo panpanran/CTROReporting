@@ -1,0 +1,104 @@
+﻿@model dynamic
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript">
+
+        function toggleDiv(divId) {
+            $(eval(divId)).toggle("slow");
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTRO Reporting</title>
+
+    @Styles.Render("~/Content/CSS")
+    @Scripts.Render("~/Scripts/PageLayout")
+
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark sticky-top navbar-expand-lg p-0">
+        @Html.Partial("_Header")
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            @Html.Partial("_NavigationBar")
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+    <div class="modal fade" id="topicModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">New Topic</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="createModal">
+                </div>
+                @*<div class="modal-footer">
+                        <button type="button" class="btn btn-primary" aria-hidden="true">Add</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<style type="text/css">
+    .thumbnail {
+        width: 100px;
+        height: 80px;
+    }
+</style>
+<script type="text/javascript">
+    //function cancelProfile(id) {
+    //    e.preventDefault();
+    //    window.location.href = '/ApplicationUser/UserProfile/id'; //"UserProfile", "Account", new { id = (((SocialGoal.Core.Models.SocialGoalUser)(User.Identity)).UserId) })'
+    //}
+
+
+    //function clearStatusError() {
+    //    $("#statusError").empty();
+    //    $("#postupdate").removeAttr("disabled");
+    //}
+
+    //function isNumberKey(evt) {
+    //    var charCode = (evt.which) ? evt.which : event.keyCode
+    //    if (charCode > 31 && (charCode < 48 || charCode > 57))
+    //        alert('Please Enter Integers');
+    //    var status = $('#Status').val();
+    //    var dblVar = parseFloat(status);
+    //    if (isNaN(dblVar)) {
+    //        $("#statusError").html('<label style="color:red;">Enter a valid status.</label>')
+    //        $('#Status').val('');
+    //    }
+    //    else {
+    //        $("#statusError").empty();
+    //    }
+    //}
+    function CreateTopic() {
+        var url = "/Topic/Create";
+        $.get(url, function (result) {
+            $("#createModal").html(result);
+        });
+    }
+
+    function EditProfile() {
+
+        $.ajax({
+            url: '/ApplicationUser/EditProfile',
+            cache: false,
+            success: function (data) {
+                $('#userProfle').html(data);
+
+            }
+        })
+    }
+</script>
