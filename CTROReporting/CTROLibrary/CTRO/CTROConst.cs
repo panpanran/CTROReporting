@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Linq;
+using System.Security.Principal;
 using System.Web;
 
 namespace CTROLibrary.CTRO
@@ -36,9 +38,25 @@ namespace CTROLibrary.CTRO
         //database connection
         //public const string connString = "Server=localhost;Port=5434;User Id=panran;Password=P@nR@n123;Database=pa_ctrpn";
         //public const string connString = "Server=localhost;Port=5434;User Id=dwprod;Password=dwprod_at_ctrp17;Database=dw_ctrpn";
-        //public const string connString = "Server=localhost;Port=5434;User Id=panran;Password=Prss_1234;Database=dw_ctrpn";
-        //public const string paconnString = "Server=localhost;Port=5434;User Id=panran;Password=Prss_1234;Database=pa_ctrpn";
-        //public const string connString = "Server=localhost;Port=5434;User Id=copparead;Password=rftev@LIENSuj#43wU;Database=dw_ctrpn";
-        //public const string reportpath = @"C:\Users\panr2\Downloads\DataWarehouse\CTRO Report";
+        public const string connString = "Server=localhost;Port=5434;User Id=panran;Password=Prss_1234;Database=dw_ctrpn";
+        public const string paconnString = "Server=localhost;Port=5434;User Id=panran;Password=Prss_1234;Database=pa_ctrpn";
+        public static string EW_ACCOUNT;
+        public static string EW_PASSWORD;
+        public static string PA_ACCOUNT;
+        public static string PA_PASSWORD;
+        public CTROConst()
+        {
+            if (string.IsNullOrEmpty(PA_PASSWORD))
+            {
+                //WindowsIdentity identity = HttpContext.Current.Request.LogonUserIdentity;
+                string path = @"C:\Users\" + ConfigurationManager.AppSettings["V_NIHACCOUNT"] + @"\CTROCredentials.txt";
+                EW_ACCOUNT = CTROFunctions.ReadTxtFile("EW_ACCOUNT", path);
+                EW_PASSWORD = CTROFunctions.ReadTxtFile("EW_PASSWORD", path);
+                PA_ACCOUNT = CTROFunctions.ReadTxtFile("PA_ACCOUNT", path);
+                PA_PASSWORD = CTROFunctions.ReadTxtFile("PA_PASSWORD", path);
+            }
+        }
     }
+    //public const string connString = "Server=localhost;Port=5434;User Id=copparead;Password=rftev@LIENSuj#43wU;Database=dw_ctrpn";
+    //public const string reportpath = @"C:\Users\panr2\Downloads\DataWarehouse\CTRO Report";
 }

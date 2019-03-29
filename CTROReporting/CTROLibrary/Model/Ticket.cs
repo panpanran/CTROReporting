@@ -20,6 +20,14 @@ namespace CTROLibrary.Model
 
         public string State { get; set; }
 
+        public string Category { get; set; }
+
+        public string Created_date { get; set; }
+
+        public string Modified_by { get; set; }
+
+        public string Modified_date { get; set; }
+
         public string OrganizationName { get; set; }
 
         public string Original_incoming_email { get; set; }

@@ -1,0 +1,65 @@
+
+Log Entry : 8:10:55 AM Thursday, March 7, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for kirsten - Sponsor at 3/7/2019 8:10:55 AM and the error message is: Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 8:10:55 AM Thursday, March 7, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:16 AM Thursday, March 7, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for kirsten - Sponsor at 3/7/2019 8:12:16 AM and the error message is: Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 8:12:16 AM Thursday, March 7, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:34:21 AM Thursday, March 7, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 8:55:23 AM Thursday, March 7, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 9:16:26 AM Thursday, March 7, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 9:37:30 AM Thursday, March 7, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 9:58:31 AM Thursday, March 7, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:09:36 AM Thursday, March 7, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:19:32 AM Thursday, March 7, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:21:47 AM Thursday, March 7, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 11:20:02 AM Thursday, March 7, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------

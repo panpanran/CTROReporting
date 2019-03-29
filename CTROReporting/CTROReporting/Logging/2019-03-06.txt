@@ -1,0 +1,65 @@
+
+Log Entry : 7:51:41 AM Wednesday, March 6, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 3/6/2019 7:51:41 AM and the error message is: Exception while reading from stream
+-------------------------------
+
+Log Entry : 7:53:41 AM Wednesday, March 6, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 3/6/2019 7:53:41 AM and the error message is: Exception while reading from stream
+-------------------------------
+
+Log Entry : 7:54:21 AM Wednesday, March 6, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 3/6/2019 7:54:21 AM and the error message is: Exception while reading from stream
+-------------------------------
+
+Log Entry : 7:54:44 AM Wednesday, March 6, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 7:54:54 AM Wednesday, March 6, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 8:51:05 AM Wednesday, March 6, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 9:12:09 AM Wednesday, March 6, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 9:33:07 AM Wednesday, March 6, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 9:54:10 AM Wednesday, March 6, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:15:11 AM Wednesday, March 6, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:35:56 AM Wednesday, March 6, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:36:14 AM Wednesday, March 6, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 11:05:51 AM Wednesday, March 6, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------

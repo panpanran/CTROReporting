@@ -1,6 +1,7 @@
 ﻿using CTROLibrary.Model;
 using Microsoft.Office.Interop.Excel;
 using Newtonsoft.Json;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -15,8 +16,10 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Mail;
 using System.Net.Mime;
+using System.Net.NetworkInformation;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -37,6 +40,106 @@ namespace CTROLibrary.CTRO
 
     public static class CTROFunctions
     {
+        public static string ReadTxtFile(string fieldname, string path)
+        {
+            // Open the text file using a stream reader.
+            using (StreamReader sr = new StreamReader(path))
+            {
+                // Read the stream to a string, and write the string to the console.
+                string output = sr.ReadToEnd();
+                string pattern = fieldname + @": (.*?)\r\n";
+                Regex rgx = new Regex(pattern, RegexOptions.IgnoreCase);
+                Match match = rgx.Match(output);
+                string value = match.Value.Replace(fieldname + ": ", "").Replace("\r\n", "");
+                return value;
+            }
+        }
+
+        public static bool PortInUse(int port)
+        {
+            IPGlobalProperties ipProperties = IPGlobalProperties.GetIPGlobalProperties();
+            IPEndPoint[] ipEndPoints = ipProperties.GetActiveTcpListeners();
+            int num = ipEndPoints.Where(x => x.Port == port).Count();
+            return num > 0 ? true : false;
+        }
+
+        public static bool ConnectSSHCTRP()
+        {
+            if (PortInUse(5434))
+            {
+                return false;
+            }
+
+            Chilkat.SshTunnel tunnel = new Chilkat.SshTunnel();
+            tunnel.DestHostname = "ctrp-prod-aurora-cluster.cluster-ro-cbefrrmwjslt.us-east-1.rds.amazonaws.com";
+            tunnel.DestPort = 5432;
+            tunnel.AcceptLogPath = @"C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Logging\ChilkatLog.txt";
+            bool success = tunnel.UnlockComponent("Anything for 30-day trial.");
+
+            if (success != true)
+            {
+                Console.WriteLine(tunnel.LastErrorText);
+                return false;
+            }
+
+
+            //  Load a .ppk PuTTY private key.
+            Chilkat.SshKey puttyKey = new Chilkat.SshKey();
+            string ppkText = puttyKey.LoadText(@"C:\Users\panr2\Downloads\DataWarehouse\PrivateKey.ppk");
+
+            //  "secret" is the actual password for the above PPK.
+            if (!puttyKey.IsPrivateKey)
+            {
+                success = puttyKey.FromPuttyPrivateKey(ppkText);
+
+                if (success != true)
+                {
+                    Console.WriteLine(puttyKey.LastErrorText);
+                    return false;
+                }
+            }
+
+            string sshHostname = "18.208.10.224";
+            int sshPort = 22;
+
+            //  Connect to an SSH server
+            if (!tunnel.IsSshConnected())
+            {
+                success = tunnel.Connect(sshHostname, sshPort);
+
+                if (success != true)
+                {
+                    Console.WriteLine(tunnel.LastErrorText);
+                    return false;
+                }
+
+                //  Authenticate with the SSH server using a username + private key.
+                //  (The private key serves as the password.  The username identifies
+                //  the SSH user account on the server.)
+                success = tunnel.AuthenticatePk("panran", puttyKey);
+
+                if (success != true)
+                {
+                    Console.WriteLine(tunnel.LastErrorText);
+                    return false;
+                }
+            }
+
+            int listenPort = 5434;
+            if (!tunnel.IsAccepting)
+            {
+                success = tunnel.BeginAccepting(listenPort);
+
+                if (!success)
+                {
+                    Console.WriteLine(tunnel.LastErrorText);
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
         public static string GetHTMLByUrl(string url)
         {
             string htmlCode = "";
@@ -46,7 +149,6 @@ namespace CTROLibrary.CTRO
             }
             return htmlCode;
         }
-
 
         public static string GetToken(string url, string username, string password)
         {
@@ -67,13 +169,13 @@ namespace CTROLibrary.CTRO
 
         public static T GetDataFromJson<T>(string servicename, string methodname, string para = "default") where T : new()
         {
-            StringBuilder url = new StringBuilder("http://local.ctroreporting.com/api/" + servicename + "/" + methodname);
+            StringBuilder url = new StringBuilder("http://local.ctroreporting.com:82/api/" + servicename + "/" + methodname);
             if (para != "default")
             {
                 url.Append("?" + para);
             }
 
-            string token = GetToken("http://local.ctroreporting.com", "panpanr", "panpanran");
+            string token = GetToken("http://local.ctroreporting.com:82", "panpanr", "panpanran");
 
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             using (var client = new HttpClient())
@@ -134,12 +236,12 @@ namespace CTROLibrary.CTRO
 
         public static async Task<Uri> CreateDataFromJson<T>(string servicename, string methodname, T data)
         {
-            string token = GetToken("http://local.ctroreporting.com", "panpanr", "panpanran");
+            string token = GetToken("http://local.ctroreporting.com:82", "panpanr", "panpanran");
 
             ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, sslPolicyErrors) => true;
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://local.ctroreporting.com/");
+                client.BaseAddress = new Uri("http://local.ctroreporting.com:82/");
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
@@ -221,7 +323,7 @@ namespace CTROLibrary.CTRO
             SmtpClient client = new SmtpClient();
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Credentials = new System.Net.NetworkCredential("ran.pan@nih.gov", ConfigurationManager.AppSettings["V_RANPAN_EW_PASSWORD"]);
+            client.Credentials = new System.Net.NetworkCredential("ran.pan@nih.gov", CTROConst.EW_PASSWORD);
             client.Port = 25; // You can use Port 25 if 587 is blocked (mine is!)
             client.Host = "mailfwd.nih.gov";
             client.EnableSsl = false;

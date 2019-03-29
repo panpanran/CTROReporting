@@ -25,7 +25,7 @@ namespace CTROLibrary.DBbase
         public DbSet<Chart> Chart { get; set; }
         public DbSet<Logger> Logger { get; set; }
         public DbSet<ChartSetting> ChartSetting { get; set; }
-
+        public DbSet<Email> Email { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

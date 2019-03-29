@@ -1,0 +1,15 @@
+
+Log Entry : 7:59:52 AM Tuesday, March 12, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 3/12/2019 7:59:52 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 12:03:36 PM Tuesday, March 12, 2019
+  :
+  :CTROFunctions > MoveNext > Could not find file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Templates\Lead Disease Flag Template'.
+-------------------------------
+
+Log Entry : 12:03:36 PM Tuesday, March 12, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Lead Disease Flag at 3/12/2019 12:03:36 PM and the error message is: Could not find file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Templates\Lead Disease Flag Template'.
+-------------------------------

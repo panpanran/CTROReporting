@@ -22,6 +22,7 @@ using System.Net.Mail;
 using Npgsql;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
+using System.Net.NetworkInformation;
 
 namespace CTROTest
 {
@@ -53,6 +54,12 @@ namespace CTROTest
                 // use the VerifySignature method to verify the DSA signature
                 bool isSignatureValid = dsa.VerifySignature(hashcode, signature);
             }
+        }
+
+        [Test]
+        public void SSHConnectTest()
+        {
+            CTROFunctions.ConnectSSHCTRP();
         }
 
 
@@ -112,6 +119,26 @@ namespace CTROTest
 #endif
         }
 
+        [Test]
+        public void GetDataTableFromCsvTest()
+        {
+            DataTable tb = CTROFunctions.GetDataTableFromCsv(@"C:\Users\panr2\Downloads\CSharp\CTROReporting\SearchTrialResults.csv", true);
+            foreach (DataRow row in tb.Rows)
+            {
+                if (!row[0].ToString().Contains("NCI"))
+                {
+                    string aa = "";
+                }
+            }
+        }
+
+        [Test]
+        public void PORTInUseTest()
+        {
+            IPGlobalProperties ipProperties = IPGlobalProperties.GetIPGlobalProperties();
+            IPEndPoint[] ipEndPoints = ipProperties.GetActiveTcpListeners();
+            int num = ipEndPoints.Where(x => x.Port == 5434).Count();
+        }
 
         [Test]
         public Task<Socket> AcceptAsync(Socket socket)

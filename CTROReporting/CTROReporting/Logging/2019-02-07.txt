@@ -18,3 +18,83 @@ Log Entry : 8:11:51 AM Thursday, February 7, 2019
   :
   :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
 -------------------------------
+
+Log Entry : 2:14:01 PM Thursday, February 7, 2019
+  :
+  :CTROHangfire > MoveNext > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 2:16:00 PM Thursday, February 7, 2019
+  :
+  :CTROHangfire > MoveNext > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 2:18:00 PM Thursday, February 7, 2019
+  :
+  :CTROHangfire > MoveNext > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 2:20:00 PM Thursday, February 7, 2019
+  :
+  :CTROHangfire > MoveNext > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 2:22:13 PM Thursday, February 7, 2019
+  :
+  :CTROHangfire > MoveNext > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 2:24:00 PM Thursday, February 7, 2019
+  :
+  :CTROHangfire > MoveNext > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 2:26:00 PM Thursday, February 7, 2019
+  :
+  :CTROHangfire > MoveNext > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 2:44:35 PM Thursday, February 7, 2019
+  :
+  :CTROFunctions > MoveNext > Could not find file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Templates\PDA - Trial Processing Template.xlsx'.
+-------------------------------
+
+Log Entry : 2:44:35 PM Thursday, February 7, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Trial Processing at 2/7/2019 2:44:35 PM and the error message is: Could not find file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Templates\PDA - Trial Processing Template.xlsx'.
+-------------------------------
+
+Log Entry : 2:45:55 PM Thursday, February 7, 2019
+  :
+  :CTROFunctions > MoveNext > Could not find file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Templates\PDA Trial Processing Template.xlsx'.
+-------------------------------
+
+Log Entry : 2:45:55 PM Thursday, February 7, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Trial Processing at 2/7/2019 2:45:55 PM and the error message is: Could not find file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Templates\PDA Trial Processing Template.xlsx'.
+-------------------------------
+
+Log Entry : 2:57:01 PM Thursday, February 7, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------
+
+Log Entry : 2:57:45 PM Thursday, February 7, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------
+
+Log Entry : 2:58:30 PM Thursday, February 7, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------
+
+Log Entry : 3:03:01 PM Thursday, February 7, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------
+
+Log Entry : 3:03:45 PM Thursday, February 7, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------

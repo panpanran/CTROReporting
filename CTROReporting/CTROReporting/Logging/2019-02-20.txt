@@ -1,0 +1,215 @@
+
+Log Entry : 7:15:02 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/20/2019 7:15:02 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:15:02 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:15:05 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/20/2019 7:15:05 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:15:05 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:15:07 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/20/2019 7:15:07 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:15:07 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:15:21 AM Wednesday, February 20, 2019
+  :
+  :CTROHangfire > MoveNext > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:15:36 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/20/2019 7:15:36 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:15:36 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:15:39 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/20/2019 7:15:39 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:15:39 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:15:51 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/20/2019 7:15:51 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:15:51 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:16:06 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/20/2019 7:16:06 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:16:06 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:16:20 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/20/2019 7:16:20 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:16:20 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:16:50 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/20/2019 7:16:50 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:16:50 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:17:05 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/20/2019 7:17:05 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:17:05 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:17:35 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/20/2019 7:17:35 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:17:35 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:17:37 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/20/2019 7:17:37 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:17:37 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:20:05 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/20/2019 7:20:05 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:20:05 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:20:35 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/20/2019 7:20:35 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:20:35 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:20:37 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/20/2019 7:20:37 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:20:37 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:25:34 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/20/2019 7:25:34 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:25:34 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:26:49 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/20/2019 7:26:49 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:26:49 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:27:04 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/20/2019 7:27:04 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:27:04 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:37:05 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/20/2019 7:37:05 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:37:05 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:37:50 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/20/2019 7:37:50 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:37:50 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 7:38:05 AM Wednesday, February 20, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/20/2019 7:38:05 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 7:38:05 AM Wednesday, February 20, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------

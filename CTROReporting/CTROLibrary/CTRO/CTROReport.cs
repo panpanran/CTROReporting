@@ -20,7 +20,7 @@ namespace CTROLibrary.CTRO
         }
     }
 
-    #region turnaround
+    #region Turnaround
     public class TurnaroundReport : CTROReport
     {
         public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
@@ -202,7 +202,7 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
     }
     #endregion
 
-    #region trial processing
+    #region Trial Processing
 
     public class TrialProcessingReport : CTROReport
     {
@@ -242,6 +242,7 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
                     case "PDA Summary":
                         tempDT.TableName = reportSetting.Category;
                         outputDS.Tables.Add(tempDT);
+                        rankDS.Tables.Add(tempconclusionDT);
                         break;
                     case "SDA Abstraction":
                         outputDS.Tables.Add(CreateSDAAbstractionSheet(tempDT, reportSetting.Category, out tempconclusionDT));
@@ -254,7 +255,16 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
                     case "SDA Summary":
                         tempDT.TableName = reportSetting.Category;
                         outputDS.Tables.Add(tempDT);
+                        rankDS.Tables.Add(tempconclusionDT);
                         break;
+                    case "Ticket":
+                        tempDT.TableName = reportSetting.Category;
+                        EWUserSupport eWUserSupport = new EWUserSupport();
+                        List<Ticket> tickets = eWUserSupport.GetTickets("modified_date>%27" + startDate + "%27%20and%20modified_date<%27" + endDate + "%27");
+                        outputDS.Tables.Add(CreateTicketSheet(tickets, reportSetting.Category, out tempconclusionDT));
+                        rankDS.Tables.Add(tempconclusionDT);
+                        break;
+
                 }
             }
 
@@ -738,6 +748,59 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
 
             return outputDT;
         }
+
+        public DataTable CreateTicketSheet(List<Ticket> tickets, string tablename, out DataTable conclusionDT)
+        {
+            DataTable outputTable = new DataTable();
+            outputTable.Columns.Add("ticketid", typeof(string));
+            outputTable.Columns.Add("fullname", typeof(string));
+            outputTable.Columns.Add("email", typeof(string));
+            outputTable.Columns.Add("summary", typeof(string));
+            outputTable.Columns.Add("assignedto", typeof(string));
+            outputTable.Columns.Add("state", typeof(string));
+            outputTable.Columns.Add("category", typeof(string));
+            outputTable.Columns.Add("createddate", typeof(string));
+            outputTable.Columns.Add("modifiedby", typeof(string));
+            outputTable.Columns.Add("modifieddate", typeof(string));
+            outputTable.Columns.Add("organizationname", typeof(string));
+
+            foreach (Ticket ticket in tickets)
+            {
+                outputTable.Rows.Add(
+                    ticket.TicketId,
+                    ticket.FullName,
+                    ticket.Email,
+                    ticket.Summary,
+                    ticket.AssignedTo,
+                    ticket.State,
+                    ticket.Category,
+                    ticket.Created_date,
+                    ticket.Modified_by,
+                    ticket.Modified_date,
+                    ticket.OrganizationName);
+            }
+
+            conclusionDT = new DataTable();
+            conclusionDT.Columns.Add("user", typeof(string));
+            conclusionDT.Columns.Add("closedticket", typeof(string));
+            conclusionDT.Columns.Add("unclosedticket", typeof(string));
+
+            conclusionDT.TableName = tablename;
+
+            foreach (string name in tickets.Select(m => m.AssignedTo).Distinct())
+            {
+                conclusionDT.Rows.Add(name
+                    , tickets.Where(m => m.AssignedTo == name && m.State == "Closed").Count()
+                    , tickets.Where(m => m.AssignedTo == name && m.State != "Closed").Count());
+            }
+
+            conclusionDT.Rows.Add("Grand Total"
+                , tickets.Where(m => m.State == "Closed").Count()
+                , tickets.Where(m => m.State != "Closed").Count());
+            outputTable.TableName = tablename;
+            return outputTable;
+        }
+
     }
 
     #endregion
@@ -1122,8 +1185,8 @@ order by dw_study.nci_id, dw_study_on_hold_status.off_hold_date;";
 
     #endregion
 
-    #region National Trials wihtout CTEPID
-    public class NationalTrialswihtoutCTEPIDReport : CTROReport
+    #region National Trials Missing CTEP ID
+    public class NationalTrialsMissingCTEPIDReport : CTROReport
     {
         public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
         {
@@ -1155,8 +1218,8 @@ order by dw_study.nci_id, dw_study_on_hold_status.off_hold_date;";
 
     #endregion
 
-    #region NCTID Problem Report
-    public class NCTIDProblemReport : CTROReport
+    #region Trials with incorrect NCT ID Report
+    public class TrialswithincorrectNCTIDReport : CTROReport
     {
         public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
         {
@@ -1219,5 +1282,947 @@ order by dw_study.nci_id, dw_study_on_hold_status.off_hold_date;";
 
     #endregion
 
+    #region User Support Trial Processing Report
+
+    public class UserSupportTrialProcessingReport : CTROReport
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet rankDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            rankDS = new DataSet();
+
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+            //SDA Abstraction
+            foreach (ReportSetting reportSetting in reportSettings)
+            {
+                //abbreviated
+                string codetext = reportSetting.Code.Replace("startDate", startDate).Replace("endDate", endDate);
+                cmd = new NpgsqlCommand(codetext, conn);
+                datareader = cmd.ExecuteReader();
+                DataTable tempDT = new DataTable();
+                DataTable tempconclusionDT = new DataTable();
+                tempDT.Load(datareader);
+                switch (reportSetting.Category)
+                {
+                    case "Validation":
+                        tempDT.TableName = reportSetting.Category;
+                        outputDS.Tables.Add(CreateValidationSheet(tempDT, reportSetting.Category, out tempconclusionDT));
+                        rankDS.Tables.Add(tempconclusionDT);
+                        break;
+                    case "Abstraction":
+                        outputDS.Tables.Add(CreateAbstractionSheet(tempDT, reportSetting.Category, out tempconclusionDT));
+                        rankDS.Tables.Add(tempconclusionDT);
+                        break;
+                    case "Ticket":
+                        tempDT.TableName = reportSetting.Category;
+                        EWUserSupport eWUserSupport = new EWUserSupport();
+                        List<Ticket> tickets = eWUserSupport.GetTickets("modified_date>%27" + startDate + "%27%20and%20modified_date<%27" + endDate + "%27%20and%20(%20assigned_to_=%27Renae%20Brunetto%27%20or%20assigned_to_=%27Chessie%20Jones%27)");
+                        outputDS.Tables.Add(CreateTicketSheet(tickets, reportSetting.Category, out tempconclusionDT));
+                        rankDS.Tables.Add(tempconclusionDT);
+                        break;
+                    case "Summary":
+                        tempDT.TableName = reportSetting.Category;
+                        outputDS.Tables.Add(tempDT);
+                        break;
+                }
+            }
+
+            return outputDS;
+        }
+
+        public DataTable CreateAbstractionSheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
+        {
+            DateTime starttime = new DateTime();
+            DateTime endtime = new DateTime();
+            DateTime onholddate = new DateTime();
+            DateTime offholddate = new DateTime();
+            //DateTime reactivateddate = new DateTime();
+            DataTable outputDT = inputDT.Clone();
+            DataTable tempDT = new DataTable();
+            outputDT.TableName = tablename;
+            outputDT.Columns.Add("processingtime", typeof(TimeSpan));
+            TimeSpan overalldurations = new TimeSpan();
+            TimeSpan onholdtime = new TimeSpan();
+            TimeSpan processingtime = new TimeSpan();
+
+            try
+            {
+                foreach (DataRow row in inputDT.Rows)
+                {
+                    onholdtime = new TimeSpan();
+                    starttime = (DateTime)row["startedtime"];
+                    endtime = (DateTime)row["completedtime"];
+                    onholddate = string.IsNullOrEmpty(row["onholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["onholddate"]);
+                    offholddate = string.IsNullOrEmpty(row["offholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["offholddate"]);
+                    //reactivateddate = string.IsNullOrEmpty(row["reactivateddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["reactivateddate"]);
+                    if (endtime >= starttime)
+                    {
+                        overalldurations = endtime - starttime;
+                        if (overalldurations.Days > 1)
+                        {
+                            //TimeSpan ss = TimeSpan.FromDays(overalldurations.Days + 2 - CTROFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                            overalldurations = overalldurations - TimeSpan.FromDays(overalldurations.Days + 2 - CTROFunctions.CountBusinessDays(starttime, endtime, CTROConst.Holidays));
+                        }
+                    }
+
+
+                    if (offholddate >= onholddate)
+                    {
+                        //exclude the onholddate not within processing
+                        if (onholddate <= endtime && onholddate >= starttime)
+                        {
+                            onholdtime = offholddate - onholddate;
+                            if (onholdtime.Days > 1)
+                            {
+                                //TimeSpan ss = TimeSpan.FromDays(overalldurations.Days + 2 - CTROFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                                onholdtime = onholdtime - TimeSpan.FromDays(onholdtime.Days + 2 - CTROFunctions.CountBusinessDays(onholddate, offholddate, CTROConst.Holidays));
+                            }
+
+                        }
+                    }
+
+                    processingtime = overalldurations - onholdtime;
+
+                    if (!row.Table.Columns.Contains("processingtime"))
+                    {
+                        row.Table.Columns.Add("processingtime", typeof(TimeSpan));
+                    }
+
+                    row["processingtime"] = processingtime;
+
+                    var Duplicate = outputDT.AsEnumerable().Where(x => x.Field<string>("trialid") == row["trialid"].ToString() &&
+x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
+
+                    if (Duplicate.Count() == 1)
+                    {
+                        int index = outputDT.Rows.IndexOf(Duplicate.First());
+                        outputDT.Rows[index]["additionalcomments"] += "Additional On-Hold " + row["onholddate"].ToString() + " - " + row["offholddate"].ToString() + ": " + row["onholddescription"];
+                        outputDT.Rows[index]["processingtime"] = (TimeSpan)(outputDT.Rows[index]["processingtime"]) - onholdtime;
+                    }
+                    else
+                    {
+                        outputDT.ImportRow(row);
+                    }
+                }
+                tempDT = outputDT.AsEnumerable()
+                    .GroupBy(x => new { username = x.Field<string>("loginname") })
+                    .Select(x => new
+                    {
+                        x.Key.username,
+                        original = x.Where(y => y.Field<string>("trialtype") == "Original").Count(),
+                        originalavgtime = String.Format("{0:.##}", x.Where(y => y.Field<string>("trialtype") == "Original").Select(z => z.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                        amendment = x.Where(y => y.Field<string>("trialtype") == "Amendment").Count(),
+                        amendmentavgtime = String.Format("{0:.##}", x.Where(y => y.Field<string>("trialtype") == "Amendment").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                        abbreviated = x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count(),
+                        abbreviatedavgtime = String.Format("{0:.##}", x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                        expectedtime = x.Where(y => y.Field<string>("trialtype") == "Original").Count() * 1 + x.Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 + x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.33
+                    }).OrderBy(x => x.expectedtime).ToDataTable();
+                tempDT.Rows.Add("Grand Total and Avg",
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count().ToString(),
+                String.Format("{0:.##}", outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count().ToString(),
+                String.Format("{0:.##}", outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count().ToString(),
+                String.Format("{0:.##}", outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count() * 1 +
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 +
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.33);
+                conclusionDT = tempDT;
+                conclusionDT.TableName = tablename;
+                return outputDT;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public DataTable CreateTicketSheet(List<Ticket> tickets, string tablename, out DataTable conclusionDT)
+        {
+            DataTable outputTable = new DataTable();
+            outputTable.Columns.Add("ticketid", typeof(string));
+            outputTable.Columns.Add("fullname", typeof(string));
+            outputTable.Columns.Add("email", typeof(string));
+            outputTable.Columns.Add("summary", typeof(string));
+            outputTable.Columns.Add("assignedto", typeof(string));
+            outputTable.Columns.Add("state", typeof(string));
+            outputTable.Columns.Add("category", typeof(string));
+            outputTable.Columns.Add("createddate", typeof(string));
+            outputTable.Columns.Add("modifiedby", typeof(string));
+            outputTable.Columns.Add("modifieddate", typeof(string));
+            outputTable.Columns.Add("organizationname", typeof(string));
+
+            foreach (Ticket ticket in tickets)
+            {
+                outputTable.Rows.Add(
+                    ticket.TicketId,
+                    ticket.FullName,
+                    ticket.Email,
+                    ticket.Summary,
+                    ticket.AssignedTo,
+                    ticket.State,
+                    ticket.Category,
+                    ticket.Created_date,
+                    ticket.Modified_by,
+                    ticket.Modified_date,
+                    ticket.OrganizationName);
+            }
+
+            conclusionDT = new DataTable();
+            conclusionDT.Columns.Add("user", typeof(string));
+            conclusionDT.Columns.Add("closedticket", typeof(string));
+            conclusionDT.Columns.Add("unclosedticket", typeof(string));
+
+            conclusionDT.TableName = tablename;
+
+            foreach (string name in tickets.Select(m => m.AssignedTo).Distinct())
+            {
+                conclusionDT.Rows.Add(name
+                    , tickets.Where(m => m.AssignedTo == name && m.State == "Closed").Count()
+                    , tickets.Where(m => m.AssignedTo == name && m.State != "Closed").Count());
+            }
+
+            conclusionDT.Rows.Add("Grand Total"
+                , tickets.Where(m => m.State == "Closed").Count()
+                , tickets.Where(m => m.State != "Closed").Count());
+            outputTable.TableName = tablename;
+            return outputTable;
+        }
+
+        public DataTable CreateValidationSheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
+        {
+            DataTable outputDT = inputDT;
+            DataTable tempDT = new DataTable();
+            tempDT = outputDT.AsEnumerable()
+            .GroupBy(x => new { username = x.Field<string>("loginname") })
+            .Select(x => new
+            {
+                x.Key.username,
+                original = x.Where(y => y.Field<string>("trialtype") == "Original").Count(),
+                amendment = x.Where(y => y.Field<string>("trialtype") == "Amendment").Count(),
+                abbreviated = x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count(),
+                expectedtime = x.Where(y => y.Field<string>("trialtype") == "Original").Count() * 1 + x.Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 + x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.33
+            }).
+            OrderBy(x => x.expectedtime).ToDataTable();
+            tempDT.Rows.Add("Grand Total and Avg",
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count().ToString(),
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count().ToString(),
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count().ToString(),
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count() * 1 +
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 +
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.33);
+
+
+            conclusionDT = tempDT;
+            conclusionDT.TableName = tablename;
+
+            return outputDT;
+        }
+    }
+
+    #endregion
+
+    #region PDA Trial Processing Report
+
+    public class PDATrialProcessingReport : CTROReport
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet rankDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            rankDS = new DataSet();
+
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+            //SDA Abstraction
+            foreach (ReportSetting reportSetting in reportSettings)
+            {
+                //abbreviated
+                string codetext = reportSetting.Code.Replace("startDate", startDate).Replace("endDate", endDate);
+                cmd = new NpgsqlCommand(codetext, conn);
+                datareader = cmd.ExecuteReader();
+                DataTable tempDT = new DataTable();
+                DataTable tempconclusionDT = new DataTable();
+                tempDT.Load(datareader);
+                switch (reportSetting.Category)
+                {
+                    case "Validation":
+                        tempDT.TableName = reportSetting.Category;
+                        outputDS.Tables.Add(CreateValidationSheet(tempDT, reportSetting.Category, out tempconclusionDT));
+                        rankDS.Tables.Add(tempconclusionDT);
+                        break;
+                    case "Abstraction":
+                        outputDS.Tables.Add(CreateAbstractionSheet(tempDT, reportSetting.Category, out tempconclusionDT));
+                        rankDS.Tables.Add(tempconclusionDT);
+                        break;
+                    case "QC":
+                        outputDS.Tables.Add(CreateQCSheet(tempDT, reportSetting.Category, out tempconclusionDT));
+                        rankDS.Tables.Add(tempconclusionDT);
+                        break;
+                    case "Summary":
+                        tempDT.TableName = reportSetting.Category;
+                        outputDS.Tables.Add(tempDT);
+                        rankDS.Tables.Add(tempconclusionDT);
+                        break;
+                    case "Ticket":
+                        tempDT.TableName = reportSetting.Category;
+                        EWUserSupport eWUserSupport = new EWUserSupport();
+                        List<Ticket> tickets = eWUserSupport.GetTickets("modified_date>%27" + startDate + "%27%20and%20modified_date<%27" + endDate + "%27%20and%20(%20assigned_to_=%27Jaliza Cabral%27%20or%20assigned_to_=%27Hannah Gill%27" +
+                            "%20or%20assigned_to_=%27Temisan Otubu%27%20or%20assigned_to_=%27Kirsten Larco%27%20or%20assigned_to_=%27Elena Gebeniene%27%20or%20assigned_to_=%27Iryna Asipenka%27)");
+                        outputDS.Tables.Add(CreateTicketSheet(tickets, reportSetting.Category, out tempconclusionDT));
+                        rankDS.Tables.Add(tempconclusionDT);
+                        break;
+
+                }
+            }
+
+            return outputDS;
+        }
+
+        public DataTable CreateAbstractionSheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
+        {
+            DateTime starttime = new DateTime();
+            DateTime endtime = new DateTime();
+            DateTime onholddate = new DateTime();
+            DateTime offholddate = new DateTime();
+            //DateTime reactivateddate = new DateTime();
+            DataTable outputDT = inputDT.Clone();
+            DataTable tempDT = new DataTable();
+            outputDT.TableName = tablename;
+            outputDT.Columns.Add("processingtime", typeof(TimeSpan));
+            TimeSpan overalldurations = new TimeSpan();
+            TimeSpan onholdtime = new TimeSpan();
+            TimeSpan processingtime = new TimeSpan();
+
+            try
+            {
+                foreach (DataRow row in inputDT.Rows)
+                {
+                    onholdtime = new TimeSpan();
+                    starttime = (DateTime)row["startedtime"];
+                    endtime = (DateTime)row["completedtime"];
+                    onholddate = string.IsNullOrEmpty(row["onholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["onholddate"]);
+                    offholddate = string.IsNullOrEmpty(row["offholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["offholddate"]);
+                    //reactivateddate = string.IsNullOrEmpty(row["reactivateddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["reactivateddate"]);
+                    if (endtime >= starttime)
+                    {
+                        overalldurations = endtime - starttime;
+                        if (overalldurations.Days > 1)
+                        {
+                            //TimeSpan ss = TimeSpan.FromDays(overalldurations.Days + 2 - CTROFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                            overalldurations = overalldurations - TimeSpan.FromDays(overalldurations.Days + 2 - CTROFunctions.CountBusinessDays(starttime, endtime, CTROConst.Holidays));
+                        }
+                    }
+
+
+                    if (offholddate >= onholddate)
+                    {
+                        //exclude the onholddate not within processing
+                        if (onholddate <= endtime && onholddate >= starttime)
+                        {
+                            onholdtime = offholddate - onholddate;
+                            if (onholdtime.Days > 1)
+                            {
+                                //TimeSpan ss = TimeSpan.FromDays(overalldurations.Days + 2 - CTROFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                                onholdtime = onholdtime - TimeSpan.FromDays(onholdtime.Days + 2 - CTROFunctions.CountBusinessDays(onholddate, offholddate, CTROConst.Holidays));
+                            }
+
+                        }
+                    }
+
+                    processingtime = overalldurations - onholdtime;
+
+                    if (!row.Table.Columns.Contains("processingtime"))
+                    {
+                        row.Table.Columns.Add("processingtime", typeof(TimeSpan));
+                    }
+
+                    row["processingtime"] = processingtime;
+
+                    var Duplicate = outputDT.AsEnumerable().Where(x => x.Field<string>("trialid") == row["trialid"].ToString() &&
+x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
+
+                    if (Duplicate.Count() == 1)
+                    {
+                        int index = outputDT.Rows.IndexOf(Duplicate.First());
+                        outputDT.Rows[index]["additionalcomments"] += "Additional On-Hold " + row["onholddate"].ToString() + " - " + row["offholddate"].ToString() + ": " + row["onholddescription"];
+                        outputDT.Rows[index]["processingtime"] = (TimeSpan)(outputDT.Rows[index]["processingtime"]) - onholdtime;
+                    }
+                    else
+                    {
+                        outputDT.ImportRow(row);
+                    }
+                }
+                tempDT = outputDT.AsEnumerable()
+                    .GroupBy(x => new { username = x.Field<string>("loginname") })
+                    .Select(x => new
+                    {
+                        x.Key.username,
+                        original = x.Where(y => y.Field<string>("trialtype") == "Original").Count(),
+                        originalavgtime = String.Format("{0:.##}", x.Where(y => y.Field<string>("trialtype") == "Original").Select(z => z.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                        amendment = x.Where(y => y.Field<string>("trialtype") == "Amendment").Count(),
+                        amendmentavgtime = String.Format("{0:.##}", x.Where(y => y.Field<string>("trialtype") == "Amendment").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                        abbreviated = x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count(),
+                        abbreviatedavgtime = String.Format("{0:.##}", x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                        expectedtime = x.Where(y => y.Field<string>("trialtype") == "Original").Count() * 1 + x.Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 + x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.33
+                    }).OrderBy(x => x.expectedtime).ToDataTable();
+                tempDT.Rows.Add("Grand Total and Avg",
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count().ToString(),
+                String.Format("{0:.##}", outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count().ToString(),
+                String.Format("{0:.##}", outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count().ToString(),
+                String.Format("{0:.##}", outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count() * 1 +
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 +
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.33);
+                conclusionDT = tempDT;
+                conclusionDT.TableName = tablename;
+                return outputDT;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public DataTable CreateQCSheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
+        {
+            DateTime starttime = new DateTime();
+            DateTime endtime = new DateTime();
+            DateTime onholddate = new DateTime();
+            DateTime offholddate = new DateTime();
+            //DateTime reactivateddate = new DateTime();
+            DataTable outputDT = inputDT.Clone();
+            DataTable tempDT = new DataTable();
+            outputDT.TableName = tablename;
+            outputDT.Columns.Add("processingtime", typeof(TimeSpan));
+            TimeSpan overalldurations = new TimeSpan();
+            TimeSpan onholdtime = new TimeSpan();
+            TimeSpan processingtime = new TimeSpan();
+
+            try
+            {
+                foreach (DataRow row in inputDT.Rows)
+                {
+                    onholdtime = new TimeSpan();
+                    starttime = (DateTime)row["startedtime"];
+                    endtime = (DateTime)row["completedtime"];
+                    onholddate = string.IsNullOrEmpty(row["onholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["onholddate"]);
+                    offholddate = string.IsNullOrEmpty(row["offholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["offholddate"]);
+                    //reactivateddate = string.IsNullOrEmpty(row["reactivateddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["reactivateddate"]);
+                    if (endtime >= starttime)
+                    {
+                        overalldurations = endtime - starttime;
+                        if (overalldurations.Days > 1)
+                        {
+                            //TimeSpan ss = TimeSpan.FromDays(overalldurations.Days + 2 - CTROFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                            overalldurations = overalldurations - TimeSpan.FromDays(overalldurations.Days + 2 - CTROFunctions.CountBusinessDays(starttime, endtime, CTROConst.Holidays));
+                        }
+                    }
+
+
+                    if (offholddate >= onholddate)
+                    {
+                        //exclude the onholddate not within processing
+                        if (onholddate <= endtime && onholddate >= starttime)
+                        {
+                            onholdtime = offholddate - onholddate;
+                            if (onholdtime.Days > 1)
+                            {
+                                //TimeSpan ss = TimeSpan.FromDays(overalldurations.Days + 2 - CTROFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                                onholdtime = onholdtime - TimeSpan.FromDays(onholdtime.Days + 2 - CTROFunctions.CountBusinessDays(onholddate, offholddate, CTROConst.Holidays));
+                            }
+
+                        }
+                    }
+
+                    processingtime = overalldurations - onholdtime;
+
+                    if (!row.Table.Columns.Contains("processingtime"))
+                    {
+                        row.Table.Columns.Add("processingtime", typeof(TimeSpan));
+                    }
+
+                    row["processingtime"] = processingtime;
+
+                    var Duplicate = outputDT.AsEnumerable().Where(x => x.Field<string>("trialid") == row["trialid"].ToString() &&
+x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
+
+                    if (Duplicate.Count() == 1)
+                    {
+                        int index = outputDT.Rows.IndexOf(Duplicate.First());
+                        outputDT.Rows[index]["additionalcomments"] += "Additional On-Hold " + row["onholddate"].ToString() + " - " + row["offholddate"].ToString() + ": " + row["onholddescription"];
+                        outputDT.Rows[index]["processingtime"] = (TimeSpan)(outputDT.Rows[index]["processingtime"]) - onholdtime;
+                    }
+                    else
+                    {
+                        outputDT.ImportRow(row);
+                    }
+                }
+
+                tempDT = outputDT.AsEnumerable()
+                .GroupBy(x => new { username = x.Field<string>("loginname") })
+                .Select(x => new
+                {
+                    x.Key.username,
+                    original = x.Where(y => y.Field<string>("trialtype") == "Original").Count(),
+                    originalavgtime = String.Format("{0:.##}", x.Where(y => y.Field<string>("trialtype") == "Original").Select(z => z.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                    amendment = x.Where(y => y.Field<string>("trialtype") == "Amendment").Count(),
+                    amendmentavgtime = String.Format("{0:.##}", x.Where(y => y.Field<string>("trialtype") == "Amendment").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                    abbreviated = x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count(),
+                    abbreviatedavgtime = String.Format("{0:.##}", x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                    expectedtime = x.Where(y => y.Field<string>("trialtype") == "Original").Count() * 0.75 + x.Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.5 + x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.17
+                }).
+                OrderBy(x => x.expectedtime).ToDataTable();
+                tempDT.Rows.Add("Grand Total and Avg",
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count().ToString(),
+                String.Format("{0:.##}", outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count().ToString(),
+                String.Format("{0:.##}", outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count().ToString(),
+                String.Format("{0:.##}", outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count() * 0.75 +
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.5 +
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.17);
+
+
+                conclusionDT = tempDT;
+                conclusionDT.TableName = tablename;
+                return outputDT;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public DataTable CreateValidationSheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
+        {
+            DataTable outputDT = inputDT;
+            DataTable tempDT = new DataTable();
+            tempDT = outputDT.AsEnumerable()
+            .GroupBy(x => new { username = x.Field<string>("loginname") })
+            .Select(x => new
+            {
+                x.Key.username,
+                original = x.Where(y => y.Field<string>("trialtype") == "Original").Count(),
+                amendment = x.Where(y => y.Field<string>("trialtype") == "Amendment").Count(),
+                abbreviated = x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count(),
+                expectedtime = x.Where(y => y.Field<string>("trialtype") == "Original").Count() * 1 + x.Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 + x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.33
+            }).
+            OrderBy(x => x.expectedtime).ToDataTable();
+            tempDT.Rows.Add("Grand Total and Avg",
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count().ToString(),
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count().ToString(),
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count().ToString(),
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count() * 1 +
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 +
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.33);
+
+
+            conclusionDT = tempDT;
+            conclusionDT.TableName = tablename;
+
+            return outputDT;
+        }
+
+        public DataTable CreateTicketSheet(List<Ticket> tickets, string tablename, out DataTable conclusionDT)
+        {
+            DataTable outputTable = new DataTable();
+            outputTable.Columns.Add("ticketid", typeof(string));
+            outputTable.Columns.Add("fullname", typeof(string));
+            outputTable.Columns.Add("email", typeof(string));
+            outputTable.Columns.Add("summary", typeof(string));
+            outputTable.Columns.Add("assignedto", typeof(string));
+            outputTable.Columns.Add("state", typeof(string));
+            outputTable.Columns.Add("category", typeof(string));
+            outputTable.Columns.Add("createddate", typeof(string));
+            outputTable.Columns.Add("modifiedby", typeof(string));
+            outputTable.Columns.Add("modifieddate", typeof(string));
+            outputTable.Columns.Add("organizationname", typeof(string));
+
+            foreach (Ticket ticket in tickets)
+            {
+                outputTable.Rows.Add(
+                    ticket.TicketId,
+                    ticket.FullName,
+                    ticket.Email,
+                    ticket.Summary,
+                    ticket.AssignedTo,
+                    ticket.State,
+                    ticket.Category,
+                    ticket.Created_date,
+                    ticket.Modified_by,
+                    ticket.Modified_date,
+                    ticket.OrganizationName);
+            }
+
+            conclusionDT = new DataTable();
+            conclusionDT.Columns.Add("user", typeof(string));
+            conclusionDT.Columns.Add("closedticket", typeof(string));
+            conclusionDT.Columns.Add("unclosedticket", typeof(string));
+
+            conclusionDT.TableName = tablename;
+
+            foreach (string name in tickets.Select(m => m.AssignedTo).Distinct())
+            {
+                conclusionDT.Rows.Add(name
+                    , tickets.Where(m => m.AssignedTo == name && m.State == "Closed").Count()
+                    , tickets.Where(m => m.AssignedTo == name && m.State != "Closed").Count());
+            }
+
+            conclusionDT.Rows.Add("Grand Total"
+                , tickets.Where(m => m.State == "Closed").Count()
+                , tickets.Where(m => m.State != "Closed").Count());
+            outputTable.TableName = tablename;
+            return outputTable;
+        }
+
+    }
+
+    #endregion
+
+    #region SDA Trial Processing Report
+
+    public class SDATrialProcessingReport : CTROReport
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet rankDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            rankDS = new DataSet();
+
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+            //SDA Abstraction
+            foreach (ReportSetting reportSetting in reportSettings)
+            {
+                //abbreviated
+                string codetext = reportSetting.Code.Replace("startDate", startDate).Replace("endDate", endDate);
+                cmd = new NpgsqlCommand(codetext, conn);
+                datareader = cmd.ExecuteReader();
+                DataTable tempDT = new DataTable();
+                DataTable tempconclusionDT = new DataTable();
+                tempDT.Load(datareader);
+                switch (reportSetting.Category)
+                {
+                    case "Abstraction":
+                        outputDS.Tables.Add(CreateAbstractionSheet(tempDT, reportSetting.Category, out tempconclusionDT));
+                        rankDS.Tables.Add(tempconclusionDT);
+                        break;
+                    case "QC":
+                        outputDS.Tables.Add(CreateQCSheet(tempDT, reportSetting.Category, out tempconclusionDT));
+                        rankDS.Tables.Add(tempconclusionDT);
+                        break;
+                    case "QA":
+                        outputDS.Tables.Add(CreateQASheet(tempDT, reportSetting.Category, out tempconclusionDT));
+                        rankDS.Tables.Add(tempconclusionDT);
+                        break;
+                    case "Summary":
+                        tempDT.TableName = reportSetting.Category;
+                        outputDS.Tables.Add(tempDT);
+                        rankDS.Tables.Add(tempconclusionDT);
+                        break;
+                }
+            }
+
+            return outputDS;
+        }
+
+        public DataTable CreateAbstractionSheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
+        {
+            DateTime starttime = new DateTime();
+            DateTime endtime = new DateTime();
+            DateTime onholddate = new DateTime();
+            DateTime offholddate = new DateTime();
+            //DateTime reactivateddate = new DateTime();
+            DataTable outputDT = inputDT.Clone();
+            DataTable tempDT = new DataTable();
+            outputDT.TableName = tablename;
+            outputDT.Columns.Add("processingtime", typeof(TimeSpan));
+            TimeSpan overalldurations = new TimeSpan();
+            TimeSpan onholdtime = new TimeSpan();
+            TimeSpan processingtime = new TimeSpan();
+
+            try
+            {
+                foreach (DataRow row in inputDT.Rows)
+                {
+                    onholdtime = new TimeSpan();
+                    starttime = (DateTime)row["startedtime"];
+                    endtime = (DateTime)row["completedtime"];
+                    onholddate = string.IsNullOrEmpty(row["onholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["onholddate"]);
+                    offholddate = string.IsNullOrEmpty(row["offholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["offholddate"]);
+                    //reactivateddate = string.IsNullOrEmpty(row["reactivateddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["reactivateddate"]);
+                    if (endtime >= starttime)
+                    {
+                        overalldurations = endtime - starttime;
+                        if (overalldurations.Days > 1)
+                        {
+                            //TimeSpan ss = TimeSpan.FromDays(overalldurations.Days + 2 - CTROFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                            overalldurations = overalldurations - TimeSpan.FromDays(overalldurations.Days + 2 - CTROFunctions.CountBusinessDays(starttime, endtime, CTROConst.Holidays));
+                        }
+                    }
+
+
+                    if (offholddate >= onholddate)
+                    {
+                        //exclude the onholddate not within processing
+                        if (onholddate <= endtime && onholddate >= starttime)
+                        {
+                            onholdtime = offholddate - onholddate;
+                            if (onholdtime.Days > 1)
+                            {
+                                //TimeSpan ss = TimeSpan.FromDays(overalldurations.Days + 2 - CTROFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                                onholdtime = onholdtime - TimeSpan.FromDays(onholdtime.Days + 2 - CTROFunctions.CountBusinessDays(onholddate, offholddate, CTROConst.Holidays));
+                            }
+
+                        }
+                    }
+
+                    processingtime = overalldurations - onholdtime;
+
+                    if (!row.Table.Columns.Contains("processingtime"))
+                    {
+                        row.Table.Columns.Add("processingtime", typeof(TimeSpan));
+                    }
+
+                    row["processingtime"] = processingtime;
+
+                    var Duplicate = outputDT.AsEnumerable().Where(x => x.Field<string>("trialid") == row["trialid"].ToString() &&
+x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
+
+                    if (Duplicate.Count() == 1)
+                    {
+                        int index = outputDT.Rows.IndexOf(Duplicate.First());
+                        outputDT.Rows[index]["additionalcomments"] += "Additional On-Hold " + row["onholddate"].ToString() + " - " + row["offholddate"].ToString() + ": " + row["onholddescription"];
+                        outputDT.Rows[index]["processingtime"] = (TimeSpan)(outputDT.Rows[index]["processingtime"]) - onholdtime;
+                    }
+                    else
+                    {
+                        outputDT.ImportRow(row);
+                    }
+                }
+                tempDT = outputDT.AsEnumerable()
+                    .GroupBy(x => new { username = x.Field<string>("loginname") })
+                    .Select(x => new
+                    {
+                        x.Key.username,
+                        original = x.Where(y => y.Field<string>("trialtype") == "Original").Count(),
+                        originalavgtime = String.Format("{0:.##}", x.Where(y => y.Field<string>("trialtype") == "Original").Select(z => z.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                        amendment = x.Where(y => y.Field<string>("trialtype") == "Amendment").Count(),
+                        amendmentavgtime = String.Format("{0:.##}", x.Where(y => y.Field<string>("trialtype") == "Amendment").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                        abbreviated = x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count(),
+                        abbreviatedavgtime = String.Format("{0:.##}", x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                        expectedtime = x.Where(y => y.Field<string>("trialtype") == "Original").Count() * 2 + x.Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 + x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.35
+                    }).OrderBy(x => x.expectedtime).ToDataTable();
+                tempDT.Rows.Add("Grand Total and Avg",
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count().ToString(),
+                String.Format("{0:.##}", outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count().ToString(),
+                String.Format("{0:.##}", outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count().ToString(),
+                String.Format("{0:.##}", outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count() * 2 +
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 +
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.35);
+                conclusionDT = tempDT;
+                conclusionDT.TableName = tablename;
+                return outputDT;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public DataTable CreateQCSheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
+        {
+            DateTime starttime = new DateTime();
+            DateTime endtime = new DateTime();
+            DateTime onholddate = new DateTime();
+            DateTime offholddate = new DateTime();
+            //DateTime reactivateddate = new DateTime();
+            DataTable outputDT = inputDT.Clone();
+            DataTable tempDT = new DataTable();
+            outputDT.TableName = tablename;
+            outputDT.Columns.Add("processingtime", typeof(TimeSpan));
+            TimeSpan overalldurations = new TimeSpan();
+            TimeSpan onholdtime = new TimeSpan();
+            TimeSpan processingtime = new TimeSpan();
+
+            try
+            {
+                foreach (DataRow row in inputDT.Rows)
+                {
+                    onholdtime = new TimeSpan();
+                    starttime = (DateTime)row["startedtime"];
+                    endtime = (DateTime)row["completedtime"];
+                    onholddate = string.IsNullOrEmpty(row["onholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["onholddate"]);
+                    offholddate = string.IsNullOrEmpty(row["offholddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["offholddate"]);
+                    //reactivateddate = string.IsNullOrEmpty(row["reactivateddate"].ToString()) ? new DateTime(2020, 1, 1) : (DateTime)(row["reactivateddate"]);
+                    if (endtime >= starttime)
+                    {
+                        overalldurations = endtime - starttime;
+                        if (overalldurations.Days > 1)
+                        {
+                            //TimeSpan ss = TimeSpan.FromDays(overalldurations.Days + 2 - CTROFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                            overalldurations = overalldurations - TimeSpan.FromDays(overalldurations.Days + 2 - CTROFunctions.CountBusinessDays(starttime, endtime, CTROConst.Holidays));
+                        }
+                    }
+
+
+                    if (offholddate >= onholddate)
+                    {
+                        //exclude the onholddate not within processing
+                        if (onholddate <= endtime && onholddate >= starttime)
+                        {
+                            onholdtime = offholddate - onholddate;
+                            if (onholdtime.Days > 1)
+                            {
+                                //TimeSpan ss = TimeSpan.FromDays(overalldurations.Days + 2 - CTROFunctions.CountBusinessDays(starttime, endtime, CTRPConst.Holidays));
+                                onholdtime = onholdtime - TimeSpan.FromDays(onholdtime.Days + 2 - CTROFunctions.CountBusinessDays(onholddate, offholddate, CTROConst.Holidays));
+                            }
+
+                        }
+                    }
+
+                    processingtime = overalldurations - onholdtime;
+
+                    if (!row.Table.Columns.Contains("processingtime"))
+                    {
+                        row.Table.Columns.Add("processingtime", typeof(TimeSpan));
+                    }
+
+                    row["processingtime"] = processingtime;
+
+                    var Duplicate = outputDT.AsEnumerable().Where(x => x.Field<string>("trialid") == row["trialid"].ToString() &&
+x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
+
+                    if (Duplicate.Count() == 1)
+                    {
+                        int index = outputDT.Rows.IndexOf(Duplicate.First());
+                        outputDT.Rows[index]["additionalcomments"] += "Additional On-Hold " + row["onholddate"].ToString() + " - " + row["offholddate"].ToString() + ": " + row["onholddescription"];
+                        outputDT.Rows[index]["processingtime"] = (TimeSpan)(outputDT.Rows[index]["processingtime"]) - onholdtime;
+                    }
+                    else
+                    {
+                        outputDT.ImportRow(row);
+                    }
+                }
+
+                tempDT = outputDT.AsEnumerable()
+                .GroupBy(x => new { username = x.Field<string>("loginname") })
+                .Select(x => new
+                {
+                    x.Key.username,
+                    original = x.Where(y => y.Field<string>("trialtype") == "Original").Count(),
+                    originalavgtime = String.Format("{0:.##}", x.Where(y => y.Field<string>("trialtype") == "Original").Select(z => z.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                    amendment = x.Where(y => y.Field<string>("trialtype") == "Amendment").Count(),
+                    amendmentavgtime = String.Format("{0:.##}", x.Where(y => y.Field<string>("trialtype") == "Amendment").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                    abbreviated = x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count(),
+                    abbreviatedavgtime = String.Format("{0:.##}", x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                    expectedtime = x.Where(y => y.Field<string>("trialtype") == "Original").Count() * 1.5 + x.Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.5 + x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.25
+                }).
+                OrderBy(x => x.expectedtime).ToDataTable();
+                tempDT.Rows.Add("Grand Total and Avg",
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count().ToString(),
+                String.Format("{0:.##}", outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count().ToString(),
+                String.Format("{0:.##}", outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count().ToString(),
+                String.Format("{0:.##}", outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Select(y => y.Field<TimeSpan>("processingtime").TotalHours).DefaultIfEmpty().Average()),
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count() * 1.5 +
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.5 +
+                outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.25);
+
+
+                conclusionDT = tempDT;
+                conclusionDT.TableName = tablename;
+                return outputDT;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public DataTable CreateQASheet(DataTable inputDT, string tablename, out DataTable conclusionDT)
+        {
+            DataTable outputDT = inputDT.Copy();
+            DataTable tempDT = new DataTable();
+            outputDT.TableName = tablename;
+
+            try
+            {
+                tempDT = outputDT.AsEnumerable()
+                    .GroupBy(x => new { tsrer = x[7].ToString() })
+                    .Select(x => new
+                    {
+                        x.Key.tsrer,
+                        monday = x.Where(y => Convert.ToDateTime(y[6]).DayOfWeek == DayOfWeek.Monday).Count(),
+                        tueday = x.Where(y => Convert.ToDateTime(y[6]).DayOfWeek == DayOfWeek.Tuesday).Count(),
+                        wednesday = x.Where(y => Convert.ToDateTime(y[6]).DayOfWeek == DayOfWeek.Wednesday).Count(),
+                        thursday = x.Where(y => Convert.ToDateTime(y[6]).DayOfWeek == DayOfWeek.Thursday).Count(),
+                        friday = x.Where(y => Convert.ToDateTime(y[6]).DayOfWeek == DayOfWeek.Friday).Count(),
+                        total = x.Count()
+                    }).ToDataTable();
+
+                tempDT.Rows.Add("Grand Total",
+                    outputDT.AsEnumerable().Where(y => Convert.ToDateTime(y[6]).DayOfWeek == DayOfWeek.Monday).Count(),
+                    outputDT.AsEnumerable().Where(y => Convert.ToDateTime(y[6]).DayOfWeek == DayOfWeek.Tuesday).Count(),
+                    outputDT.AsEnumerable().Where(y => Convert.ToDateTime(y[6]).DayOfWeek == DayOfWeek.Wednesday).Count(),
+                    outputDT.AsEnumerable().Where(y => Convert.ToDateTime(y[6]).DayOfWeek == DayOfWeek.Thursday).Count(),
+                    outputDT.AsEnumerable().Where(y => Convert.ToDateTime(y[6]).DayOfWeek == DayOfWeek.Friday).Count(),
+                    outputDT.AsEnumerable().Count());
+
+                conclusionDT = tempDT;
+                conclusionDT.TableName = tablename;
+                return outputDT;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+    }
+
+    #endregion
+
+    #region Lead Disease Flag Report
+    public class LeadDiseaseFlagReport : CTROReport
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            conclusionDS = new DataSet();
+
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+
+            foreach (ReportSetting reportSetting in reportSettings)
+            {
+                //abbreviated
+                string codetext = reportSetting.Code;
+                cmd = new NpgsqlCommand(codetext, conn);
+                datareader = cmd.ExecuteReader();
+                DataTable tempDT = new DataTable();
+                DataTable tempconclusionDT = new DataTable();
+                tempDT.TableName = reportSetting.Category;
+                tempDT.Load(datareader);
+                outputDS.Tables.Add(tempDT);
+                conclusionDS.Tables.Add(tempconclusionDT);
+            }
+
+            return outputDS;
+        }
+    }
+
+    #endregion
 
 }

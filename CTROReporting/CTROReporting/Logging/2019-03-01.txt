@@ -1,0 +1,110 @@
+
+Log Entry : 7:24:21 AM Friday, March 1, 2019
+  :
+  :CTROHangfire > MoveNext > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:30:21 AM Friday, March 1, 2019
+  :
+  :CTROHangfire > MoveNext > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:44:30 AM Friday, March 1, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 7:45:21 AM Friday, March 1, 2019
+  :
+  :CTROHangfire > MoveNext > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:31:42 AM Friday, March 1, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 8:52:41 AM Friday, March 1, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 9:13:43 AM Friday, March 1, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 9:34:44 AM Friday, March 1, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 9:55:46 AM Friday, March 1, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:16:48 AM Friday, March 1, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 1:53:54 PM Friday, March 1, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 2:14:56 PM Friday, March 1, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 2:35:58 PM Friday, March 1, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 2:56:59 PM Friday, March 1, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 3:18:00 PM Friday, March 1, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 3:39:04 PM Friday, March 1, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 4:16:07 PM Friday, March 1, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 4:20:20 PM Friday, March 1, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 4:24:40 PM Friday, March 1, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 4:27:13 PM Friday, March 1, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 3/1/2019 4:27:13 PM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 5:28:21 PM Friday, March 1, 2019
+  :
+  :CTROHangfire > MoveNext > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 5:58:22 PM Friday, March 1, 2019
+  :
+  :CTROHangfire > MoveNext > Unable to connect to the remote server
+-------------------------------

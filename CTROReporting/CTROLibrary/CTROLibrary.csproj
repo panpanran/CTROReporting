@@ -52,6 +52,9 @@
     <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="ChilkatDotNet46, Version=9.5.0.76, Culture=neutral, PublicKeyToken=eb5fc1fc52ef09bd, processorArchitecture=x86">
+      <HintPath>..\packages\chilkat-win32.9.5.0.76\lib\net461\ChilkatDotNet46.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -157,7 +160,9 @@
     <Compile Include="DBbase\EntitiesInitial.cs" />
     <Compile Include="EW\EWHome.cs" />
     <Compile Include="EW\EWParticipant.cs" />
+    <Compile Include="EW\EWSolution.cs" />
     <Compile Include="EW\EWTicket.cs" />
+    <Compile Include="EW\EWTriage.cs" />
     <Compile Include="Infrastructure\DatabaseFactory.cs" />
     <Compile Include="Infrastructure\Disposable.cs" />
     <Compile Include="Infrastructure\IRepository.cs" />
@@ -170,6 +175,7 @@
     <Compile Include="Model\Configuration\RecordConfiguration.cs" />
     <Compile Include="Model\Configuration\UserProfileConfiguration.cs" />
     <Compile Include="Model\Department.cs" />
+    <Compile Include="Model\Email.cs" />
     <Compile Include="Model\Logger.cs" />
     <Compile Include="Model\Participant.cs" />
     <Compile Include="Model\PASolution.cs" />
@@ -195,6 +201,5 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

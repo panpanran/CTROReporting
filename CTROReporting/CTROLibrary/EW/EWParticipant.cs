@@ -14,7 +14,7 @@ namespace CTROLibrary.EW
     {
         public IEnumerable<string> GetIDList(string where)
         {
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWSelect?$KB=CBIIT&$login=" + ConfigurationManager.AppSettings["V_RANPAN_EW_ACCOUNT"] + "&$password=" + ConfigurationManager.AppSettings["V_RANPAN_EW_PASSWORD"] + "&$table=participant&$lang=en&where=" + where;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWSelect?$KB=CBIIT&$login=" + CTROConst.EW_ACCOUNT + "&$password=" + CTROConst.EW_PASSWORD + "&$table=participant&$lang=en&where=" + where;
             string html = CTROFunctions.GetHTMLByUrl(url);
             string[] stringSeparators = new string[] { "\r\n" };
             string[] lines = html.Split(stringSeparators, StringSplitOptions.None);
@@ -23,7 +23,7 @@ namespace CTROLibrary.EW
 
         public Participant GetById(string id)
         {
-            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWRead?$KB=CBIIT&$table=participant&$login=" + ConfigurationManager.AppSettings["V_RANPAN_EW_ACCOUNT"] + "&$password=" + ConfigurationManager.AppSettings["V_RANPAN_EW_PASSWORD"] + "&$lang=en&id=" + id;
+            string url = "https://cbiitsupport.nci.nih.gov/ewws/EWRead?$KB=CBIIT&$table=participant&$login=" + CTROConst.EW_ACCOUNT + "&$password=" + CTROConst.EW_PASSWORD + "&$lang=en&id=" + id;
             string html = CTROFunctions.GetHTMLByUrl(url);
             string fullname = GetValueByFieldName("EWREST_full_name", html);
             string email = GetValueByFieldName("EWREST_email", html);

@@ -99,3 +99,20 @@ Affected parameters are:
    logtoconsole = 
    logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
    assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+Uninstalling assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+Removing EventLog source EWTicketTriageService.
+An exception occurred during the uninstallation of the System.Diagnostics.EventLogInstaller installer.
+System.Security.SecurityException: Requested registry access is not allowed.
+An exception occurred while uninstalling. This exception will be ignored and the uninstall will continue. However, the application might not be fully uninstalled after the uninstall is complete.
+Uninstalling assembly 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe'.
+Affected parameters are:
+   logtoconsole = 
+   logfile = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.InstallLog
+   assemblypath = C:\Users\panr2\Downloads\C#\CTROReporting\CTROEWSystem\bin\Debug\CTROEWSystem.exe
+Removing EventLog source EWTicketTriageService.
+Service EWTicketTriageService is being removed from the system...
+Service EWTicketTriageService was successfully removed from the system.

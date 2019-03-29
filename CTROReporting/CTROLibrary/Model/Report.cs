@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -12,6 +13,8 @@ namespace CTROLibrary.Model
 
         // Foreign key
         public int DepartmentId { get; set; }
+
+        public int EmailId { get; set; }
 
         public string ReportName { get; set; }
 
@@ -25,6 +28,8 @@ namespace CTROLibrary.Model
 
         [JsonIgnore]
         public virtual Department Department { get; set; }
+
+        public virtual Email Email { get; set; }
 
         [JsonIgnore]
         public virtual ICollection<Record> Records { get; set; }

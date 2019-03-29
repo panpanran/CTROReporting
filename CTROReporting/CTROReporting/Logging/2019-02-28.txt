@@ -1,0 +1,191 @@
+
+Log Entry : 7:44:13 AM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong !
+-------------------------------
+
+Log Entry : 8:10:00 AM Thursday, February 28, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 8:10:01 AM Thursday, February 28, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 8:10:02 AM Thursday, February 28, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 8:10:03 AM Thursday, February 28, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 8:10:39 AM Thursday, February 28, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 8:10:39 AM Thursday, February 28, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 8:10:39 AM Thursday, February 28, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 8:10:54 AM Thursday, February 28, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 8:11:24 AM Thursday, February 28, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 8:11:39 AM Thursday, February 28, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 8:11:55 AM Thursday, February 28, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 8:12:11 AM Thursday, February 28, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 8:12:11 AM Thursday, February 28, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 8:12:56 AM Thursday, February 28, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 8:12:56 AM Thursday, February 28, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 8:16:42 AM Thursday, February 28, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for kirsten - Sponsor at 2/28/2019 8:16:42 AM and the error message is: Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 8:16:42 AM Thursday, February 28, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:56:13 AM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong !
+-------------------------------
+
+Log Entry : 9:17:14 AM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong !
+-------------------------------
+
+Log Entry : 9:38:16 AM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong !
+-------------------------------
+
+Log Entry : 9:59:18 AM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong !
+-------------------------------
+
+Log Entry : 10:20:20 AM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong !
+-------------------------------
+2019-02-28T10:34:13-0500 Listen thread started
+2019-02-28T10:34:13-0500 listenPort: 5434
+2019-02-28T10:34:13-0500 listenOnPort:
+2019-02-28T10:34:13-0500     SocketError: WSAEADDRINUSE Only one usage of each socket address (protocol/network address/port) is normally permitted.
+2019-02-28T10:34:13-0500     Socket bind failed.
+2019-02-28T10:34:16-0500 bind-and-listen failed.
+
+Log Entry : 10:41:22 AM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong !
+-------------------------------
+
+Log Entry : 10:50:39 AM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:54:19 AM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:54:26 AM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:54:28 AM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:55:00 AM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:55:08 AM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:55:13 AM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:55:30 AM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 11:27:03 AM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 11:32:30 AM Thursday, February 28, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 2/28/2019 11:32:30 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 11:35:08 AM Thursday, February 28, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 2/28/2019 11:35:08 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 3:46:14 PM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 4:07:18 PM Thursday, February 28, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------

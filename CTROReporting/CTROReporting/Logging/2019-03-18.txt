@@ -1,0 +1,130 @@
+
+Log Entry : 7:42:02 AM Monday, March 18, 2019
+  :
+  :CTROHangfire > MoveNext > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 8:14:52 AM Monday, March 18, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 3/18/2019 8:14:52 AM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190318\Dashboard Expectation Date Check Report_20190317-20190318_20190318081443.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 8:14:52 AM Monday, March 18, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:16:24 AM Monday, March 18, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 3/18/2019 8:16:24 AM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190318\Dashboard Expectation Date Check Report_20190317-20190318_20190318081558.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 8:16:24 AM Monday, March 18, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:16:38 AM Monday, March 18, 2019
+  :
+  :EWSolution > DashboardMetrics > Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 8:17:09 AM Monday, March 18, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 3/18/2019 8:17:09 AM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190318\Dashboard Expectation Date Check Report_20190317-20190318_20190318081638.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 8:17:09 AM Monday, March 18, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:17:25 AM Monday, March 18, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 3/18/2019 8:17:25 AM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190318\Dashboard Expectation Date Check Report_20190317-20190318_20190318081709.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 8:17:25 AM Monday, March 18, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:18:10 AM Monday, March 18, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 3/18/2019 8:18:10 AM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190318\Dashboard Expectation Date Check Report_20190317-20190318_20190318081800.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 8:18:10 AM Monday, March 18, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:18:58 AM Monday, March 18, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 3/18/2019 8:18:58 AM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190318\Dashboard Expectation Date Check Report_20190317-20190318_20190318081846.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 8:18:58 AM Monday, March 18, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:19:09 AM Monday, March 18, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 3/18/2019 8:19:09 AM and the error message is: The process cannot access the file 'C:\Users\panr2\Downloads\C#\CTROReporting\CTROReporting\Excel\20190318\Dashboard Expectation Date Check Report_20190317-20190318_20190318081900.xlsx' because it is being used by another process.
+-------------------------------
+
+Log Entry : 8:19:09 AM Monday, March 18, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:28:15 AM Monday, March 18, 2019
+  :
+  :EWSolution > DashboardMetrics > Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 8:30:06 AM Monday, March 18, 2019
+  :
+  :CTROHangfire > MoveNext > The remote server returned an error: (403) Forbidden.
+-------------------------------
+
+Log Entry : 8:47:05 AM Monday, March 18, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 3/18/2019 8:47:05 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:47:05 AM Monday, March 18, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:47:07 AM Monday, March 18, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 3/18/2019 8:47:07 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:47:07 AM Monday, March 18, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:47:20 AM Monday, March 18, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 3/18/2019 8:47:20 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:47:20 AM Monday, March 18, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:00:27 AM Monday, March 18, 2019
+  :
+  :CTROHangfire > MoveNext > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 1:34:43 PM Monday, March 18, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - SDA - Trial Processing at 3/18/2019 1:34:43 PM and the error message is: Cannot find table 3.
+-------------------------------

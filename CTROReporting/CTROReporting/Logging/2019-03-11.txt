@@ -1,0 +1,85 @@
+
+Log Entry : 7:49:30 AM Monday, March 11, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 3/11/2019 7:49:30 AM and the error message is: Exception while reading from stream
+-------------------------------
+
+Log Entry : 7:50:04 AM Monday, March 11, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 8:40:20 AM Monday, March 11, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 9:11:31 AM Monday, March 11, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 9:32:25 AM Monday, March 11, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 9:53:28 AM Monday, March 11, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:14:33 AM Monday, March 11, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:35:36 AM Monday, March 11, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 11:36:05 AM Monday, March 11, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 11:48:50 AM Monday, March 11, 2019
+  :
+  :CTROFunctions > MoveNext > Exception from HRESULT: 0x800A03EC
+-------------------------------
+
+Log Entry : 11:48:50 AM Monday, March 11, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Turnaround at 3/11/2019 11:48:50 AM and the error message is: Exception from HRESULT: 0x800A03EC
+-------------------------------
+
+Log Entry : 11:50:46 AM Monday, March 11, 2019
+  :
+  :CTROFunctions > MoveNext > Exception from HRESULT: 0x800A03EC
+-------------------------------
+
+Log Entry : 11:50:46 AM Monday, March 11, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Turnaround at 3/11/2019 11:50:46 AM and the error message is: Exception from HRESULT: 0x800A03EC
+-------------------------------
+
+Log Entry : 1:37:12 PM Monday, March 11, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 3/11/2019 1:37:12 PM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 1:38:43 PM Monday, March 11, 2019
+  :
+  :CTROHangfire > MoveNext > Could not find a part of the path 'C:\Users\NT AUTHORITY\SYSTEM\CTROCredentials.txt'.
+-------------------------------
+
+Log Entry : 1:44:44 PM Monday, March 11, 2019
+  :
+  :CTROHangfire > MoveNext > Object reference not set to an instance of an object.
+-------------------------------
+
+Log Entry : 1:45:00 PM Monday, March 11, 2019
+  :
+  :CTROHangfire > MoveNext > Object reference not set to an instance of an object.
+-------------------------------

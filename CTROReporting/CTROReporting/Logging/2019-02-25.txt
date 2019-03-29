@@ -1,0 +1,525 @@
+
+Log Entry : 7:44:01 AM Monday, February 25, 2019
+  :
+  :CTROHangfire > MoveNext > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 8:14:33 AM Monday, February 25, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong !
+-------------------------------
+
+Log Entry : 8:17:39 AM Monday, February 25, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong !
+-------------------------------
+
+Log Entry : 10:31:48 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:31:48 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:31:48 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:31:48 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:31:49 AM Monday, February 25, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong !
+-------------------------------
+
+Log Entry : 10:32:17 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:17 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:17 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:17 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:17 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:17 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:17 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:17 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:33 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:33 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:33 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:33 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:33 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:34 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:34 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:34 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:34 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:49 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:32:50 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:33:04 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:33:04 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:33:04 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:33:04 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:33:04 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:33:04 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:33:20 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:33:20 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:33:20 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:33:20 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:33:20 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:33:35 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:33:35 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:33:50 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:33:50 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:33:50 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:34:05 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:34:05 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:34:05 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:34:20 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:34:20 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:34:20 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:34:20 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:34:35 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:34:50 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:35:05 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:35:05 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:35:05 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:35:05 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:35:20 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:35:35 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:35:50 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:36:05 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:36:20 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:36:35 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:36:50 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:36:50 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:37:05 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:37:05 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:37:20 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:37:20 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:37:35 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:37:35 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:37:35 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:38:05 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:38:05 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:38:05 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:28 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:28 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:28 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:28 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:28 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:28 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:28 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:28 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:28 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:28 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:28 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:28 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:28 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:33 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:33 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:33 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:33 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:33 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:33 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:33 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:34 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:34 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:34 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:34 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:34 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:34 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:34 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:34 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:40:34 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 10:44:28 AM Monday, February 25, 2019
+  :
+  :ScheduleJob > Execute > Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+-------------------------------
+
+Log Entry : 11:26:24 AM Monday, February 25, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 2/25/2019 11:26:24 AM and the error message is: Exception has been thrown by the target of an invocation.
+-------------------------------

@@ -98,7 +98,7 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
                 .Select(x => new
                 {
                     x.Key.loginname,
-                    completeddate = Convert.ToInt32(String.Format("{0:yyyyMMdd}", x.Key.completeddate)),
+                    completeddate = Convert.ToInt32(String.Format("{0:yyyymmdd}", x.Key.completeddate)),
                     workhour = (x.Where(y => y.Field<string>("trialtype") == "Original" && y.Field<string>("category") == "Abstraction").Count() * 2 + x.Where(y => y.Field<string>("trialtype") == "Amendment" && y.Field<string>("category") == "Abstraction").Count() * 0.75 + x.Where(y => y.Field<string>("trialtype") == "Abbreviated" && y.Field<string>("category") == "Abstraction").Count() * 0.35
                     + x.Where(y => y.Field<string>("trialtype") == "Original" && y.Field<string>("category") == "QC").Count() * 1.5 + x.Where(y => y.Field<string>("trialtype") == "Amendment" && y.Field<string>("category") == "QC").Count() * 0.5 + x.Where(y => y.Field<string>("trialtype") == "Abbreviated" && y.Field<string>("category") == "QC").Count() * 0.25).ToString(),
                     worktime = String.Format("{0:.##}", x.Select(y => y.Field<int>("worktime")).Average())
@@ -272,7 +272,7 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
     {
         public DataTable CreateDailySheet(DataTable inputDT)
         {
-            DataTable outputDT = inputDT.AsEnumerable().Select(x => new { loginname = x.Field<string>("loginname"), completeddate= String.Format("{0:yyyyMMdd}", x.Field<DateTime>("completeddate")),workhour = x.Field<Decimal>("workhour") }).ToDataTable();
+            DataTable outputDT = inputDT.AsEnumerable().Select(x => new { loginname = x.Field<string>("loginname"), completeddate= String.Format("{0:yyyymmdd}", x.Field<DateTime>("completeddate")),workhour = x.Field<Decimal>("workhour") }).ToDataTable();
             return outputDT;
         }
 

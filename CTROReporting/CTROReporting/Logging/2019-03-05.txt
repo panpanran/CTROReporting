@@ -1,0 +1,30 @@
+
+Log Entry : 10:21:55 AM Tuesday, March 5, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Trial Processing at 3/5/2019 10:21:55 AM and the error message is: Exception while reading from stream
+-------------------------------
+
+Log Entry : 10:25:23 AM Tuesday, March 5, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:26:16 AM Tuesday, March 5, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Trial Processing at 3/5/2019 10:26:16 AM and the error message is: Exception while reading from stream
+-------------------------------
+
+Log Entry : 1:36:00 PM Tuesday, March 5, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 3/5/2019 1:36:00 PM and the error message is: Exception while reading from stream
+-------------------------------
+
+Log Entry : 1:36:23 PM Tuesday, March 5, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 1:36:36 PM Tuesday, March 5, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------

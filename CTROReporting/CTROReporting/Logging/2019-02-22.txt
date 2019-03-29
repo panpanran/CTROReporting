@@ -1,0 +1,25 @@
+
+Log Entry : 7:40:04 AM Friday, February 22, 2019
+  :
+  :CTROHangfire > MoveNext > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 1:53:29 PM Friday, February 22, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong !
+-------------------------------
+
+Log Entry : 2:14:32 PM Friday, February 22, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong !
+-------------------------------
+
+Log Entry : 2:35:37 PM Friday, February 22, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong !
+-------------------------------
+
+Log Entry : 2:56:36 PM Friday, February 22, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong !
+-------------------------------

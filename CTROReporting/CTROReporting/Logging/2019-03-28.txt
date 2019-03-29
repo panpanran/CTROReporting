@@ -1,0 +1,25 @@
+
+Log Entry : 8:11:58 AM Thursday, March 28, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for kirsten - Sponsor at 3/28/2019 8:11:58 AM and the error message is: Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 8:11:58 AM Thursday, March 28, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:13:05 AM Thursday, March 28, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for kirsten - Sponsor at 3/28/2019 8:13:05 AM and the error message is: Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 8:13:05 AM Thursday, March 28, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:32:20 PM Thursday, March 28, 2019
+  :
+  :CTROHangfire > MoveNext > Unable to connect to the remote server
+-------------------------------

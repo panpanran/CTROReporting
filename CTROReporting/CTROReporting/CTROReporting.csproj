@@ -323,33 +323,21 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="CTROAuthorizeAttribute.cs" />
-    <Compile Include="Migrations\201810021332404_recordupdate.cs" />
-    <Compile Include="Migrations\201810021332404_recordupdate.Designer.cs">
-      <DependentUpon>201810021332404_recordupdate.cs</DependentUpon>
+    <Compile Include="Migrations\201902202019152_emailtemplate.cs" />
+    <Compile Include="Migrations\201902202019152_emailtemplate.Designer.cs">
+      <DependentUpon>201902202019152_emailtemplate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810280049055_ApplicationUser-Department.cs" />
-    <Compile Include="Migrations\201810280049055_ApplicationUser-Department.Designer.cs">
-      <DependentUpon>201810280049055_ApplicationUser-Department.cs</DependentUpon>
+    <Compile Include="Migrations\201902202033196_emailtemplate1.cs" />
+    <Compile Include="Migrations\201902202033196_emailtemplate1.Designer.cs">
+      <DependentUpon>201902202033196_emailtemplate1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811201856337_reportdescription.cs" />
-    <Compile Include="Migrations\201811201856337_reportdescription.Designer.cs">
-      <DependentUpon>201811201856337_reportdescription.cs</DependentUpon>
+    <Compile Include="Migrations\201902202039003_emailtemplate2.cs" />
+    <Compile Include="Migrations\201902202039003_emailtemplate2.Designer.cs">
+      <DependentUpon>201902202039003_emailtemplate2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201811291813171_Logger.cs" />
-    <Compile Include="Migrations\201811291813171_Logger.Designer.cs">
-      <DependentUpon>201811291813171_Logger.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811300130071_loggerModify1.cs" />
-    <Compile Include="Migrations\201811300130071_loggerModify1.Designer.cs">
-      <DependentUpon>201811300130071_loggerModify1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201811300217445_loggerModify2.cs" />
-    <Compile Include="Migrations\201811300217445_loggerModify2.Designer.cs">
-      <DependentUpon>201811300217445_loggerModify2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901031342462_connect-userprofile1.cs" />
-    <Compile Include="Migrations\201901031342462_connect-userprofile1.Designer.cs">
-      <DependentUpon>201901031342462_connect-userprofile1.cs</DependentUpon>
+    <Compile Include="Migrations\201902202101260_emailtemplate3.cs" />
+    <Compile Include="Migrations\201902202101260_emailtemplate3.Designer.cs">
+      <DependentUpon>201902202101260_emailtemplate3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NuGet.Modules\JsonHelper.cs" />
@@ -820,26 +808,17 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810021332404_recordupdate.resx">
-      <DependentUpon>201810021332404_recordupdate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902202019152_emailtemplate.resx">
+      <DependentUpon>201902202019152_emailtemplate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201810280049055_ApplicationUser-Department.resx">
-      <DependentUpon>201810280049055_ApplicationUser-Department.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902202033196_emailtemplate1.resx">
+      <DependentUpon>201902202033196_emailtemplate1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811201856337_reportdescription.resx">
-      <DependentUpon>201811201856337_reportdescription.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902202039003_emailtemplate2.resx">
+      <DependentUpon>201902202039003_emailtemplate2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811291813171_Logger.resx">
-      <DependentUpon>201811291813171_Logger.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811300130071_loggerModify1.resx">
-      <DependentUpon>201811300130071_loggerModify1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201811300217445_loggerModify2.resx">
-      <DependentUpon>201811300217445_loggerModify2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901031342462_connect-userprofile1.resx">
-      <DependentUpon>201901031342462_connect-userprofile1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201902202101260_emailtemplate3.resx">
+      <DependentUpon>201902202101260_emailtemplate3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -872,7 +851,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>55455</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44324/</IISUrl>
+          <IISUrl>http://localhost:55455/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

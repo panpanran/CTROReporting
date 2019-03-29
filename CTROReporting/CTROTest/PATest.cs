@@ -14,6 +14,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -230,6 +231,49 @@ on dw_active.nci_id = dw_study.nci_id order by dw_active.status_date; ";
 
             //ew.DashboardCheck(user);
         }
+
+        [Test]
+        public void DashboardMetricsTest()
+        {
+            try
+            {
+                IWebDriver driver = new ChromeDriver();
+
+                //Notice navigation is slightly different than the Java version
+                //This is because 'get' is a keyword in C#
+                driver.Navigate().GoToUrl("https://trials.nci.nih.gov/pa/protected/studyProtocolexecute.action");
+                //Login
+                IWebElement username = driver.FindElement(By.Id("j_username"));
+                username.SendKeys("panr");
+                IWebElement password = driver.FindElement(By.Id("j_password"));
+                password.SendKeys("Prss_0123");
+                password.Submit();
+                IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
+                acceptclaim.Click();
+
+                //Find Trial
+                IWebElement trialSearchMenuOption = driver.FindElement(By.Id("trialSearchMenuOption"));
+                trialSearchMenuOption.Click();
+                IWebElement trialCategory = driver.FindElement(By.Id("trialCategory"));
+                trialCategory.SendKeys("Complete");
+                IWebElement submissionType = driver.FindElement(By.Id("submissionType"));
+                submissionType.SendKeys("Update");
+                submissionType.SendKeys(Keys.Enter);
+                string matchtxt = Regex.Match(driver.PageSource, "\"pagebanner\">(.*?)items found").Value.Replace("\"pagebanner\">", "").Replace("items found", "").Replace(" ", "");
+                int updatenumber = Convert.ToInt32(string.IsNullOrEmpty(matchtxt) ? matchtxt : "0");
+            }
+            catch (Exception ex)
+            {
+                //Logging.WriteLog("EWDashboardCheck", "DownloadCSV", ex.Message);
+            }
+
+            EWDashboardMetrics ew = new EWDashboardMetrics();
+            var report = CTROFunctions.GetDataFromJson<Report>("ReportService", "GetReportById", "reportid=" + 23.ToString());
+            var user = CTROFunctions.GetDataFromJson<ApplicationUser>("UserService", "GetByUserID", "userid=" + "1551f213-a46f-4673-a6b9-64d683b5048b");
+            //ew.SendNotification(user, report, @"C:\Users\panr2\Downloads\workload.csv");
+            //ew.DashboardCheck(user);
+        }
+
 
         [Test]
         public void PCD2100Test()

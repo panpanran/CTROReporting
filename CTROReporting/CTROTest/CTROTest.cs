@@ -43,7 +43,7 @@ namespace CTROTest
             //recordService = new RecordServiceController(recordRepository.Object, unitOfWork.Object);
             //reportsettingService = new ReportSettingServiceController(reportsettingRepository.Object, unitOfWork.Object);
             //reportService = new ReportServiceController(reportRepository.Object, unitOfWork.Object, recordService, reportsettingService);            
-            reportService = new Mock<IReportService>(); 
+            reportService = new Mock<IReportService>();
         }
 
 
@@ -56,6 +56,17 @@ namespace CTROTest
             string result = CTROFunctions.GetToken(url, username, password);
             var schedules = CTROFunctions.GetDataFromJson<List<Report>>("ReportService", "GetReports");
         }
+
+        [Test()]
+        public void CTROConstTest()
+        {
+            CTROConst st = new CTROConst();
+            string a = CTROConst.EW_ACCOUNT;
+            string b = CTROConst.EW_PASSWORD;
+            string c = CTROConst.PA_ACCOUNT;
+            string d = CTROConst.PA_PASSWORD;
+        }
+
 
         [Test()]
         public async Task ScheduleTest()
@@ -244,12 +255,12 @@ namespace CTROTest
         {
             try
             {
-                DateTime lastworkdate = Convert.ToDateTime("2019-01-22");
-                while (CTROFunctions.CountBusinessDays(lastworkdate, Convert.ToDateTime("2019-01-22"), CTROConst.Holidays) <= 1)
-                {
-                    lastworkdate = lastworkdate.AddDays(-1);
-                }
-                List<DateTime> dd = CTROFunctions.GetBusinessDays(Convert.ToDateTime("2018-12-01").Date, Convert.ToDateTime("2019-01-28").Date, CTROConst.Holidays);
+                //DateTime lastworkdate = Convert.ToDateTime("2019-02-20");
+                //while (CTROFunctions.CountBusinessDays(lastworkdate, Convert.ToDateTime("2019-01-22"), CTROConst.Holidays) <= 1)
+                //{
+                //    lastworkdate = lastworkdate.AddDays(-1);
+                //}
+                List<DateTime> dd = CTROFunctions.GetBusinessDays(Convert.ToDateTime("2018-03-26").Date, Convert.ToDateTime("2018-09-25").Date, CTROConst.Holidays);
 
             }
             catch (Exception ex)
@@ -259,21 +270,21 @@ namespace CTROTest
         }
 
         [Test()]
-        public void ConnectMySQL()
+        public void ConnectNpgSQL()
         {
-            //using (var conn = new MySqlConnection(CTRPConst.EWconnString))
-            //{
-            //    conn.Open();
+            using (var conn = new NpgsqlConnection("Server=localhost;Port=5434;User Id=panran;Password=Prss_1234;Database=dw_ctrpn"))
+            {
+                conn.Open();
 
-            //    try
-            //    {
-            //        string ran = "";
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        throw;
-            //    }
-            //}
+                try
+                {
+                    string ran = "";
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
         }
 
         //[Test()]
@@ -287,7 +298,7 @@ namespace CTROTest
         //        {
         //            DataSet outputDS = new DataSet();
         //            DataSet conclusionDS = new DataSet();
-        //            string savepath = CTRPConst.biomarker_savepath + "_" + String.Format("{0:yyyyMMddHHmmss}", DateTime.Now) + ".xlsx";
+        //            string savepath = CTRPConst.biomarker_savepath + "_" + String.Format("{0:yyyymmddhhmmss}", DateTime.Now) + ".xlsx";
         //            string templatepath = CTRPConst.biomarker_template_file;
         //            NpgsqlCommand cmd = null;
         //            NpgsqlDataReader datareader = null;

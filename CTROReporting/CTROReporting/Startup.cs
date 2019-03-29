@@ -8,6 +8,7 @@ using System;
 using System.Configuration;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.ExceptionServices;
 using System.Web.Http;
 
 [assembly: OwinStartupAttribute("CTROReportingConfig", typeof(CTROReporting.Startup))]
@@ -24,6 +25,19 @@ namespace CTROReporting
             ConfigureOAuth(app);
             app.UseHangfireDashboard("/ctroreporting");
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+
+            CTROConst st = new CTROConst();
+            AppDomain.CurrentDomain.FirstChanceException += FirstChanceHandler;
+            //if (!CTROFunctions.ConnectSSHCTRP())
+            //{
+            //    Logging.WriteLog("Host", "ConnectSSHCTRP", "Data warehouse connecting Wrong or has been connected!");
+            //}
+        }
+
+        static void FirstChanceHandler(object source, FirstChanceExceptionEventArgs e)
+        {
+            Console.WriteLine("FirstChanceException event raised in {0}: {1}",
+                AppDomain.CurrentDomain.FriendlyName, e.Exception.Message);
         }
     }
 }

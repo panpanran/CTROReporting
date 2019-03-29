@@ -68,7 +68,7 @@ namespace CTROLibrary.CTRO
         {
             try
             {
-                RecurringJob.AddOrUpdate("00 - panpanr - Ticket Triage", () => ScheduledTicket(), "*/2 * * * *", TimeZoneInfo.Local);
+                RecurringJob.AddOrUpdate("00 - panpanr - Ticket Triage", () => ScheduledTicket(), "*/15 * * * *", TimeZoneInfo.Local);
 
                 foreach (Schedule schedule in schedulelist)
                 {
@@ -134,6 +134,11 @@ namespace CTROLibrary.CTRO
                 ewTriageTSRFeedback.BulkUpdate(tickets);
                 EWTriageOnHoldTrials ewTriageOnHoldTrials = new EWTriageOnHoldTrials();
                 ewTriageOnHoldTrials.BulkUpdate(tickets);
+                EWTriageSpam ewTriageSpam = new EWTriageSpam();
+                ewTriageSpam.BulkUpdate(tickets);
+                EWTriageAdministrative ewTriageAdministrative = new EWTriageAdministrative();
+                ewTriageAdministrative.BulkUpdate(tickets);
+
             }
             catch (Exception ex)
             {

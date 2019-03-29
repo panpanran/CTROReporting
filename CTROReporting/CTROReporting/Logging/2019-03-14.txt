@@ -1,0 +1,65 @@
+
+Log Entry : 8:10:37 AM Thursday, March 14, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for kirsten - Sponsor at 3/14/2019 8:10:37 AM and the error message is: Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 8:10:37 AM Thursday, March 14, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:18:59 AM Thursday, March 14, 2019
+  :
+  :CTROFunctions > GetDataTableFromCsv > The Microsoft Jet database engine could not find the object 'workload.csv'.  Make sure the object exists and that you spell its name and the path name correctly.
+-------------------------------
+
+Log Entry : 8:18:59 AM Thursday, March 14, 2019
+  :
+  :EWSolution > DashboardMetrics > The source contains no DataRows.
+-------------------------------
+
+Log Entry : 8:30:30 AM Thursday, March 14, 2019
+  :
+  :CTROFunctions > GetDataTableFromCsv > The Microsoft Jet database engine could not find the object 'SearchTrialResults.csv'.  Make sure the object exists and that you spell its name and the path name correctly.
+-------------------------------
+
+Log Entry : 9:29:20 AM Thursday, March 14, 2019
+  :
+  :EWSolution > DashboardMetrics > Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 9:35:53 AM Thursday, March 14, 2019
+  :
+  :EWSolution > DashboardMetrics > Index was outside the bounds of the array.
+-------------------------------
+
+Log Entry : 9:58:55 AM Thursday, March 14, 2019
+  :
+  :CTROFunctions > GetDataTableFromCsv > The Microsoft Jet database engine could not find the object 'workload.csv'.  Make sure the object exists and that you spell its name and the path name correctly.
+-------------------------------
+
+Log Entry : 9:58:55 AM Thursday, March 14, 2019
+  :
+  :EWSolution > DashboardMetrics > The source contains no DataRows.
+-------------------------------
+
+Log Entry : 10:03:00 AM Thursday, March 14, 2019
+  :
+  :CTROFunctions > GetDataTableFromCsv > The Microsoft Jet database engine could not find the object 'SearchTrialResults.csv'.  Make sure the object exists and that you spell its name and the path name correctly.
+-------------------------------
+
+Log Entry : 10:21:07 AM Thursday, March 14, 2019
+  :
+  :CTROFunctions > GetDataTableFromCsv > The Microsoft Jet database engine could not find the object 'workload.csv'.  Make sure the object exists and that you spell its name and the path name correctly.
+-------------------------------
+
+Log Entry : 10:21:07 AM Thursday, March 14, 2019
+  :
+  :EWSolution > DashboardMetrics > The source contains no DataRows.
+-------------------------------
+
+Log Entry : 10:25:39 AM Thursday, March 14, 2019
+  :
+  :CTROFunctions > GetDataTableFromCsv > The Microsoft Jet database engine could not find the object 'SearchTrialResults.csv'.  Make sure the object exists and that you spell its name and the path name correctly.
+-------------------------------

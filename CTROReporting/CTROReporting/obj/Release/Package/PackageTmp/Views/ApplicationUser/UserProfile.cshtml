@@ -220,6 +220,13 @@
     $('#imge').click(function () {
         $('#myModal').modal('toggle');
     });
+
+    function EditProfile() {
+        var url = "@Url.Action("EditProfile", "ApplicationUser")";
+
+        var userProfle = $("#userProfle"); // cache it to avoid repeatedly searching the DOM
+        userProfle.load(url);
+    }
 </script>
 
 <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

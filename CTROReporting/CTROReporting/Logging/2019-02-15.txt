@@ -1,0 +1,780 @@
+
+Log Entry : 7:41:21 AM Friday, February 15, 2019
+  :
+  :CTROHangfire > MoveNext > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 7:45:17 AM Friday, February 15, 2019
+  :
+  :CTROHangfire > MoveNext > Unable to connect to the remote server
+-------------------------------
+
+Log Entry : 8:08:28 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - Phase NA at 2/15/2019 8:08:28 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:02 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - NCTID Problem at 2/15/2019 8:10:02 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:02 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:04 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 2/15/2019 8:10:04 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:04 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:06 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/15/2019 8:10:06 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:06 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:08 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/15/2019 8:10:08 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:08 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:10 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/15/2019 8:10:10 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:10 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:38 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/15/2019 8:10:38 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:38 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:40 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 2/15/2019 8:10:40 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:40 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:42 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - NCTID Problem at 2/15/2019 8:10:42 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:42 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:44 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/15/2019 8:10:44 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:44 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:46 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/15/2019 8:10:46 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:46 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:11:08 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - NCTID Problem at 2/15/2019 8:11:08 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:11:08 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:11:23 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 2/15/2019 8:11:23 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:11:23 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:11:38 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/15/2019 8:11:38 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:11:38 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:11:40 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/15/2019 8:11:40 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:11:40 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:11:42 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/15/2019 8:11:42 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:11:42 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:11:53 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - NCTID Problem at 2/15/2019 8:11:53 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:11:53 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:23 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 2/15/2019 8:12:23 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:23 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:38 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/15/2019 8:12:38 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:38 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:53 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/15/2019 8:12:53 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:53 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:55 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/15/2019 8:12:55 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:55 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:15:08 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/15/2019 8:15:08 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:15:08 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:15:23 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 2/15/2019 8:15:23 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:15:23 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:15:38 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - NCTID Problem at 2/15/2019 8:15:38 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:15:38 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:15:40 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/15/2019 8:15:40 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:15:40 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:16:08 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/15/2019 8:16:08 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:16:08 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:20:08 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 2/15/2019 8:20:08 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:20:08 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:20:38 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/15/2019 8:20:38 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:20:38 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:20:53 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/15/2019 8:20:53 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:20:53 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:21:53 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - NCTID Problem at 2/15/2019 8:21:53 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:21:53 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:22:23 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/15/2019 8:22:23 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:22:23 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:30:02 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - National Trials wihtout CTEP ID at 2/15/2019 8:30:02 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:30:02 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:30:04 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - National Trials wihtout CTEP ID at 2/15/2019 8:30:04 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:30:04 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:30:39 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - National Trials wihtout CTEP ID at 2/15/2019 8:30:39 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:30:39 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:30:53 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - National Trials wihtout CTEP ID at 2/15/2019 8:30:53 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:30:53 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:31:23 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 2/15/2019 8:31:23 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:31:23 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:31:25 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - National Trials wihtout CTEP ID at 2/15/2019 8:31:25 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:31:25 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:31:39 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - National Trials wihtout CTEP ID at 2/15/2019 8:31:39 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:31:39 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:32:24 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - National Trials wihtout CTEP ID at 2/15/2019 8:32:24 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:32:24 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:33:24 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/15/2019 8:33:24 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:33:24 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:33:26 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - National Trials wihtout CTEP ID at 2/15/2019 8:33:26 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:33:26 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:33:39 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/15/2019 8:33:39 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:33:39 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:34:09 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - NCTID Problem at 2/15/2019 8:34:09 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:34:09 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:34:39 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/15/2019 8:34:39 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:34:39 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:35:09 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - National Trials wihtout CTEP ID at 2/15/2019 8:35:09 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:35:09 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:35:24 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - National Trials wihtout CTEP ID at 2/15/2019 8:35:24 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:35:24 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:41:09 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - National Trials wihtout CTEP ID at 2/15/2019 8:41:09 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:41:09 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:42:09 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - National Trials wihtout CTEP ID at 2/15/2019 8:42:09 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:42:09 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:52:54 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - National Trials wihtout CTEP ID at 2/15/2019 8:52:54 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:52:54 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:53:39 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 2/15/2019 8:53:39 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:53:39 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:53:54 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - National Trials wihtout CTEP ID at 2/15/2019 8:53:54 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:53:54 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:56:39 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/15/2019 8:56:39 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:56:39 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:57:24 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/15/2019 8:57:24 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:57:24 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:57:39 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - NCTID Problem at 2/15/2019 8:57:39 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:57:39 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:59:09 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/15/2019 8:59:09 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:59:09 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:15:40 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - National Trials wihtout CTEP ID at 2/15/2019 9:15:40 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:15:40 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:17:55 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - National Trials wihtout CTEP ID at 2/15/2019 9:17:55 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:17:55 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:29:33 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Sponsor at 2/15/2019 9:29:33 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:35:26 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 2/15/2019 9:35:26 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:35:26 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:37:11 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/15/2019 9:37:11 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:37:11 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:38:56 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - NCTID Problem at 2/15/2019 9:38:56 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:38:56 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:41:11 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/15/2019 9:41:11 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:41:11 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:43:26 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/15/2019 9:43:26 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:43:26 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:58:41 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - National Trials wihtout CTEP ID at 2/15/2019 9:58:41 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:58:41 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:59:56 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - National Trials wihtout CTEP ID at 2/15/2019 9:59:56 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:59:56 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:04:03 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - National Trials wihtout CTEP ID at 2/15/2019 10:04:03 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 10:04:03 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:04:26 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - National Trials wihtout CTEP ID at 2/15/2019 10:04:26 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 10:04:26 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:05:26 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - National Trials wihtout CTEP ID at 2/15/2019 10:05:26 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 10:05:26 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:07:26 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - National Trials wihtout CTEP ID at 2/15/2019 10:07:26 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 10:07:26 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:09:56 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - National Trials wihtout CTEP ID at 2/15/2019 10:09:56 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 10:09:56 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:16:57 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - National Trials wihtout CTEP ID at 2/15/2019 10:16:57 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 10:16:57 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:28:27 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - National Trials wihtout CTEP ID at 2/15/2019 10:28:27 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 10:28:27 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:45:12 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 2/15/2019 10:45:12 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 10:45:12 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:48:42 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Dashboard Expectation Date Check at 2/15/2019 10:48:42 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 10:48:42 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:51:27 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - NCTID Problem at 2/15/2019 10:51:27 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 10:51:27 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:52:27 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - National Trials wihtout CTEP ID at 2/15/2019 10:52:27 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 10:52:27 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:52:29 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 2/15/2019 10:52:29 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 10:52:29 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:55:27 AM Friday, February 15, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 2/15/2019 10:55:27 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 10:55:27 AM Friday, February 15, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------

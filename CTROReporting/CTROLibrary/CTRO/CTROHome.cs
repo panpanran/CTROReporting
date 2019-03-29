@@ -16,6 +16,7 @@ using System.Runtime.Caching;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Configuration;
+using CTROLibrary.EW;
 
 namespace CTROLibrary.CTRO
 {
@@ -30,10 +31,20 @@ namespace CTROLibrary.CTRO
         //excel
         public async Task<string> CreateReport(string startDate, string endDate, ApplicationUser user, Report report)
         {
+            string emailsubject = report.ReportName + " Report " + string.Format("{0:MM/dd/yyyy}", DateTime.Now);
+
+            if (report.ReportName == "Dashboard Metrics")
+            {
+                EWDashboardMetrics ew = new EWDashboardMetrics();
+                ew.DashboardMetrics(user,report);
+                return "DashboardMetrics";
+            }
+
             Type type = Type.GetType("CTROLibrary.CTRO." + report.ReportName.Replace(" - ", "").Replace(" ", "") + "Report");
             MethodInfo methodInfo = type.GetMethod("CreateBook");
             object classInstance = Activator.CreateInstance(type, null);
             object bookObject = null;
+
 
             string templatepath = ConfigurationManager.AppSettings["V_CTROTemplate"];
             StringBuilder pathtext = new StringBuilder();
@@ -117,7 +128,7 @@ namespace CTROLibrary.CTRO
                             }
                         }
 
-                        CTROFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your <b>" + report.ReportName + "</b> report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, savepath);
+                        CTROFunctions.SendEmail(emailsubject, report.Email.Template.Replace("reportname",report.ReportName), user.Email, savepath);
                         CacheItemPolicy cip = new CacheItemPolicy()
                         {
                             AbsoluteExpiration = new DateTimeOffset(DateTime.Now.AddHours(4))
@@ -127,7 +138,7 @@ namespace CTROLibrary.CTRO
                         MemoryCache.Default.Set(key, savepath, cip);
                         //HttpRuntime.Cache.Add(key, savepath, null, Cache.NoAbsoluteExpiration, new TimeSpan(4, 0, 0), CacheItemPriority.Default, null);
                         pathCache = savepath;
-                        //Trace.Listeners.Add(new TextWriterTraceListener(@"C:\Users\panr2\Downloads\C#\CTROReporting\TextWriterOutput.log", "myListener"));
+                        //Trace.Listeners.Add(new TextWriterTraceListener(@"C:\Users\panr2\Downloads\CSharp\CTROReporting\TextWriterOutput.log", "myListener"));
                         //Trace.TraceInformation("Test message.");
                         //// You must close or flush the trace to empty the output buffer.  
                         //Trace.Flush();
@@ -138,7 +149,7 @@ namespace CTROLibrary.CTRO
                 {
                     //System.IO.File.Copy(pathCache.ToString(), savepath, true);
                     savepath = pathCache.ToString();
-                    CTROFunctions.SendEmail(report.ReportName + " Report", "Hi Sir/Madam, <br /><br /> Attached please find. Your <b>" + report.ReportName + "</b> report has been done. Or you can find it at shared drive. <br /><br /> Thank you", user.Email, pathCache.ToString());
+                    CTROFunctions.SendEmail(emailsubject, report.Email.Template.Replace("reportname", report.ReportName), user.Email, pathCache.ToString());
                     logger.Message = "Creaet report with cache for " + user.UserName + " - " + report.ReportName + " at " + DateTime.Now.ToString();
                     var urltext = CTROFunctions.CreateDataFromJson("LoggerService", "CreateLogger", logger);
                 }

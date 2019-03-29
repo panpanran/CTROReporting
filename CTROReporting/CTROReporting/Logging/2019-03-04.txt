@@ -1,0 +1,130 @@
+
+Log Entry : 7:42:00 AM Monday, March 4, 2019
+  :
+  :CTROHangfire > MoveNext > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 7:44:52 AM Monday, March 4, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 3/4/2019 7:44:52 AM and the error message is: Exception while reading from stream
+-------------------------------
+
+Log Entry : 7:45:43 AM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 8:50:24 AM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 9:04:43 AM Monday, March 4, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Offhold at 3/4/2019 9:04:43 AM and the error message is: Exception while reading from stream
+-------------------------------
+
+Log Entry : 9:08:30 AM Monday, March 4, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for dena001 - Offhold at 3/4/2019 9:08:30 AM and the error message is: Exception while reading from stream
+-------------------------------
+
+Log Entry : 10:07:16 AM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 10:46:19 AM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 11:07:22 AM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 11:52:25 AM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 12:13:25 PM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 1:15:35 PM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 1:18:27 PM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 1:18:32 PM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 1:18:42 PM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 2:15:02 PM Monday, March 4, 2019
+  :
+  :EWFormatOriginalIncomingEmail > Update > The remote server returned an error: (409) Conflict.
+-------------------------------
+
+Log Entry : 2:15:02 PM Monday, March 4, 2019
+  :
+  :CTROHangfire > MoveNext > The remote server returned an error: (409) Conflict.
+-------------------------------
+
+Log Entry : 2:34:18 PM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 2:38:31 PM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 2:41:21 PM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 2:42:53 PM Monday, March 4, 2019
+  :
+  :CTROFunctions > GetDataTableFromCsv > The Microsoft Jet database engine could not find the object 'SearchTrialResults.csv'.  Make sure the object exists and that you spell its name and the path name correctly.
+-------------------------------
+
+Log Entry : 2:48:02 PM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 2:52:13 PM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 2:53:28 PM Monday, March 4, 2019
+  :
+  :EWDashboardMetrics > DownloadUpdateCSV > Sequence contains no matching element
+-------------------------------
+
+Log Entry : 3:08:49 PM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
+
+Log Entry : 3:34:07 PM Monday, March 4, 2019
+  :
+  :Host > ConnectSSHCTRP > Data warehouse connecting Wrong or has been connected!
+-------------------------------
