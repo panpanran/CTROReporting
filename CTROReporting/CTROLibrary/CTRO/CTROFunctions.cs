@@ -229,7 +229,7 @@ namespace CTROLibrary.CTRO
             }
             catch (Exception ex)
             {
-                Logging.WriteLog("CTROFunctions", "GetDataTableFromCsv", ex.Message);
+                Logging.WriteLog("CTROFunctions", "GetDataTableFromCsv", ex);
                 return dataTable;
             }
         }
@@ -311,13 +311,13 @@ namespace CTROLibrary.CTRO
             }
         }
 
-        public static void SendEmail(string Subject, string Body, string ToEmail, string AttachmentFileName)
+        public static void SendEmail(Email email)
         {
             MailMessage msg = new MailMessage();
-            msg.To.Add(new MailAddress(ToEmail));
+            msg.To.Add(new MailAddress(email.To));
             msg.From = new MailAddress("ran.pan@nih.gov", "CTRO Reporting System");
-            msg.Subject = Subject;
-            msg.Body = Body;
+            msg.Subject = email.Subject;
+            msg.Body = email.Body;
             msg.IsBodyHtml = true;
 
             SmtpClient client = new SmtpClient();
@@ -328,15 +328,15 @@ namespace CTROLibrary.CTRO
             client.Host = "mailfwd.nih.gov";
             client.EnableSsl = false;
 
-            if (!string.IsNullOrEmpty(AttachmentFileName))
+            if (!string.IsNullOrEmpty(email.AttachmentFileName))
             {
-                Attachment attachment = new Attachment(AttachmentFileName, MediaTypeNames.Application.Octet);
+                Attachment attachment = new Attachment(email.AttachmentFileName, MediaTypeNames.Application.Octet);
                 ContentDisposition disposition = attachment.ContentDisposition;
-                disposition.CreationDate = File.GetCreationTime(AttachmentFileName);
-                disposition.ModificationDate = File.GetLastWriteTime(AttachmentFileName);
-                disposition.ReadDate = File.GetLastAccessTime(AttachmentFileName);
-                disposition.FileName = Path.GetFileName(AttachmentFileName);
-                disposition.Size = new FileInfo(AttachmentFileName).Length;
+                disposition.CreationDate = File.GetCreationTime(email.AttachmentFileName);
+                disposition.ModificationDate = File.GetLastWriteTime(email.AttachmentFileName);
+                disposition.ReadDate = File.GetLastAccessTime(email.AttachmentFileName);
+                disposition.FileName = Path.GetFileName(email.AttachmentFileName);
+                disposition.Size = new FileInfo(email.AttachmentFileName).Length;
                 disposition.DispositionType = DispositionTypeNames.Attachment;
                 msg.Attachments.Add(attachment);
             }
@@ -442,7 +442,7 @@ namespace CTROLibrary.CTRO
                 ReleaseObject(xlApp);
 
                 File.Delete(savepath);
-                Logging.WriteLog("CTROFunctions", MethodBase.GetCurrentMethod().Name, ex.Message);
+                Logging.WriteLog("CTROFunctions", MethodBase.GetCurrentMethod().Name, ex);
                 throw;
             }
         }
@@ -540,7 +540,7 @@ namespace CTROLibrary.CTRO
                 ReleaseObject(xlApp);
 
                 File.Delete(savepath);
-                Logging.WriteLog("CTROFunctions", MethodBase.GetCurrentMethod().Name, ex.Message);
+                Logging.WriteLog("CTROFunctions", MethodBase.GetCurrentMethod().Name, ex);
 
                 throw;
             }

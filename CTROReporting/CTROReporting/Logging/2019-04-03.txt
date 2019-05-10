@@ -1,0 +1,35 @@
+
+Log Entry : 8:13:04 AM Wednesday, April 3, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Turnaround at 4/3/2019 8:13:04 AM and the error message is: Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 8:13:34 AM Wednesday, April 3, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Turnaround at 4/3/2019 8:13:34 AM and the error message is: Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 8:34:07 AM Wednesday, April 3, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Turnaround at 4/3/2019 8:34:07 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 1:01:40 PM Wednesday, April 3, 2019
+  :
+  :CTROHangfire > MoveNext > The operation has timed out
+-------------------------------
+
+Log Entry : 1:46:40 PM Wednesday, April 3, 2019
+  :
+  :CTROHangfire > MoveNext > The operation has timed out
+-------------------------------
+
+Log Entry : 2:16:41 PM Wednesday, April 3, 2019
+  :
+  :CTROHangfire > MoveNext > The operation has timed out
+-------------------------------
+
+Log Entry : 2:30:21 PM Wednesday, April 3, 2019
+  :
+  :CTROHangfire > MoveNext > The remote server returned an error: (403) Forbidden.
+-------------------------------

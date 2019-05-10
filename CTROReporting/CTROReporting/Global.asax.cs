@@ -7,15 +7,18 @@ using System.Web.Routing;
 using System.Configuration;
 using Hangfire;
 using CTROLibrary.CTRO;
+using CTROReporting.App_Start;
+using System.Data.SqlClient;
 
 namespace CTROReporting
 {
     public class MvcApplication : System.Web.HttpApplication
     {
         private BackgroundJobServer _backgroundJobServer;
+        private string connString = ConfigurationManager.ConnectionStrings["CTROReportingEntities"].ConnectionString;
         protected void Application_Start()
         {
-            Hangfire.GlobalConfiguration.Configuration.UseSqlServerStorage(ConfigurationManager.ConnectionStrings["CTROReportingEntities"].ConnectionString);
+            Hangfire.GlobalConfiguration.Configuration.UseSqlServerStorage(connString);
 
             _backgroundJobServer = new BackgroundJobServer();
 
@@ -35,11 +38,14 @@ namespace CTROReporting
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            GlobalFilters.Filters.Add(new CustomExceptionFilter());
+            SqlDependency.Start(connString);
         }
 
         protected void Application_End(object sender, EventArgs e)
         {
             _backgroundJobServer.Dispose();
+            SqlDependency.Stop(connString);
         }
     }
 }

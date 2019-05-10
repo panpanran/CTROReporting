@@ -25,9 +25,10 @@ namespace CTROReporting
             ConfigureOAuth(app);
             app.UseHangfireDashboard("/ctroreporting");
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            app.MapSignalR();
 
-            CTROConst st = new CTROConst();
-            AppDomain.CurrentDomain.FirstChanceException += FirstChanceHandler;
+            //CTROConst st = new CTROConst();
+            //AppDomain.CurrentDomain.FirstChanceException += FirstChanceHandler;
             //if (!CTROFunctions.ConnectSSHCTRP())
             //{
             //    Logging.WriteLog("Host", "ConnectSSHCTRP", "Data warehouse connecting Wrong or has been connected!");

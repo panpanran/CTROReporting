@@ -132,6 +132,12 @@
     <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.4\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
     </Reference>
@@ -226,6 +232,7 @@
     </Reference>
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
     </Reference>
@@ -307,8 +314,10 @@
   <ItemGroup>
     <Compile Include="App_Start\AutoMapperConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\CustomException.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IOCConfig.cs" />
+    <Compile Include="App_Start\MessageHub.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -316,6 +325,7 @@
     <Compile Include="Controllers\ApplicationUserController.cs" />
     <Compile Include="Controllers\ChartController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\LoggerController.cs" />
     <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\TicketController.cs" />
@@ -339,6 +349,14 @@
     <Compile Include="Migrations\201902202101260_emailtemplate3.Designer.cs">
       <DependentUpon>201902202101260_emailtemplate3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904021508543_changeemail.cs" />
+    <Compile Include="Migrations\201904021508543_changeemail.Designer.cs">
+      <DependentUpon>201904021508543_changeemail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904021533569_changeemail1.cs" />
+    <Compile Include="Migrations\201904021533569_changeemail1.Designer.cs">
+      <DependentUpon>201904021533569_changeemail1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NuGet.Modules\JsonHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -360,6 +378,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
     <Compile Include="ViewModels\ChartViewModel.cs" />
+    <Compile Include="ViewModels\LoggerViewModel.cs" />
     <Compile Include="ViewModels\RecordViewModel.cs" />
     <Compile Include="ViewModels\ReportViewModel.cs" />
     <Compile Include="ViewModels\ScheduleViewModel.cs" />
@@ -722,6 +741,8 @@
     <Content Include="Scripts\jquery-3.1.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.0.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -766,6 +787,8 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Scripts\underscore.min.map" />
     <Content Include="Views\Ticket\TicketLogging.cshtml" />
+    <Content Include="Views\Logger\Logger.cshtml" />
+    <Content Include="Views\Logger\LoggerList.cshtml" />
     <None Include="Views\Report\Test.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -801,7 +824,6 @@
     <Folder Include="Logging\" />
     <Folder Include="UploadedFiles\" />
     <Folder Include="Views\Department\" />
-    <Folder Include="Views\Logger\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -819,6 +841,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902202101260_emailtemplate3.resx">
       <DependentUpon>201902202101260_emailtemplate3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904021508543_changeemail.resx">
+      <DependentUpon>201904021508543_changeemail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904021533569_changeemail1.resx">
+      <DependentUpon>201904021533569_changeemail1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

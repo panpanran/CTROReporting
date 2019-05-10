@@ -52,6 +52,7 @@
                     Analysis
                 </a>
             </li>
+
             @if (Request.IsAuthenticated)
             {
                 if (Request.Cookies["UserSettings"] != null)
@@ -62,6 +63,22 @@
                             <a class="nav-link" href="@Url.Action("Ticket", "Ticket")">
                                 <span data-feather="layers"></span>
                                 Tickets
+                            </a>
+                        </li>
+                    }
+                }
+            }
+
+            @if (Request.IsAuthenticated)
+            {
+                if (Request.Cookies["UserSettings"] != null)
+                {
+                    if (Request.Cookies["UserSettings"]["Department"] == "All")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Logger", "Logger")">
+                                <span data-feather="layers"></span>
+                                Logs
                             </a>
                         </li>
                     }

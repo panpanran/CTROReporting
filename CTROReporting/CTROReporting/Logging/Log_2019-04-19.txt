@@ -1,0 +1,35 @@
+
+4/19/2019 7:59:20 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHangfire
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}Unable to connect to the remote server
+Source ---
+{0}System
+StackTrace ---
+{0}   at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadString(Uri address)
+   at System.Net.WebClient.DownloadString(String address)
+   at CTROLibrary.CTRO.CTROFunctions.GetHTMLByUrl(String url) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 148
+   at CTROLibrary.EW.EWTicket.GetIDList(String where) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWTicket.cs:line 15
+   at CTROLibrary.CTRO.CTROHangfire.<ScheduledTicket>d__7.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROHangfire.cs:line 125
+Tar
+4/19/2019 8:00:21 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHangfire
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}Unable to connect to the remote server
+Source ---
+{0}System
+StackTrace ---
+{0}   at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadString(Uri address)
+   at System.Net.WebClient.DownloadString(String address)
+   at CTROLibrary.CTRO.CTROFunctions.GetHTMLByUrl(String url) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 148
+   at CTROLibrary.EW.EWTicket.GetIDList(String where) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWTicket.cs:line 15
+   at CTROLibrary.CTRO.CTROHangfire.<ScheduledTicket>d__7.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROHangfire.cs:line 125
+Tar

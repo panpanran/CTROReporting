@@ -1,0 +1,446 @@
+
+5/3/2019 8:10:38 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The process cannot access the file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190503\Dashboard Expectation Date Check Report_20190502-20190503_20190503081015.xlsx' because it is being used by another process.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalDelete(String path, Boolean checkHost)
+   at System.IO.File.Delete(String path)
+   at CTROLibrary.CTRO.CTROFunctions.<WriteExcelByDataTable>d__13.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 444
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.Compiler
+5/3/2019 8:12:36 AM
+------------------------------------------------------------------------------------------------
+Class Name :- EWSolution
+Method Name :- DashboardMetrics
+------------------------------------------------------------------------------------------------
+Message ---
+{0}Object cannot be cast from DBNull to other types.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.DBNull.System.IConvertible.ToDateTime(IFormatProvider provider)
+   at System.Convert.ToDateTime(Object value)
+   at CTROLibrary.EW.EWDashboardMetrics.<>c__DisplayClass2_0.<SendNotification>b__6(DataRow m) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWSolution.cs:line 557
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at CTROLibrary.EW.EWDashboardMetrics.SendNotification(ApplicationUser user, Report report, Dictionary`2 input) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWSolution.cs:line
+5/3/2019 8:15:12 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The process cannot access the file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190503\Dashboard Expectation Date Check Report_20190502-20190503_20190503081452.xlsx' because it is being used by another process.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalDelete(String path, Boolean checkHost)
+   at System.IO.File.Delete(String path)
+   at CTROLibrary.CTRO.CTROFunctions.<WriteExcelByDataTable>d__13.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 444
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.Compiler
+5/3/2019 8:17:26 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The process cannot access the file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190503\Dashboard Expectation Date Check Report_20190502-20190503_20190503081707.xlsx' because it is being used by another process.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalDelete(String path, Boolean checkHost)
+   at System.IO.File.Delete(String path)
+   at CTROLibrary.CTRO.CTROFunctions.<WriteExcelByDataTable>d__13.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 444
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.Compiler
+5/3/2019 8:24:40 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The process cannot access the file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190503\Dashboard Expectation Date Check Report_20190502-20190503_20190503082407.xlsx' because it is being used by another process.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalDelete(String path, Boolean checkHost)
+   at System.IO.File.Delete(String path)
+   at CTROLibrary.CTRO.CTROFunctions.<WriteExcelByDataTable>d__13.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 444
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.Compiler
+5/3/2019 8:25:17 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The process cannot access the file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190503\Dashboard Expectation Date Check Report_20190502-20190503_20190503082453.xlsx' because it is being used by another process.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalDelete(String path, Boolean checkHost)
+   at System.IO.File.Delete(String path)
+   at CTROLibrary.CTRO.CTROFunctions.<WriteExcelByDataTable>d__13.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 444
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.Compiler
+5/3/2019 8:31:28 AM
+------------------------------------------------------------------------------------------------
+Class Name :- EWSolution
+Method Name :- DashboardMetrics
+------------------------------------------------------------------------------------------------
+Message ---
+{0}Object cannot be cast from DBNull to other types.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.DBNull.System.IConvertible.ToDateTime(IFormatProvider provider)
+   at System.Convert.ToDateTime(Object value)
+   at CTROLibrary.EW.EWDashboardMetrics.<>c__DisplayClass2_0.<SendNotification>b__6(DataRow m) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWSolution.cs:line 557
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at CTROLibrary.EW.EWDashboardMetrics.SendNotification(ApplicationUser user, Report report, Dictionary`2 input) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWSolution.cs:line
+5/3/2019 8:33:25 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The process cannot access the file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190503\Dashboard Expectation Date Check Report_20190503083259.xlsx' because it is being used by another process.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalDelete(String path, Boolean checkHost)
+   at System.IO.File.Delete(String path)
+   at CTROLibrary.CTRO.CTROFunctions.<WriteExcelByDataTable>d__13.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 444
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwait
+5/3/2019 8:43:41 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The process cannot access the file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190503\Dashboard Expectation Date Check Report_20190503084301.xlsx' because it is being used by another process.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalDelete(String path, Boolean checkHost)
+   at System.IO.File.Delete(String path)
+   at CTROLibrary.CTRO.CTROFunctions.<WriteExcelByDataTable>d__13.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 444
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwait
+5/3/2019 8:51:24 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The process cannot access the file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190503\Dashboard Expectation Date Check Report_20190502-20190503_20190503085031.xlsx' because it is being used by another process.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalDelete(String path, Boolean checkHost)
+   at System.IO.File.Delete(String path)
+   at CTROLibrary.CTRO.CTROFunctions.<WriteExcelByDataTable>d__13.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 444
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.Compiler
+5/3/2019 9:03:41 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}No connection could be made because the target machine actively refused it
+Source ---
+{0}Npgsql
+StackTrace ---
+{0}   at Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   at Npgsql.NpgsqlConnector.<RawOpen>d__153.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Npgsql.NpgsqlConnector.<Open>d__149.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Npgsql.ConnectorPool.<AllocateLong>d__19.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass32_0.<<Open>g__OpenLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Npgsql.NpgsqlConnection.Open()
+   at CTROLibrary.CTRO.CTROHome.<CreateReport>d__1.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROHome.cs:line 104
+TargetSite ---
+{0}Void Connect(Npgsql.Npgsql
+5/3/2019 9:11:01 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}No connection could be made because the target machine actively refused it
+Source ---
+{0}Npgsql
+StackTrace ---
+{0}   at Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   at Npgsql.NpgsqlConnector.<RawOpen>d__153.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Npgsql.NpgsqlConnector.<Open>d__149.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Npgsql.ConnectorPool.<AllocateLong>d__19.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass32_0.<<Open>g__OpenLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Npgsql.NpgsqlConnection.Open()
+   at CTROLibrary.CTRO.CTROHome.<CreateReport>d__1.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROHome.cs:line 104
+TargetSite ---
+{0}Void Connect(Npgsql.Npgsql
+5/3/2019 9:15:10 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHangfire
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+Source ---
+{0}System
+StackTrace ---
+{0}   at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadString(Uri address)
+   at System.Net.WebClient.DownloadString(String address)
+   at CTROLibrary.CTRO.CTROFunctions.GetHTMLByUrl(String url) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 148
+   at CTROLibrary.EW.EWTicket.GetIDList(String where) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWTicket.cs:line 15
+   at CTROLibrary.CTRO.CTROHangfire.<ScheduledTicket>d__7.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTR
+5/3/2019 9:23:51 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}No connection could be made because the target machine actively refused it
+Source ---
+{0}Npgsql
+StackTrace ---
+{0}   at Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   at Npgsql.NpgsqlConnector.<RawOpen>d__153.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Npgsql.NpgsqlConnector.<Open>d__149.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Npgsql.ConnectorPool.<AllocateLong>d__19.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass32_0.<<Open>g__OpenLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Npgsql.NpgsqlConnection.Open()
+   at CTROLibrary.CTRO.CTROHome.<CreateReport>d__1.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROHome.cs:line 104
+TargetSite ---
+{0}Void Connect(Npgsql.Npgsql
+5/3/2019 9:29:15 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The process cannot access the file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190503\Dashboard Expectation Date Check Report_20190503092421.xlsx' because it is being used by another process.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalDelete(String path, Boolean checkHost)
+   at System.IO.File.Delete(String path)
+   at CTROLibrary.CTRO.CTROFunctions.<WriteExcelByDataTable>d__13.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 444
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwait
+5/3/2019 9:30:04 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHangfire
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+Source ---
+{0}System
+StackTrace ---
+{0}   at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadString(Uri address)
+   at System.Net.WebClient.DownloadString(String address)
+   at CTROLibrary.CTRO.CTROFunctions.GetHTMLByUrl(String url) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 148
+   at CTROLibrary.EW.EWTicket.GetIDList(String where) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWTicket.cs:line 15
+   at CTROLibrary.CTRO.CTROHangfire.<ScheduledTicket>d__7.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTR
+5/3/2019 9:31:55 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The process cannot access the file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190503\Dashboard Expectation Date Check Report_20190503093051.xlsx' because it is being used by another process.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalDelete(String path, Boolean checkHost)
+   at System.IO.File.Delete(String path)
+   at CTROLibrary.CTRO.CTROFunctions.<WriteExcelByDataTable>d__13.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 444
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwait
+5/3/2019 9:33:58 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The process cannot access the file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190503\Dashboard Expectation Date Check Report_20190502-20190503_20190503093230.xlsx' because it is being used by another process.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalDelete(String path, Boolean checkHost)
+   at System.IO.File.Delete(String path)
+   at CTROLibrary.CTRO.CTROFunctions.<WriteExcelByDataTable>d__13.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 444
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.Compiler
+5/3/2019 9:37:01 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The process cannot access the file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190503\Dashboard Expectation Date Check Report_20190503093438.xlsx' because it is being used by another process.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalDelete(String path, Boolean checkHost)
+   at System.IO.File.Delete(String path)
+   at CTROLibrary.CTRO.CTROFunctions.<WriteExcelByDataTable>d__13.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 444
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwait
+5/3/2019 9:46:19 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The process cannot access the file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190503\Dashboard Expectation Date Check Report_20190503094336.xlsx' because it is being used by another process.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalDelete(String path, Boolean checkHost)
+   at System.IO.File.Delete(String path)
+   at CTROLibrary.CTRO.CTROFunctions.<WriteExcelByDataTable>d__13.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 444
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwait
+5/3/2019 9:56:16 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}Unable to cast COM object of type 'Microsoft.Office.Interop.Excel.ApplicationClass' to interface type 'Microsoft.Office.Interop.Excel._Application'. This operation failed because the QueryInterface call on the COM component for the interface with IID '{000208D5-0000-0000-C000-000000000046}' failed due to the following error: The RPC server is unavailable. (Exception from HRESULT: 0x800706BA).
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.StubHelpers.StubHelpers.GetCOMIPFromRCW(Object objSrc, IntPtr pCPCMD, IntPtr& ppTarget, Boolean& pfNeedsRelease)
+   at Microsoft.Office.Interop.Excel.ApplicationClass.Quit()
+   at CTROLibrary.CTRO.CTROFunctions.<WriteExcelByDataTable>d__13.MoveNext() in C:\Users\panr2\Downloads\CSharp\C
+5/3/2019 10:36:23 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The process cannot access the file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190503\Dashboard Expectation Date Check Report_20190503102804.xlsx' because it is being used by another process.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalDelete(String path, Boolean checkHost)
+   at System.IO.File.Delete(String path)
+   at CTROLibrary.CTRO.CTROFunctions.<WriteExcelByDataTable>d__13.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 444
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwai
+5/3/2019 10:43:29 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The process cannot access the file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190503\Dashboard Expectation Date Check Report_20190502-20190503_20190503104304.xlsx' because it is being used by another process.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalDelete(String path, Boolean checkHost)
+   at System.IO.File.Delete(String path)
+   at CTROLibrary.CTRO.CTROFunctions.<WriteExcelByDataTable>d__13.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 444
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.Compile
+5/3/2019 10:49:50 AM
+------------------------------------------------------------------------------------------------
+Class Name :- EWSolution
+Method Name :- DashboardMetrics
+------------------------------------------------------------------------------------------------
+Message ---
+{0}Object cannot be cast from DBNull to other types.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.DBNull.System.IConvertible.ToDateTime(IFormatProvider provider)
+   at System.Convert.ToDateTime(Object value)
+   at CTROLibrary.EW.EWDashboardMetrics.<>c__DisplayClass2_0.<SendNotification>b__6(DataRow m) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWSolution.cs:line 560
+   at System.Linq.Enumerable.WhereEnumerableIterator`1.MoveNext()
+   at System.Linq.Enumerable.Count[TSource](IEnumerable`1 source)
+   at CTROLibrary.EW.EWDashboardMetrics.SendNotification(ApplicationUser user, Report report, Dictionary`2 input) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWSolution.cs:lin
+5/3/2019 7:59:20 PM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHangfire
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+Source ---
+{0}System
+StackTrace ---
+{0}   at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadString(Uri address)
+   at System.Net.WebClient.DownloadString(String address)
+   at CTROLibrary.CTRO.CTROFunctions.GetHTMLByUrl(String url) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 148
+   at CTROLibrary.EW.EWTicket.GetIDList(String where) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWTicket.cs:line 15
+   at CTROLibrary.CTRO.CTROHangfire.<ScheduledTicket>d__7.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTR

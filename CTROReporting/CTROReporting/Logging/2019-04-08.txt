@@ -1,0 +1,1495 @@
+
+Log Entry : 8:10:11 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Trial Processing at 4/8/2019 8:10:11 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:11 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:13 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 4/8/2019 8:10:13 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:13 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:15 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - Phase NA at 4/8/2019 8:10:15 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:15 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:18 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for joshua - Phase NA at 4/8/2019 8:10:18 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:18 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:20 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 8:10:20 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:20 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:22 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Abstractor at 4/8/2019 8:10:22 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:22 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:24 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Trial Processing at 4/8/2019 8:10:24 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:24 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:26 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - User Support - Trial Processing at 4/8/2019 8:10:26 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:26 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:28 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - SDA - Trial Processing at 4/8/2019 8:10:28 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:28 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:30 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for ashley - SDA - Biomarker at 4/8/2019 8:10:30 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:30 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:33 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Trial Processing at 4/8/2019 8:10:33 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:33 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:35 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 4/8/2019 8:10:35 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:35 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:37 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 4/8/2019 8:10:37 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:37 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:10:39 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for bobbie - User Support - Trial Processing at 4/8/2019 8:10:39 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:10:39 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:01 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 4/8/2019 8:12:01 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:01 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:03 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for joshua - Phase NA at 4/8/2019 8:12:03 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:03 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:06 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Trial Processing at 4/8/2019 8:12:06 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:06 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:08 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - Phase NA at 4/8/2019 8:12:08 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:08 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:10 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 8:12:10 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:11 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:13 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - SDA - Trial Processing at 4/8/2019 8:12:13 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:13 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:15 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 4/8/2019 8:12:15 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:15 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:17 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Abstractor at 4/8/2019 8:12:17 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:17 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:19 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 4/8/2019 8:12:19 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:19 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:21 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for ashley - SDA - Biomarker at 4/8/2019 8:12:21 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:21 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:23 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for bobbie - User Support - Trial Processing at 4/8/2019 8:12:23 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:23 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:26 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Trial Processing at 4/8/2019 8:12:26 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:26 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:28 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Trial Processing at 4/8/2019 8:12:28 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:28 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:30 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - User Support - Trial Processing at 4/8/2019 8:12:30 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:30 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:50 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 8:12:50 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:50 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:52 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Trial Processing at 4/8/2019 8:12:52 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:52 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:54 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 4/8/2019 8:12:54 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:54 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:12:56 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - Phase NA at 4/8/2019 8:12:56 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:12:56 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:13:08 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Trial Processing at 4/8/2019 8:13:08 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:13:08 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:13:10 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for bobbie - User Support - Trial Processing at 4/8/2019 8:13:10 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:13:10 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:13:12 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - SDA - Trial Processing at 4/8/2019 8:13:12 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:13:12 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:13:24 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for joshua - Phase NA at 4/8/2019 8:13:24 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:13:24 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:13:27 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 4/8/2019 8:13:27 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:13:27 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:13:29 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 4/8/2019 8:13:29 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:13:29 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:13:31 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for ashley - SDA - Biomarker at 4/8/2019 8:13:31 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:13:31 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:13:34 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Abstractor at 4/8/2019 8:13:34 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:13:34 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:13:36 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - User Support - Trial Processing at 4/8/2019 8:13:36 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:13:36 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:13:40 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Trial Processing at 4/8/2019 8:13:40 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:13:40 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:14:10 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 8:14:10 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:14:10 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:14:12 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Trial Processing at 4/8/2019 8:14:12 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:14:12 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:14:14 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Trial Processing at 4/8/2019 8:14:14 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:14:14 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:14:25 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - Phase NA at 4/8/2019 8:14:25 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:14:25 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:14:27 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Abstractor at 4/8/2019 8:14:27 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:14:27 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:14:29 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for joshua - Phase NA at 4/8/2019 8:14:29 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:14:29 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:14:40 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - SDA - Trial Processing at 4/8/2019 8:14:40 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:14:40 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:14:42 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for bobbie - User Support - Trial Processing at 4/8/2019 8:14:42 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:14:42 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:14:44 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Trial Processing at 4/8/2019 8:14:44 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:14:44 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:14:46 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 4/8/2019 8:14:46 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:14:46 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:14:55 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 4/8/2019 8:14:55 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:14:55 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:15:10 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for ashley - SDA - Biomarker at 4/8/2019 8:15:10 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:15:10 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:15:25 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 4/8/2019 8:15:25 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:15:25 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:15:27 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - User Support - Trial Processing at 4/8/2019 8:15:27 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:15:27 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:16:10 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Abstractor at 4/8/2019 8:16:10 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:16:10 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:16:12 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Trial Processing at 4/8/2019 8:16:12 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:16:12 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:16:41 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 8:16:41 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:16:41 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:16:43 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Trial Processing at 4/8/2019 8:16:43 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:16:43 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:16:45 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for joshua - Phase NA at 4/8/2019 8:16:45 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:16:45 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:16:47 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 4/8/2019 8:16:47 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:16:47 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:17:02 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Trial Processing at 4/8/2019 8:17:02 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:17:02 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:17:11 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - SDA - Trial Processing at 4/8/2019 8:17:11 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:17:11 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:17:26 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - Phase NA at 4/8/2019 8:17:26 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:17:26 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:17:28 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 4/8/2019 8:17:28 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:17:28 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:17:30 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Trial Processing at 4/8/2019 8:17:30 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:17:30 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:17:32 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for ashley - SDA - Biomarker at 4/8/2019 8:17:32 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:17:32 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:17:41 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Trial Processing at 4/8/2019 8:17:41 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:17:41 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:17:43 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for bobbie - User Support - Trial Processing at 4/8/2019 8:17:43 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:17:43 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:18:26 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - User Support - Trial Processing at 4/8/2019 8:18:26 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:18:26 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:18:28 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Trial Processing at 4/8/2019 8:18:28 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:18:28 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:18:56 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 4/8/2019 8:18:56 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:18:56 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:19:11 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Trial Processing at 4/8/2019 8:19:11 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:19:11 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:21:11 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Trial Processing at 4/8/2019 8:21:11 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:21:11 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:21:57 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 8:21:57 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:21:57 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:22:12 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Trial Processing at 4/8/2019 8:22:12 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:22:12 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:22:14 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - SDA - Trial Processing at 4/8/2019 8:22:14 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:22:14 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:22:41 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - Phase NA at 4/8/2019 8:22:41 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:22:41 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:22:56 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 4/8/2019 8:22:56 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:22:56 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:22:59 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for bobbie - User Support - Trial Processing at 4/8/2019 8:22:59 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:22:59 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:23:12 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for joshua - Phase NA at 4/8/2019 8:23:12 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:23:12 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:23:14 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Abstractor at 4/8/2019 8:23:14 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:23:14 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:23:16 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 4/8/2019 8:23:16 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:23:16 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:23:27 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Trial Processing at 4/8/2019 8:23:27 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:23:27 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:23:42 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Trial Processing at 4/8/2019 8:23:42 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:23:42 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:23:57 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for ashley - SDA - Biomarker at 4/8/2019 8:23:57 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:23:57 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:24:12 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - User Support - Trial Processing at 4/8/2019 8:24:12 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:24:12 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:24:27 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 4/8/2019 8:24:27 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:24:27 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:28:27 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Trial Processing at 4/8/2019 8:28:27 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:28:27 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:32:12 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Trial Processing at 4/8/2019 8:32:12 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:32:12 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:33:59 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 8:33:59 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:33:59 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:34:01 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 4/8/2019 8:34:01 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:34:01 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:34:14 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 4/8/2019 8:34:14 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:34:14 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:34:16 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - SDA - Trial Processing at 4/8/2019 8:34:16 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:34:16 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:35:25 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - Phase NA at 4/8/2019 8:35:25 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:35:25 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:35:43 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Trial Processing at 4/8/2019 8:35:43 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:35:43 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:35:55 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for bobbie - User Support - Trial Processing at 4/8/2019 8:35:55 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:35:55 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:36:10 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - User Support - Trial Processing at 4/8/2019 8:36:10 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:36:10 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:36:25 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Abstractor at 4/8/2019 8:36:25 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:36:25 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:36:43 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for joshua - Phase NA at 4/8/2019 8:36:43 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:36:43 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:36:55 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for ashley - SDA - Biomarker at 4/8/2019 8:36:55 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:36:55 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:36:57 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 4/8/2019 8:36:57 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:36:57 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:36:58 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Trial Processing at 4/8/2019 8:36:58 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:36:58 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:38:44 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 4/8/2019 8:38:44 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:40:29 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Trial Processing at 4/8/2019 8:40:29 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:40:29 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:56:30 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Trial Processing at 4/8/2019 8:56:30 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:56:30 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:58:00 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 4/8/2019 8:58:00 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:58:00 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:58:15 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Trial Processing at 4/8/2019 8:58:15 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:58:15 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:58:30 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 8:58:30 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:58:30 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:58:45 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 4/8/2019 8:58:45 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:58:45 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 8:59:15 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - SDA - Trial Processing at 4/8/2019 8:59:15 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 8:59:15 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:00:15 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for bobbie - User Support - Trial Processing at 4/8/2019 9:00:15 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:00:15 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:00:30 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for ashley - SDA - Biomarker at 4/8/2019 9:00:30 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:00:30 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:00:32 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - Phase NA at 4/8/2019 9:00:32 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:00:32 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:00:45 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - User Support - Trial Processing at 4/8/2019 9:00:45 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:00:45 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:01:15 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Abstractor at 4/8/2019 9:01:15 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:01:15 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:01:30 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Trial Processing at 4/8/2019 9:01:30 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:01:30 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:02:00 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for joshua - Phase NA at 4/8/2019 9:02:00 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:02:00 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:02:15 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Dashboard Expectation Date Check at 4/8/2019 9:02:15 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:02:15 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:04:15 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Trial Processing at 4/8/2019 9:04:15 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:04:15 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:37:19 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Trial Processing at 4/8/2019 9:37:19 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:37:19 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:39:14 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Trial Processing at 4/8/2019 9:39:14 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:39:14 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:40:29 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - Offhold at 4/8/2019 9:40:29 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:40:29 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:40:59 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for ashley - SDA - Biomarker at 4/8/2019 9:40:59 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:40:59 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:41:14 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for christina - SDA - Biomarker at 4/8/2019 9:41:14 AM and the error message is: No connection could be made because the target machine actively refused it
+-------------------------------
+
+Log Entry : 9:41:14 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:52:57 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Abstractor at 4/8/2019 9:52:57 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 9:52:57 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:52:57 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 9:52:57 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 9:52:57 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:54:30 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Abstractor at 4/8/2019 9:54:30 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 9:54:30 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:54:30 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > One or more errors occurred.
+-------------------------------
+
+Log Entry : 9:55:09 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - User Support - Trial Processing at 4/8/2019 9:55:09 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\User Support Trial Processing Report_20190401-20190408_20190408094415.xlsx'.
+-------------------------------
+
+Log Entry : 9:55:09 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:55:17 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 9:55:17 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 9:55:17 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:55:17 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Abstractor at 4/8/2019 9:55:17 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 9:55:17 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:55:39 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - User Support - Trial Processing at 4/8/2019 9:55:39 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\User Support Trial Processing Report_20190401-20190408_20190408094415.xlsx'.
+-------------------------------
+
+Log Entry : 9:55:39 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:55:39 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Abstractor at 4/8/2019 9:55:39 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 9:55:39 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:55:39 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 9:55:39 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 9:55:39 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:57:02 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - User Support - Trial Processing at 4/8/2019 9:57:02 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\User Support Trial Processing Report_20190401-20190408_20190408094415.xlsx'.
+-------------------------------
+
+Log Entry : 9:57:02 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:57:32 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 9:57:32 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 9:57:32 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:58:47 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - User Support - Trial Processing at 4/8/2019 9:58:47 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\User Support Trial Processing Report_20190401-20190408_20190408094415.xlsx'.
+-------------------------------
+
+Log Entry : 9:58:47 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 9:59:17 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Abstractor at 4/8/2019 9:59:17 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 9:59:17 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:00:32 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - User Support - Trial Processing at 4/8/2019 10:00:32 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\User Support Trial Processing Report_20190401-20190408_20190408094415.xlsx'.
+-------------------------------
+
+Log Entry : 10:00:32 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:02:34 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 10:02:34 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 10:02:34 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:06:19 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Abstractor at 4/8/2019 10:06:19 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 10:06:19 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:07:04 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - User Support - Trial Processing at 4/8/2019 10:07:04 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\User Support Trial Processing Report_20190401-20190408_20190408094415.xlsx'.
+-------------------------------
+
+Log Entry : 10:07:04 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:13:21 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 10:13:21 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 10:13:21 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:17:36 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for vika001 - PDA - Abstractor at 4/8/2019 10:17:36 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 10:17:36 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:18:24 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - User Support - Trial Processing at 4/8/2019 10:18:24 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\User Support Trial Processing Report_20190401-20190408_20190408094415.xlsx'.
+-------------------------------
+
+Log Entry : 10:18:24 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:20:29 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 10:20:29 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 10:20:29 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:21:08 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 10:21:08 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 10:21:08 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------
+
+Log Entry : 10:21:27 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 10:21:27 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 10:22:23 AM Monday, April 8, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - PDA - Abstractor at 4/8/2019 10:22:23 AM and the error message is: Could not find file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Excel\20190408\PDA Abstractor and QC Report_20190401-20190408_20190408094143.xlsx'.
+-------------------------------
+
+Log Entry : 10:22:23 AM Monday, April 8, 2019
+  :
+  :ScheduleJob > Execute > Create Report Failed !! Please check network connection.
+-------------------------------

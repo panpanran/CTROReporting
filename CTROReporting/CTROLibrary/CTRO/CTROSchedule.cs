@@ -87,7 +87,7 @@ namespace CTROLibrary.CTRO
             }
             catch (Exception ex)
             {
-                Logging.WriteLog("CTROSchedule", MethodBase.GetCurrentMethod().Name, ex.Message);
+                Logging.WriteLog("CTROSchedule", MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -102,7 +102,7 @@ namespace CTROLibrary.CTRO
             }
             catch (Exception ex)
             {
-                Logging.WriteLog("CTROSchedule", MethodBase.GetCurrentMethod().Name, ex.Message);
+                Logging.WriteLog("CTROSchedule", MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -118,7 +118,7 @@ namespace CTROLibrary.CTRO
             }
             catch (Exception ex)
             {
-                Logging.WriteLog("CTROSchedule", MethodBase.GetCurrentMethod().Name, ex.Message);
+                Logging.WriteLog("CTROSchedule", MethodBase.GetCurrentMethod().Name, ex);
             }
             return false;
         }
@@ -164,7 +164,7 @@ namespace CTROLibrary.CTRO
             }
             catch (SchedulerException ex)
             {
-                Logging.WriteLog("CTROSchedule", MethodBase.GetCurrentMethod().Name, ex.Message);
+                Logging.WriteLog("CTROSchedule", MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -226,7 +226,7 @@ namespace CTROLibrary.CTRO
             }
             catch (Exception ex)
             {
-                Logging.WriteLog("ScheduleJob", "Execute", ex.Message);
+                Logging.WriteLog("ScheduleJob", "Execute", ex);
             }
         }
     }

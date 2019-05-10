@@ -1,0 +1,57 @@
+
+4/26/2019 8:00:22 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHangfire
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}Unable to connect to the remote server
+Source ---
+{0}System
+StackTrace ---
+{0}   at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadString(Uri address)
+   at System.Net.WebClient.DownloadString(String address)
+   at CTROLibrary.CTRO.CTROFunctions.GetHTMLByUrl(String url) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 148
+   at CTROLibrary.EW.EWTicket.GetIDList(String where) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWTicket.cs:line 15
+   at CTROLibrary.CTRO.CTROHangfire.<ScheduledTicket>d__7.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROHangfire.cs:line 125
+Tar
+4/26/2019 8:15:18 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHangfire
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The remote server returned an error: (409) Conflict.
+Source ---
+{0}System
+StackTrace ---
+{0}   at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadString(Uri address)
+   at System.Net.WebClient.DownloadString(String address)
+   at CTROLibrary.CTRO.CTROFunctions.GetHTMLByUrl(String url) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 148
+   at CTROLibrary.EW.EWTriageAccrual.Update(Ticket ticket) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWTriage.cs:line 91
+   at CTROLibrary.EW.EWTriageAccrual.UpdateByID(String id) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWTriage.cs:line 120
+
+4/26/2019 8:30:36 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHangfire
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The process cannot access the file 'C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\Logging\Log_2019-04-26.txt' because it is being used by another process.
+Source ---
+{0}mscorlib
+StackTrace ---
+{0}   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamWriter.CreateFile(String path, Boolean append, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append, Encoding encoding, Int32 bufferSize, Boolean checkHost)
+   at System.IO.StreamWriter..ctor(String path, Boolean append)
+   at System.IO.File.AppendText(String path)
+   at CTROLibrary.Logging.WriteLog(String classname, String methodname, Exception ex) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\Logging.cs:line 51
+   at CTROLibrary.EW.EWFormatOriginalIncomingEmail.Update(Ticket ticket) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWTriage.cs:line 66
+   at CTROLibrary.EW.EWFormatOriginalIncomingEmail.BulkUpdate(String[] ticketlist) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWTriage.cs:line 78
+   at CTROLibrary.CTRO.CTROHangfire.<ScheduledTicket>d__7.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROHangfire.cs:line 126
+TargetSite

@@ -1,0 +1,33 @@
+
+4/22/2019 9:03:02 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHangfire
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The remote server returned an error: (403) Forbidden.
+Source ---
+{0}System
+StackTrace ---
+{0}   at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadString(Uri address)
+   at System.Net.WebClient.DownloadString(String address)
+   at CTROLibrary.CTRO.CTROFunctions.GetHTMLByUrl(String url) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 148
+   at CTROLibrary.EW.EWTicket.GetIDList(String where) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWTicket.cs:line 15
+   at CTROLibrary.CTRO.CTROHangfire.<ScheduledTicket>d__7.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROHangfire.c
+4/22/2019 1:00:01 PM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHangfire
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The remote server returned an error: (403) Forbidden.
+Source ---
+{0}System
+StackTrace ---
+{0}   at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadString(Uri address)
+   at System.Net.WebClient.DownloadString(String address)
+   at CTROLibrary.CTRO.CTROFunctions.GetHTMLByUrl(String url) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 148
+   at CTROLibrary.EW.EWTicket.GetIDList(String where) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWTicket.cs:line 15
+   at CTROLibrary.CTRO.CTROHangfire.<ScheduledTicket>d__7.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROHangfire.c

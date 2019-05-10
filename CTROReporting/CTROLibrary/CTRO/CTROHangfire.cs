@@ -53,7 +53,7 @@ namespace CTROLibrary.CTRO
             }
             catch (Exception ex)
             {
-                Logging.WriteLog("CTROHangfire", "AddorUpdateJob", ex.Message);
+                Logging.WriteLog("CTROHangfire", "AddorUpdateJob", ex);
                 throw;
             }
         }
@@ -77,7 +77,7 @@ namespace CTROLibrary.CTRO
             }
             catch (Exception ex)
             {
-                Logging.WriteLog("CTROHangfire", MethodBase.GetCurrentMethod().Name, ex.Message);
+                Logging.WriteLog("CTROHangfire", MethodBase.GetCurrentMethod().Name, ex);
             }
         }
         //[AutomaticRetry(Attempts = 0)]
@@ -111,7 +111,7 @@ namespace CTROLibrary.CTRO
             }
             catch (Exception ex)
             {
-                Logging.WriteLog("ScheduleJob", "Execute", ex.Message);
+                Logging.WriteLog("ScheduleJob", "Execute", ex);
                 throw;
             }
         }
@@ -142,7 +142,7 @@ namespace CTROLibrary.CTRO
             }
             catch (Exception ex)
             {
-                Logging.WriteLog("CTROHangfire", MethodBase.GetCurrentMethod().Name, ex.Message);
+                Logging.WriteLog("CTROHangfire", MethodBase.GetCurrentMethod().Name, ex);
             }
         }
     }

@@ -77,7 +77,7 @@ namespace CTROLibrary.EW
             }
 
             //Logging.WriteLog("EWSolutionTSRFeedback", "BulkUpdate", "Finished!");
-
+            driver.Quit();
             return true;
 
         }
@@ -138,7 +138,6 @@ namespace CTROLibrary.EW
                     .Where(element => element.Text.Contains("There is a problem with the current abstraction")).Count();
                 if (ongoingspannumber > 0)
                 {
-                    Logging.WriteLog("nciid: " + nciid, "ticket: " + ticket, "validation error");
                     logger.Message = "NCIID: " + nciid + ", TICKETID: " + ticket + ", Createdtime: " + DateTime.Now.ToString() + " Error message is: " + "there has been a on-going comment.";
                     var log = CTROFunctions.CreateDataFromJson("LoggerService", "CreateLogger", logger);
                 }
@@ -182,7 +181,7 @@ namespace CTROLibrary.EW
             }
             catch (Exception ex)
             {
-                Logging.WriteLog("EWSolutionTicketTriagingSchedule", "ScheduleTicketsTriaging", ex.Message);
+                Logging.WriteLog("EWSolutionTicketTriagingSchedule", "ScheduleTicketsTriaging", ex);
                 return false;
             }
         }
@@ -228,14 +227,14 @@ namespace CTROLibrary.EW
 
         public bool DownloadCSV()
         {
+            ChromeOptions options = new ChromeOptions();
+            options.AddUserProfilePreference("download.default_directory", ConfigurationManager.AppSettings["V_CTROChromeDriver"]);
+            //options.AddUserProfilePreference("intl.accept_languages", "nl");
+            //options.AddUserProfilePreference("disable-popup-blocking", "true");
+            IWebDriver driver = new ChromeDriver(ConfigurationManager.AppSettings["V_CTROChromeDriver"], options, TimeSpan.FromSeconds(120));
+
             try
             {
-                ChromeOptions options = new ChromeOptions();
-                options.AddUserProfilePreference("download.default_directory", ConfigurationManager.AppSettings["V_CTROChromeDriver"]);
-                //options.AddUserProfilePreference("intl.accept_languages", "nl");
-                //options.AddUserProfilePreference("disable-popup-blocking", "true");
-                IWebDriver driver = new ChromeDriver(ConfigurationManager.AppSettings["V_CTROChromeDriver"], options, TimeSpan.FromSeconds(120));
-
                 //Notice navigation is slightly different than the Java version
                 //This is because 'get' is a keyword in C#
                 driver.Navigate().GoToUrl("https://trials.nci.nih.gov/pa/protected/studyProtocolexecute.action");
@@ -251,11 +250,13 @@ namespace CTROLibrary.EW
                 //CSV
                 IWebElement csvspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "CSV");
                 csvspan.Click();
+                driver.Quit();
                 return true;
             }
             catch (Exception ex)
             {
                 //Logging.WriteLog("EWDashboardCheck", "DownloadCSV", ex.Message);
+                driver.Quit();
                 return false;
             }
         }
@@ -300,115 +301,118 @@ namespace CTROLibrary.EW
                 //{
                 foreach (DataRow workloadrow in trialdata.Rows)
                 {
-                    nciid = "NCI-" + workloadrow[0].ToString();
-                    string codetext = code.Replace("nciidpara", nciid);
-                    DateTime lastworkdate = DateTime.Now.Date;
-                    while (CTROFunctions.CountBusinessDays(lastworkdate, DateTime.Now.Date, CTROConst.Holidays) <= 1)
+                    try
                     {
-                        lastworkdate = lastworkdate.AddDays(-1);
-                    }
-                    codetext = codetext.Replace("offholddate", "'" + lastworkdate.ToShortDateString() + "'");
-
-                    cmd = new NpgsqlCommand(codetext, conn);
-                    datareader = cmd.ExecuteReader();
-                    DataTable nciDT = new DataTable();
-                    nciDT.Load(datareader);
-                    int totaldays = 0;
-                    expecteddate = (DateTime)workloadrow.ItemArray[3];
-
-                    for (int i = 0; i < nciDT.Rows.Count; i++)
-                    {
-                        onholdflag = 0;
-                        if (i == 0)
+                        nciid = "NCI-" + workloadrow[0].ToString();
+                        string codetext = code.Replace("nciidpara", nciid);
+                        DateTime lastworkdate = DateTime.Now.Date;
+                        while (CTROFunctions.CountBusinessDays(lastworkdate, DateTime.Now.Date, CTROConst.Holidays) <= 1)
                         {
-                            accepteddate = string.IsNullOrEmpty(workloadrow.ItemArray[5].ToString()) ? new DateTime() : (DateTime)workloadrow.ItemArray[5];
-                            reactivateddate = string.IsNullOrEmpty(nciDT.Rows[i].ItemArray[5].ToString()) ? new DateTime() : (DateTime)(nciDT.Rows[i].ItemArray[5]);
-                            startdate = reactivateddate > accepteddate ? reactivateddate : accepteddate;
-                            totaldays = CTROFunctions.CountBusinessDays(startdate, DateTime.Now.Date, CTROConst.Holidays);
+                            lastworkdate = lastworkdate.AddDays(-1);
                         }
-                        onholddate = string.IsNullOrEmpty(nciDT.Rows[i].ItemArray[3].ToString()) ? new DateTime() : (DateTime)(nciDT.Rows[i].ItemArray[3]);
-                        offholddate = string.IsNullOrEmpty(nciDT.Rows[i].ItemArray[4].ToString()) ? new DateTime() : (DateTime)(nciDT.Rows[i].ItemArray[4]);
-                        if (onholddate > Convert.ToDateTime("1/1/0001"))
+                        codetext = codetext.Replace("offholddate", "'" + lastworkdate.ToShortDateString() + "'");
+
+                        cmd = new NpgsqlCommand(codetext, conn);
+                        datareader = cmd.ExecuteReader();
+                        DataTable nciDT = new DataTable();
+                        nciDT.Load(datareader);
+                        int totaldays = 0;
+                        expecteddate = (DateTime)workloadrow.ItemArray[3];
+
+                        for (int i = 0; i < nciDT.Rows.Count; i++)
                         {
-                            if (offholddate > Convert.ToDateTime("1/1/0001"))
+                            onholdflag = 0;
+                            if (i == 0)
                             {
-                                if (offholddate.Date > startdate.Date)
-                                {
-                                    totaldays = totaldays - CTROFunctions.CountBusinessDays(onholddate > startdate ? onholddate : startdate, offholddate, CTROConst.Holidays);
-                                }
+                                accepteddate = string.IsNullOrEmpty(workloadrow.ItemArray[5].ToString()) ? new DateTime() : (DateTime)workloadrow.ItemArray[5];
+                                reactivateddate = string.IsNullOrEmpty(nciDT.Rows[i].ItemArray[5].ToString()) ? new DateTime() : (DateTime)(nciDT.Rows[i].ItemArray[5]);
+                                startdate = reactivateddate > accepteddate ? reactivateddate : accepteddate;
+                                totaldays = CTROFunctions.CountBusinessDays(startdate, DateTime.Now.Date, CTROConst.Holidays);
                             }
-                            else
+                            onholddate = string.IsNullOrEmpty(nciDT.Rows[i].ItemArray[3].ToString()) ? new DateTime() : (DateTime)(nciDT.Rows[i].ItemArray[3]);
+                            offholddate = string.IsNullOrEmpty(nciDT.Rows[i].ItemArray[4].ToString()) ? new DateTime() : (DateTime)(nciDT.Rows[i].ItemArray[4]);
+                            if (onholddate > Convert.ToDateTime("1/1/0001"))
                             {
-                                onholdflag = 2;
-                            }
-                        }
-                    }
-
-                    if (nciDT.Rows.Count == 0)
-                    {
-                        reactivateddate = new DateTime();
-                        onholddate = new DateTime();
-                        offholddate = new DateTime();
-                    }
-
-                    if (accepteddate.Date == Convert.ToDateTime("1/1/0001"))
-                    {
-                        //No record
-                        onholdflag = 1;
-                    }
-
-
-                    switch (onholdflag)
-                    {
-                        case 1:
-                            //sw.WriteLine("nciid: " + nciid + ", this trial has not been accepted.");
-                            break;
-                        case 2:
-                            //sw.WriteLine("nciid: " + nciid + ", this trial is still on-hold.");
-                            break;
-                        case 0:
-                            if (totaldays < 0)
-                            {
-                                //sw.WriteLine("There are some errors. nciid: " + nciid + ", expecteddate on dashboard: " + expecteddate);
-                            }
-                            else
-                            {
-                                enddate = DateTime.Now.Date;
-                                while (CTROFunctions.CountBusinessDays(DateTime.Now.Date, enddate, CTROConst.Holidays) <= 10 - totaldays)
+                                if (offholddate > Convert.ToDateTime("1/1/0001"))
                                 {
-                                    enddate = enddate.AddDays(1);
-                                }
-                                if (CTROFunctions.CountBusinessDays(DateTime.Now.Date, enddate, CTROConst.Holidays) < 106)
-                                {
-                                    if (expecteddate.Date != enddate.Date)
+                                    if (offholddate.Date > startdate.Date)
                                     {
-                                        try
-                                        {
-                                            submissionnumber = nciDT.Rows[0].ItemArray[1].ToString();
-                                            onholdreasontype = nciDT.Rows[0].ItemArray[6].ToString();
-                                            onholdreason = nciDT.Rows[0].ItemArray[7].ToString();
-                                            outputTable.Rows.Add(nciid, submissionnumber, accepteddate,
-                                                //reactivateddate.Date == Convert.ToDateTime("1/1/0001")? null: reactivateddate.ToShortDateString(), 
-                                                //onholddate.Date == Convert.ToDateTime("1/1/0001") ? null : onholddate.ToShortDateString(),
-                                                //offholddate.Date == Convert.ToDateTime("1/1/0001") ? null : offholddate.ToShortDateString(), 
-                                                //onholdreasontype, 
-                                                //onholdreason, 
-                                                expecteddate, enddate);
-                                            //Logging.WriteLog("EWDashboardCheck", "GenerateReport", "nciid: " + nciid + " need to be changed");
-                                            //sw.WriteLine("nciid: " + nciid + ", expecteddate on dashboard: " + expecteddate + ", real expected date: " + enddate);
-                                        }
-                                        catch (Exception ex)
-                                        {
-                                            //Logging.WriteLog("EWDashboardCheck", "GenerateReport", "nciiid:" + nciid + ", error message: " + ex.Message);
-                                        }
+                                        totaldays = totaldays - CTROFunctions.CountBusinessDays(onholddate > startdate ? onholddate : startdate, offholddate, CTROConst.Holidays);
                                     }
                                 }
-                                //else
-                                //{
-                                //    sw.WriteLine("nciid: " + nciid + ", expecteddate on dashboard is even more than real expected date. So just leave it there.");
-                                //}
+                                else
+                                {
+                                    onholdflag = 2;
+                                }
                             }
-                            break;
+                        }
+
+                        if (nciDT.Rows.Count == 0)
+                        {
+                            reactivateddate = new DateTime();
+                            onholddate = new DateTime();
+                            offholddate = new DateTime();
+                        }
+                        else
+                        {
+                            if (accepteddate.Date == Convert.ToDateTime("1/1/0001"))
+                            {
+                                //No record
+                                onholdflag = 1;
+                            }
+
+
+                            switch (onholdflag)
+                            {
+                                case 1:
+                                    //sw.WriteLine("nciid: " + nciid + ", this trial has not been accepted.");
+                                    break;
+                                case 2:
+                                    //sw.WriteLine("nciid: " + nciid + ", this trial is still on-hold.");
+                                    break;
+                                case 0:
+                                    if (totaldays < 0)
+                                    {
+                                        //sw.WriteLine("There are some errors. nciid: " + nciid + ", expecteddate on dashboard: " + expecteddate);
+                                    }
+                                    else
+                                    {
+                                        enddate = DateTime.Now.Date;
+                                        while (CTROFunctions.CountBusinessDays(DateTime.Now.Date, enddate, CTROConst.Holidays) <= 10 - totaldays)
+                                        {
+                                            enddate = enddate.AddDays(1);
+                                        }
+                                        if (CTROFunctions.CountBusinessDays(DateTime.Now.Date, enddate, CTROConst.Holidays) < 106)
+                                        {
+                                            if (expecteddate.Date != enddate.Date)
+                                            {
+                                                submissionnumber = nciDT.Rows[0].ItemArray[1].ToString();
+                                                onholdreasontype = nciDT.Rows[0].ItemArray[6].ToString();
+                                                onholdreason = nciDT.Rows[0].ItemArray[7].ToString();
+                                                outputTable.Rows.Add(nciid, submissionnumber, accepteddate,
+                                                    //reactivateddate.Date == Convert.ToDateTime("1/1/0001")? null: reactivateddate.ToShortDateString(), 
+                                                    //onholddate.Date == Convert.ToDateTime("1/1/0001") ? null : onholddate.ToShortDateString(),
+                                                    //offholddate.Date == Convert.ToDateTime("1/1/0001") ? null : offholddate.ToShortDateString(), 
+                                                    //onholdreasontype, 
+                                                    //onholdreason, 
+                                                    expecteddate, enddate);
+                                                //Logging.WriteLog("EWDashboardCheck", "GenerateReport", "nciid: " + nciid + " need to be changed");
+                                                //sw.WriteLine("nciid: " + nciid + ", expecteddate on dashboard: " + expecteddate + ", real expected date: " + enddate);
+                                            }
+                                        }
+                                        //else
+                                        //{
+                                        //    sw.WriteLine("nciid: " + nciid + ", expecteddate on dashboard is even more than real expected date. So just leave it there.");
+                                        //}
+                                    }
+                                    break;
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = ex.Message;
+                        //Logging.WriteLog("EWDashboardCheck", "GenerateReport", "nciiid:" + nciid + ", error message: " + ex.Message);
                     }
                 }
                 //}
@@ -424,17 +428,27 @@ namespace CTROLibrary.EW
 
     public class EWDashboardMetrics : EWTicket
     {
-        public void DashboardMetrics(ApplicationUser user, Report report)
+        public string DashboardMetrics(ApplicationUser user, Report report)
         {
-            try
+            Dictionary<string, bool> dic = DownloadDashboardCSV();
+            Task.Delay(1000).Wait();
+            Logger logger = new Logger
             {
-                //string output = @"C:\Users\panr2\Downloads\result.txt";
-                Thread.Sleep(1000);
-                SendNotification(user, report, DownloadDashboardCSV());
+                ClassName = this.GetType().Name,
+                MethodName = MethodBase.GetCurrentMethod().Name,
+                Level = 1,
+                Message = "Creaet report first time for " + user.UserName + " - " + report.ReportName + " at " + DateTime.Now.ToString(),
+                UserId = user.Id
+            };
+
+            if (dic != null)
+            {
+                var urltext = CTROFunctions.CreateDataFromJson("LoggerService", "CreateLogger", logger);
+                return SendNotification(user, report, dic) ? "DashboardMetrics" : null;
             }
-            catch (Exception ex)
+            else
             {
-                Logging.WriteLog("EWSolution", "DashboardMetrics", ex.Message);
+                return null;
             }
         }
 
@@ -442,16 +456,17 @@ namespace CTROLibrary.EW
         {
             Dictionary<string, bool> dic = new Dictionary<string, bool>();
             string input = ConfigurationManager.AppSettings["V_CTROChromeDriver"] + "/workload.csv";
-            string inputcomplete = ConfigurationManager.AppSettings["V_CTROChromeDriver"] + "/SearchTrialResults.csv";
+            string inputfinished = ConfigurationManager.AppSettings["V_CTROChromeDriver"] + "/SearchTrialResults.csv";
             string inputabbreviated = ConfigurationManager.AppSettings["V_CTROChromeDriver"] + "/SearchTrialResults (1).csv";
+
+            ChromeOptions options = new ChromeOptions();
+            options.AddUserProfilePreference("download.default_directory", ConfigurationManager.AppSettings["V_CTROChromeDriver"]);
+            //options.AddUserProfilePreference("intl.accept_languages", "nl");
+            //options.AddUserProfilePreference("disable-popup-blocking", "true");
+            IWebDriver driver = new ChromeDriver(ConfigurationManager.AppSettings["V_CTROChromeDriver"], options, TimeSpan.FromSeconds(120));
 
             try
             {
-                ChromeOptions options = new ChromeOptions();
-                options.AddUserProfilePreference("download.default_directory", ConfigurationManager.AppSettings["V_CTROChromeDriver"]);
-                //options.AddUserProfilePreference("intl.accept_languages", "nl");
-                //options.AddUserProfilePreference("disable-popup-blocking", "true");
-                IWebDriver driver = new ChromeDriver(ConfigurationManager.AppSettings["V_CTROChromeDriver"], options, TimeSpan.FromSeconds(120));
 
                 //Notice navigation is slightly different than the Java version
                 //This is because 'get' is a keyword in C#
@@ -496,17 +511,19 @@ namespace CTROLibrary.EW
                 {
                     csvspan = webelement.First();
                     csvspan.Click();
-                    dic.Add(inputcomplete, true);
+                    Task.Delay(1000).Wait();
+
+                    File.Move(inputfinished, inputfinished.Replace("SearchTrialResults", "complete"));
+
+                    dic.Add(inputfinished.Replace("SearchTrialResults", "complete"), true);
                 }
                 else
                 {
-                    dic.Add(inputcomplete, false);
+                    dic.Add(inputfinished.Replace("SearchTrialResults", "complete"), false);
                 }
 
                 //Abbreviated
                 //Find Trial
-                trialSearchMenuOption = driver.FindElement(By.Id("trialSearchMenuOption"));
-                trialSearchMenuOption.Click();
                 trialCategory = driver.FindElement(By.Id("trialCategory"));
                 trialCategory.SendKeys("Abbreviated");
                 submissionType = driver.FindElement(By.Id("submissionType"));
@@ -519,105 +536,122 @@ namespace CTROLibrary.EW
                 {
                     csvspan = webelement.First();
                     csvspan.Click();
-                    dic.Add(inputabbreviated, true);
+                    Task.Delay(1000).Wait();
+
+                    File.Move(inputfinished, inputfinished.Replace("SearchTrialResults", "abbreviated"));
+
+                    dic.Add(inputfinished.Replace("SearchTrialResults", "abbreviated"), true);
                 }
                 else
                 {
-                    dic.Add(inputabbreviated, false);
+                    dic.Add(inputfinished.Replace("SearchTrialResults", "abbreviated"), false);
                 }
 
-
+                driver.Quit();
                 return dic;
             }
             catch (Exception ex)
             {
-                //Logging.WriteLog("EWDashboardCheck", "DownloadCSV", ex.Message);
-                return dic;
+                Logging.WriteLog("EWDashboardMetrics", "DownloadDashboardCSV", ex);
+                driver.Quit();
+                return null;
             }
         }
 
-        public void SendNotification(ApplicationUser user, Report report, Dictionary<string, bool> input)
+        public bool SendNotification(ApplicationUser user, Report report, Dictionary<string, bool> input)
         {
-            DataTable trialdata = CTROFunctions.GetDataTableFromCsv(input.Keys.ToArray()[0], true);
-            DataTable trialdatanotonhold = trialdata.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[4].ToString())).CopyToDataTable();
-            int totalnumber = trialdata.AsEnumerable().Count();
-            int onholdnumber = trialdatanotonhold.Rows.Count;
-            int validationnumber = trialdatanotonhold.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[5].ToString())).Count();
-            int pdaabstractionnumber = trialdatanotonhold.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[6].ToString())).Count();
-            int pdaqcnumber = trialdatanotonhold.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[7].ToString())).Count();
-            int sdaabstractionnumber = trialdatanotonhold.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[8].ToString())).Count();
-            int sdaqcnumber = trialdatanotonhold.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[9].ToString())).Count();
-            int updatenumber = 0;
-            DateTime startDate = DateTime.Now;
-            DateTime endDate = DateTime.Now;
-            string today = DateTime.Now.DayOfWeek + " " + string.Format("{0:MM/dd/yyyy}", DateTime.Now);
-            //while (CTROFunctions.CountBusinessDays(DateTime.Now.Date, endDate, CTROConst.Holidays) <= 4)
-            //{
-            endDate = endDate.AddDays(7);
-            //}
-            int duenumber = trialdatanotonhold.AsEnumerable().Where(m => Convert.ToDateTime(m.ItemArray[3]) >= DateTime.Now && Convert.ToDateTime(m.ItemArray[3]) <= endDate).Count();
-            string emailbody = report.Email.Template.Replace("totalnumber", totalnumber.ToString())
-.Replace("onholdnumber", onholdnumber.ToString())
-.Replace("validationnumber", validationnumber.ToString())
-.Replace("pdaabstractionnumber", pdaabstractionnumber.ToString())
-.Replace("pdaqcnumber", pdaqcnumber.ToString())
-.Replace("sdaabstractionnumber", sdaabstractionnumber.ToString())
-.Replace("sdaqcnumber", sdaqcnumber.ToString())
-.Replace("duenumber", duenumber.ToString())
-.Replace("startDate", string.Format("{0:MM/dd/yyyy}", DateTime.Now))
-.Replace("endDate", string.Format("{0:MM/dd/yyyy}", endDate))
-.Replace("today", today);
-
-            StringBuilder dailybody = new StringBuilder();
-
-            for (DateTime dt = startDate; dt <= endDate; dt = dt.AddDays(1))
+            try
             {
-                if (dt.DayOfWeek != DayOfWeek.Saturday && dt.DayOfWeek != DayOfWeek.Sunday)
+                DataTable trialdata = CTROFunctions.GetDataTableFromCsv(input.Keys.ToArray()[0], true);
+                DataTable trialdatanotonhold = trialdata.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[4].ToString())).CopyToDataTable();
+                int totalnumber = trialdata.AsEnumerable().Count();
+                int onholdnumber = trialdatanotonhold.Rows.Count;
+                int validationnumber = trialdatanotonhold.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[5].ToString())).Count();
+                int pdaabstractionnumber = trialdatanotonhold.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[6].ToString())).Count();
+                int pdaqcnumber = trialdatanotonhold.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[7].ToString())).Count();
+                int sdaabstractionnumber = trialdatanotonhold.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[8].ToString())).Count();
+                int sdaqcnumber = trialdatanotonhold.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[9].ToString())).Count();
+                int updatenumber = 0;
+                DateTime startDate = DateTime.Now;
+                DateTime endDate = DateTime.Now;
+                string today = DateTime.Now.DayOfWeek + " " + string.Format("{0:MM/dd/yyyy}", DateTime.Now);
+                //while (CTROFunctions.CountBusinessDays(DateTime.Now.Date, endDate, CTROConst.Holidays) <= 4)
+                //{
+                endDate = endDate.AddDays(7);
+                //}
+                int duenumber = trialdatanotonhold.AsEnumerable().Where(m => !Convert.IsDBNull(m.ItemArray[3])).Where(m => Convert.ToDateTime(m.ItemArray[3]) >= DateTime.Now && Convert.ToDateTime(m.ItemArray[3]) <= endDate).Count();
+                string emailbody = report.Email.Body.Replace("totalnumber", totalnumber.ToString())
+        .Replace("onholdnumber", onholdnumber.ToString())
+        .Replace("validationnumber", validationnumber.ToString())
+        .Replace("pdaabstractionnumber", pdaabstractionnumber.ToString())
+        .Replace("pdaqcnumber", pdaqcnumber.ToString())
+        .Replace("sdaabstractionnumber", sdaabstractionnumber.ToString())
+        .Replace("sdaqcnumber", sdaqcnumber.ToString())
+        .Replace("duenumber", duenumber.ToString())
+        .Replace("startDate", string.Format("{0:MM/dd/yyyy}", DateTime.Now))
+        .Replace("endDate", string.Format("{0:MM/dd/yyyy}", endDate))
+        .Replace("today", today);
+
+                StringBuilder dailybody = new StringBuilder();
+
+                for (DateTime dt = startDate; dt <= endDate; dt = dt.AddDays(1))
                 {
-                    DataTable datatable = trialdatanotonhold.AsEnumerable().Where(m => Convert.ToDateTime(m.ItemArray[3]).Date == dt.Date).Count() > 0
-                        ? trialdatanotonhold.AsEnumerable().Where(m => Convert.ToDateTime(m.ItemArray[3]).Date == dt.Date).CopyToDataTable()
-                        : new DataTable();
-                    dailybody.Append("<br><br><b>Due " + string.Format("{0:MM/dd}", dt) + " – " + datatable.Rows.Count.ToString() + "</b>");
-                    if (datatable.Rows.Count > 0)
+                    if (dt.DayOfWeek != DayOfWeek.Saturday && dt.DayOfWeek != DayOfWeek.Sunday)
                     {
-                        int pdaab = datatable.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[6].ToString())).Count();
-                        int pdaqc = datatable.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[7].ToString())).Count();
-                        int sdaab = datatable.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[8].ToString())).Count();
-                        int sdaqc = datatable.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[9].ToString())).Count();
-                        int tsr = datatable.AsEnumerable().Where(m => !string.IsNullOrEmpty(m.ItemArray[10].ToString())).Count();
-                        dailybody.Append(pdaab > 0 ? "<br>• PDA Abstraction {" + pdaab + "}" : "");
-                        dailybody.Append(pdaqc > 0 ? "<br>• PDA QC {" + pdaqc + "}" : "");
-                        dailybody.Append(sdaab > 0 ? "<br>• SDA Abstraction {" + sdaab + "}" : "");
-                        dailybody.Append(sdaqc > 0 ? "<br>• SDA QC {" + sdaqc + "}" : "");
-                        dailybody.Append(tsr > 0 ? "<br>• TSR Ready {" + tsr + "}" : "");
+                        DataTable datatable = trialdatanotonhold.AsEnumerable().Where(m => !Convert.IsDBNull(m.ItemArray[3])).Where(m => Convert.ToDateTime(m.ItemArray[3]).Date == dt.Date).Count() > 0
+                            ? trialdatanotonhold.AsEnumerable().Where(m => !Convert.IsDBNull(m.ItemArray[3])).Where(m => Convert.ToDateTime(m.ItemArray[3]).Date == dt.Date).CopyToDataTable()
+                            : new DataTable();
+                        dailybody.Append("<br><br><b>Due " + string.Format("{0:MM/dd}", dt) + " – " + datatable.Rows.Count.ToString() + "</b>");
+                        if (datatable.Rows.Count > 0)
+                        {
+                            int pdaab = datatable.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[6].ToString())).Count();
+                            int pdaqc = datatable.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[7].ToString())).Count();
+                            int sdaab = datatable.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[8].ToString())).Count();
+                            int sdaqc = datatable.AsEnumerable().Where(m => string.IsNullOrEmpty(m.ItemArray[9].ToString())).Count();
+                            int tsr = datatable.AsEnumerable().Where(m => !string.IsNullOrEmpty(m.ItemArray[10].ToString())).Count();
+                            dailybody.Append(pdaab > 0 ? "<br>• PDA Abstraction {" + pdaab + "}" : "");
+                            dailybody.Append(pdaqc > 0 ? "<br>• PDA QC {" + pdaqc + "}" : "");
+                            dailybody.Append(sdaab > 0 ? "<br>• SDA Abstraction {" + sdaab + "}" : "");
+                            dailybody.Append(sdaqc > 0 ? "<br>• SDA QC {" + sdaqc + "}" : "");
+                            dailybody.Append(tsr > 0 ? "<br>• TSR Ready {" + tsr + "}" : "");
+                        }
                     }
                 }
+
+
+                if (input.Values.ToArray()[1])
+                {
+                    updatenumber = CTROFunctions.GetDataTableFromCsv(input.Keys.ToArray()[1], true).Rows.Count;
+                    dailybody.Append("<br><br>" + updatenumber + " complete trials administrative updates to be acknowledged");
+                }
+                else
+                {
+                    dailybody.Append("<br><br>0 complete trials administrative updates to be acknowledged");
+                }
+
+                if (input.Values.ToArray()[2])
+                {
+                    updatenumber = CTROFunctions.GetDataTableFromCsv(input.Keys.ToArray()[2], true).Rows.Count;
+                    dailybody.Append("<br><br>" + updatenumber + " abbreviated trials scientific updates to be acknowledged");
+                }
+                else
+                {
+                    dailybody.Append("<br><br>0 abbreviated trials scientific updates to be acknowledged");
+                }
+
+                emailbody = emailbody + dailybody.ToString();
+                Email email = new Email();
+                email.Subject = "Dashboard Metrics: " + today;
+                email.Body = emailbody;
+                email.To = user.Email;
+                email.AttachmentFileName = null;
+                CTROFunctions.SendEmail(email);
             }
-
-
-            if (input.Values.ToArray()[1])
+            catch (Exception ex)
             {
-                updatenumber = CTROFunctions.GetDataTableFromCsv(input.Keys.ToArray()[1], true).Rows.Count;
-                dailybody.Append("<br><br>" + updatenumber + " complete trials administrative updates to be acknowledged");
+                Logging.WriteLog("EWDashboardMetrics", "SendNotification", ex);
+                return false;
             }
-            else
-            {
-                dailybody.Append("<br><br>0 complete trials administrative updates to be acknowledged");
-            }
-
-            if (input.Values.ToArray()[2])
-            {
-                updatenumber = CTROFunctions.GetDataTableFromCsv(input.Keys.ToArray()[2], true).Rows.Count;
-                dailybody.Append("<br><br>" + updatenumber + " abbreviated trials scientific updates to be acknowledged");
-            }
-            else
-            {
-                dailybody.Append("<br><br>0 abbreviated trials scientific updates to be acknowledged");
-            }
-
-            emailbody = emailbody + dailybody.ToString();
-            CTROFunctions.SendEmail("Dashboard Metrics: " + today, emailbody, user.Email, null);
-
             foreach (string path in input.Keys.ToArray())
             {
                 if (File.Exists(path))
@@ -625,9 +659,10 @@ namespace CTROLibrary.EW
                     File.Delete(path);
                 }
             }
+
+            return true;
         }
     }
-
 
     public class EWContinueReview : EWTicket
     {
@@ -853,7 +888,7 @@ and lead_org like '%orgname%'".Replace("orgname", orgname);
             }
             catch (Exception ex)
             {
-                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
+                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 

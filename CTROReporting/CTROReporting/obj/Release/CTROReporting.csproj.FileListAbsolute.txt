@@ -502,3 +502,11 @@ C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Release\CTRORepo
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Release\CTROReporting.csproj.CopyComplete
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Release\CTROReporting.dll
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Release\CTROReporting.pdb
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Release\CTROReporting.Migrations.changeemail.resources
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Release\CTROReporting.Migrations.changeemail1.resources
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\Microsoft.AspNet.SignalR.SystemWeb.xml

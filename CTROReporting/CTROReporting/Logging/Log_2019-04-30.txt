@@ -1,0 +1,33 @@
+
+4/30/2019 8:11:40 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROFunctions
+Method Name :- GetDataTableFromCsv
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The Microsoft Jet database engine could not find the object 'workload.csv'.  Make sure the object exists and that you spell its name and the path name correctly.
+Source ---
+{0}Microsoft JET Database Engine
+StackTrace ---
+{0}   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at Syste
+4/30/2019 4:00:00 PM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHangfire
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+Source ---
+{0}System
+StackTrace ---
+{0}   at System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   at System.Net.WebClient.DownloadString(Uri address)
+   at System.Net.WebClient.DownloadString(String address)
+   at CTROLibrary.CTRO.CTROFunctions.GetHTMLByUrl(String url) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROFunctions.cs:line 148
+   at CTROLibrary.EW.EWTicket.GetIDList(String where) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWTicket.cs:line 15
+   at CTROLibrary.CTRO.CTROHangfire.<ScheduledTicket>d__7.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CT

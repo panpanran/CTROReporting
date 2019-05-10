@@ -1,0 +1,39 @@
+
+Log Entry : 7:49:03 AM Tuesday, April 2, 2019
+  :
+  :CTROHangfire > MoveNext > The remote name could not be resolved: 'cbiitsupport.nci.nih.gov'
+-------------------------------
+
+Log Entry : 11:50:10 AM Tuesday, April 2, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 4/2/2019 11:50:10 AM and the error message is: Value cannot be null.
+Parameter name: address
+-------------------------------
+
+Log Entry : 12:02:36 PM Tuesday, April 2, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 4/2/2019 12:02:36 PM and the error message is: Value cannot be null.
+Parameter name: address
+-------------------------------
+
+Log Entry : 12:07:24 PM Tuesday, April 2, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Offhold at 4/2/2019 12:07:24 PM and the error message is: Value cannot be null.
+Parameter name: address
+-------------------------------
+
+Log Entry : 12:07:55 PM Tuesday, April 2, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - National Trials Missing CTEP ID at 4/2/2019 12:07:55 PM and the error message is: Value cannot be null.
+Parameter name: address
+-------------------------------
+
+Log Entry : 3:29:33 PM Tuesday, April 2, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Turnaround at 4/2/2019 3:29:33 PM and the error message is: Exception has been thrown by the target of an invocation.
+-------------------------------
+
+Log Entry : 4:04:40 PM Tuesday, April 2, 2019
+  :
+  :CTROHome > MoveNext > There is an error when creating report for panpanr - Sponsor at 4/2/2019 4:04:40 PM and the error message is: Exception has been thrown by the target of an invocation.
+-------------------------------

@@ -23,6 +23,45 @@ namespace CTROTest
     [TestFixture()]
     public class PATest
     {
+
+
+        [Test]
+        public void InclusionExclusion()
+        {
+            IWebDriver driver = new ChromeDriver();
+            driver.Navigate().GoToUrl("https://trials-stage.nci.nih.gov/pa/protected/studyProtocolexecute.action");
+            //Login
+            IWebElement username = driver.FindElement(By.Id("j_username"));
+            username.SendKeys("panr");
+            IWebElement password = driver.FindElement(By.Id("j_password"));
+            password.SendKeys("Prss_0234");
+            password.Submit();
+            IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
+            acceptclaim.Click();
+            string nciid = "NCI-2017-00086";
+            //Find Trial
+            IWebElement trialSearchMenuOption = driver.FindElement(By.Id("trialSearchMenuOption"));
+            trialSearchMenuOption.Click();
+            IWebElement identifier = driver.FindElement(By.Id("identifier"));
+            identifier.SendKeys(nciid);
+            identifier.SendKeys(Keys.Enter);
+            IWebElement triallink = driver.FindElements(By.TagName("a")).First(element => element.Text == nciid);
+            triallink.Click();
+            //Checkout
+            IWebElement checkoutspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Scientific Check Out");
+            checkoutspan.Click();
+            //Eligibility Criteria
+            IWebElement participatingsitelink = driver.FindElements(By.TagName("a")).First(element => element.Text == "Eligibility Criteria");
+            participatingsitelink.Click();
+            IWebElement addspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Add Another Criterion");
+            addspan.Click();
+            IWebElement formElement = driver.FindElement(By.Name("eligibilityCriteraiAdd"));
+            IWebElement tablleElement = formElement.FindElements(By.TagName("table")).ToList()[0];
+            List<IWebElement> eligibilitytype = formElement.FindElements(By.XPath("*")).ToList();
+            identifier.SendKeys("Inclusion");
+
+        }
+
         [Test]
         public void PilotUpdateTest()
         {
@@ -98,7 +137,7 @@ namespace CTROTest
                     }
                     catch (Exception ex)
                     {
-                        Logging.WriteLog(nciid, organization, ex.Message);
+                        Logging.WriteLog(nciid, organization, ex);
                         throw;
                     }
                 }
@@ -354,7 +393,7 @@ on dw_active.nci_id = dw_study.nci_id order by dw_active.status_date; ";
                     }
                     catch (Exception ex)
                     {
-                        Logging.WriteLog(nciid, organization, ex.Message);
+                        Logging.WriteLog(nciid, organization, ex);
                         throw;
                     }
                 }
@@ -580,7 +619,7 @@ order by dw_study.nci_id";
                     }
                     catch (Exception ex)
                     {
-                        Logging.WriteLog(nciid, organization, ex.Message);
+                        Logging.WriteLog(nciid, organization, ex);
                         throw;
                     }
                 }
@@ -775,7 +814,6 @@ on study_overall_status.study_protocol_identifier = study_protocol.identifier;";
                 }
                 else
                 {
-                    Logging.WriteLog(nciid, organization, "cannot find this participating site");
                     throw new Exception();
                 }
             }
@@ -910,7 +948,7 @@ on study_overall_status.study_protocol_identifier = study_protocol.identifier;";
             }
             catch (Exception ex)
             {
-                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
+                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex);
             }
         }
     }

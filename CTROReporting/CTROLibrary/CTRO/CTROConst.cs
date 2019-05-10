@@ -40,10 +40,10 @@ namespace CTROLibrary.CTRO
         //public const string connString = "Server=localhost;Port=5434;User Id=dwprod;Password=dwprod_at_ctrp17;Database=dw_ctrpn";
         public const string connString = "Server=localhost;Port=5434;User Id=panran;Password=Prss_1234;Database=dw_ctrpn";
         public const string paconnString = "Server=localhost;Port=5434;User Id=panran;Password=Prss_1234;Database=pa_ctrpn";
-        public static string EW_ACCOUNT;
-        public static string EW_PASSWORD;
-        public static string PA_ACCOUNT;
-        public static string PA_PASSWORD;
+        public static string EW_ACCOUNT = "panr2";
+        public static string EW_PASSWORD = "Prss_4567";
+        public static string PA_ACCOUNT = "panr";
+        public static string PA_PASSWORD = "Prss_0235";
         public CTROConst()
         {
             if (string.IsNullOrEmpty(PA_PASSWORD))

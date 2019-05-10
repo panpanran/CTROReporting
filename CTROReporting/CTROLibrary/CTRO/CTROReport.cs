@@ -4,12 +4,14 @@ using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Web;
 
 namespace CTROLibrary.CTRO
 {
+    #region Abstract CTROReport
     public abstract class CTROReport
     {
         public abstract DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS);
@@ -18,7 +20,19 @@ namespace CTROLibrary.CTRO
             conclusionDT = new DataTable();
             return new DataTable();
         }
+
+        public virtual Email GetEmail(Report report, ApplicationUser user, DataSet bookDS)
+        {
+            Email email = new Email();
+            email.Subject = report.ReportName + " Report " + string.Format("{0:MM/dd/yyyy}", DateTime.Now);
+            email.To = user.Email;
+            email.Body = report.Email.Body.Replace("reportname", report.ReportName);
+            email.From = report.Email.From;
+            return email;
+        }
+
     }
+    #endregion
 
     #region Turnaround
     public class TurnaroundReport : CTROReport
@@ -41,7 +55,6 @@ namespace CTROLibrary.CTRO
                 tempDT.Load(datareader);
                 outputDS.Tables.Add(CreateSheet(tempDT, reportSetting.Category, out tempconclusionDT));
                 conclusionDS.Tables.Add(tempconclusionDT);
-
             }
 
             return outputDS;
@@ -128,8 +141,6 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
                     {
                         outputDT.ImportRow(row);
                     }
-
-
                     //}
                     //CTROFunctions.SendEmail("dd", "dd", "ran.pan@nih.gov");
                 }
@@ -151,10 +162,34 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
                 throw;
             }
         }
+
+        public override Email GetEmail(Report report, ApplicationUser user, DataSet bookDS)
+        {
+            IEnumerable<DataRow> originalRows = bookDS.Tables["Original"].AsEnumerable();
+            IEnumerable<DataRow> amendmentRows = bookDS.Tables["Amendment"].AsEnumerable();
+            IEnumerable<DataRow> abbreviatedRows = bookDS.Tables["Abbreviated"].AsEnumerable();
+            string monthparam = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(originalRows.Max(x => x.Field<DateTime>("tsrdate").Date).Month);
+            string oaanumberparam = (originalRows.Count() + amendmentRows.Count() + abbreviatedRows.Count()).ToString();
+            string oaatimeparam = String.Format("{0:.##}", (originalRows.Sum(x => x.Field<int>("processingtime")) + amendmentRows.Sum(x => x.Field<int>("processingtime")) + abbreviatedRows.Sum(x => x.Field<int>("processingtime"))) / (double)(originalRows.Count() + amendmentRows.Count() + abbreviatedRows.Count()));
+            string oanumberparam = (originalRows.Count() + amendmentRows.Count()).ToString();
+            string oatimeparam = String.Format("{0:.##}", (originalRows.Sum(x => x.Field<int>("processingtime")) + amendmentRows.Sum(x => x.Field<int>("processingtime"))) / (double)(originalRows.Count() + amendmentRows.Count()));
+            string body = report.Email.Body;
+            Email email = new Email();
+            email.Subject = report.ReportName + " Report " + string.Format("{0:MM/dd/yyyy}", DateTime.Now);
+            email.To = user.Email;
+            body = body.Replace("monthparam", monthparam);
+            body = body.Replace("oaanumberparam", oaanumberparam);
+            body = body.Replace("oaatimeparam", oaatimeparam);
+            body = body.Replace("oanumberparam", oanumberparam);
+            body = body.Replace("oatimeparam", oatimeparam);
+            email.Body = body;
+            email.From = report.Email.From;
+            return email;
+        }
     }
     #endregion
 
-    #region sponsor not match
+    #region Sponsor Not Match
     public class SponsorReport : CTROReport
     {
         public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
@@ -178,7 +213,7 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
     }
     #endregion
 
-    #region phase NA report
+    #region Phase NA
     public class PhaseNAReport : CTROReport
     {
         public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
@@ -731,16 +766,16 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
                 original = x.Where(y => y.Field<string>("trialtype") == "Original").Count(),
                 amendment = x.Where(y => y.Field<string>("trialtype") == "Amendment").Count(),
                 abbreviated = x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count(),
-                expectedtime = x.Where(y => y.Field<string>("trialtype") == "Original").Count() * 1 + x.Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 + x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.33
+                expectedtime = x.Where(y => y.Field<string>("trialtype") == "Original").Count() * 0.5 + x.Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 + x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.25
             }).
             OrderBy(x => x.expectedtime).ToDataTable();
             tempDT.Rows.Add("Grand Total and Avg",
             outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count().ToString(),
             outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count().ToString(),
             outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count().ToString(),
-            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count() * 1 +
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count() * 0.5 +
             outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 +
-            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.33);
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.25);
 
 
             conclusionDT = tempDT;
@@ -1304,28 +1339,36 @@ order by dw_study.nci_id, dw_study_on_hold_status.off_hold_date;";
                 DataTable tempDT = new DataTable();
                 DataTable tempconclusionDT = new DataTable();
                 tempDT.Load(datareader);
-                switch (reportSetting.Category)
+                tempDT.TableName = reportSetting.Category;
+                tempconclusionDT.TableName = reportSetting.Category;
+
+                if (tempDT.Rows.Count > 0)
                 {
-                    case "Validation":
-                        tempDT.TableName = reportSetting.Category;
-                        outputDS.Tables.Add(CreateValidationSheet(tempDT, reportSetting.Category, out tempconclusionDT));
-                        rankDS.Tables.Add(tempconclusionDT);
-                        break;
-                    case "Abstraction":
-                        outputDS.Tables.Add(CreateAbstractionSheet(tempDT, reportSetting.Category, out tempconclusionDT));
-                        rankDS.Tables.Add(tempconclusionDT);
-                        break;
-                    case "Ticket":
-                        tempDT.TableName = reportSetting.Category;
-                        EWUserSupport eWUserSupport = new EWUserSupport();
-                        List<Ticket> tickets = eWUserSupport.GetTickets("modified_date>%27" + startDate + "%27%20and%20modified_date<%27" + endDate + "%27%20and%20(%20assigned_to_=%27Renae%20Brunetto%27%20or%20assigned_to_=%27Chessie%20Jones%27)");
-                        outputDS.Tables.Add(CreateTicketSheet(tickets, reportSetting.Category, out tempconclusionDT));
-                        rankDS.Tables.Add(tempconclusionDT);
-                        break;
-                    case "Summary":
-                        tempDT.TableName = reportSetting.Category;
-                        outputDS.Tables.Add(tempDT);
-                        break;
+                    switch (reportSetting.Category)
+                    {
+                        case "Validation":
+                            outputDS.Tables.Add(CreateValidationSheet(tempDT, reportSetting.Category, out tempconclusionDT));
+                            rankDS.Tables.Add(tempconclusionDT);
+                            break;
+                        case "Abstraction":
+                            outputDS.Tables.Add(CreateAbstractionSheet(tempDT, reportSetting.Category, out tempconclusionDT));
+                            rankDS.Tables.Add(tempconclusionDT);
+                            break;
+                        case "Ticket":
+                            EWUserSupport eWUserSupport = new EWUserSupport();
+                            List<Ticket> tickets = eWUserSupport.GetTickets("modified_date>%27" + startDate + "%27%20and%20modified_date<%27" + endDate + "%27%20and%20(%20assigned_to_=%27Renae%20Brunetto%27%20or%20assigned_to_=%27Chessie%20Jones%27%20or%20assigned_to_=%27Bobbie Sanders%27)");
+                            outputDS.Tables.Add(CreateTicketSheet(tickets, reportSetting.Category, out tempconclusionDT));
+                            rankDS.Tables.Add(tempconclusionDT);
+                            break;
+                        case "Summary":
+                            outputDS.Tables.Add(tempDT);
+                            break;
+                    }
+                }
+                else
+                {
+                    outputDS.Tables.Add(tempDT);
+                    rankDS.Tables.Add(tempconclusionDT);
                 }
             }
 
@@ -1474,6 +1517,7 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
             conclusionDT.Columns.Add("user", typeof(string));
             conclusionDT.Columns.Add("closedticket", typeof(string));
             conclusionDT.Columns.Add("unclosedticket", typeof(string));
+            conclusionDT.Columns.Add("total", typeof(string));
 
             conclusionDT.TableName = tablename;
 
@@ -1481,12 +1525,14 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
             {
                 conclusionDT.Rows.Add(name
                     , tickets.Where(m => m.AssignedTo == name && m.State == "Closed").Count()
-                    , tickets.Where(m => m.AssignedTo == name && m.State != "Closed").Count());
+                    , tickets.Where(m => m.AssignedTo == name && m.State != "Closed").Count()
+                    , tickets.Where(m => m.AssignedTo == name).Count());
             }
 
             conclusionDT.Rows.Add("Grand Total"
                 , tickets.Where(m => m.State == "Closed").Count()
-                , tickets.Where(m => m.State != "Closed").Count());
+                , tickets.Where(m => m.State != "Closed").Count()
+                , tickets.Count());
             outputTable.TableName = tablename;
             return outputTable;
         }
@@ -1503,16 +1549,16 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
                 original = x.Where(y => y.Field<string>("trialtype") == "Original").Count(),
                 amendment = x.Where(y => y.Field<string>("trialtype") == "Amendment").Count(),
                 abbreviated = x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count(),
-                expectedtime = x.Where(y => y.Field<string>("trialtype") == "Original").Count() * 1 + x.Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 + x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.33
+                expectedtime = x.Where(y => y.Field<string>("trialtype") == "Original").Count() * 0.5 + x.Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 + x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.25
             }).
             OrderBy(x => x.expectedtime).ToDataTable();
             tempDT.Rows.Add("Grand Total and Avg",
             outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count().ToString(),
             outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count().ToString(),
             outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count().ToString(),
-            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count() * 1 +
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count() * 0.5 +
             outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 +
-            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.33);
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.25);
 
 
             conclusionDT = tempDT;
@@ -1811,16 +1857,16 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
                 original = x.Where(y => y.Field<string>("trialtype") == "Original").Count(),
                 amendment = x.Where(y => y.Field<string>("trialtype") == "Amendment").Count(),
                 abbreviated = x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count(),
-                expectedtime = x.Where(y => y.Field<string>("trialtype") == "Original").Count() * 1 + x.Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 + x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.33
+                expectedtime = x.Where(y => y.Field<string>("trialtype") == "Original").Count() * 0.5 + x.Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 + x.Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.25
             }).
             OrderBy(x => x.expectedtime).ToDataTable();
             tempDT.Rows.Add("Grand Total and Avg",
             outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count().ToString(),
             outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count().ToString(),
             outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count().ToString(),
-            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count() * 1 +
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Original").Count() * 0.5 +
             outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Amendment").Count() * 0.75 +
-            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.33);
+            outputDT.AsEnumerable().Where(y => y.Field<string>("trialtype") == "Abbreviated").Count() * 0.25);
 
 
             conclusionDT = tempDT;

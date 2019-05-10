@@ -408,3 +408,8 @@ C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROTest\obj\Debug\CTROTest.csproj
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROTest\obj\Debug\CTROTest.csproj.CopyComplete
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROTest\obj\Debug\CTROTest.dll
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROTest\obj\Debug\CTROTest.pdb
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROTest\bin\Debug\itextsharp.dll
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROTest\bin\Debug\itextsharp.xml
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROTest\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROTest\bin\Debug\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROTest\bin\Debug\Microsoft.AspNet.SignalR.Core.xml

@@ -23,6 +23,8 @@ using Npgsql;
 using System.Text.RegularExpressions;
 using System.Security.Cryptography;
 using System.Net.NetworkInformation;
+using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.parser;
 
 namespace CTROTest
 {
@@ -38,6 +40,111 @@ namespace CTROTest
             stream.Position = 0;
             return stream;
         }
+
+        [Test]
+        public void TestWait()
+        {
+            var t = Task.Run(() =>
+            {
+                Console.WriteLine("Start");
+                Task.Delay(5000).Wait();
+                Console.WriteLine("Done");
+            });
+            t.Wait();
+            Console.WriteLine("All done");
+        }
+
+        [Test]
+        public async Task TestAwait()
+        {
+            await Task.Run(async () => //Task.Run automatically unwraps nested Task types!
+            {
+                Console.WriteLine("Start");
+                await Task.Delay(5000);
+                Console.WriteLine("Done");
+            });
+            Console.WriteLine("All done");
+        }
+
+        [Test]
+        public void FileRenameTest()
+        {
+            string path = @"C:\Users\panr2\Downloads\CSharp\CTROReporting\SearchTrialResults.csv";
+            if (File.Exists(path))
+            {
+                File.Move(path, @"C:\Users\panr2\Downloads\CSharp\CTROReporting\abbreviated.csv");
+            }
+        }
+
+        [Test]
+        public void PDFTest()
+        {
+            Dictionary<string, string> dic = new Dictionary<string, string>();
+            StringBuilder text = new StringBuilder();
+            using (PdfReader reader = new PdfReader(@"C:\Users\panr2\Downloads\NCI-2018-01557-2018-0221 Amend Abstract v04 040519.pdf"))
+            {
+                for (int i = 1; i <= reader.NumberOfPages; i++)
+                {
+                    text.Append(PdfTextExtractor.GetTextFromPage(reader, i));
+                }
+            }
+
+            //string output = text.ToString();
+            RegexOptions options = RegexOptions.None;
+            Regex rgxSpace = new Regex("[ ]{2,}", options);
+            string output = text.ToString().Replace("\n", "(huiche)").Replace("/=", "=").Replace("=>", " >= ").Replace("<=", " =< ");
+            output = rgxSpace.Replace(output, " ");
+            string inpattern = "Inclusion:(.*?)Exclusion:";
+            string expattern = "Exclusion:(.*?)Are patients <18 years of age";
+            Regex rgxin = new Regex(inpattern);
+            Regex rgxex = new Regex(expattern);
+            MatchCollection matchin = rgxin.Matches(output);
+            MatchCollection matchex = rgxex.Matches(output);
+            string inclusion = matchin[0].Value.Replace("Exclusion:", "300) ");
+            string exclusion = matchex[0].Value.Replace("Are patients <18 years of age", "300) ");
+            string iterpattern = @"\d{1,3}\) (.*?)(?=\d{1,3}\))";
+            Regex rgx = new Regex(iterpattern);
+            string specpattern = @"\d{1,3}\. (.*?)(?=\d{1,3}\. )";
+            Regex rgxspec = new Regex(specpattern);
+            matchin = rgx.Matches(inclusion);
+            matchex = rgx.Matches(exclusion);
+
+            MatchCollection temp;
+            List<string> ioutput = new List<string>();
+            List<string> eoutput = new List<string>();
+            foreach (Match m in matchin)
+            {
+                if (rgxspec.Matches(m.Value).Count > 0)
+                {
+                    temp = rgxspec.Matches(m.Value + "300. ");
+                    foreach (Match mm in temp)
+                    {
+                        ioutput.Add(mm.Value.Remove(0, 3).Replace("(huiche)", ""));
+                    }
+                }
+                else
+                {
+                    ioutput.Add(m.Value.Remove(0, 3).Replace("(huiche)", ""));
+                }
+            }
+
+            foreach (Match m in matchex)
+            {
+                if (rgxspec.Matches(m.Value).Count > 0)
+                {
+                    temp = rgxspec.Matches(m.Value + "300. ");
+                    foreach (Match mm in temp)
+                    {
+                        eoutput.Add(mm.Value.Remove(0, 3).Replace("(huiche)", ""));
+                    }
+                }
+                else
+                {
+                    eoutput.Add(m.Value.Remove(0, 3).Replace("(huiche)", ""));
+                }
+            }
+        }
+
 
         [Test]
         public void EncryptTest()

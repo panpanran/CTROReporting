@@ -91,7 +91,7 @@ namespace CTROTest
             }
             catch (Exception ex)
             {
-                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
+                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -112,7 +112,7 @@ namespace CTROTest
             }
             catch (Exception ex)
             {
-                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
+                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex);
             }
         }
 
@@ -231,7 +231,7 @@ namespace CTROTest
                     {
                         CTROFunctions.WriteExcelByDataSet(conclusionDS, savepath, null, 2, 18);
                     }
-                    CTROFunctions.SendEmail("Turnround Report", "Attached please find. \r\n This is turnround report from " + "2018-05-01" + " to " + "2018-05-02", "ran.pan@nih.gov", savepath);
+                    //CTROFunctions.SendEmail("Turnround Report", "Attached please find. \r\n This is turnround report from " + "2018-05-01" + " to " + "2018-05-02", "ran.pan@nih.gov", savepath);
                 }
                 catch (Exception ex)
                 {
@@ -242,7 +242,7 @@ namespace CTROTest
         [Test()]
         public void EmailTest()
         {
-            CTROFunctions.SendEmail("Turnround Report", "This is a test email. ", "ran.pan@nih.gov", string.Empty);
+            //CTROFunctions.SendEmail("Turnround Report", "This is a test email. ", "ran.pan@nih.gov", string.Empty);
         }
         [Test()]
         public void RelativePath()

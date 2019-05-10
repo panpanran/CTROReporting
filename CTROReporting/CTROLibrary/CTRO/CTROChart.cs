@@ -109,7 +109,7 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
             }
             catch (Exception ex)
             {
-                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
+                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex);
                 throw;
             }
         }
@@ -198,7 +198,7 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]) && 
             }
             catch (Exception ex)
             {
-                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
+                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex);
                 throw;
             }
         }

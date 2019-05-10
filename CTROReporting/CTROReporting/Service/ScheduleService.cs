@@ -21,7 +21,7 @@ namespace CTROReporting.Service
     }
 
     [Authorize]
-    public class ScheduleServiceController : ApiController,IScheduleService
+    public class ScheduleServiceController : ApiController, IScheduleService
     {
         private readonly IScheduleRepository scheduleRepository;
         private readonly IUnitOfWork unitOfWork;
@@ -48,7 +48,7 @@ namespace CTROReporting.Service
         //[AllowAnonymous]
         public IEnumerable<Schedule> GetSchedules()
         {
-            var schedule = scheduleRepository.GetAll();
+            var schedule = scheduleRepository.GetMany(p => p.User.Activated == true);
             return schedule;
         }
 

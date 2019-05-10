@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,33 +11,54 @@ namespace CTROLibrary
 {
     public class Logging
     {
-        public static void WriteLog(string classname, string methodname, string ex)
+        public static void WriteLog(string classname, string methodname, Exception ex)
         {
-            StringBuilder path = new StringBuilder(ConfigurationManager.AppSettings["V_CTROLogging"]);
+            StringBuilder strLogText = new StringBuilder();
 
-            if (!Directory.Exists(path.ToString()))
+            strLogText.Append("Message ---\n{0}" + ex.Message);
+
+            strLogText.Append(Environment.NewLine + "Source ---\n{0}" + ex.Source);
+            strLogText.Append(Environment.NewLine + "StackTrace ---\n{0}" + ex.StackTrace);
+            strLogText.Append(Environment.NewLine + "TargetSite ---\n{0}" + ex.TargetSite);
+            if (ex.InnerException != null)
             {
-                Directory.CreateDirectory(path.ToString());
+                strLogText.Append(Environment.NewLine + "Inner Exception is {0}" + ex.InnerException);
+                //error prone
+            }
+            if (ex.HelpLink != null)
+            {
+                strLogText.Append(Environment.NewLine + "HelpLink ---\n{0}" + ex.HelpLink);//error prone
             }
 
-            path.Append(DateTime.Now.ToString("yyyy-MM-dd") + ".txt");
+            StreamWriter log;
 
-            string output = classname + " > " + methodname + " > " + ex;
-            if (!File.Exists(path.ToString()))
+            string timestamp = DateTime.Now.ToString("yyyy-MM-dd", new CultureInfo("en-GB"));
+
+            string errorFolder = ConfigurationManager.AppSettings["V_CTROLogging"];
+
+            if (!System.IO.Directory.Exists(errorFolder))
             {
-                // Create a file to write to.
-                using (StreamWriter sw = File.CreateText(path.ToString()))
-                {
-                    Log(output, sw);
-                }
+                System.IO.Directory.CreateDirectory(errorFolder);
+            }
+
+            // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
+            if (!File.Exists($@"{errorFolder}\Log_{timestamp}.txt"))
+            {
+                log = new StreamWriter($@"{errorFolder}\Log_{timestamp}.txt");
             }
             else
             {
-                using (StreamWriter sw = File.AppendText(path.ToString()))
-                {
-                    Log(output, sw);
-                }
+                log = File.AppendText($@"{errorFolder}\Log_{timestamp}.txt");
             }
+
+            // Write to the file:
+            log.WriteLine(Environment.NewLine + DateTime.Now);
+            log.WriteLine("------------------------------------------------------------------------------------------------");
+            log.WriteLine("Class Name :- " + classname);
+            log.WriteLine("Method Name :- " + methodname);
+            log.WriteLine("------------------------------------------------------------------------------------------------");
+            log.WriteLine(strLogText);
+            log.WriteLine();
         }
 
         public static void Log(string logMessage, TextWriter w)

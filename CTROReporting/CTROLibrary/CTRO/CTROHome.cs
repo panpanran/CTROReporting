@@ -31,19 +31,17 @@ namespace CTROLibrary.CTRO
         //excel
         public async Task<string> CreateReport(string startDate, string endDate, ApplicationUser user, Report report)
         {
-            string emailsubject = report.ReportName + " Report " + string.Format("{0:MM/dd/yyyy}", DateTime.Now);
+            Email email = new Email();
 
             if (report.ReportName == "Dashboard Metrics")
             {
                 EWDashboardMetrics ew = new EWDashboardMetrics();
-                ew.DashboardMetrics(user,report);
-                return "DashboardMetrics";
+                return ew.DashboardMetrics(user, report);
             }
 
             Type type = Type.GetType("CTROLibrary.CTRO." + report.ReportName.Replace(" - ", "").Replace(" ", "") + "Report");
-            MethodInfo methodInfo = type.GetMethod("CreateBook");
-            object classInstance = Activator.CreateInstance(type, null);
             object bookObject = null;
+            object emailObject = null;
 
 
             string templatepath = ConfigurationManager.AppSettings["V_CTROTemplate"];
@@ -81,31 +79,38 @@ namespace CTROLibrary.CTRO
             }
 
             savepath = pathtext.ToString();
+
+            Logger logger = new Logger
+            {
+                ClassName = this.GetType().Name,
+                MethodName = MethodBase.GetCurrentMethod().Name,
+                Level = 1,
+                Message = "Creaet report first time for " + user.UserName + " - " + report.ReportName + " at " + DateTime.Now.ToString(),
+                UserId = user.Id
+            };
             try
             {
                 //Cache
                 string key = report.ReportId + startDate + endDate;
                 object pathCache = GetCache(key);
-                Logger logger = new Logger
-                {
-                    ClassName = this.GetType().Name,
-                    MethodName = MethodBase.GetCurrentMethod().Name,
-                    Level = 1,
-                    Message = "Creaet report first time for " + user.UserName + " - " + report.ReportName + " at " + DateTime.Now.ToString(),
-                    UserId = user.Id
-                };
+                object emailCache = GetCache(key + "email");
+
 
                 if (pathCache == null)
                 {
                     CTROFunctions.processpercentage[user.UserName] = 0;
-                    using (var conn = new NpgsqlConnection(report.ReportName == "Sponsor" ? ConfigurationManager.ConnectionStrings["PADBConnectionString"].ConnectionString : ConfigurationManager.ConnectionStrings["PADWConnectionString"].ConnectionString))
+                    using (var conn = new NpgsqlConnection(report.ReportName == "Sponsor" || report.ReportName == "Turnaround" || report.ReportName.Contains("Trial Processing") || report.ReportName == "PDA - Abstractor"
+                        ? ConfigurationManager.ConnectionStrings["PADBConnectionString"].ConnectionString : ConfigurationManager.ConnectionStrings["PADWConnectionString"].ConnectionString))
                     {
                         conn.Open();
                         ReportSetting[] reportSettings = report.ReportSettings.ToArray();
                         DataSet conclusionDS = new DataSet();
-                        object[] parametersArray = new object[] { conn, startDate, endDate, reportSettings, conclusionDS };
-                        bookObject = methodInfo.Invoke(classInstance, parametersArray);
-                        conclusionDS = (DataSet)parametersArray[4];
+
+                        MethodInfo methodInfo = type.GetMethod("CreateBook");
+                        object classInstance = Activator.CreateInstance(type, null);
+                        object[] reportArray = new object[] { conn, startDate, endDate, reportSettings, conclusionDS };
+                        bookObject = methodInfo.Invoke(classInstance, reportArray);
+                        conclusionDS = (DataSet)reportArray[4];
                         DataSet bookDS = (DataSet)bookObject;
                         bool ifchart = false;
                         int totalrows = 0;
@@ -128,7 +133,16 @@ namespace CTROLibrary.CTRO
                             }
                         }
 
-                        CTROFunctions.SendEmail(emailsubject, report.Email.Template.Replace("reportname",report.ReportName), user.Email, savepath);
+                        methodInfo = type.GetMethod("GetEmail");
+                        classInstance = Activator.CreateInstance(type, null);
+                        object[] emailArray = new object[] { report, user, bookDS };
+                        emailObject = methodInfo.Invoke(classInstance, emailArray);
+                        email = (Email)emailObject;
+
+                        email.AttachmentFileName = savepath;
+
+
+                        CTROFunctions.SendEmail(email);
                         CacheItemPolicy cip = new CacheItemPolicy()
                         {
                             AbsoluteExpiration = new DateTimeOffset(DateTime.Now.AddHours(4))
@@ -136,8 +150,11 @@ namespace CTROLibrary.CTRO
 
 
                         MemoryCache.Default.Set(key, savepath, cip);
+                        MemoryCache.Default.Set(key + "email", email, cip);
                         //HttpRuntime.Cache.Add(key, savepath, null, Cache.NoAbsoluteExpiration, new TimeSpan(4, 0, 0), CacheItemPriority.Default, null);
                         pathCache = savepath;
+                        emailCache = email;
+
                         //Trace.Listeners.Add(new TextWriterTraceListener(@"C:\Users\panr2\Downloads\CSharp\CTROReporting\TextWriterOutput.log", "myListener"));
                         //Trace.TraceInformation("Test message.");
                         //// You must close or flush the trace to empty the output buffer.  
@@ -149,8 +166,10 @@ namespace CTROLibrary.CTRO
                 {
                     //System.IO.File.Copy(pathCache.ToString(), savepath, true);
                     savepath = pathCache.ToString();
-                    CTROFunctions.SendEmail(emailsubject, report.Email.Template.Replace("reportname", report.ReportName), user.Email, pathCache.ToString());
-                    logger.Message = "Creaet report with cache for " + user.UserName + " - " + report.ReportName + " at " + DateTime.Now.ToString();
+                    email = (Email)emailCache;
+                    email.To = user.Email;
+                    CTROFunctions.SendEmail(email);
+                    logger.Message = "Create report with cache for " + user.UserName + " - " + report.ReportName + " at " + DateTime.Now.ToString();
                     var urltext = CTROFunctions.CreateDataFromJson("LoggerService", "CreateLogger", logger);
                 }
                 Record record = new Record
@@ -169,7 +188,9 @@ namespace CTROLibrary.CTRO
             }
             catch (Exception ex)
             {
-                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "There is an error when creating report for " + user.UserName + " - " + report.ReportName + " at " + DateTime.Now.ToString() + " and the error message is: " + ex.Message);
+                logger.Message = "Failed to create report for " + user.UserName + " - " + report.ReportName + " at " + DateTime.Now.ToString();
+                var urltext = CTROFunctions.CreateDataFromJson("LoggerService", "CreateLogger", logger);
+                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex);
                 return string.Empty;
             }
         }
@@ -244,7 +265,7 @@ namespace CTROLibrary.CTRO
                 }
                 catch (Exception ex)
                 {
-                    Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
+                    Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex);
                     throw;
                 }
             }

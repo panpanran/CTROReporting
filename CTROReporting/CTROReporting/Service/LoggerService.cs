@@ -1,10 +1,14 @@
 ﻿using CTROLibrary.Infrastructure;
 using CTROLibrary.Model;
 using CTROLibrary.Repository;
+using CTROReporting.App_Start;
+using CTROReporting.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace CTROReporting.Service
@@ -14,6 +18,7 @@ namespace CTROReporting.Service
         void CreateLogger(Logger logger);
         void SaveLogger();
         IEnumerable<Logger> GetLoggersByUser(string userid);
+        IEnumerable<LoggerListViewModel> GetAllMessages();
     }
 
     [Authorize]
@@ -49,6 +54,49 @@ namespace CTROReporting.Service
         {
             var loggers = loggerRepository.GetMany(x => x.UserId == userid).OrderByDescending(g => g.CreatedDate);
             return loggers;
+        }
+
+        private string _connString = ConfigurationManager.ConnectionStrings["CTROReportingEntities"].ConnectionString;
+
+        public IEnumerable<LoggerListViewModel> GetAllMessages()
+        {
+            var messages = new List<LoggerListViewModel>();
+            using (var connection = new SqlConnection(_connString))
+            {
+                connection.Open();
+                using (var command = new SqlCommand(@"SELECT [LogId], 
+                [Message] FROM [dbo].[Loggers]", connection))
+                {
+                    command.Notification = null;
+
+                    var dependency = new SqlDependency(command);
+
+                    dependency.OnChange += new OnChangeEventHandler(dependency_OnChange);
+
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
+
+                    var reader = command.ExecuteReader();
+
+                    messages = GetLoggersToday().ToList().Select(x => new LoggerListViewModel
+                    {
+                        LogId = x.LogId,
+                        Message = x.Message,
+                        UserName = x.User.UserName,
+                        CreatedDate = x.CreatedDate
+                    }).ToList();
+                }
+
+            }
+            return messages;
+        }
+
+        private void dependency_OnChange(object sender, SqlNotificationEventArgs e)
+        {
+            if (e.Type == SqlNotificationType.Change)
+            {
+                MessagesHub.SendMessages();
+            }
         }
     }
 

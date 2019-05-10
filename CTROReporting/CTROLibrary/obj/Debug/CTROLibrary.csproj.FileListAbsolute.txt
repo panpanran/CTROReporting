@@ -289,8 +289,16 @@ C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\bin\Debug\WebDriver.xm
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\bin\Debug\es\Hangfire.Core.resources.dll
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\bin\Debug\zh\Hangfire.Core.resources.dll
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\bin\Debug\zh-TW\Hangfire.Core.resources.dll
-C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\obj\Debug\CTROLibrary.csprojAssemblyReference.cache
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\obj\Debug\CTROLibrary.csproj.CoreCompileInputs.cache
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\obj\Debug\CTROLibrary.csproj.CopyComplete
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\obj\Debug\CTROLibrary.dll
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\obj\Debug\CTROLibrary.pdb
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\bin\Debug\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\bin\Debug\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.pdb
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\bin\Debug\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\obj\Debug\CTROLibrary.csprojAssemblyReference.cache

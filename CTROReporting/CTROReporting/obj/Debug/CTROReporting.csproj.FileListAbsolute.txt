@@ -490,7 +490,6 @@ C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\WebDriver.xml
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\es\Hangfire.Core.resources.dll
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\zh\Hangfire.Core.resources.dll
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\zh-TW\Hangfire.Core.resources.dll
-C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Debug\CTROReporting.csprojAssemblyReference.cache
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Migrations.emailtemplate.resources
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Migrations.emailtemplate1.resources
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Migrations.emailtemplate2.resources
@@ -501,3 +500,13 @@ C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Debug\CTROReport
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Debug\CTROReporting.csproj.CopyComplete
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Debug\CTROReporting.dll
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Debug\CTROReporting.pdb
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\CTROLibrary.dll
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Migrations.changeemail.resources
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Debug\CTROReporting.Migrations.changeemail1.resources
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\Microsoft.AspNet.SignalR.SystemWeb.pdb
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROReporting\obj\Debug\CTROReporting.csprojAssemblyReference.cache
