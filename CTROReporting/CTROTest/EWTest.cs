@@ -5,6 +5,7 @@ using CTROLibrary.Model;
 using NUnit.Framework;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace CTROTest
 {
@@ -58,10 +59,11 @@ namespace CTROTest
         public void TSRFeedback()
         {
             CTROConst dt = new CTROConst();
-            //string nciid = Regex.Match("RE: NCI CTRP: Trial AMENDMENT TSR for REVIEW for NCI-2017-00101, 201701084", "NCI-.*?,").Value.Replace(",","");
+            string nciid = Regex.Match(@"NCI-2019-02709,
+CTRP Trial Summary Report", "NCI-.*?,").Value.Replace(",", "");
             //TSRFeedbackTest("86330", "NCI-2018-02345");
             EWSolutionTSRFeedback eWHome = new EWSolutionTSRFeedback();
-            Ticket ticket = eWHome.GetByUrl("https://cbiitsupport.nci.nih.gov/ewws/EWRead?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_4567&$lang=en&id=91638");
+            Ticket ticket = eWHome.GetByUrl("https://cbiitsupport.nci.nih.gov/ewws/EWRead?$KB=CBIIT&$table=ctro_tickets&$login=panr2&$password=Prss_5678&$lang=en&id=94603");
             eWHome.Update(ticket);
             //ApplicationUser user = new ApplicationUser();
             //eWHome.BulkUpdate("assigned_to_=%27Ran%20Pan%27%20and category like '%2519%25' and%20modified_by%20not%20like%20%27%25panr2%25%27", user);

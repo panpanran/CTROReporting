@@ -29,16 +29,16 @@ namespace CTROScheduleReport
             }
             catch (Exception ex)
             {
-                Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
+                //Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, ex.Message);
             }
 
-            Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "CTROScheduleService Start");
+            //Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "CTROScheduleService Start");
         }
 
         protected override void OnStop()
         {
             _server.Dispose();
-            Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "CTROScheduleService Stop");
+            //Logging.WriteLog(this.GetType().Name, MethodBase.GetCurrentMethod().Name, "CTROScheduleService Stop");
         }
     }
 }

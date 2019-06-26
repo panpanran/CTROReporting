@@ -1,0 +1,94 @@
+
+6/24/2019 8:11:02 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROFunctions
+Method Name :- GetDataTableFromCsv
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The Microsoft Jet database engine could not find the object 'workload.csv'.  Make sure the object exists and that you spell its name and the path name correctly.
+Source ---
+{0}Microsoft JET Database Engine
+StackTrace ---
+{0}   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at Syste
+6/24/2019 8:17:46 AM
+------------------------------------------------------------------------------------------------
+Class Name :- EWDashboardMetrics
+Method Name :- DownloadDashboardCSV
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The HTTP request to the remote WebDriver server for URL http://localhost:56691/session/83158a819038ed1899de7a75e858ab47/url timed out after 120 seconds.
+Source ---
+{0}WebDriver
+StackTrace ---
+{0}   at OpenQA.Selenium.Remote.HttpCommandExecutor.MakeHttpRequest(HttpRequestInfo requestInfo)
+   at OpenQA.Selenium.Remote.HttpCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.DriverServiceCommandExecutor.Execute(Command commandToExecute)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.Execute(String driverCommandToExecute, Dictionary`2 parameters)
+   at OpenQA.Selenium.Remote.RemoteWebDriver.set_Url(String value)
+   at OpenQA.Selenium.Remote.RemoteNavigator.GoToUrl(String url)
+   at
+6/24/2019 8:24:02 AM
+------------------------------------------------------------------------------------------------
+Class Name :- EWDashboardMetrics
+Method Name :- SendNotification
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The source contains no DataRows.
+Source ---
+{0}System.Data.DataSetExtensions
+StackTrace ---
+{0}   at System.Data.DataTableExtensions.LoadTableFromEnumerable[T](IEnumerable`1 source, DataTable table, Nullable`1 options, FillErrorEventHandler errorHandler)
+   at System.Data.DataTableExtensions.CopyToDataTable[T](IEnumerable`1 source)
+   at CTROLibrary.EW.EWDashboardMetrics.SendNotification(ApplicationUser user, Report report, Dictionary`2 input) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWSolution.cs:line 621
+TargetSite ---
+{0}System.Data.DataTable LoadTableFromEnumerable[T](System.Collections.Generic.IEnumerable`1[T], System.Data.DataTable, System.Nullable`1[System.Data.LoadOption], Syst
+6/24/2019 8:44:42 AM
+------------------------------------------------------------------------------------------------
+Class Name :- EWDashboardMetrics
+Method Name :- SendNotification
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The source contains no DataRows.
+Source ---
+{0}System.Data.DataSetExtensions
+StackTrace ---
+{0}   at System.Data.DataTableExtensions.LoadTableFromEnumerable[T](IEnumerable`1 source, DataTable table, Nullable`1 options, FillErrorEventHandler errorHandler)
+   at System.Data.DataTableExtensions.CopyToDataTable[T](IEnumerable`1 source)
+   at CTROLibrary.EW.EWDashboardMetrics.SendNotification(ApplicationUser user, Report report, Dictionary`2 input) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWSolution.cs:line 621
+TargetSite ---
+{0}System.Data.DataTable LoadTableFromEnumerable[T](System.Collections.Generic.IEnumerable`1[T], System.Data.DataTable, System.Nullable`1[System.Data.LoadOption], Syst
+6/24/2019 9:20:21 AM
+------------------------------------------------------------------------------------------------
+Class Name :- EWDashboardMetrics
+Method Name :- SendNotification
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The source contains no DataRows.
+Source ---
+{0}System.Data.DataSetExtensions
+StackTrace ---
+{0}   at System.Data.DataTableExtensions.LoadTableFromEnumerable[T](IEnumerable`1 source, DataTable table, Nullable`1 options, FillErrorEventHandler errorHandler)
+   at System.Data.DataTableExtensions.CopyToDataTable[T](IEnumerable`1 source)
+   at CTROLibrary.EW.EWDashboardMetrics.SendNotification(ApplicationUser user, Report report, Dictionary`2 input) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWSolution.cs:line 621
+TargetSite ---
+{0}System.Data.DataTable LoadTableFromEnumerable[T](System.Collections.Generic.IEnumerable`1[T], System.Data.DataTable, System.Nullable`1[System.Data.LoadOption], Syst
+6/24/2019 9:41:02 AM
+------------------------------------------------------------------------------------------------
+Class Name :- EWDashboardMetrics
+Method Name :- SendNotification
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The source contains no DataRows.
+Source ---
+{0}System.Data.DataSetExtensions
+StackTrace ---
+{0}   at System.Data.DataTableExtensions.LoadTableFromEnumerable[T](IEnumerable`1 source, DataTable table, Nullable`1 options, FillErrorEventHandler errorHandler)
+   at System.Data.DataTableExtensions.CopyToDataTable[T](IEnumerable`1 source)
+   at CTROLibrary.EW.EWDashboardMetrics.SendNotification(ApplicationUser user, Report report, Dictionary`2 input) in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\EW\EWSolution.cs:line 621
+TargetSite ---
+{0}System.Data.DataTable LoadTableFromEnumerable[T](System.Collections.Generic.IEnumerable`1[T], System.Data.DataTable, System.Nullable`1[System.Data.LoadOption], Syst

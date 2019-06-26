@@ -2271,4 +2271,66 @@ x.Field<int>("submissionnumber") == Convert.ToInt32(row["submissionnumber"]));
 
     #endregion
 
+    #region No DT4 Anatomical Site Report
+    public class NoDT4AnatomicalSiteReport : CTROReport
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            conclusionDS = new DataSet();
+
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+
+            foreach (ReportSetting reportSetting in reportSettings)
+            {
+                string codetext = reportSetting.Code;
+                cmd = new NpgsqlCommand(codetext, conn);
+                datareader = cmd.ExecuteReader();
+                DataTable tempDT = new DataTable();
+                DataTable tempconclusionDT = new DataTable();
+                tempDT.TableName = reportSetting.Category;
+                tempDT.Load(datareader);
+                outputDS.Tables.Add(tempDT);
+                conclusionDS.Tables.Add(tempconclusionDT);
+            }
+
+            return outputDS;
+        }
+    }
+
+    #endregion
+
+    #region CCR Trials Report
+    public class CCRTrialsReport : CTROReport
+    {
+        public override DataSet CreateBook(NpgsqlConnection conn, string startDate, string endDate, ReportSetting[] reportSettings, out DataSet conclusionDS)
+        {
+            //All
+            DataSet outputDS = new DataSet();
+            conclusionDS = new DataSet();
+
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+
+            foreach (ReportSetting reportSetting in reportSettings)
+            {
+                string codetext = reportSetting.Code;
+                cmd = new NpgsqlCommand(codetext, conn);
+                datareader = cmd.ExecuteReader();
+                DataTable tempDT = new DataTable();
+                DataTable tempconclusionDT = new DataTable();
+                tempDT.TableName = reportSetting.Category;
+                tempDT.Load(datareader);
+                outputDS.Tables.Add(tempDT);
+                conclusionDS.Tables.Add(tempconclusionDT);
+            }
+
+            return outputDS;
+        }
+    }
+
+    #endregion
+
 }

@@ -15,6 +15,7 @@ using System.Data;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 
@@ -35,10 +36,10 @@ namespace CTROTest
         [SetUp]
         public void SetUp()
         {
-            reportRepository = new Mock<IReportRepository>();
-            recordRepository = new Mock<IRecordRepository>();
-            reportsettingRepository = new Mock<IReportSettingRepository>();
-            unitOfWork = new Mock<IUnitOfWork>();
+            //reportRepository = new Mock<IReportRepository>();
+            //recordRepository = new Mock<IRecordRepository>();
+            //reportsettingRepository = new Mock<IReportSettingRepository>();
+            //unitOfWork = new Mock<IUnitOfWork>();
 
             //recordService = new RecordServiceController(recordRepository.Object, unitOfWork.Object);
             //reportsettingService = new ReportSettingServiceController(reportsettingRepository.Object, unitOfWork.Object);
@@ -46,6 +47,162 @@ namespace CTROTest
             reportService = new Mock<IReportService>();
         }
 
+        [Test]
+        public void IEnumerableBehavior()
+        {
+            DatabaseFactory factory = new DatabaseFactory();
+            LoggerRepository LoggerRepository = new LoggerRepository(factory);
+            IEnumerable<Logger> loggers = LoggerRepository.GetAll().Where(p => p.Message.Contains("error"));
+            //IEnumerable: the following statement is an in-memory query
+            loggers = loggers.Take<Logger>(10);
+
+
+            IEnumerable<string> ss = from row in " "
+            let hello = "Hello, "
+            let user = Environment.UserName
+            select hello + user;
+        }
+
+        [Test()]
+        public void ContactInformationReportTest()
+        {
+            string email = "";
+            string phone = "";
+            string url = "";
+            string result = "";
+
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+            DataTable tempDT = new DataTable();
+            tempDT.TableName = "CTRO";
+
+            using (var conn = new NpgsqlConnection(CTROConst.connString))
+            {
+                conn.Open();
+                try
+                {
+                    string codetext = @"select 
+dw_study.nci_id,
+nct_id,
+ccr_id,
+official_title,
+current_trial_status,
+current_trial_status_date,
+dw_study_participating_site.org_name,
+dw_study_participating_site.contact_name,
+dw_study_participating_site.contact_email,
+dw_study_participating_site.contact_phone,
+recruitment_status,
+recruitment_status_date
+from (select * from dw_study where lead_org = 'National Cancer Institute' and submitter_organization ='ClinicalTrials.gov') dw_study
+join (select * from dw_study_participating_site where org_name in ('National Institutes of Health Clinical Center')) dw_study_participating_site
+on dw_study_participating_site.nci_id = dw_study.nci_id;";
+
+                    cmd = new NpgsqlCommand(codetext, conn);
+                    datareader = cmd.ExecuteReader();
+                    tempDT.Load(datareader);
+
+                    foreach (DataRow row in tempDT.Rows)
+                    {
+                        if (row.ItemArray[8].ToString() == "figgw@helix.nih.gov")
+                        {
+                            string a = "";
+                        }
+
+                        email = row.ItemArray[8].ToString();
+                        phone = string.IsNullOrEmpty(row.ItemArray[9].ToString()) ? "" : "(" + row.ItemArray[9].ToString().Replace("-", "").Insert(3, ")").Insert(7, "-");
+                        url = "https://clinicaltrials.gov/ct2/show/" + row.ItemArray[1].ToString();
+                        result = CTROFunctions.GetHTMLByUrl(url);
+                        if (result.Contains(email) && result.Replace(" ","").Contains(phone))
+                        {
+                            string pattern = "headers=\"contactName\"";
+                            Regex rgx = new Regex(pattern, RegexOptions.IgnoreCase);
+                            System.Text.RegularExpressions.MatchCollection matches = rgx.Matches(result);
+                            if (matches.Count > 0 && (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(phone)))
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                row.Delete();
+                            }
+                        }
+                        
+                    }
+                    tempDT.AcceptChanges();
+
+                    var user = new ApplicationUser() { UserName = "Test" };
+                    CTROFunctions.processpercentage[user.UserName] = 0;
+                    CTROFunctions.WriteExcelByDataTable(tempDT, user, @"C:\Users\panr2\Downloads\DataWarehouse\Report Requests\Output.xlsx",
+                        @"C:\Users\panr2\Downloads\DataWarehouse\Report Requests\Normal Template.xlsx",
+                        2, 1, false, tempDT.Rows.Count);
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+        }
+
+        [Test()]
+        public void ModifiedExistingReportTest()
+        {
+            var table = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\Report Requests\DT4 Anatomic Site Missing 5-22-19.xlsx");
+            string nciid = "";
+            NpgsqlCommand cmd = null;
+            NpgsqlDataReader datareader = null;
+            DataTable tempDT = new DataTable();
+            tempDT.TableName = "CTRO";
+
+            using (var conn = new NpgsqlConnection(CTROConst.paconnString))
+            {
+                conn.Open();
+                try
+                {
+                    foreach (DataRow row in table.Tables[0].Rows)
+                    {
+                        nciid = row.ItemArray[0].ToString();
+                        string codetext = @"select 
+study_protocol.nci_id,
+study_protocol.nct_id,
+study_protocol.ctep_id,
+study_protocol.dcp_id,
+study_protocol.official_title,
+study_overall_status.status_code,
+study_overall_status.status_date::date,
+case when study_protocol.proprietary_trial_indicator = true then 'Abbreviated' else 'Complete' end Category,
+study_protocol.primary_purpose_code,
+study_protocol.study_protocol_type,
+document_workflow_status.status_code
+from (select * from study_protocol where nci_id = '" + nciid + @"' and 
+exists 
+(select 1 from 
+(select nci_id,max(submission_number) submission_number from study_protocol group by nci_id) temp_study_protocol
+where temp_study_protocol.nci_id = study_protocol.nci_id
+and temp_study_protocol.submission_number = study_protocol.submission_number)) study_protocol 
+join (select * from document_workflow_status where current = true and status_code not in ('REJECTED','SUBMISSION_TERMINATED')) document_workflow_status
+on document_workflow_status.study_protocol_identifier = study_protocol.identifier
+join (select * from study_overall_status where current = true and status_code not in ('WITHDRAWN')) study_overall_status
+on study_overall_status.study_protocol_identifier = study_protocol.identifier
+order by study_protocol.nci_id;";
+
+                        cmd = new NpgsqlCommand(codetext, conn);
+                        datareader = cmd.ExecuteReader();
+                        tempDT.Load(datareader);
+                    }
+
+                    var user = new ApplicationUser() { UserName = "Test" };
+                    CTROFunctions.processpercentage[user.UserName] = 0;
+                    CTROFunctions.WriteExcelByDataTable(tempDT, user, @"C:\Users\panr2\Downloads\DataWarehouse\Report Requests\Output.xlsx",
+                        @"C:\Users\panr2\Downloads\DataWarehouse\Report Requests\Normal Template.xlsx",
+                        2, 1, false, tempDT.Rows.Count);
+                }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+            }
+        }
 
         [Test()]
         public void WebApiTest()

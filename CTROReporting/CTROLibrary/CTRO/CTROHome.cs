@@ -100,6 +100,7 @@ namespace CTROLibrary.CTRO
                 {
                     CTROFunctions.processpercentage[user.UserName] = 0;
                     using (var conn = new NpgsqlConnection(report.ReportName == "Sponsor" || report.ReportName == "Turnaround" || report.ReportName.Contains("Trial Processing") || report.ReportName == "PDA - Abstractor"
+                        || report.ReportName == "Lead Disease Flag" || report.ReportName == "No DT4 Anatomical Site"
                         ? ConfigurationManager.ConnectionStrings["PADBConnectionString"].ConnectionString : ConfigurationManager.ConnectionStrings["PADWConnectionString"].ConnectionString))
                     {
                         conn.Open();

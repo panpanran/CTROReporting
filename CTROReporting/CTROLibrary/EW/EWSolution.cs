@@ -618,6 +618,19 @@ namespace CTROLibrary.EW
                     }
                 }
 
+                DataTable trialdataPastDue = trialdata.AsEnumerable().Where(m => !Convert.IsDBNull(m.ItemArray[3])).
+                                                Where(m => Convert.ToDateTime(m.ItemArray[3]).Date < DateTime.Now.Date).Count() > 0 ? trialdata.AsEnumerable().Where(m => !Convert.IsDBNull(m.ItemArray[3])).
+                                                Where(m => Convert.ToDateTime(m.ItemArray[3]).Date < DateTime.Now.Date).CopyToDataTable() : new DataTable();
+
+                if (trialdataPastDue.Rows.Count > 0)
+                {
+                    dailybody.Append("<br><br><b>Past Due " + " – " + trialdataPastDue.Rows.Count.ToString() + "</b>");
+
+                    foreach (DataRow row in trialdataPastDue.Rows)
+                    {
+                        dailybody.Append("<br>• NCIID: NCI-" + row.ItemArray[0].ToString() + " - " + string.Format("{0:MM/dd/yyyy}", row.ItemArray[3]));
+                    }
+                }
 
                 if (input.Values.ToArray()[1])
                 {

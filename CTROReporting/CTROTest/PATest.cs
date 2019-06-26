@@ -285,7 +285,7 @@ on dw_active.nci_id = dw_study.nci_id order by dw_active.status_date; ";
                 IWebElement username = driver.FindElement(By.Id("j_username"));
                 username.SendKeys("panr");
                 IWebElement password = driver.FindElement(By.Id("j_password"));
-                password.SendKeys("Prss_0123");
+                password.SendKeys("Prss_0345");
                 password.Submit();
                 IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
                 acceptclaim.Click();

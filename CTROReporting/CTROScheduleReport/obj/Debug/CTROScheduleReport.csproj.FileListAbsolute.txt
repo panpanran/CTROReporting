@@ -210,3 +210,6 @@ C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROScheduleReport\obj\Debug\CTROS
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROScheduleReport\obj\Debug\CTROScheduleReport.csproj.CopyComplete
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROScheduleReport\obj\Debug\CTROScheduleReport.exe
 C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROScheduleReport\obj\Debug\CTROScheduleReport.pdb
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROScheduleReport\bin\Debug\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROScheduleReport\bin\Debug\Microsoft.AspNet.SignalR.Core.pdb
+C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROScheduleReport\bin\Debug\Microsoft.AspNet.SignalR.Core.xml

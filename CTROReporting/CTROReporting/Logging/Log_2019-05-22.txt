@@ -1,0 +1,49 @@
+
+5/22/2019 8:11:26 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROFunctions
+Method Name :- GetDataTableFromCsv
+------------------------------------------------------------------------------------------------
+Message ---
+{0}The Microsoft Jet database engine could not find the object 'workload.csv'.  Make sure the object exists and that you spell its name and the path name correctly.
+Source ---
+{0}Microsoft JET Database Engine
+StackTrace ---
+{0}   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextErrorHandling(OleDbHResult hr)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandTextForSingleResult(tagDBPARAMS dbParams, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommandText(Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteCommand(CommandBehavior behavior, Object& executeResult)
+   at System.Data.OleDb.OleDbCommand.ExecuteReaderInternal(CommandBehavior behavior, String method)
+   at Syste
+5/22/2019 11:29:07 AM
+------------------------------------------------------------------------------------------------
+Class Name :- CTROHome
+Method Name :- MoveNext
+------------------------------------------------------------------------------------------------
+Message ---
+{0}No connection could be made because the target machine actively refused it
+Source ---
+{0}Npgsql
+StackTrace ---
+{0}   at Npgsql.NpgsqlConnector.Connect(NpgsqlTimeout timeout)
+   at Npgsql.NpgsqlConnector.<RawOpen>d__153.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Npgsql.NpgsqlConnector.<Open>d__149.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Npgsql.ConnectorPool.<AllocateLong>d__19.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Npgsql.NpgsqlConnection.<>c__DisplayClass32_0.<<Open>g__OpenLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Npgsql.NpgsqlConnection.Open()
+   at CTROLibrary.CTRO.CTROHome.<CreateReport>d__1.MoveNext() in C:\Users\panr2\Downloads\CSharp\CTROReporting\CTROLibrary\CTRO\CTROHome.cs:line 106
+TargetSite ---
+{0}Void Connect(Npgsql.Npgs
