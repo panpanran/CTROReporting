@@ -62,17 +62,29 @@ namespace CTROLibrary.EW
             IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
             acceptclaim.Click();
 
-            for (int i = 1; i < ticketlist.Length - 1; i++)
+            for (int i = ticketlist.Length - 100; i < ticketlist.Length - 1; i++)
             {
                 string ticketid = GetValueByFieldName("EWREST_id_" + (i - 1).ToString(), ticketlist[i].Replace(" ", ""));
+                string nciid = "";
                 Ticket ticket = GetById(ticketid);
-                string nciid = Regex.Match(ticket.Summary, "NCI-.*?,").Value.Replace(",", "");
-
-
-                bool tsrfeedback = TSRFeedback(ticketid, nciid, driver, user);
-                if (tsrfeedback)
+                if (ticket.State == "Open")
                 {
-                    Update(ticket);
+                    if (Regex.IsMatch(ticket.Summary, "NCI-.*?,"))
+                    {
+                        nciid = Regex.Match(ticket.Summary, "NCI-.*?,").Value.Replace(",", "");
+                    }
+
+                    if (Regex.IsMatch(ticket.Internal_analysis, "NCI Trial ID: .*?On this"))
+                    {
+                        nciid = Regex.Match(ticket.Internal_analysis, "NCI Trial ID: .*?On this").Value.Replace("On this", "").Replace("\\r\\n\\r\\n", "").Replace("NCI Trial ID: ", "");
+                    }
+
+
+                    bool tsrfeedback = TSRFeedback(ticketid, nciid, driver, user);
+                    if (tsrfeedback)
+                    {
+                        Update(ticket);
+                    }
                 }
             }
 

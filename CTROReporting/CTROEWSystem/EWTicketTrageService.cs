@@ -44,6 +44,8 @@ namespace CTROEWSystem
                 ewTriageOnHoldTrials.BulkUpdate(tickets);
                 EWTriageSpam ewTriageSpam = new EWTriageSpam();
                 ewTriageSpam.BulkUpdate(tickets);
+                EWTriageAdministrative ewTriageAdministrative = new EWTriageAdministrative();
+                ewTriageAdministrative.BulkUpdate(tickets);
 
             }
             catch (Exception ex)

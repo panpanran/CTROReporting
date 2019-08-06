@@ -1,0 +1,14 @@
+NCI Trial Identifier,Lead Organization,Lead Org PO ID,Processing Priority,CTEP ID,DCP ID,Official Title,Milestone,Admin Milestone,Scientific Milestone,Processing Status,Processing Status Date,Trial Type,Trial Sub-type,Record Verification Date,Onhold Reasons,Onhold Dates,Submission Type,Submission Source,Checked Out for Admin. Use by,Checked Out for Scientific Use by
+NCI-2019-03045,Memorial Sloan Kettering Cancer Center,170680,2,,,Registry Trial of Active Surveillance for Multifocal Ground Glass Opacities (GGOs),"Initial Abstraction Verified Date
+                05/22/2019",,,Abstraction Verified No Response,05/22/2019,Non-interventional,Observational,07/24/2019,,,U,Registry,,
+NCI-2019-01495,Wake Forest University Health Sciences,149074,2,,,CONNECTing Caregivers to Supportive Services (CONNECT): A Technology-Based Intervention to Connect Cancer Caregivers with Supportive Care Resources,,,,Abstraction Verified No Response,03/23/2019,Interventional,,07/24/2019,,,U,Registry,,
+NCI-2017-01811,University of Colorado Hospital,59969,2,,,Community Activation for Prevention (CAPs): A Randomized Controlled Trial of Community Gardening,"Initial Abstraction Verified Date
+                01/05/2019",,,Abstraction Verified No Response,01/05/2019,Interventional,,07/24/2019,,,U,Registry,,
+NCI-2017-01557,Northwestern University,95754,2,,NWU2016-08-02,"A Phase I Single-arm, Multicenter Pilot Study Aimed at Validating ?-OHPdG as a Biomarker and Testing the Effects of Polyphenon E on Its Levels in Patients with Cirrhosis","Initial Abstraction Verified Date
+                01/30/2019",,,Abstraction Verified No Response,01/30/2019,Interventional,,07/24/2019,,,U,REST Service,,
+NCI-2014-02474,Rutgers University - Cancer Institute of New Jersey LAO,37887205,2,9782,,A Phase 1 Study of Talazoparib (BMN 673) in Combination with Carboplatin and Paclitaxel in Patients with Advanced Solid Tumors,"Initial Abstraction Verified Date
+                02/28/2019",,,Abstraction Verified No Response,02/28/2019,Interventional,,07/24/2019,,,U,REST Service,larcokl,
+NCI-2013-01004,Thomas Jefferson University Hospital,199906,2,,,A Phase II Study of Azacitidine and Sirolimus for the Treatment of High Risk Myelodysplastic Syndrome or Acute Myeloid Leukemia Refractory to or Not Eligible for Intensive Chemotherapy,"Trial Summary Report Date
+                06/11/2019",,,Abstraction Verified No Response,04/30/2019,Interventional,,07/24/2019,,,U,Other,,
+NCI-2013-00845,Case Comprehensive Cancer Center,9558455,2,,,Dose Escalation for Larger Brain Metastases: Phase I/II Study,"Initial Abstraction Verified Date
+                04/06/2018",,,Abstraction Verified No Response,04/06/2018,Interventional,,07/24/2019,,,U,,,

@@ -198,6 +198,9 @@ namespace CTROLibrary.EW
         {
             string description = "TriageTSRFeedback";
 
+            if (ticket.Internal_analysis.Contains("There are no track changes at this time for this TSR"))
+                description = "TriageTSRFeedbackAccurate";
+
             string url = "https://cbiitsupport.nci.nih.gov/ewws/EWUpdate?$KB=CBIIT&$table=ctro_tickets&$login=" + CTROConst.EW_ACCOUNT + "&$password=" + CTROConst.EW_PASSWORD + "&$lang=en&id=" + ticket.TicketId + "&description=" + description;
             string html = CTROFunctions.GetHTMLByUrl(url);
         }

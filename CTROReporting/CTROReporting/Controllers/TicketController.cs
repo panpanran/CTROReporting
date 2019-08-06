@@ -57,7 +57,7 @@ namespace CTROReporting.Controllers
                         Type type = Type.GetType("CTROLibrary.EW." + model.SelectedTicket + ", CTROLibrary");
                         MethodInfo methodInfo = type.GetMethod("BulkUpdate");
                         object classInstance = Activator.CreateInstance(type, null);
-                        string where = "assigned_to_=%27Ran%20Pan%27%20and category like '%2519%25' and%20modified_by%20not%20like%20%27%25panr2%25%27";
+                        string where = "assigned_to_=%27Ran%20Pan%27%20and category like '%2519%25'";
                         object[] parametersArray = new object[] { where, user };
                         model.TicketResult = (bool)methodInfo.Invoke(classInstance, parametersArray);
                         break;

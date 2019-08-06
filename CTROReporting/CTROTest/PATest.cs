@@ -144,6 +144,87 @@ namespace CTROTest
             }
         }
 
+        [Test]
+        public void CollaboratorTest()
+        {
+            ChromeOptions options = new ChromeOptions();
+            IWebDriver driver = new ChromeDriver(@"C:\Users\panr2\Downloads\CSharp\CTROReporting\", options, TimeSpan.FromSeconds(120));
+            //Notice navigation is slightly different than the Java version
+            //This is because 'get' is a keyword in C#
+            driver.Navigate().GoToUrl("https://trials.nci.nih.gov/pa/protected/studyProtocolexecute.action");
+            //Login
+            IWebElement username = driver.FindElement(By.Id("j_username"));
+            username.SendKeys("panr");
+            IWebElement password = driver.FindElement(By.Id("j_password"));
+            password.SendKeys("Prss_0345");
+            password.Submit();
+            IWebElement acceptclaim = driver.FindElement(By.Id("acceptDisclaimer"));
+            acceptclaim.Click();
+
+            DataSet trialdata = CTROFunctions.ReadExcelToDataSet(@"C:\Users\panr2\Downloads\DataWarehouse\Report Requests\Collaborator for Oncology Report 20190715.xlsx");
+            int count = 0;
+            string comment = "Per EW 95459, the Lead Organization xxxx has been added as a Collaborator";
+            string nciid = "";
+            string poid = "";
+            for (int i = 103; i < trialdata.Tables[0].Rows.Count; i++)
+            {
+                if (!trialdata.Tables[0].Rows[i].ItemArray[8].ToString().Contains(trialdata.Tables[0].Rows[i].ItemArray[4].ToString()))
+                {
+                    comment = comment.Replace("xxxx", trialdata.Tables[0].Rows[i].ItemArray[4].ToString());
+                    poid = trialdata.Tables[0].Rows[i].ItemArray[6].ToString();
+                    nciid = trialdata.Tables[0].Rows[i].ItemArray[0].ToString();
+                    //Find Trial
+                    IWebElement trialSearchMenuOption = driver.FindElement(By.Id("trialSearchMenuOption"));
+                    trialSearchMenuOption.Click();
+                    IWebElement identifier = driver.FindElement(By.Id("identifier"));
+                    identifier.SendKeys(nciid);
+                    identifier.SendKeys(Keys.Enter);
+                    IWebElement triallink = driver.FindElements(By.TagName("a")).First(element => element.Text == nciid);
+                    triallink.Click();
+                    //Checkout
+                    IWebElement checkoutspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Admin Check Out");
+                    checkoutspan.Click();
+                    //Collaborators
+                    IWebElement collaboratorsitelink = driver.FindElements(By.TagName("a")).First(element => element.Text == "Collaborators");
+                    collaboratorsitelink.Click();
+                    IWebElement addspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Add");
+                    addspan.Click();
+                    IWebElement lookupspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Look Up");
+                    lookupspan.Click();
+                    string currentwindow = driver.CurrentWindowHandle;
+                    driver.SwitchTo().Frame("popupFrame");
+                    IWebElement poidTxt = driver.FindElements(By.Id("orgPoIdSearch")).First();
+                    poidTxt.SendKeys(poid);
+                    IWebElement searchspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Search");
+                    searchspan.Click();
+                    Thread.Sleep(2000);
+                    IWebElement selectspan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Select");
+                    selectspan.Click();
+                    driver.SwitchTo().Window(currentwindow);
+                    IWebElement funcSelect = driver.FindElements(By.Id("functionalCode")).First();
+                    funcSelect.SendKeys("Funding Source");
+                    IWebElement savespan = driver.FindElements(By.TagName("span")).First(element => element.Text == "Save");
+                    savespan.Click();
+
+                    //Checkin
+                    IWebElement trialidentification = driver.FindElements(By.TagName("a")).First(element => element.Text == "Trial Identification");
+                    trialidentification.Click();
+                    IWebElement btnadmincheckin = driver.FindElements(By.TagName("span")).First(element => element.Text == "Admin Check In");
+                    btnadmincheckin.Click();
+                    if (driver.FindElements(By.TagName("button")).Where(element => element.Text == "Proceed with Check-in").Count() != 0)
+                    {
+                        IWebElement btnproceedcheckin = driver.FindElements(By.TagName("button")).First(element => element.Text == "Proceed with Check-in");
+                        btnproceedcheckin.Click();
+                    }
+                    IWebElement txtcomments = driver.FindElement(By.Id("comments"));
+                    txtcomments.SendKeys(comment);
+                    IWebElement btnOk = driver.FindElements(By.TagName("button")).First(element => element.Text == "Ok");
+                    btnOk.Click();
+                }
+            }
+
+            int x = count;
+        }
 
         [Test]
         public void AddCTEPANDDCPIDTest()

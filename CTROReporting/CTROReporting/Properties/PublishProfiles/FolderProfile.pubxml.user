@@ -67,19 +67,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/30/2018 09:09:18</publishTime>
     </File>
     <File Include="bin/CTROLibrary.dll">
-      <publishTime>06/24/2019 09:59:31</publishTime>
+      <publishTime>07/31/2019 09:52:30</publishTime>
     </File>
     <File Include="bin/CTROLibrary.dll.config">
       <publishTime>05/06/2019 11:23:24</publishTime>
     </File>
     <File Include="bin/CTROLibrary.pdb">
-      <publishTime>06/24/2019 09:59:31</publishTime>
+      <publishTime>07/31/2019 09:52:30</publishTime>
     </File>
     <File Include="bin/CTROReporting.dll">
-      <publishTime>06/24/2019 10:00:47</publishTime>
+      <publishTime>07/31/2019 09:53:14</publishTime>
     </File>
     <File Include="bin/CTROReporting.pdb">
-      <publishTime>06/24/2019 10:00:47</publishTime>
+      <publishTime>07/31/2019 09:53:14</publishTime>
     </File>
     <File Include="bin/CTRPReporting.dll">
       <publishTime>09/28/2018 13:51:47</publishTime>
